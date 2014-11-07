@@ -1,0 +1,3 @@
+[submodule "kvim"]
+	path = kvim
+	url = https://github.com/stolus/k-vim.git
