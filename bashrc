@@ -1,6 +1,5 @@
 #############################################################################
 # Eric's .bashrc
-# Should work nicely with Linux and Mac
 ##############################################################################
  
 if [[ $- != *i* ]] ; then
@@ -74,7 +73,8 @@ alias mkdir='mkdir -p -v'
 alias df='df -h'
 alias du='du -h -c'
  
-alias v='vi'
+alias vim='/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim'
+alias v='vim'
 
 alias lsd="ls -hdlf */"
 
@@ -212,3 +212,4 @@ ex () {
         echo "'$1' is not a valid file"
     fi
 }
+
