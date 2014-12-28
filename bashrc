@@ -213,3 +213,5 @@ ex () {
     fi
 }
 
+# for fig base on docker
+# $(boot2docker shellinit)
