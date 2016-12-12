@@ -1,3 +1,6 @@
 [submodule "kvim"]
-	path = backup/kvim
-	url = https://github.com/stolus/k-vim.git
+	path = vendor/kvim
+	url = git@github.com:wklken/k-vim.git
+[submodule "vim-plus"]
+    path = vendor/vim-plus
+    url = git@github.com:junegunn/vim-plug.git
