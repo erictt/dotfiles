@@ -1,0 +1,5 @@
+bundle/*
+*.pyc
+*.bak
+*.bk
+.DS_Store
