@@ -1,6 +1,6 @@
-[submodule "kvim"]
-	path = vendor/kvim
+[submodule "vendor/vim-plus"]
+	path = vendor/vim-plus
+	url = git@github.com:junegunn/vim-plug.git
+[submodule "vendor/k-vim"]
+	path = vendor/k-vim
 	url = git@github.com:wklken/k-vim.git
-[submodule "vim-plus"]
-    path = vendor/vim-plus
-    url = git@github.com:junegunn/vim-plug.git
