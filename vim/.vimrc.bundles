@@ -481,12 +481,12 @@ call plug#end()
 
 " ################### 快速选中 ###################
 
-" " expandregion {{{
-    " " map + <Plug>(expand_region_expand)
-    " " map _ <Plug>(expand_region_shrink)
-    " vmap v <Plug>(expand_region_expand)
-    " vmap V <Plug>(expand_region_shrink)
-    " " Extend the global default
+" expandregion {{{
+    " map + <Plug>(expand_region_expand)
+    " map _ <Plug>(expand_region_shrink)
+    vmap v <Plug>(expand_region_expand)
+    vmap V <Plug>(expand_region_shrink)
+    " Extend the global default
     " call expand_region#custom_text_objects({
       " \ 'a]' :1,
       " \ 'ab' :1,
@@ -494,7 +494,7 @@ call plug#end()
       " \ 'ii' :0,
       " \ 'ai' :0,
       " \ })
-" " }}}
+" }}}
 
 " multiplecursors {{{
     let g:multi_cursor_use_default_mapping=0
@@ -678,6 +678,7 @@ call plug#end()
 
 " Vim Workspace Controller
 " ctrlspace {{{
+    set hidden
     let g:airline_exclude_preview = 1
     hi CtrlSpaceSelected guifg=#586e75 guibg=#eee8d5 guisp=#839496 gui=reverse,bold ctermfg=10 ctermbg=7 cterm=reverse,bold
     hi CtrlSpaceNormal   guifg=#839496 guibg=#021B25 guisp=#839496 gui=NONE ctermfg=12 ctermbg=0 cterm=NONE
