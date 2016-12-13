@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-################### dependence #####################
-# package dependence:  ctags, ag(he_silver_searcher), cmake
-# python dependence:   pep8, pyflake
-
 BASEDIR="$(dirname "${BASH_SOURCE}")"
 cd $BASEDIR
 CURRENT_DIR=`pwd`
