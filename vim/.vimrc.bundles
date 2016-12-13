@@ -11,6 +11,9 @@
 " 非兼容vi模式。去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 set nocompatible
 filetype off " required! turn off
+" set hidden: opening a new file when the current buffer has unsaved changes causes
+" files to be hidden instead of closed
+set hidden
 
 " ################### 插件管理 ###################
 
@@ -662,6 +665,7 @@ call plug#end()
     " s/v 分屏打开文件
     let g:NERDTreeMapOpenSplit = 's'
     let g:NERDTreeMapOpenVSplit = 'v'
+    let g:NERDTreeWinSize=26
 
 
     " nerdtreetabs
@@ -678,7 +682,6 @@ call plug#end()
 
 " Vim Workspace Controller
 " ctrlspace {{{
-    set hidden
     let g:airline_exclude_preview = 1
     hi CtrlSpaceSelected guifg=#586e75 guibg=#eee8d5 guisp=#839496 gui=reverse,bold ctermfg=10 ctermbg=7 cterm=reverse,bold
     hi CtrlSpaceNormal   guifg=#839496 guibg=#021B25 guisp=#839496 gui=NONE ctermfg=12 ctermbg=0 cterm=NONE

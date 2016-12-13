@@ -24,6 +24,7 @@
 "==========================================
 
 " 修改leader键
+" default leader key is \
 let mapleader = ','
 let g:mapleader = ','
 
