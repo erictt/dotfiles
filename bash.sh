@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+################### dependence #####################
+# package dependence:  ctags, ag(he_silver_searcher), cmake
+# python dependence:   pep8, pyflake
+
 BASEDIR="$(dirname "${BASH_SOURCE}")"
 cd $BASEDIR
 CURRENT_DIR=`pwd`
@@ -10,16 +14,15 @@ function lnif() {
     fi
 }
 
+# Rsync ./links/* to ~/
 function doIt() {
-	rsync --exclude ".git/" \
-		--exclude ".DS_Store" \
+	rsync	--exclude ".DS_Store" \
 		--exclude ".osx" \
-		--exclude "bootstrap.sh" \
-		--exclude "README.md" \
-		--exclude "LICENSE-MIT.txt" \
 		-avh --no-perms ./links/ ~;
 	source ~/.bash_profile;
 }
+
+echo "Step1: Sync all dotfiles to ~/"
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt;
@@ -31,3 +34,5 @@ else
 	fi;
 fi;
 unset doIt;
+
+echo "Install Done!"
