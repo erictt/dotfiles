@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "${BASH_SOURCE}")";
+BASEDIR="$(dirname "${BASH_SOURCE}")"
+cd $BASEDIR
+CURRENT_DIR=`pwd`
+
+function lnif() {
+    if [ -e "$1" ]; then
+        ln -sf "$1" "$2"
+    fi
+}
 
 function doIt() {
 	rsync --exclude ".git/" \
@@ -9,7 +17,7 @@ function doIt() {
 		--exclude "bootstrap.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE-MIT.txt" \
-		-avh --no-perms . ~;
+		-avh --no-perms ./links/ ~;
 	source ~/.bash_profile;
 }
 
