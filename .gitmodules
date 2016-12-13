@@ -4,3 +4,9 @@
 [submodule "vendor/k-vim"]
 	path = vendor/k-vim
 	url = git@github.com:wklken/k-vim.git
+[submodule "vendor/bash-it"]
+	path = vendor/bash-it
+	url = https://github.com/Bash-it/bash-it
+[submodule "vendor/mathiasbynens-dotfiles"]
+	path = vendor/mathiasbynens-dotfiles
+	url = https://github.com/mathiasbynens/dotfiles

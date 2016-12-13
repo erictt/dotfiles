@@ -1,15 +1,12 @@
-configuration
+My Dotfile
 =============
-
-Personal configuration data
-
+Start to build my dotfile.
 
 ## Steps
 
 * [ ] vim
 * [ ] Bash
 * [ ] Mcc Configuration
-
 
 ## Thanks to
 
@@ -18,4 +15,4 @@ Personal configuration data
 [Bash-it/bash-it](https://github.com/Bash-it/bash-it)
 [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 [caskroom/homebrew-cask](https://github.com/caskroom/homebrew-cask)
-
+[skwp/dotfiles](https://github.com/skwp/dotfiles)
