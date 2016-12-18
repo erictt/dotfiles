@@ -35,7 +35,7 @@ Alternatively, to update while avoiding the confirmation prompt:
 
 * [x] bash
 * [x] vim
-* [ ] brew
+* [x] brew
 * [ ] Mac Configuration
 
 ## Thanks to
@@ -46,3 +46,5 @@ Alternatively, to update while avoiding the confirmation prompt:
 * [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 * [caskroom/homebrew-cask](https://github.com/caskroom/homebrew-cask)
 * [skwp/dotfiles](https://github.com/skwp/dotfiles)
+
+
