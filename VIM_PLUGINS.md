@@ -41,9 +41,84 @@
         
 * `<silence>`:  to make a key mapping can`t be echoed on the command line
 * `<expr>` take the argument as expression. For example: `inoremap <expr> <C-L> ListItem()`, ListItem is a function which is mapped with `Ctrl + L`.
+
 ### vim-easymotion
 
 * Github Repo: [easymotion/vim-easymotion](https://github.com/easymotion/vim-easymotion)
-* Usage: Press one key to jump directly to the target. 
+* Usage: Provides a much simpler way to use some motions in vim.
+* Keys Mapping: 
 
+        let g:EasyMotion_smartcase = 1
+        let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+        map <Leader><leader>h <Plug>(easymotion-linebackward)
+        map <Leader><Leader>j <Plug>(easymotion-j)
+        map <Leader><Leader>k <Plug>(easymotion-k)
+        map <Leader><leader>l <Plug>(easymotion-lineforward)
+        map <Leader><leader>. <Plug>(easymotion-repeat)
+
+### unblevable/quick-scope
+
+* Github Repo: [unblevable/quick-scope](https://github.com/unblevable/quick-scope)
+* Useage: highlights which characters to target for `f`, `F` and family.
+* Key Mapping: 
+
+        let g:qs_highlight_on_keys = ['f', 'F', 't', 'T'] // 
+
+### scrooloose/nerdtree & jistr/vim-nerdtree-tabs
+* Github Repo: [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree) & [jistr/vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
+* Useage: to explore filesystem and to open files and directories.
+* Key Mapping: 
+
+          " nerdtree
+          map <C-n> :NERDTreeToggle<CR>
+          let NERDTreeHighlightCursorline=1
+          let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+          "close vim if the only window left open is a NERDTree
+          autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
+          let g:NERDTreeMapOpenSplit = 's'
+          let g:NERDTreeMapOpenVSplit = 'v'
+          let g:NERDTreeWinSize=26
+    
+          " nerdtreetabs
+          map <C-n> <plug>NERDTreeTabsToggle<CR>
+          let g:nerdtree_tabs_synchronize_view=0
+          let g:nerdtree_tabs_synchronize_focus=0
+          let g:nerdtree_tabs_open_on_console_startup=0
+          let g:nerdtree_tabs_open_on_gui_startup=0
+
+### ctrlpvim/ctrlp.vim & tacahiroy/ctrlp-funky
+* Github Repo: [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
+* Useage: Full path fuzzy file, buffer, mru, tag, ... finder.
+* Key Mapping: 
+
+        let g:ctrlp_map = '<leader>p'
+        let g:ctrlp_cmd = 'CtrlP'
+        map <leader>f :CtrlPMRU<CR>
+        let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+            \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
+            \ }
+        let g:ctrlp_working_path_mode=0
+        let g:ctrlp_match_window_bottom=1
+        let g:ctrlp_max_height=15
+        let g:ctrlp_match_window_reversed=0
+        let g:ctrlp_mruf_max=500
+        let g:ctrlp_follow_symlinks=1
+
+        " ctrlpfunky
+        nnoremap <Leader>fu :CtrlPFunky<Cr>
+        " narrow the list down with a word under cursor
+        nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+        let g:ctrlp_funky_syntax_highlight = 1
+    
+        let g:ctrlp_extensions = ['funky']
+
+
+
+### a
+* Github Repo: [b](c)
+* Useage: d
+* Key Mapping: 
+
+        e
 

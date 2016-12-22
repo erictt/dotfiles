@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/eric/centos/private/lullabylife/bonfire/application/language/chinese'
-let g:netrw_dirhist_2='/Users/eric/centos/sites/mario'
-let g:netrw_dirhist_3='/Users/eric/Library/LaunchAgents'
-let g:netrw_dirhist_4='/Users/eric/nytcn/project/sprint'

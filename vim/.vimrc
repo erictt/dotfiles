@@ -612,34 +612,6 @@ if has("autocmd")
 endif
 
 "==========================================
-" TEMP 设置, 尚未确定要不要
-"==========================================
-
-" tmux
-" function! WrapForTmux(s)
-"   if !exists('$TMUX')
-"     return a:s
-"   endif
-"
-"   let tmux_start = "\<Esc>Ptmux;"
-"   let tmux_end = "\<Esc>\\"
-"
-"   return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
-" endfunction
-"
-" let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-" let &t_EI .= WrapForTmux("\<Esc>[?2004l")
-
-" allows cursor change in tmux mode
-" let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-" let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-" if exists('$TMUX')
-    " let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    " let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-" endif
-
-
-"==========================================
 " Theme Settings  主题设置
 "==========================================
 
@@ -659,8 +631,6 @@ if has("gui_running")
     set noimd
     set t_Co=256
 endif
-
-
 
 " theme主题
 set background=dark
