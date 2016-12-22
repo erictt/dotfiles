@@ -88,10 +88,15 @@
 
 ### ctrlpvim/ctrlp.vim & tacahiroy/ctrlp-funky
 * Github Repo: [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
-* Useage: Full path fuzzy file, buffer, mru, tag, ... finder.
+* Useage: 
+    * Full support for Vim's regexp as search patterns.
+    * Built-in Most Recently Used (MRU) files monitoring.
+    * Built-in project's root finder.
+    * Open multiple files at once.
+    * Create new files and directories. 
 * Key Mapping: 
 
-        let g:ctrlp_map = '<leader>p'
+        let g:ctrlp_map = '<leader>p' 
         let g:ctrlp_cmd = 'CtrlP'
         map <leader>f :CtrlPMRU<CR>
         let g:ctrlp_custom_ignore = {
