@@ -117,13 +117,30 @@
         let g:ctrlp_funky_syntax_highlight = 1
     
         let g:ctrlp_extensions = ['funky']
-
-
-
-### a
-* Github Repo: [b](c)
-* Useage: d
+### syntastic
+* Github Repo: [vim-syntastic/syntastic](https://github.com/vim-syntastic/syntastic#introduction)
+* Useage: a syntax checking plugin
 * Key Mapping: 
+       
+        " dependencies
+        execute pathogen#infect()
+            
+        let g:syntastic_error_symbol='>>'
+        let g:syntastic_warning_symbol='>'
+        let g:syntastic_check_on_open=1
+        let g:syntastic_check_on_wq=0
+        let g:syntastic_enable_highlighting=1 
+           
+        let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+        let g:syntastic_python_checkers=['pyflakes', 'pep8']
+        let g:syntastic_python_pep8_args='--ignore=E501,E225,E124,E712'
+        
+        let g:syntastic_always_populate_loc_list = 1
+        let g:syntastic_enable_signs = 1
+        let g:syntastic_auto_loc_list = 0
+        let g:syntastic_auto_jump = 0
+        " let g:syntastic_loc_list_height = 5
+        highlight SyntasticErrorSign guifg=white guibg=black
 
-        e
+
 

@@ -33,7 +33,7 @@ call plug#begin('~/.vim/bundle')
 " 移动光标到插件名上, 使用'#'快速跳转到每个插件的配置处
 
 " syntastic
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 
 " Group dependencies, vim-snippets depends on ultisnips
 " 代码片段快速插入 (snippets中,是代码片段资源,需要学习)
@@ -279,6 +279,9 @@ call plug#end()
     " dependence
     " 1. shellcheck `brew install shellcheck` https://github.com/koalaman/shellcheck
 
+    " dependencies
+    execute pathogen#infect()
+
     let g:syntastic_error_symbol='>>'
     let g:syntastic_warning_symbol='>'
     let g:syntastic_check_on_open=1
@@ -308,7 +311,7 @@ call plug#end()
     let g:syntastic_enable_signs = 1
     let g:syntastic_auto_loc_list = 0
     let g:syntastic_auto_jump = 0
-    let g:syntastic_loc_list_height = 5
+    "let g:syntastic_loc_list_height = 5
 
     " ,en ,ep to jump between errors
     function! <SID>LocationPrevious()
