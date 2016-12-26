@@ -142,5 +142,44 @@
         " let g:syntastic_loc_list_height = 5
         highlight SyntasticErrorSign guifg=white guibg=black
 
+### YouCompleteMe
+* Github Repo: [Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
+* Useage: code completion engine
+* Key Mapping: 
+
+        let g:ycm_key_list_select_completion = ['<Down>']
+        let g:ycm_key_list_previous_completion = ['<Up>']
+        let g:ycm_complete_in_comments = 1
+        let g:ycm_complete_in_strings = 1
+        let g:ycm_use_ultisnips_completer = 1
+        let g:ycm_collect_identifiers_from_comments_and_strings = 1
+        let g:ycm_collect_identifiers_from_tags_files = 1
+        let g:ycm_seed_identifiers_with_syntax=1
+        let g:ycm_goto_buffer_command = 'horizontal-split'
+
+        nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+        nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+    
+        if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
+            let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+        endif
+
+### Vim-CtrlSpace
+* Github Repo: [vim-ctrlspace/vim-ctrlspace](https://github.com/vim-ctrlspace/vim-ctrlspace)
+* Useage: 
+    * tabs / buffers / files management
+    * fast fuzzy searching powered by Go
+    * workspaces (sessions)
+    * bookmarks for your favorite projects
+* Key Mapping: 
+
+        e
+
+### a
+* Github Repo: [b](c)
+* Useage: d
+* Key Mapping: 
+
+        e
 
 

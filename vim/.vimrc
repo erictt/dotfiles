@@ -68,6 +68,8 @@ set nobackup
 " 关闭交换文件
 set noswapfile
 
+"set showtabline=0
+
 
 " TODO: remove this, use gundo
 " create undo file
@@ -212,8 +214,6 @@ set expandtab
 " 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
 set shiftround
 
-" A buffer becomes hidden when it is abandoned
-set hidden
 set wildmode=list:longest
 set ttyfast
 
@@ -557,6 +557,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " 具体编辑文件类型的一般设置，比如不要 tab 等
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
+autocmd FileType php set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType ruby,javascript,html,css,xml set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown set filetype=markdown.mkd
 autocmd BufRead,BufNewFile *.part set filetype=html
