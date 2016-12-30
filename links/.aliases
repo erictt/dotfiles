@@ -17,6 +17,10 @@ alias g="git"
 alias h="history"
 alias j="jobs"
 
+alias v="mvim -v"
+alias vi="mvim -v"
+alias vim="mvim -v"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"

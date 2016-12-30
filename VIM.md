@@ -1,4 +1,36 @@
-## Explain All The Plugins I Used
+# VIM
+## Basic Usage
+### Normal Mode: 
+* First Open file with VIM command, with get into Normal Mode
+* `h``j``k``l` : `←``↓``↑``→`
+* `dd` : delete current line
+* `x` : delete current character
+* `yy` : copy current line
+* `p` : paste. It will paste last copied, cut or deleted texts.
+* `^` : go to first non-blank character in current line, `$` to the end
+* `u` : undo, `<C-r>` : redo
+* `.` : repeat last action
+* `N<command>` : repeat `Command` `N` times. For example, `2dd` : delete two line
+* `gg`: go to first line, `G` : Go to last line, `NG` : Go to line `N` (`N` stands for a number, for example, `10G`)
+* `w` : move cursor to the beginning of next word, `e` : move cursor to the end of next word
+* `%` : match the closest `{`, `[`, `(`
+* `*` : search forward for the occurrence of the word nearest to the cursor., `#` : search backward.
+
+### Insert Mode:
+* `i` : Get into Insert Mode, `Esc` back to Normal Mode
+* `o` : Begin a new line below the cursor and insert text
+* `O` : Begin a new line above the cursor and insert text
+
+### Command Mode:
+* Execute command (`:`), search patterns
+(`/` and `?`), and filter commands (`!`)
+* `:wq` : Save then quit, `:q`: Quit, `:w`: Save, `:q!`: Quit current file without saving, `:qa!` Quit all files without saving
+* `:e <path/to/file>` : Open another file
+* `:saveas <path/to/file>` : Save as another file
+
+## Advance Usage
+
+## Plugins
 
 ### Explanations of Important Keywords
 * `<Leader>`: default is `\`, you can change it by using `let mapleader = ','` in `.vimrc` file. 
@@ -173,13 +205,15 @@
     * bookmarks for your favorite projects
 * Key Mapping: 
 
-        e
 
+[//]: # (hidden text)
+
+<!---
 ### a
 * Github Repo: [b](c)
 * Useage: d
 * Key Mapping: 
 
         e
-
+-->
 

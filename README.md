@@ -30,6 +30,9 @@ Alternatively, to update while avoiding the confirmation prompt:
   ```bash
   set -- -f; source vim.sh
   ```
+    
+## VIM Keys
+
 
 ## Steps
 
