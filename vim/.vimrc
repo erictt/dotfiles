@@ -71,19 +71,6 @@ set noswapfile
 "set showtabline=0
 
 
-" TODO: remove this, use gundo
-" create undo file
-" if has('persistent_undo')
-  " " How many undos
-  " set undolevels=1000
-  " " number of lines to save for undo
-  " set undoreload=10000
-  " " So is persistent undo ...
-  " "set undofile
-  " set noundofile
-  " " set undodir=/tmp/vimundo/
-" endif
-
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 
 " 突出显示当前列
@@ -91,9 +78,8 @@ set cursorcolumn
 " 突出显示当前行
 set cursorline
 
-
-" 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制, 不需要可以去掉
-" 好处：误删什么的，如果以前屏幕打开，可以找回
+"退出vim后，内容显示在终端屏幕 设置 退出vim后，内容显示在终端屏幕, 可以用于查
+"看和复制好处：误删什么的，如果以前屏幕
 set t_ti= t_te=
 
 
@@ -104,14 +90,11 @@ set mouse-=a
 " Hide the mouse cursor while typing
 " set mousehide
 
-
-" 修复ctrl+m 多光标操作选择的bug，但是改变了ctrl+v进行字符选中时将包含光标下的字符
 set selection=inclusive
 set selectmode=mouse,key
 
 " change the terminal's title
 set title
-" 去掉输入错误的提示声音
 set novisualbell
 set noerrorbells
 set t_vb=
@@ -125,7 +108,7 @@ set magic
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+"set whichwrap+=<,>,h,l
 
 "==========================================
 " Display Settings 展示/排版等界面格式设置
@@ -144,7 +127,9 @@ set scrolloff=7
 " set winwidth=79
 
 " 命令行（在状态行下）的高度，默认为1，这里是2
+" CHECK
 set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
+"set statusline+=%f 
 " Always show the status line - use 2 lines for the status bar
 set laststatus=2
 
@@ -287,9 +272,6 @@ set wildignore=*.o,*~,*.pyc,*.class
 " 离开插入模式后自动关闭预览窗口
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" 回车即选中当前项
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-
 " In the quickfix window, <CR> is used to jump to the error under the
 " cursor, so undefine the mapping there.
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
@@ -318,14 +300,8 @@ endif
 
 " 主要按键重定义
 
-" 关闭方向键, 强迫自己用 hjkl
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
-
 "Treat long lines as break lines (useful when moving around in them)
-"se swap之后，同物理行上线直接跳
+"se swap之后，在长文本wrap换行的时候, 同物理行上线直接跳
 nnoremap k gk
 nnoremap gk k
 nnoremap j gj
@@ -350,34 +326,27 @@ function! HideNumber()
   set number?
 endfunc
 nnoremap <F2> :call HideNumber()<CR>
-" F3 显示可打印字符开关
-nnoremap <F3> :set list! list?<CR>
+
 " F4 换行开关
 nnoremap <F4> :set wrap! wrap?<CR>
 
 " F6 语法开关，关闭语法可以加快大文件的展示
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
-set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
-                                "    paste mode, where you can paste mass data
-                                "    that won't be autoindented
-
-" disbale paste mode when leaving insert mode
-au InsertLeave * set nopaste
-
-" F5 set paste问题已解决, 粘贴代码前不需要按F5了
-" F5 粘贴模式paste_mode开关,用于有格式的代码粘贴
 " Automatically set paste mode in Vim when pasting in insert mode
-function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
-endfunction
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
+function! XTermPasteBegin()
+    set pastetoggle=<Esc>[201~
+    set paste
+    return "
+endfunction"]]]]"
 
 
-" 分屏窗口移动, Smart way to move between windows
+" Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -401,15 +370,17 @@ command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <Leader>z :ZoomToggle<CR>
 
 
+" NOTE
 " Go to home and end using capitalized directions
 noremap H ^
 noremap L $
 
 
+" NOTE
 " Map ; to : and save a million keystrokes 用于快速进入命令行
 nnoremap ; :
 
-
+" NOTE
 " 命令行模式增强，ctrl - a到行首， -e 到行尾
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
@@ -431,12 +402,9 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
+" NOTE
 " 去掉搜索高亮
 noremap <silent><leader>/ :nohls<CR>
-
-" switch # *
-nnoremap # *
-nnoremap * #
 
 " for # indent, python文件中输入新行时#号注释不切回行首
 autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#
@@ -444,6 +412,7 @@ autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#
 
 " tab/buffer相关
 
+" NOTE
 " 切换前后buffer
 nnoremap [b :bprevious<cr>
 nnoremap ]b :bnext<cr>
@@ -456,6 +425,7 @@ noremap <right> :bn<CR>
 " http://vim.wikia.com/wiki/Alternative_tab_navigation
 " http://stackoverflow.com/questions/2005214/switching-to-a-particular-tab-in-vim
 
+" NOTE
 " tab切换
 map <leader>th :tabfirst<cr>
 map <leader>tl :tablast<cr>
@@ -490,37 +460,25 @@ let g:last_active_tab = 1
 nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
 autocmd TabLeave * let g:last_active_tab = tabpagenr()
 
-" 新建tab  Ctrl+t
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-t>     <Esc>:tabnew<CR>
-
 
 " => 选中及操作改键
-
-" 调整缩进后自动选中，方便再次操作
-vnoremap < <gv
-vnoremap > >gv
 
 " y$ -> Y Make Y behave like other capitals
 map Y y$
 
+" NOTE
 " 复制选中区到系统剪切板中
 vnoremap <leader>y "+y
 
-" auto jump to end of select
-" vnoremap <silent> y y`]
-" vnoremap <silent> p p`]
-" nnoremap <silent> p p`]
-
-" select all
-map <Leader>sa ggVG
-
+" NOTE
 " select block
 nnoremap <leader>v V`}
 
+" NOTE
 " w!! to sudo & write a file
 cmap w!! w !sudo tee >/dev/null %
 
+" NOTE
 " kj 替换 Esc
 inoremap kj <Esc>
 
@@ -528,22 +486,11 @@ inoremap kj <Esc>
 nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
 
-
-" Jump to start and end of line using the home row keys
-" 增强tab操作, 导致这个会有问题, 考虑换键
-"nmap t o<ESC>k
-"nmap T O<ESC>j
-
-" Quickly close the current window
-nnoremap <leader>q :q<CR>
-
-" Quickly save the current file
-nnoremap <leader>w :w<CR>
-
 " 交换 ' `, 使得可以快速使用'跳到marked位置
 nnoremap ' `
 nnoremap ` '
 
+" NOTE
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
 
@@ -564,27 +511,16 @@ autocmd BufRead,BufNewFile *.part set filetype=html
 " disable showmatch when use > in php
 au BufWinEnter *.php set mps-=<:>
 
-
-
-" 保存python文件时删除多余空格
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-
-
 " 定义函数AutoSetFileHead，自动插入文件头
 autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
 function! AutoSetFileHead()
-    "如果文件类型为.sh文件
     if &filetype == 'sh'
         call setline(1, "\#!/bin/bash")
     endif
 
-    "如果文件类型为python
+    if &filetype == 'php'
+        call setline(1, "<?php")
+    endif
     if &filetype == 'python'
         call setline(1, "\#!/usr/bin/env python")
         call append(1, "\# encoding: utf-8")
@@ -600,7 +536,7 @@ endfunc
 if has("autocmd")
   " Highlight TODO, FIXME, NOTE, etc.
   if v:version > 701
-    autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
+    autocmd Syntax * call matchadd('Todo', '\W\zs\(TODO\|FIXME\|CHECK\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
     autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
   endif
 endif
