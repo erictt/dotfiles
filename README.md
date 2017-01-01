@@ -31,7 +31,7 @@ Alternatively, to update while avoiding the confirmation prompt:
   set -- -f; source vim.sh
   ```
     
-## VIM Instuctions
+## VIM Instructions
 [VIM.md](VIM.md)
 
 ## Steps
