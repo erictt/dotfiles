@@ -31,8 +31,8 @@ Alternatively, to update while avoiding the confirmation prompt:
   set -- -f; source vim.sh
   ```
     
-## VIM Keys
-
+## VIM Instuctions
+[VIM.md](VIM.md)
 
 ## Steps
 
@@ -41,7 +41,7 @@ Alternatively, to update while avoiding the confirmation prompt:
 * [x] brew
 * [ ] Mac Configuration
 
-## Thanks to
+## References && Thanks to
 
 * [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
 * [wklken/k-vim](https://github.com/wklken/k-vim)
@@ -49,5 +49,5 @@ Alternatively, to update while avoiding the confirmation prompt:
 * [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 * [caskroom/homebrew-cask](https://github.com/caskroom/homebrew-cask)
 * [skwp/dotfiles](https://github.com/skwp/dotfiles)
-
+* [http://coolshell.cn/articles/5426.html](http://coolshell.cn/articles/5426.html)
 

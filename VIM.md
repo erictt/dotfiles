@@ -51,7 +51,7 @@
     * add prefixes to multi lines
         
         ![rectangular-blocks](media/rectangular-blocks.gif)
-
+`
         * `^` → to the head of the line
         * `<C-v>` → Start to select a block of text
         * `<C-d>` → to move downward, you also can use `h``j``k``l` or `%` instead
@@ -267,10 +267,5 @@
 -->
 
 [//]: # (hidden text)
-
-#### References:
-
-[http://coolshell.cn/articles/5426.html](http://coolshell.cn/articles/5426.html)
-
 
 
