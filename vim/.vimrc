@@ -127,7 +127,6 @@ set scrolloff=7
 " set winwidth=79
 
 " 命令行（在状态行下）的高度，默认为1，这里是2
-" CHECK
 set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
 "set statusline+=%f 
 " Always show the status line - use 2 lines for the status bar
@@ -369,19 +368,15 @@ endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <Leader>z :ZoomToggle<CR>
 
-
-" NOTE
 " Go to home and end using capitalized directions
 noremap H ^
 noremap L $
 
-
-" NOTE
 " Map ; to : and save a million keystrokes 用于快速进入命令行
 nnoremap ; :
 
-" NOTE
 " 命令行模式增强，ctrl - a到行首， -e 到行尾
+" C-k C-j to switch previous and next command
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
 cnoremap <C-a> <Home>
@@ -402,30 +397,16 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
-" NOTE
 " 去掉搜索高亮
 noremap <silent><leader>/ :nohls<CR>
 
 " for # indent, python文件中输入新行时#号注释不切回行首
 autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#
 
-
-" tab/buffer相关
-
-" NOTE
-" 切换前后buffer
-nnoremap [b :bprevious<cr>
-nnoremap ]b :bnext<cr>
-" 使用方向键切换buffer
-noremap <left> :bp<CR>
-noremap <right> :bn<CR>
-
-
 " tab 操作
 " http://vim.wikia.com/wiki/Alternative_tab_navigation
 " http://stackoverflow.com/questions/2005214/switching-to-a-particular-tab-in-vim
 
-" NOTE
 " tab切换
 map <leader>th :tabfirst<cr>
 map <leader>tl :tablast<cr>
@@ -466,19 +447,15 @@ autocmd TabLeave * let g:last_active_tab = tabpagenr()
 " y$ -> Y Make Y behave like other capitals
 map Y y$
 
-" NOTE
 " 复制选中区到系统剪切板中
 vnoremap <leader>y "+y
 
-" NOTE
 " select block
 nnoremap <leader>v V`}
 
-" NOTE
 " w!! to sudo & write a file
 cmap w!! w !sudo tee >/dev/null %
 
-" NOTE
 " kj 替换 Esc
 inoremap kj <Esc>
 
@@ -490,7 +467,6 @@ nnoremap <C-y> 2<C-y>
 nnoremap ' `
 nnoremap ` '
 
-" NOTE
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
 

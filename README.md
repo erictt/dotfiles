@@ -34,6 +34,37 @@ Alternatively, to update while avoiding the confirmation prompt:
 ## VIM Instructions
 [VIM.md](VIM.md)
 
+### Command i should remember:
+
+* `<leader>zz` : toggle fold
+* `<C-n>` : toggle number show up or not
+* `s/v` :  to open in split window
+* `F2` :  turn on/off line number
+
+* `F4` :  wrap on/off
+* `F6` :  syntax check on/off
+
+* `H` : `^`
+* `L` : `$`
+* `;` : `:`
+
+* `Command line
+* `<C-j>`, `<C-k>` :  to switch previous or next command
+* `<C-a>` :  move cursor to the head
+* `<C-e>` :  move cursor to the end
+
+* `<leader>/` : cancel highlight
+* `<leader>y` : Copy text to system’s clipboard
+* `<leader>v` :  select block
+* `w!!` : to sudo & write a file
+
+* `kj` : act like Esc when inserting text
+* `U` : redo
+
+### Check later
+
+* Statusline
+
 ## Steps
 
 * [x] bash
