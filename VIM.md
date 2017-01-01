@@ -51,6 +51,7 @@
     * add prefixes to multi lines
         
         ![rectangular-blocks](media/rectangular-blocks.gif)
+
         * `^` → to the head of the line
         * `<C-v>` → Start to select a block of text
         * `<C-d>` → to move downward, you also can use `h``j``k``l` or `%` instead
@@ -58,13 +59,17 @@
         * `[ESC]` → to make effects to every line
 
     * append text to multi lines
-         ![append-to-many-lines](media/append-to-many-lines.gif)
+
+        ![append-to-many-lines](media/append-to-many-lines.gif)
+         
         * `<C-v>` → Choose lines (You can also use `j`, `<C-d>`, `/pattern`, `%`, etc.
         * `$` → move cursor to the end
         * `A` → start to input text, type press `ESC`
 
     * indentation
+
         ![autoindent](media/autoindent.gif)
+        
         * `J` → convert multi lines to single line
         * `<` `>` → indent to left or right
         * `=` → auto indent
@@ -76,6 +81,7 @@
     * For example:
     
        ![textobjects](media/textobjects.png)
+       
         * `vi"` → foo
         * `va"` → "foo"
         * `vi)` → "foo"
@@ -90,7 +96,9 @@
     * `@a` : replay it
     * `@@` : to replay the latest register
     * For example: 
+
         ![macros](media/macros.gif)
+
         * In this text file, only have "1" in it, start to input: `qaYp<C-a>q`
 
             * `qa` → start to record
