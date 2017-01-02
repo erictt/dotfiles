@@ -8,7 +8,7 @@
 * `yy` : copy current line
 * `p` : paste. It will paste last copied, cut or deleted texts.
 * `^` : go to first non-blank character in current line, `$` to the end
-* `u` : undo, `<C-r>` : redo
+* `u` : undo, `<C-r>` : redo. `g-`/`g+` : go to older/newer text state
 * `.` : repeat last action
 * `N<command>` : repeat `Command` `N` times. For example, `2dd` : delete two line
 * `gg`: go to first line, `G` : Go to last line, `NG` : Go to line `N` (`N` stands for a number, for example, `10G`)
@@ -31,7 +31,11 @@
 
 ## Advance Usage
 
+### Insert Mode:
+* `gi` : goto Insert mode where you left it last time
+
 ### Normal Mode:
+* `<C-y>`, `<C-e>` : check the text above or below the cursor
 * `<C-w>w` : Switch windows between last one and current one
 * `<C-w><dir>` : `<dir>` can be `h``j``k``l`, switch windows to left, down, up or right.
 * to move at current line
@@ -108,6 +112,9 @@
             * `@a` → write down 2 under 1
             * `@@` → write down 3 under 2
             * `100@@` → repeat it 100 times.
+* `:[range]s/<pattern>/<replace>/{flags}` : replace text
+    * TODO
+    * `[range]`
 
 ## Plugins
 
@@ -182,9 +189,11 @@
     * bookmarks for your favorite projects
 * Key Mapping:
 
-// TODO
+    // TODO
 
 ### scrooloose/nerdtree & jistr/vim-nerdtree-tabs
+* TODO
+
 * Github Repo: [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree) & [jistr/vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
 * Useage: to explore filesystem and to open files and directories.
 * Key Mapping:
@@ -207,6 +216,8 @@
           let g:nerdtree_tabs_open_on_gui_startup=0
 
 ### syntastic
+* TODO
+
 * Github Repo: [vim-syntastic/syntastic](https://github.com/vim-syntastic/syntastic#introduction)
 * Useage: a syntax checking plugin
 * Key Mapping:
@@ -232,6 +243,8 @@
         highlight SyntasticErrorSign guifg=white guibg=black
 
 ### YouCompleteMe
+* TODO
+
 * Github Repo: [Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 * Useage: code completion engine
 * Key Mapping:
@@ -254,6 +267,7 @@
         endif
 
 ### vim-easymotion
+* TODO
 
 * Github Repo: [easymotion/vim-easymotion](https://github.com/easymotion/vim-easymotion)
 * Usage: Provides a much simpler way to use some motions in vim.
@@ -266,6 +280,33 @@
         map <Leader><Leader>k <Plug>(easymotion-k)
         map <Leader><leader>l <Plug>(easymotion-lineforward)
         map <Leader><leader>. <Plug>(easymotion-repeat)
+
+### easyalign
+* TODO
+
+* Github Repo: [junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align)
+* Usage: alignment
+* Keys Mapping:
+
+    vmap <Leader>a <Plug>(EasyAlign)
+    nmap <Leader>a <Plug>(EasyAlign)
+    if !exists('g:easy_align_delimiters')
+    let g:easy_align_delimiters = {}
+    endif
+    let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
+
+### multiplecursors
+* TODO
+
+* Github Repo: [terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
+* Usage:
+* Keys Mapping:
+    let g:multi_cursor_use_default_mapping=0
+    " Default mapping
+    let g:multi_cursor_next_key='<C-m>'
+    let g:multi_cursor_prev_key='<C-p>'
+    let g:multi_cursor_skip_key='<C-x>'
+    let g:multi_cursor_quit_key='<Esc>'
 
 <!---
 ### a
