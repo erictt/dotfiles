@@ -110,7 +110,7 @@ if count(g:bundle_groups, 'python')
 endif
 
 if count(g:bundle_groups, 'php')
-    " Plug 'spf13/PIV'
+    Plug 'spf13/PIV'
     let g:DisableAutoPHPFolding = 1
 endif
 
@@ -156,8 +156,6 @@ call plug#end()
 " ################### 基础 ######################
 
 " syntastic {{{
-    " dependence
-    " 1. shellcheck `brew install shellcheck` https://github.com/koalaman/shellcheck
 
     " dependencies
     execute pathogen#infect()
@@ -173,7 +171,7 @@ call plug#end()
     " let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes
     " 中等
     " error code: http://pep8.readthedocs.org/en/latest/intro.html#error-codes
-    let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+    " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
     let g:syntastic_python_checkers=['pyflakes', 'pep8'] " 使用pyflakes,速度比pylint快
     let g:syntastic_python_pep8_args='--ignore=E501,E225,E124,E712'
     " 重量级, 但是足够强大, 定制完成后相当个性化

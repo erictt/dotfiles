@@ -154,7 +154,7 @@ set ignorecase
 set smartcase
 
 " 代码折叠
-set foldenable
+set nofoldenable
 " set nofoldenable
 " 折叠方法
 " manual    手工折叠
@@ -164,20 +164,20 @@ set foldenable
 " diff      对没有更改的文本进行折叠
 " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
 " set foldmethod=indent
-set foldmethod=manual
-set foldlevel=99
+" set foldmethod=manual
+" set foldlevel=99
 " 代码折叠自定义快捷键 <leader>zz
-let g:FoldMethod = 0
-map <leader>zz :call ToggleFold()<cr>
-fun! ToggleFold()
-    if g:FoldMethod == 0
-        exe "normal! zM"
-        let g:FoldMethod = 1
-    else
-        exe "normal! zR"
-        let g:FoldMethod = 0
-    endif
-endfun
+" let g:FoldMethod = 0
+" map <leader>zz :call ToggleFold()<cr>
+" fun! ToggleFold()
+"     if g:FoldMethod == 0
+"         exe "normal! zM"
+"         let g:FoldMethod = 1
+"     else
+"         exe "normal! zR"
+"         let g:FoldMethod = 0
+"     endif
+" endfun
 
 " 缩进配置
 " Smart indent
