@@ -110,7 +110,7 @@ if count(g:bundle_groups, 'python')
 endif
 
 if count(g:bundle_groups, 'php')
-    Plug 'spf13/PIV'
+    " Plug 'spf13/PIV'
     let g:DisableAutoPHPFolding = 1
 endif
 
