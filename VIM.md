@@ -1,6 +1,6 @@
 # VIM
 ## Basic Usage
-### Normal Mode: 
+### Normal Mode:
 * First Open file with VIM command, with get into Normal Mode
 * `h``j``k``l` : `←``↓``↑``→`
 * `dd` : delete current line
@@ -31,7 +31,7 @@
 
 ## Advance Usage
 
-### Normal Mode: 
+### Normal Mode:
 * `<C-w>w` : Switch windows between last one and current one
 * `<C-w><dir>` : `<dir>` can be `h``j``k``l`, switch windows to left, down, up or right.
 * to move at current line
@@ -45,11 +45,11 @@
     * `F`, `T` → same as `f`, `t` with reverse direction
 
         ![line_moves](media/line_moves-1.jpg)
-        
+
 * manipulate a text block `<C-v>`, for example:
 
     * add prefixes to multi lines
-        
+
         ![rectangular-blocks](media/rectangular-blocks.gif)
 `
         * `^` → to the head of the line
@@ -61,7 +61,7 @@
     * append text to multi lines
 
         ![append-to-many-lines](media/append-to-many-lines.gif)
-         
+
         * `<C-v>` → Choose lines (You can also use `j`, `<C-d>`, `/pattern`, `%`, etc.
         * `$` → move cursor to the end
         * `A` → start to input text, type press `ESC`
@@ -69,33 +69,33 @@
     * indentation
 
         ![autoindent](media/autoindent.gif)
-        
+
         * `J` → convert multi lines to single line
         * `<` `>` → indent to left or right
         * `=` → auto indent
-        
+
 ### Visual Mode:
 * Block Choosing `<action>a<object>` or `<action>i<object>`
     * `<action>` can be any actions, like `d`(delete), `y`(copy), `v`(text selecting).
     * `<object>` can be `w`(a word), `W`(a phrase), `s`(a sentance), `p`(a paragraph), or a special symbol like `"`, `'`, `)`, `}`, `]`.
     * For example:
-    
+
        ![textobjects](media/textobjects.png)
-       
+
         * `vi"` → foo
         * `va"` → "foo"
         * `vi)` → "foo"
         * `va)` → ("foo")
         * `v2i)` → map (+) ("foo")
-        * `v2a)` → (map (+) ("foo")) 
+        * `v2a)` → (map (+) ("foo"))
 
 ### Command Mode:
 * `:split` : split window horizontally, `:vsplit` : split window vertically.
-* `q` : Record typed characters into register, then repeat them. 
+* `q` : Record typed characters into register, then repeat them.
     * `qa` : record every action into register `a`
     * `@a` : replay it
     * `@@` : to replay the latest register
-    * For example: 
+    * For example:
 
         ![macros](media/macros.gif)
 
@@ -112,21 +112,21 @@
 ## Plugins
 
 ### Explanations of Important Keywords
-* `<Leader>`: default is `\`, you can change it by using `let mapleader = ','` in `.vimrc` file. 
+* `<Leader>`: default is `\`, you can change it by using `let mapleader = ','` in `.vimrc` file.
 * `<CR>`: equals `<Return>`	\& `<Enter>`
 * `<S-...>`	: shift-key
-* `<C-...>`: control-key		
-* `<M-...>` & `<A-...>`: alt-key 
+* `<C-...>`: control-key
+* `<M-...>` & `<A-...>`: alt-key
 * `<D-...>`: command-key (Mac only)
-* `g:`: means globally. Example: 
+* `g:`: means globally. Example:
     * `let g:last_active_tab = 1` toggle switch between current tab and the last one globally.
 * `remap`: Allows for mappings to work recursively.
 * `noremap`: Only a single entry. Can NOT be remapped.
-* `n` & `v` & `s` & `i`: prefixes, `n` stands for Normal mode, `v` stands for Visual mode, `s` stands for Select Mode, `i` stands for Insert Mode. Example: 
+* `n` & `v` & `s` & `i`: prefixes, `n` stands for Normal mode, `v` stands for Visual mode, `s` stands for Select Mode, `i` stands for Insert Mode. Example:
     * `nnoremap <C-t> :tabnew<CR>`: remap `Ctrl + t` to create a new tab
     * `inoremap <C-t> <Esc>:tabnew<CR>`: same as last one, with an escape action additionally.
 * `<Plug>`: in `.vimrc` file, it has two meanings. First, it's visible out of the plugin scripts. And the second, use structure `<Plug> scriptname mapname` to avoid confliction with other plugins. For example: `<Plug>TypecorrAdd`, `Typecorr` is the script name, and `Add` is the function name.
-* `<SID>`: is the script ID and not visible outside. Compare with `<Plug>`, it's more like `private` function to other scrips. So can't use it out of the script. Example: 
+* `<SID>`: is the script ID and not visible outside. Compare with `<Plug>`, it's more like `private` function to other scrips. So can't use it out of the script. Example:
 
         ```vim
         " ,en ,ep to jump between errors
@@ -137,7 +137,7 @@
               llast
           endtry
         endfunction
-    
+
         function! <SID>LocationNext()
           try
               lnext
@@ -145,13 +145,13 @@
               lfirst
           endtry
         endfunction
-    
+
         nnoremap <silent> <Plug>LocationPrevious :<C-u>exe 'call <SID>LocationPrevious()'<CR>
         nnoremap <silent> <Plug>LocationNext :<C-u>exe 'call <SID>LocationNext()'<CR>
         nmap <silent> <Leader>ep <Plug>LocationPrevious
         nmap <silent> <Leader>en <Plug>LocationNext
         ```
-        
+
 * `<silence>`:  to make a key mapping can`t be echoed on the command line
 * `<expr>` take the argument as expression. For example: `inoremap <expr> <C-L> ListItem()`, ListItem is a function which is mapped with `Ctrl + L`.
 
@@ -159,25 +159,35 @@
 
 * Github Repo: [unblevable/quick-scope](https://github.com/unblevable/quick-scope)
 * Useage: highlights which characters to target for `f`, `F` and family.
-* Key Mapping: 
+* Key Mapping:
 
-        let g:qs_highlight_on_keys = ['f', 'F', 't', 'T'] // 
-        
+        let g:qs_highlight_on_keys = ['f', 'F', 't', 'T'] //
+
+### ntpeters/vim-better-whitespace
+
+* Github Repo: [ntpeters/vim-better-whitespace](ntpeters/vim-better-whitespace)
+* Useage: clean extra whitespace.
+* Key Mapping:
+
+        nnoremap <silent> <Leader><Space> :StripWhitespace<CR>
+        autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> StripWhitespace
+        let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
+
 ### Vim-CtrlSpace
 * Github Repo: [vim-ctrlspace/vim-ctrlspace](https://github.com/vim-ctrlspace/vim-ctrlspace)
-* Useage: 
+* Useage:
     * tabs / buffers / files management
     * fast fuzzy searching powered by Go
     * workspaces (sessions)
     * bookmarks for your favorite projects
-* Key Mapping: 
+* Key Mapping:
 
 // TODO
 
 ### scrooloose/nerdtree & jistr/vim-nerdtree-tabs
 * Github Repo: [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree) & [jistr/vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
 * Useage: to explore filesystem and to open files and directories.
-* Key Mapping: 
+* Key Mapping:
 
           " nerdtree
           map <C-n> :NERDTreeToggle<CR>
@@ -188,7 +198,7 @@
           let g:NERDTreeMapOpenSplit = 's'
           let g:NERDTreeMapOpenVSplit = 'v'
           let g:NERDTreeWinSize=26
-    
+
           " nerdtreetabs
           map <C-n> <plug>NERDTreeTabsToggle<CR>
           let g:nerdtree_tabs_synchronize_view=0
@@ -199,21 +209,21 @@
 ### syntastic
 * Github Repo: [vim-syntastic/syntastic](https://github.com/vim-syntastic/syntastic#introduction)
 * Useage: a syntax checking plugin
-* Key Mapping: 
-       
+* Key Mapping:
+
         " dependencies
         execute pathogen#infect()
-            
+
         let g:syntastic_error_symbol='>>'
         let g:syntastic_warning_symbol='>'
         let g:syntastic_check_on_open=1
         let g:syntastic_check_on_wq=0
-        let g:syntastic_enable_highlighting=1 
-           
+        let g:syntastic_enable_highlighting=1
+
         let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
         let g:syntastic_python_checkers=['pyflakes', 'pep8']
         let g:syntastic_python_pep8_args='--ignore=E501,E225,E124,E712'
-        
+
         let g:syntastic_always_populate_loc_list = 1
         let g:syntastic_enable_signs = 1
         let g:syntastic_auto_loc_list = 0
@@ -224,7 +234,7 @@
 ### YouCompleteMe
 * Github Repo: [Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 * Useage: code completion engine
-* Key Mapping: 
+* Key Mapping:
 
         let g:ycm_key_list_select_completion = ['<Down>']
         let g:ycm_key_list_previous_completion = ['<Up>']
@@ -238,7 +248,7 @@
 
         nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
         nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-    
+
         if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
             let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
         endif
@@ -247,7 +257,7 @@
 
 * Github Repo: [easymotion/vim-easymotion](https://github.com/easymotion/vim-easymotion)
 * Usage: Provides a much simpler way to use some motions in vim.
-* Keys Mapping: 
+* Keys Mapping:
 
         let g:EasyMotion_smartcase = 1
         let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
@@ -256,12 +266,12 @@
         map <Leader><Leader>k <Plug>(easymotion-k)
         map <Leader><leader>l <Plug>(easymotion-lineforward)
         map <Leader><leader>. <Plug>(easymotion-repeat)
-        
+
 <!---
 ### a
 * Github Repo: [b](c)
 * Useage: d
-* Key Mapping: 
+* Key Mapping:
 
         e
 -->

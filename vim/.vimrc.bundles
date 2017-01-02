@@ -45,7 +45,7 @@ Plug 'Raimondi/delimitMate'
 "" 自动补全html/xml标签
 Plug 'docunext/closetag.vim'
 
-" trailingwhitespace
+" vim-better-whitespace
 " 快速去行尾空格 [, + <Space>]
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -245,6 +245,12 @@ call plug#end()
 
 " quickscope {{{
     let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" }}}
+
+" vim-better-whitespace {{{
+    nnoremap <silent> <Leader><Space> :StripWhitespace<CR>
+    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> StripWhitespace
+    let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
 " }}}
 
 " ################### 显示增强 ###################
