@@ -330,6 +330,8 @@ nnoremap <F4> :set wrap! wrap?<CR>
 " F6 语法开关，关闭语法可以加快大文件的展示
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
+" disbale paste mode when leaving insert mode
+au InsertLeave * set nopaste
 " Automatically set paste mode in Vim when pasting in insert mode
 let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
@@ -339,9 +341,8 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 function! XTermPasteBegin()
     set pastetoggle=<Esc>[201~
     set paste
-    return "
-endfunction"]]]]"
-
+    return ""
+endfunction
 
 " Smart way to move between windows
 map <C-j> <C-W>j

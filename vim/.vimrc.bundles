@@ -59,7 +59,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 
 "" 自动补全html/xml标签
-Plug 'docunext/closetag.vim'
+Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 
 " 使用%在HTML/XML的标签中做匹配跳转
 Plug 'vim-scripts/matchit.zip'
@@ -111,7 +111,6 @@ endif
 
 if count(g:bundle_groups, 'php')
     Plug 'spf13/PIV'
-    let g:DisableAutoPHPFolding = 1
 endif
 
 if count(g:bundle_groups, 'javascript')
@@ -279,7 +278,7 @@ call plug#end()
 " ################### 快速导航 ###################
 
 " nerdtree nerdtreetabs {{{
-    map <leader>n :NERDTreeToggle<CR>
+    " map <leader>n :NERDTreeToggle<CR>
     "map <C-n> :NERDTreeToggle<CR>
     let NERDTreeHighlightCursorline=1
     let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
@@ -294,13 +293,6 @@ call plug#end()
     " nerdtreetabs
     map <Leader>n <plug>NERDTreeTabsToggle<CR>
     "map <C-n> <plug>NERDTreeTabsToggle<CR>
-    " 关闭同步
-    let g:nerdtree_tabs_synchronize_view=0
-    let g:nerdtree_tabs_synchronize_focus=0
-    " 是否自动开启nerdtree
-    " thank to @ListenerRi, see https://github.com/wklken/k-vim/issues/165
-    let g:nerdtree_tabs_open_on_console_startup=0
-    let g:nerdtree_tabs_open_on_gui_startup=0
 " }}}
 
 " nerdcommenter {{{
@@ -318,16 +310,24 @@ call plug#end()
 
 " Vim Workspace Controller
 " ctrlspace {{{
-    let g:airline_exclude_preview = 1
-    hi CtrlSpaceSelected guifg=#586e75 guibg=#eee8d5 guisp=#839496 gui=reverse,bold ctermfg=10 ctermbg=7 cterm=reverse,bold
-    hi CtrlSpaceNormal   guifg=#839496 guibg=#021B25 guisp=#839496 gui=NONE ctermfg=12 ctermbg=0 cterm=NONE
-    hi CtrlSpaceSearch   guifg=#cb4b16 guibg=NONE gui=bold ctermfg=9 ctermbg=NONE term=bold cterm=bold
-    hi CtrlSpaceStatus   guifg=#839496 guibg=#002b36 gui=reverse term=reverse cterm=reverse ctermfg=12 ctermbg=8
-
     if has("gui_running")
         " Settings for MacVim and Inconsolata font
         let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
     endif
+
+    nnoremap <silent><C-p> :CtrlSpace O<CR>
+    if has("gui_running")
+        " Settings for MacVim and Inconsolata font
+        let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
+    endif
+    if executable("ag")
+        let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+    endif
+    " let g:CtrlSpaceSearchTiming = 500
+    hi link CtrlSpaceNormal   PMenu
+    hi link CtrlSpaceSelected PMenuSel
+    hi link CtrlSpaceSearch   Search
+    hi link CtrlSpaceStatus   StatusLine
 " }}}
 
 " easymotion {{{
@@ -369,6 +369,9 @@ call plug#end()
 
 " pythonsyntax {{{
     let python_highlight_all = 1
+" }}}
+" piv {{{
+    let g:DisableAutoPHPFolding = 1
 " }}}
 
 " javascript {{{
