@@ -70,9 +70,6 @@ set noswapfile
 
 "set showtabline=0
 
-
-set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
-
 " 突出显示当前列
 set cursorcolumn
 " 突出显示当前行
@@ -200,7 +197,6 @@ set expandtab
 " 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
 set shiftround
 
-set wildmode=list:longest
 set ttyfast
 
 " 00x增减数字时使用十进制
@@ -263,8 +259,10 @@ set completeopt=longest,menu
 
 " 增强模式中的命令行自动完成操作
 set wildmenu
+
+set wildmode=list:longest
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc,*.class
+set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 
 " 离开插入模式后自动关闭预览窗口
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif

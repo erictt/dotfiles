@@ -267,19 +267,23 @@
         endif
 
 ### vim-easymotion
-* TODO
 
 * Github Repo: [easymotion/vim-easymotion](https://github.com/easymotion/vim-easymotion)
 * Usage: Provides a much simpler way to use some motions in vim.
 * Keys Mapping:
 
         let g:EasyMotion_smartcase = 1
-        let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-        map <Leader><leader>h <Plug>(easymotion-linebackward)
-        map <Leader><Leader>j <Plug>(easymotion-j)
-        map <Leader><Leader>k <Plug>(easymotion-k)
-        map <Leader><leader>l <Plug>(easymotion-lineforward)
-        map <Leader><leader>. <Plug>(easymotion-repeat)
+
+        " <Leader>f{char} to move to {char}
+        map  <Leader><Leader>f <Plug>(easymotion-bd-f)
+        nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
+
+        " s{char}{char} to move to {char}{char}
+        nmap s <Plug>(easymotion-overwin-f2)
+
+        " Move to line
+        map <Leader><Leader>l <Plug>(easymotion-bd-jk)
+        nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
 
 ### easyalign
 * TODO
