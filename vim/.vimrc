@@ -539,7 +539,6 @@ set t_Co=256
 
 colorscheme solarized
 " colorscheme molokai
-" colorscheme desert
 
 
 " 设置标记一列的背景颜色和数字一行颜色一致
@@ -547,7 +546,7 @@ hi! link SignColumn   LineNr
 hi! link ShowMarksHLl DiffAdd
 hi! link ShowMarksHLu DiffChange
 
-" for error highlight，防止错误整行标红导致看不清
+" for error highlight
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
 highlight clear SpellCap

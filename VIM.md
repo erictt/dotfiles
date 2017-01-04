@@ -251,25 +251,33 @@
 * Useage: a syntax checking plugin
 * Key Mapping:
 
-        " dependencies
-        execute pathogen#infect()
+      execute pathogen#infect()
 
-        let g:syntastic_error_symbol='>>'
-        let g:syntastic_warning_symbol='>'
-        let g:syntastic_check_on_open=1
-        let g:syntastic_check_on_wq=0
-        let g:syntastic_enable_highlighting=1
+      let g:syntastic_error_symbol='>>'
+      let g:syntastic_warning_symbol='>'
+      let g:syntastic_check_on_open=1
+      let g:syntastic_check_on_wq=0
+      let g:syntastic_enable_highlighting=1
 
-        let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-        let g:syntastic_python_checkers=['pyflakes', 'pep8']
-        let g:syntastic_python_pep8_args='--ignore=E501,E225,E124,E712'
+      " checkers
+      let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+      let g:syntastic_python_checkers=['pyflakes', 'pep8'] " 使用pyflakes,速度比pylint快
+      let g:syntastic_python_pep8_args='--ignore=E501,E225,E124,E712'
+      let g:syntastic_javascript_checkers = ['jsl', 'jshint']
+      " let g:syntastic_markdown_checkers = ['proselint']
+      let g:syntastic_html_checkers=['tidy', 'jshint']
 
-        let g:syntastic_always_populate_loc_list = 1
-        let g:syntastic_enable_signs = 1
-        let g:syntastic_auto_loc_list = 0
-        let g:syntastic_auto_jump = 0
-        " let g:syntastic_loc_list_height = 5
-        highlight SyntasticErrorSign guifg=white guibg=black
+      set statusline+=%#warningmsg#
+      set statusline+=%{SyntasticStatuslineFlag()}
+      set statusline+=%*
+
+      " to see error location list
+      let g:syntastic_always_populate_loc_list = 1
+      let g:syntastic_enable_signs = 1
+      let g:syntastic_auto_loc_list = 0
+      let g:syntastic_auto_jump = 0
+
+      highlight SyntasticErrorSign guifg=white guibg=black
 
 ### YouCompleteMe
 * TODO
