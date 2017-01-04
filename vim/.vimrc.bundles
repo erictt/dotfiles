@@ -81,16 +81,15 @@ Plug 'scrooloose/nerdtree'
 " 快速注释
 Plug 'scrooloose/nerdcommenter'
 
-" HERE TODO NOTE CHECK --------------------------------------------------------
 " view
 " airline
 " 状态栏增强展示
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" HERE TODO NOTE CHECK --------------------------------------------------------
 " auto complete
 " 代码自动补全
-" 迄今为止用到的最好的自动VIM自动补全插件
 " 重启 :YcmRestartServer
 Plug 'Valloric/YouCompleteMe'
 
@@ -246,7 +245,8 @@ call plug#end()
     let g:airline_right_sep = '❮'
     let g:airline_symbols.linenr = '¶'
     let g:airline_symbols.branch = '⎇'
-    " 是否打开tabline
+
+    " enable tabline
     " let g:airline#extensions#tabline#enabled = 1
 " }}}
 

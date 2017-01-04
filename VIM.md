@@ -280,14 +280,13 @@
       highlight SyntasticErrorSign guifg=white guibg=black
 
 ### YouCompleteMe
-* TODO
 
 * Github Repo: [Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-* Useage: code completion engine
+* Useage: code completion
 * Key Mapping:
 
-        let g:ycm_key_list_select_completion = ['<Down>']
-        let g:ycm_key_list_previous_completion = ['<Up>']
+        let g:ycm_key_list_select_completion=['<C-j>']
+        let g:ycm_key_list_previous_completion=['<C-k>']
         let g:ycm_complete_in_comments = 1
         let g:ycm_complete_in_strings = 1
         let g:ycm_use_ultisnips_completer = 1
