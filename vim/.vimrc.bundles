@@ -18,7 +18,7 @@ set hidden
 
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
-    let g:bundle_groups=['python', 'php', 'javascript', 'html', 'tmux', 'json']
+    let g:bundle_groups=['python', 'php', 'javascript', 'html', 'json']
 endif
 
 " ----------------------------------------------------------------------------
@@ -91,6 +91,9 @@ Plug 'vim-airline/vim-airline-themes'
 " 重启 :YcmRestartServer
 Plug 'Valloric/YouCompleteMe'
 
+" tmux navigator Ctrl-hjkl
+" Plug 'christoomey/vim-tmux-navigator'
+
 if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
     " pythonsyntax
@@ -118,13 +121,6 @@ if count(g:bundle_groups, 'html')
     " ###### emmet HTML complete #########
     " Plug "mattn/emmet-vim"
 endif
-
-if count(g:bundle_groups, 'tmux')
-    " tmux
-    " For tmux navigator Ctrl-hjkl
-    Plug 'christoomey/vim-tmux-navigator'
-endif
-
 
 " Add plugins to &runtimepath
 call plug#end()
