@@ -183,13 +183,42 @@
 ### Vim-CtrlSpace
 * Github Repo: [vim-ctrlspace/vim-ctrlspace](https://github.com/vim-ctrlspace/vim-ctrlspace)
 * Useage:
+    * bookmarks for your favorite projects
+    * workspaces (sessions)
     * tabs / buffers / files management
     * fast fuzzy searching powered by Go
-    * workspaces (sessions)
-    * bookmarks for your favorite projects
+    * shortkeys
+        * `Ctrl + Space` : open ctrl space command line
+        * `b` : bookmark list
+        * `w` : workspace list in current bookmark
+        * `l` : tab list in current workspace
+        * `o` : file list in current workspace
+        * `h` : buffer list in current workspace, this is default list when you hit ctrl + space
+        * `/` : Into Search Mode, type it again will close search mode. Aka,  `B`, `W`, `L`, `O`, `H` with uppercase will open the same list with Search Mode
+        * `i` : switch directory (when you on the buffer list)
+        * `a` : all the files are opend in current workspace
+        * `s` : save current workspace/bookmark, then `<CR>` to confirm
+        * `d` : delete a file from current buffer or file list
+        * `j`,`k` : switch items, then `<CR>` to confirm
+        * `m` : rename bookmark or workspace(when you on the workspace list or bookmark list)
 * Key Mapping:
 
-    // TODO
+        if has("gui_running")
+        " Settings for MacVim and Inconsolata font
+            let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
+        endif
+        if executable("ag")
+            let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+        endif
+        let g:CtrlSpaceSearchTiming = 500
+        hi link CtrlSpaceNormal   PMenu
+        hi link CtrlSpaceSelected PMenuSel
+        hi link CtrlSpaceSearch   Search
+        hi link CtrlSpaceStatus   StatusLine
+        nnoremap <silent><C-p> :CtrlSpace O<CR>
+        let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+        let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+        let g:CtrlSpaceSaveWorkspaceOnExit = 1
 
 ### scrooloose/nerdtree & jistr/vim-nerdtree-tabs
 * TODO
@@ -282,35 +311,42 @@
         nmap s <Plug>(easymotion-overwin-f2)
 
         " Move to line
-        map <Leader><Leader>l <Plug>(easymotion-bd-jk)
+        map  <Leader><Leader>l <Plug>(easymotion-bd-jk)
         nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
 
 ### easyalign
-* TODO
 
 * Github Repo: [junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align)
 * Usage: alignment
 * Keys Mapping:
 
-    vmap <Leader>a <Plug>(EasyAlign)
-    nmap <Leader>a <Plug>(EasyAlign)
-    if !exists('g:easy_align_delimiters')
-    let g:easy_align_delimiters = {}
-    endif
-    let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
-
-### multiplecursors
-* TODO
-
-* Github Repo: [terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
-* Usage:
-* Keys Mapping:
-    let g:multi_cursor_use_default_mapping=0
-    " Default mapping
-    let g:multi_cursor_next_key='<C-m>'
-    let g:multi_cursor_prev_key='<C-p>'
-    let g:multi_cursor_skip_key='<C-x>'
-    let g:multi_cursor_quit_key='<Esc>'
+    vmap ga <Plug>(EasyAlign)
+    nmap ga <Plug>(EasyAlign)
+    let g:easy_align_ignore_groups = ['Comment', 'String']
+    let g:easy_align_delimiters = {
+        \ '>': { 'pattern': '>>\|=>\|>' },
+        \ '/': {
+        \     'pattern':         '//\+\|/\*\|\*/',
+        \     'delimiter_align': 'l',
+        \     'ignore_groups':   ['!Comment'] },
+        \ ']': {
+        \     'pattern':       '[[\]]',
+        \     'left_margin':   0,
+        \     'right_margin':  0,
+        \     'stick_to_left': 0
+        \   },
+        \ ')': {
+        \     'pattern':       '[()]',
+        \     'left_margin':   0,
+        \     'right_margin':  0,
+        \     'stick_to_left': 0
+        \   },
+        \ 'd': {
+        \     'pattern':      ' \(\S\+\s*[;=]\)\@=',
+        \     'left_margin':  0,
+        \     'right_margin': 0
+        \   }
+        \ }
 
 <!---
 ### a

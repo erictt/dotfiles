@@ -42,6 +42,9 @@ Plug 'unblevable/quick-scope'
 "更高效的移动 [<Leader><Leader> + f/l or s{char}{char}]
 Plug 'Lokaltog/vim-easymotion'
 
+" 快速进行对齐/格式化
+Plug 'junegunn/vim-easy-align'
+
 " 主题 solarized
 " solarized
 Plug 'altercation/vim-colors-solarized'
@@ -50,7 +53,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 
 " 增强显示{}
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'eapache/rainbow_parentheses.vim'
 
 " gitgutter
 " Plug 'airblade/vim-gitgutter'
@@ -58,28 +61,22 @@ Plug 'kien/rainbow_parentheses.vim'
 "" 自动补全html/xml标签
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 
+"" 自动补全单引号，双引号等
+Plug 'Raimondi/delimitMate'
+
 " 使用%在HTML/XML的标签中做匹配跳转
 Plug 'vim-scripts/matchit.zip'
 
-" HERE TODO NOTE CHECK --------------------------------------------------------
-" quick locate file or function
-" ctrlp ctrlpfunky
-Plug 'ctrlpvim/ctrlp.vim' | Plug 'tacahiroy/ctrlp-funky'
-
-" 快速进行对齐/格式化
-Plug 'junegunn/vim-easy-align'
+" bookmarks workspaces files buffers and tabs
+Plug 'vim-ctrlspace/vim-ctrlspace'
 
 " syntastic
 Plug 'vim-syntastic/syntastic'
 
-" auto complete
-" 代码自动补全
-" 迄今为止用到的最好的自动VIM自动补全插件
-" 重启 :YcmRestartServer
-Plug 'Valloric/YouCompleteMe'
-
-"" 自动补全单引号，双引号等
-Plug 'Raimondi/delimitMate'
+" HERE TODO NOTE CHECK --------------------------------------------------------
+" nav
+" nerdtree nerdtreetabs
+Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
 
 " view
 " airline
@@ -87,12 +84,15 @@ Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" nav
-" nerdtree nerdtreetabs
-Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
 " quick edit
 " 快速注释
 Plug 'scrooloose/nerdcommenter'
+
+" auto complete
+" 代码自动补全
+" 迄今为止用到的最好的自动VIM自动补全插件
+" 重启 :YcmRestartServer
+Plug 'Valloric/YouCompleteMe'
 
 if count(g:bundle_groups, 'tmux')
     " tmux
@@ -317,48 +317,54 @@ call plug#end()
 " }}}
 
 " easyalign {{{
-    vmap <Leader>a <Plug>(EasyAlign)
-    nmap <Leader>a <Plug>(EasyAlign)
-    if !exists('g:easy_align_delimiters')
-    let g:easy_align_delimiters = {}
-    endif
-    let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
+    vmap ga <Plug>(EasyAlign)
+    nmap ga <Plug>(EasyAlign)
+    let g:easy_align_ignore_groups = ['Comment', 'String']
+    let g:easy_align_delimiters = {
+        \ '>': { 'pattern': '>>\|=>\|>' },
+        \ '/': {
+        \     'pattern':         '//\+\|/\*\|\*/',
+        \     'delimiter_align': 'l',
+        \     'ignore_groups':   ['!Comment'] },
+        \ ']': {
+        \     'pattern':       '[[\]]',
+        \     'left_margin':   0,
+        \     'right_margin':  0,
+        \     'stick_to_left': 0
+        \   },
+        \ ')': {
+        \     'pattern':       '[()]',
+        \     'left_margin':   0,
+        \     'right_margin':  0,
+        \     'stick_to_left': 0
+        \   },
+        \ 'd': {
+        \     'pattern':      ' \(\S\+\s*[;=]\)\@=',
+        \     'left_margin':  0,
+        \     'right_margin': 0
+        \   }
+        \ }
 " }}}
 
 " ################### 功能相关 ###################
 
-" ctrlp ctrlpfunky{{{
-    " let g:ctrlp_map = '<leader>p'
-    let g:ctrlp_cmd = 'CtrlP'
-    map <leader>p :CtrlP<CR>
-    map <leader>f :CtrlPMRU<CR>
-    map <leader>b :CtrlPBuffer<CR>
-    let g:ctrlp_show_hidden = 1
-    let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/]((node_modules)|\.(git|svn|grunt|sass-cache))$',
-        \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
-        \ }
-    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-    let g:ctrlp_working_path_mode=0
-    let g:ctrlp_match_window_bottom=1
-    let g:ctrlp_max_height=15
-    let g:ctrlp_match_window_reversed=0
-    let g:ctrlp_mruf_max=500
-    let g:ctrlp_follow_symlinks=1
-    if executable('ag')
-        " " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-        " " ag is fast enough that CtrlP doesn't need to cache
-        let g:ctrlp_use_caching = 0
+" ctrlspace {{{
+    if has("gui_running")
+    " Settings for MacVim and Inconsolata font
+        let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
     endif
-
-    " ctrlpfunky
-    nnoremap <Leader>fu :CtrlPFunky<Cr>
-    " narrow the list down with a word under cursor
-    nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-    let g:ctrlp_funky_syntax_highlight = 1
-
-    let g:ctrlp_extensions = ['funky']
+    if executable("ag")
+        let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+    endif
+    let g:CtrlSpaceSearchTiming = 500
+    hi link CtrlSpaceNormal   PMenu
+    hi link CtrlSpaceSelected PMenuSel
+    hi link CtrlSpaceSearch   Search
+    hi link CtrlSpaceStatus   StatusLine
+    nnoremap <silent><C-p> :CtrlSpace O<CR>
+    let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+    let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+    let g:CtrlSpaceSaveWorkspaceOnExit = 1
 " }}}
 
 " ################### 语言相关 ###################
@@ -408,31 +414,32 @@ call plug#end()
 " ################### 显示增强-主题 ###################"
 
 " rainbow_parentheses.vim {{{
+
+    let g:bold_parentheses = 1
+    let g:rbpt_max = 15
+    let g:rbpt_loadcmd_toggle = 0
     let g:rbpt_colorpairs = [
+        \ ['red',         'RoyalBlue3'],
+        \ ['brown',       'SeaGreen3'],
+        \ ['blue',        'DarkOrchid3'],
+        \ ['gray',        'firebrick3'],
+        \ ['green',       'RoyalBlue3'],
+        \ ['magenta',     'SeaGreen3'],
+        \ ['cyan',        'DarkOrchid3'],
+        \ ['darkred',     'firebrick3'],
         \ ['brown',       'RoyalBlue3'],
-        \ ['Darkblue',    'SeaGreen3'],
-        \ ['darkgray',    'DarkOrchid3'],
-        \ ['darkgreen',   'firebrick3'],
-        \ ['darkcyan',    'RoyalBlue3'],
-        \ ['darkred',     'SeaGreen3'],
-        \ ['darkmagenta', 'DarkOrchid3'],
-        \ ['brown',       'firebrick3'],
-        \ ['gray',        'RoyalBlue3'],
-        \ ['black',       'SeaGreen3'],
-        \ ['darkmagenta', 'DarkOrchid3'],
-        \ ['Darkblue',    'firebrick3'],
+        \ ['darkblue',    'DarkOrchid3'],
+        \ ['gray',        'firebrick3'],
         \ ['darkgreen',   'RoyalBlue3'],
-        \ ['darkcyan',    'SeaGreen3'],
-        \ ['darkred',     'DarkOrchid3'],
+        \ ['darkmagenta', 'SeaGreen3'],
+        \ ['darkcyan',    'DarkOrchid3'],
         \ ['red',         'firebrick3'],
         \ ]
-
-    let g:rbpt_max = 16
-    let g:rbpt_loadcmd_toggle = 0
     au VimEnter * RainbowParenthesesToggle
     au Syntax * RainbowParenthesesLoadRound
     au Syntax * RainbowParenthesesLoadSquare
     au Syntax * RainbowParenthesesLoadBraces
+
 " }}}
 
 " solarized {{{
