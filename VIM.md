@@ -187,20 +187,20 @@
     * workspaces (sessions)
     * tabs / buffers / files management
     * fast fuzzy searching powered by Go
-    * shortkeys
-        * `Ctrl + Space` : open ctrl space command line
-        * `b` : bookmark list
-        * `w` : workspace list in current bookmark
-        * `l` : tab list in current workspace
-        * `o` : file list in current workspace
-        * `h` : buffer list in current workspace, this is default list when you hit ctrl + space
-        * `/` : Into Search Mode, type it again will close search mode. Aka,  `B`, `W`, `L`, `O`, `H` with uppercase will open the same list with Search Mode
-        * `i` : switch directory (when you on the buffer list)
-        * `a` : all the files are opend in current workspace
-        * `s` : save current workspace/bookmark, then `<CR>` to confirm
-        * `d` : delete a file from current buffer or file list
-        * `j`,`k` : switch items, then `<CR>` to confirm
-        * `m` : rename bookmark or workspace(when you on the workspace list or bookmark list)
+* Shortkeys:
+    * `Ctrl + Space` : open ctrl space command line
+    * `b` : bookmark list
+    * `w` : workspace list in current bookmark
+    * `l` : tab list in current workspace
+    * `o` : file list in current workspace
+    * `h` : buffer list in current workspace, this is default list when you hit ctrl + space
+    * `/` : Into Search Mode, type it again will close search mode. Aka,  `B`, `W`, `L`, `O`, `H` with uppercase will open the same list with Search Mode
+    * `i` : switch directory (when you on the buffer list)
+    * `a` : all the files are opend in current workspace
+    * `s` : save current workspace/bookmark, then `<CR>` to confirm
+    * `d` : delete a file from current buffer or file list
+    * `j`,`k` : switch items, then `<CR>` to confirm
+    * `m` : rename bookmark or workspace(when you on the workspace list or bookmark list)
 * Key Mapping:
 
         if has("gui_running")
@@ -328,34 +328,99 @@
 * Usage: alignment
 * Keys Mapping:
 
-    vmap ga <Plug>(EasyAlign)
-    nmap ga <Plug>(EasyAlign)
-    let g:easy_align_ignore_groups = ['Comment', 'String']
-    let g:easy_align_delimiters = {
-        \ '>': { 'pattern': '>>\|=>\|>' },
-        \ '/': {
-        \     'pattern':         '//\+\|/\*\|\*/',
-        \     'delimiter_align': 'l',
-        \     'ignore_groups':   ['!Comment'] },
-        \ ']': {
-        \     'pattern':       '[[\]]',
-        \     'left_margin':   0,
-        \     'right_margin':  0,
-        \     'stick_to_left': 0
-        \   },
-        \ ')': {
-        \     'pattern':       '[()]',
-        \     'left_margin':   0,
-        \     'right_margin':  0,
-        \     'stick_to_left': 0
-        \   },
-        \ 'd': {
-        \     'pattern':      ' \(\S\+\s*[;=]\)\@=',
-        \     'left_margin':  0,
-        \     'right_margin': 0
-        \   }
-        \ }
+      vmap ga <Plug>(EasyAlign)
+      nmap ga <Plug>(EasyAlign)
+      let g:easy_align_ignore_groups = ['Comment', 'String']
+      let g:easy_align_delimiters = {
+          \ '>': { 'pattern': '>>\|=>\|>' },
+          \ '/': {
+          \     'pattern':         '//\+\|/\*\|\*/',
+          \     'delimiter_align': 'l',
+          \     'ignore_groups':   ['!Comment'] },
+          \ ']': {
+          \     'pattern':       '[[\]]',
+          \     'left_margin':   0,
+          \     'right_margin':  0,
+          \     'stick_to_left': 0
+          \   },
+          \ ')': {
+          \     'pattern':       '[()]',
+          \     'left_margin':   0,
+          \     'right_margin':  0,
+          \     'stick_to_left': 0
+          \   },
+          \ 'd': {
+          \     'pattern':      ' \(\S\+\s*[;=]\)\@=',
+          \     'left_margin':  0,
+          \     'right_margin': 0
+          \   }
+          \ }
 
+### NerdTree
+
+* Github Repo: [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
+* Usage: to explore your filesystem and to open files and directories.
+* Keys Mapping:
+
+      map <leader>n :NERDTreeToggle<CR>
+      let NERDTreeShowBookmarks=1
+      let NERDTreeHighlightCursorline=1
+      let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+      "close vim if the only window left open is a NERDTree
+      autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
+      let g:NERDTreeMapOpenSplit = 's'
+      let g:NERDTreeMapOpenVSplit = 'v'
+      let g:NERDTreeWinSize=26
+
+### NERDCommenter
+
+* Github Repo: [scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
+* Usage: to wrangle your code comments.
+* Shortkeys:
+      * `[count]<leader>cc` : Comment out the current line or text selected in visual mode.
+      * `[count]<leader>c<space>` : Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa.
+      * `[count]<leader>cs` : Comments out the selected lines with a pretty block formatted layout.
+      * `[count]<leader>ci` : Toggles the comment state of the selected line(s) individually.
+
+* Keys Mapping:
+
+      " Add spaces after comment delimiters by default
+      let g:NERDSpaceDelims = 1
+      " Use compact syntax for prettified multi-line comments
+      let g:NERDCompactSexyComs = 1
+      " Align line-wise comment delimiters flush left instead of following code indentation
+      let g:NERDDefaultAlign = 'left'
+      " Allow commenting and inverting empty lines (useful when commenting a region)
+      let g:NERDCommentEmptyLines = 1
+
+### Airline
+
+* Github Repo: [vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
+* Usage: rich statusbar.
+
+* Keys Mapping:
+      if !exists('g:airline_symbols')
+          let g:airline_symbols = {}
+      endif
+
+      let g:airline_mode_map = {
+          \ '__' : '-',
+          \ 'n'  : 'N',
+          \ 'i'  : 'I',
+          \ 'R'  : 'R',
+          \ 'c'  : 'C',
+          \ 'v'  : 'V',
+          \ 'V'  : 'V',
+          \ '' : 'V',
+          \ 's'  : 'S',
+          \ 'S'  : 'S',
+          \ '' : 'S',
+          \ }
+
+      let g:airline_left_sep = '❯'
+      let g:airline_right_sep = '❮'
+      let g:airline_symbols.linenr = '¶'
+      let g:airline_symbols.branch = '⎇'
 <!---
 ### a
 * Github Repo: [b](c)

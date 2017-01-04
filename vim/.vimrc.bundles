@@ -73,20 +73,20 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 " syntastic
 Plug 'vim-syntastic/syntastic'
 
-" HERE TODO NOTE CHECK --------------------------------------------------------
 " nav
 " nerdtree nerdtreetabs
-Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdtree'
 
+" quick edit
+" 快速注释
+Plug 'scrooloose/nerdcommenter'
+
+" HERE TODO NOTE CHECK --------------------------------------------------------
 " view
 " airline
 " 状态栏增强展示
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" quick edit
-" 快速注释
-Plug 'scrooloose/nerdcommenter'
 
 " auto complete
 " 代码自动补全
@@ -227,10 +227,23 @@ call plug#end()
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
     endif
-    let g:airline_left_sep = '▶'
-    let g:airline_left_alt_sep = '❯'
-    let g:airline_right_sep = '◀'
-    let g:airline_right_alt_sep = '❮'
+
+    let g:airline_mode_map = {
+        \ '__' : '-',
+        \ 'n'  : 'N',
+        \ 'i'  : 'I',
+        \ 'R'  : 'R',
+        \ 'c'  : 'C',
+        \ 'v'  : 'V',
+        \ 'V'  : 'V',
+        \ '' : 'V',
+        \ 's'  : 'S',
+        \ 'S'  : 'S',
+        \ '' : 'S',
+        \ }
+
+    let g:airline_left_sep = '❯'
+    let g:airline_right_sep = '❮'
     let g:airline_symbols.linenr = '¶'
     let g:airline_symbols.branch = '⎇'
     " 是否打开tabline
@@ -239,9 +252,8 @@ call plug#end()
 
 " ################### 快速导航 ###################
 
-" nerdtree nerdtreetabs {{{
-    " map <leader>n :NERDTreeToggle<CR>
-    "map <C-n> :NERDTreeToggle<CR>
+" nerdtree {{{
+    map <leader>n :NERDTreeToggle<CR>
     let NERDTreeShowBookmarks=1
     let NERDTreeHighlightCursorline=1
     let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
@@ -252,9 +264,6 @@ call plug#end()
     let g:NERDTreeMapOpenVSplit = 'v'
     let g:NERDTreeWinSize=26
 
-
-    " nerdtreetabs
-    map <Leader>n <plug>NERDTreeTabsToggle<CR>
 " }}}
 
 " nerdcommenter {{{
