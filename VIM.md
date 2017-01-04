@@ -135,29 +135,29 @@
 * `<Plug>`: in `.vimrc` file, it has two meanings. First, it's visible out of the plugin scripts. And the second, use structure `<Plug> scriptname mapname` to avoid confliction with other plugins. For example: `<Plug>TypecorrAdd`, `Typecorr` is the script name, and `Add` is the function name.
 * `<SID>`: is the script ID and not visible outside. Compare with `<Plug>`, it's more like `private` function to other scrips. So can't use it out of the script. Example:
 
-        ```vim
-        " ,en ,ep to jump between errors
-        function! <SID>LocationPrevious()
-          try
-              lprev
-          catch /^Vim\%((\a\+)\)\=:E553/
-              llast
-          endtry
-        endfunction
+  ```vim
+  " ,en ,ep to jump between errors
+  function! <SID>LocationPrevious()
+    try
+        lprev
+    catch /^Vim\%((\a\+)\)\=:E553/
+        llast
+    endtry
+  endfunction
 
-        function! <SID>LocationNext()
-          try
-              lnext
-          catch /^Vim\%((\a\+)\)\=:E553/
-              lfirst
-          endtry
-        endfunction
+  function! <SID>LocationNext()
+    try
+        lnext
+    catch /^Vim\%((\a\+)\)\=:E553/
+        lfirst
+    endtry
+  endfunction
 
-        nnoremap <silent> <Plug>LocationPrevious :<C-u>exe 'call <SID>LocationPrevious()'<CR>
-        nnoremap <silent> <Plug>LocationNext :<C-u>exe 'call <SID>LocationNext()'<CR>
-        nmap <silent> <Leader>ep <Plug>LocationPrevious
-        nmap <silent> <Leader>en <Plug>LocationNext
-        ```
+  nnoremap <silent> <Plug>LocationPrevious :<C-u>exe 'call <SID>LocationPrevious()'<CR>
+  nnoremap <silent> <Plug>LocationNext :<C-u>exe 'call <SID>LocationNext()'<CR>
+  nmap <silent> <Leader>ep <Plug>LocationPrevious
+  nmap <silent> <Leader>en <Plug>LocationNext
+  ```
 
 * `<silence>`:  to make a key mapping can`t be echoed on the command line
 * `<expr>` take the argument as expression. For example: `inoremap <expr> <C-L> ListItem()`, ListItem is a function which is mapped with `Ctrl + L`.
@@ -168,7 +168,7 @@
 * Useage: highlights which characters to target for `f`, `F` and family.
 * Key Mapping:
 
-        let g:qs_highlight_on_keys = ['f', 'F', 't', 'T'] //
+      let g:qs_highlight_on_keys = ['f', 'F', 't', 'T'] //
 
 ### ntpeters/vim-better-whitespace
 
@@ -176,9 +176,9 @@
 * Useage: clean extra whitespace.
 * Key Mapping:
 
-        nnoremap <silent> <Leader><Space> :StripWhitespace<CR>
-        autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> StripWhitespace
-        let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
+      nnoremap <silent> <Leader><Space> :StripWhitespace<CR>
+      autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> StripWhitespace
+      let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
 
 ### Vim-CtrlSpace
 * Github Repo: [vim-ctrlspace/vim-ctrlspace](https://github.com/vim-ctrlspace/vim-ctrlspace)
@@ -203,22 +203,24 @@
     * `m` : rename bookmark or workspace(when you on the workspace list or bookmark list)
 * Key Mapping:
 
-        if has("gui_running")
-        " Settings for MacVim and Inconsolata font
-            let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
-        endif
-        if executable("ag")
-            let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
-        endif
-        let g:CtrlSpaceSearchTiming = 500
-        hi link CtrlSpaceNormal   PMenu
-        hi link CtrlSpaceSelected PMenuSel
-        hi link CtrlSpaceSearch   Search
-        hi link CtrlSpaceStatus   StatusLine
-        nnoremap <silent><C-p> :CtrlSpace O<CR>
-        let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-        let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-        let g:CtrlSpaceSaveWorkspaceOnExit = 1
+  ```vim  
+  if has("gui_running")
+  " Settings for MacVim and Inconsolata font
+    let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
+  endif
+  if executable("ag")
+    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+  endif
+  let g:CtrlSpaceSearchTiming = 500
+  hi link CtrlSpaceNormal   PMenu
+  hi link CtrlSpaceSelected PMenuSel
+  hi link CtrlSpaceSearch   Search
+  hi link CtrlSpaceStatus   StatusLine
+  nnoremap <silent><C-p> :CtrlSpace O<CR>
+  let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+  let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+  let g:CtrlSpaceSaveWorkspaceOnExit = 1
+  ```
 
 ### scrooloose/nerdtree & jistr/vim-nerdtree-tabs
 * TODO
@@ -227,57 +229,60 @@
 * Useage: to explore filesystem and to open files and directories.
 * Key Mapping:
 
-          " nerdtree
-          map <C-n> :NERDTreeToggle<CR>
-          let NERDTreeHighlightCursorline=1
-          let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
-          "close vim if the only window left open is a NERDTree
-          autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
-          let g:NERDTreeMapOpenSplit = 's'
-          let g:NERDTreeMapOpenVSplit = 'v'
-          let g:NERDTreeWinSize=26
+  ```vim
+  " nerdtree
+  map <C-n> :NERDTreeToggle<CR>
+  let NERDTreeHighlightCursorline=1
+  let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+  "close vim if the only window left open is a NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
+  let g:NERDTreeMapOpenSplit = 's'
+  let g:NERDTreeMapOpenVSplit = 'v'
+  let g:NERDTreeWinSize=26
 
-          " nerdtreetabs
-          map <C-n> <plug>NERDTreeTabsToggle<CR>
-          let g:nerdtree_tabs_synchronize_view=0
-          let g:nerdtree_tabs_synchronize_focus=0
-          let g:nerdtree_tabs_open_on_console_startup=0
-          let g:nerdtree_tabs_open_on_gui_startup=0
+  " nerdtreetabs
+  map <C-n> <plug>NERDTreeTabsToggle<CR>
+  let g:nerdtree_tabs_synchronize_view=0
+  let g:nerdtree_tabs_synchronize_focus=0
+  let g:nerdtree_tabs_open_on_console_startup=0
+  let g:nerdtree_tabs_open_on_gui_startup=0
+  ```
 
 ### syntastic
-* TODO
 
 * Github Repo: [vim-syntastic/syntastic](https://github.com/vim-syntastic/syntastic#introduction)
 * Useage: a syntax checking plugin
 * Key Mapping:
 
-      execute pathogen#infect()
+  ```vim
+  execute pathogen#infect()
 
-      let g:syntastic_error_symbol='>>'
-      let g:syntastic_warning_symbol='>'
-      let g:syntastic_check_on_open=1
-      let g:syntastic_check_on_wq=0
-      let g:syntastic_enable_highlighting=1
+  let g:syntastic_error_symbol='>>'
+  let g:syntastic_warning_symbol='>'
+  let g:syntastic_check_on_open=1
+  let g:syntastic_check_on_wq=0
+  let g:syntastic_enable_highlighting=1
 
-      " checkers
-      let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-      let g:syntastic_python_checkers=['pyflakes', 'pep8'] " 使用pyflakes,速度比pylint快
-      let g:syntastic_python_pep8_args='--ignore=E501,E225,E124,E712'
-      let g:syntastic_javascript_checkers = ['jsl', 'jshint']
-      " let g:syntastic_markdown_checkers = ['proselint']
-      let g:syntastic_html_checkers=['tidy', 'jshint']
+  " checkers
+  let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+  let g:syntastic_python_checkers=['pyflakes', 'pep8'] " 使用pyflakes,速度比pylint快
+  let g:syntastic_python_pep8_args='--ignore=E501,E225,E124,E712'
+  let g:syntastic_javascript_checkers = ['jsl', 'jshint']
+  " let g:syntastic_markdown_checkers = ['proselint']
+  let g:syntastic_html_checkers=['tidy', 'jshint']
 
-      set statusline+=%#warningmsg#
-      set statusline+=%{SyntasticStatuslineFlag()}
-      set statusline+=%*
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
 
-      " to see error location list
-      let g:syntastic_always_populate_loc_list = 1
-      let g:syntastic_enable_signs = 1
-      let g:syntastic_auto_loc_list = 0
-      let g:syntastic_auto_jump = 0
+  " to see error location list
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_enable_signs = 1
+  let g:syntastic_auto_loc_list = 0
+  let g:syntastic_auto_jump = 0
 
-      highlight SyntasticErrorSign guifg=white guibg=black
+  highlight SyntasticErrorSign guifg=white guibg=black
+  ```
 
 ### YouCompleteMe
 
@@ -285,22 +290,24 @@
 * Useage: code completion
 * Key Mapping:
 
-        let g:ycm_key_list_select_completion=['<C-j>']
-        let g:ycm_key_list_previous_completion=['<C-k>']
-        let g:ycm_complete_in_comments = 1
-        let g:ycm_complete_in_strings = 1
-        let g:ycm_use_ultisnips_completer = 1
-        let g:ycm_collect_identifiers_from_comments_and_strings = 1
-        let g:ycm_collect_identifiers_from_tags_files = 1
-        let g:ycm_seed_identifiers_with_syntax=1
-        let g:ycm_goto_buffer_command = 'horizontal-split'
+  ```vim
+  let g:ycm_key_list_select_completion=['<C-j>']
+  let g:ycm_key_list_previous_completion=['<C-k>']
+  let g:ycm_complete_in_comments = 1
+  let g:ycm_complete_in_strings = 1
+  let g:ycm_use_ultisnips_completer = 1
+  let g:ycm_collect_identifiers_from_comments_and_strings = 1
+  let g:ycm_collect_identifiers_from_tags_files = 1
+  let g:ycm_seed_identifiers_with_syntax=1
+  let g:ycm_goto_buffer_command = 'horizontal-split'
 
-        nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-        nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+  nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+  nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 
-        if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
-            let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
-        endif
+  if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
+      let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+  endif
+  ```
 
 ### vim-easymotion
 
@@ -308,18 +315,20 @@
 * Usage: Provides a much simpler way to use some motions in vim.
 * Keys Mapping:
 
-        let g:EasyMotion_smartcase = 1
+  ```vim
+  let g:EasyMotion_smartcase = 1
 
-        " <Leader>f{char} to move to {char}
-        map  <Leader><Leader>f <Plug>(easymotion-bd-f)
-        nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
+  " <Leader>f{char} to move to {char}
+  map  <Leader><Leader>f <Plug>(easymotion-bd-f)
+  nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
 
-        " s{char}{char} to move to {char}{char}
-        nmap s <Plug>(easymotion-overwin-f2)
+  " s{char}{char} to move to {char}{char}
+  nmap s <Plug>(easymotion-overwin-f2)
 
-        " Move to line
-        map  <Leader><Leader>l <Plug>(easymotion-bd-jk)
-        nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
+  " Move to line
+  map  <Leader><Leader>l <Plug>(easymotion-bd-jk)
+  nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
+  ```
 
 ### easyalign
 
@@ -327,33 +336,35 @@
 * Usage: alignment
 * Keys Mapping:
 
-      vmap ga <Plug>(EasyAlign)
-      nmap ga <Plug>(EasyAlign)
-      let g:easy_align_ignore_groups = ['Comment', 'String']
-      let g:easy_align_delimiters = {
-          \ '>': { 'pattern': '>>\|=>\|>' },
-          \ '/': {
-          \     'pattern':         '//\+\|/\*\|\*/',
-          \     'delimiter_align': 'l',
-          \     'ignore_groups':   ['!Comment'] },
-          \ ']': {
-          \     'pattern':       '[[\]]',
-          \     'left_margin':   0,
-          \     'right_margin':  0,
-          \     'stick_to_left': 0
-          \   },
-          \ ')': {
-          \     'pattern':       '[()]',
-          \     'left_margin':   0,
-          \     'right_margin':  0,
-          \     'stick_to_left': 0
-          \   },
-          \ 'd': {
-          \     'pattern':      ' \(\S\+\s*[;=]\)\@=',
-          \     'left_margin':  0,
-          \     'right_margin': 0
-          \   }
-          \ }
+  ```vim
+  vmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+  let g:easy_align_ignore_groups = ['Comment', 'String']
+  let g:easy_align_delimiters = {
+     \ '>': { 'pattern': '>>\|=>\|>' },
+     \ '/': {
+     \     'pattern':         '//\+\|/\*\|\*/',
+     \     'delimiter_align': 'l',
+     \     'ignore_groups':   ['!Comment'] },
+     \ ']': {
+     \     'pattern':       '[[\]]',
+     \     'left_margin':   0,
+     \     'right_margin':  0,
+     \     'stick_to_left': 0
+     \   },
+     \ ')': {
+     \     'pattern':       '[()]',
+     \     'left_margin':   0,
+     \     'right_margin':  0,
+     \     'stick_to_left': 0
+     \   },
+     \ 'd': {
+     \     'pattern':      ' \(\S\+\s*[;=]\)\@=',
+     \     'left_margin':  0,
+     \     'right_margin': 0
+     \   }
+     \ }
+  ```
 
 ### NerdTree
 
@@ -361,36 +372,40 @@
 * Usage: to explore your filesystem and to open files and directories.
 * Keys Mapping:
 
-      map <leader>n :NERDTreeToggle<CR>
-      let NERDTreeShowBookmarks=1
-      let NERDTreeHighlightCursorline=1
-      let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
-      "close vim if the only window left open is a NERDTree
-      autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
-      let g:NERDTreeMapOpenSplit = 's'
-      let g:NERDTreeMapOpenVSplit = 'v'
-      let g:NERDTreeWinSize=26
+  ```vim
+  map <leader>n :NERDTreeToggle<CR>
+  let NERDTreeShowBookmarks=1
+  let NERDTreeHighlightCursorline=1
+  let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+  "close vim if the only window left open is a NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
+  let g:NERDTreeMapOpenSplit = 's'
+  let g:NERDTreeMapOpenVSplit = 'v'
+  let g:NERDTreeWinSize=26
+  ```
 
 ### NERDCommenter
 
 * Github Repo: [scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
 * Usage: to wrangle your code comments.
 * Shortkeys:
-      * `[count]<leader>cc` : Comment out the current line or text selected in visual mode.
-      * `[count]<leader>c<space>` : Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa.
-      * `[count]<leader>cs` : Comments out the selected lines with a pretty block formatted layout.
-      * `[count]<leader>ci` : Toggles the comment state of the selected line(s) individually.
+  * `[count]<leader>cc` : Comment out the current line or text selected in visual mode.
+  * `[count]<leader>c<space>` : Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa.
+  * `[count]<leader>cs` : Comments out the selected lines with a pretty block formatted layout.
+  * `[count]<leader>ci` : Toggles the comment state of the selected line(s) individually.
 
 * Keys Mapping:
 
-      " Add spaces after comment delimiters by default
-      let g:NERDSpaceDelims = 1
-      " Use compact syntax for prettified multi-line comments
-      let g:NERDCompactSexyComs = 1
-      " Align line-wise comment delimiters flush left instead of following code indentation
-      let g:NERDDefaultAlign = 'left'
-      " Allow commenting and inverting empty lines (useful when commenting a region)
-      let g:NERDCommentEmptyLines = 1
+  ```vim    
+  " Add spaces after comment delimiters by default
+  let g:NERDSpaceDelims = 1
+  " Use compact syntax for prettified multi-line comments
+  let g:NERDCompactSexyComs = 1
+  " Align line-wise comment delimiters flush left instead of following code indentation
+  let g:NERDDefaultAlign = 'left'
+  " Allow commenting and inverting empty lines (useful when commenting a region)
+  let g:NERDCommentEmptyLines = 1
+  ```
 
 ### Airline
 
@@ -398,28 +413,32 @@
 * Usage: rich statusbar.
 
 * Keys Mapping:
-      if !exists('g:airline_symbols')
-          let g:airline_symbols = {}
-      endif
 
-      let g:airline_mode_map = {
-          \ '__' : '-',
-          \ 'n'  : 'N',
-          \ 'i'  : 'I',
-          \ 'R'  : 'R',
-          \ 'c'  : 'C',
-          \ 'v'  : 'V',
-          \ 'V'  : 'V',
-          \ '' : 'V',
-          \ 's'  : 'S',
-          \ 'S'  : 'S',
-          \ '' : 'S',
-          \ }
+  ```vim
+  if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+  endif
 
-      let g:airline_left_sep = '❯'
-      let g:airline_right_sep = '❮'
-      let g:airline_symbols.linenr = '¶'
-      let g:airline_symbols.branch = '⎇'
+  let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
+
+  let g:airline_left_sep = '❯'
+  let g:airline_right_sep = '❮'
+  let g:airline_symbols.linenr = '¶'
+  let g:airline_symbols.branch = '⎇'
+  ```
+
 <!---
 ### a
 * Github Repo: [b](c)
@@ -430,5 +449,3 @@
 -->
 
 [//]: # (hidden text)
-
-
