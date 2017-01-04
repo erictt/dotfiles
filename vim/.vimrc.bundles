@@ -75,7 +75,7 @@ Plug 'vim-syntastic/syntastic'
 
 " nav
 " nerdtree nerdtreetabs
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
 
 " quick edit
 " 快速注释
@@ -229,7 +229,7 @@ call plug#end()
 " ################### 快速导航 ###################
 
 " nerdtree {{{
-    map <leader>n :NERDTreeToggle<CR>
+    " map <leader>n :NERDTreeToggle<CR>
     let NERDTreeShowBookmarks=1
     let NERDTreeHighlightCursorline=1
     let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
@@ -240,6 +240,8 @@ call plug#end()
     let g:NERDTreeMapOpenVSplit = 'v'
     let g:NERDTreeWinSize=26
 
+    " nerdtreetabs
+    map <Leader>n <plug>NERDTreeTabsToggle<CR>
 " }}}
 
 " nerdcommenter {{{
