@@ -18,7 +18,7 @@ set hidden
 
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
-    let g:bundle_groups=['python', 'php', 'javascript', 'html', 'css', 'tmux', 'json']
+    let g:bundle_groups=['python', 'php', 'javascript', 'html', 'tmux', 'json']
 endif
 
 " ----------------------------------------------------------------------------
@@ -87,17 +87,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" HERE TODO NOTE CHECK --------------------------------------------------------
 " auto complete
-" 代码自动补全
 " 重启 :YcmRestartServer
 Plug 'Valloric/YouCompleteMe'
-
-if count(g:bundle_groups, 'tmux')
-    " tmux
-    " For tmux navigator Ctrl-hjkl
-    Plug 'christoomey/vim-tmux-navigator'
-endif
 
 if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
@@ -115,16 +107,6 @@ if count(g:bundle_groups, 'javascript')
     " javascript
     " 注意: syntax这个插件要放前面
     Plug 'othree/yajs.vim' | Plug 'pangloss/vim-javascript'
-    " Plug 'jelera/vim-javascript-syntax' | Plug 'pangloss/vim-javascript'
-
-    " TODO: jquery? for, remove or keep
-    Plug 'othree/javascript-libraries-syntax.vim'
-    let g:used_javascript_libs = 'jquery,underscore,backbone'
-
-    " for javascript 自动补全, 配合YCM, 需要安装全局环境的（非nvm中) node.js&npm
-    " 安装完成后还需要在 bundle/tern_for_vim 下执行 npm install 安装依赖
-    " see https://github.com/marijnh/tern_for_vim
-    " Plug 'marijnh/tern_for_vim'
 endif
 
 if count(g:bundle_groups, 'json')
@@ -132,19 +114,17 @@ if count(g:bundle_groups, 'json')
     Plug 'elzr/vim-json', {'for': 'json'}
 endif
 
-if count(g:bundle_groups, 'css')
-    " css
-    " not work in iterm2 which termianl selection is not xterm-256, and it slow
-    " Plug 'ap/vim-css-color'
-
-    " 这个有坑, see issue https://github.com/wklken/k-vim/issues/49
-    " Plug 'gorodinskiy/vim-coloresque'
-endif
-
 if count(g:bundle_groups, 'html')
     " ###### emmet HTML complete #########
     " Plug "mattn/emmet-vim"
 endif
+
+if count(g:bundle_groups, 'tmux')
+    " tmux
+    " For tmux navigator Ctrl-hjkl
+    Plug 'christoomey/vim-tmux-navigator'
+endif
+
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -247,7 +227,7 @@ call plug#end()
     let g:airline_symbols.branch = '⎇'
 
     " enable tabline
-    " let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#enabled = 1
 " }}}
 
 " ################### 快速导航 ###################
@@ -351,6 +331,12 @@ call plug#end()
     let g:CtrlSpaceSaveWorkspaceOnExit = 1
 " }}}
 
+" vim-better-whitespace {{{
+    nnoremap <silent> <Leader><Space> :StripWhitespace<CR>
+    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> StripWhitespace
+    let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
+" }}}
+
 " ################### 语言相关 ###################
 
 " pythonsyntax {{{
@@ -370,19 +356,6 @@ call plug#end()
 " json {{{
     let g:vim_json_syntax_conceal = 0
 " }}}
-
-" css {{{
-" }}}
-
-" nginx {{{
-" }}}
-"
-" vim-better-whitespace {{{
-    nnoremap <silent> <Leader><Space> :StripWhitespace<CR>
-    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> StripWhitespace
-    let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
-" }}}
-
 
 " ################### GIT ###################"
 
