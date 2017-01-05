@@ -203,7 +203,7 @@
     * `m` : rename bookmark or workspace(when you on the workspace list or bookmark list)
 * Key Mapping:
 
-  ```vim  
+  ```vim
   if has("gui_running")
   " Settings for MacVim and Inconsolata font
     let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
@@ -396,7 +396,7 @@
 
 * Keys Mapping:
 
-  ```vim    
+  ```vim
   " Add spaces after comment delimiters by default
   let g:NERDSpaceDelims = 1
   " Use compact syntax for prettified multi-line comments

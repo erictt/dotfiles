@@ -67,6 +67,14 @@ Plug 'Raimondi/delimitMate'
 " 使用%在HTML/XML的标签中做匹配跳转
 Plug 'vim-scripts/matchit.zip'
 
+" signature
+" 显示marks - 方便自己进行标记和跳转
+" m[a-zA-Z] add mark
+" '[a-zA-Z] go to mark
+" m<Space>  del all marks
+" m/        list all marks
+Plug 'kshenoy/vim-signature'
+
 " bookmarks workspaces files buffers and tabs
 Plug 'vim-ctrlspace/vim-ctrlspace'
 
