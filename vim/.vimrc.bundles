@@ -217,13 +217,36 @@ call plug#end()
         \ '' : 'S',
         \ }
 
-    let g:airline_left_sep = '❯'
-    let g:airline_right_sep = '❮'
-    let g:airline_symbols.linenr = '¶'
-    let g:airline_symbols.branch = '⎇'
+    " let g:airline_theme='solarized dark'
+    let g:airline_theme='luna'
+
+    " symbols
+    " If the previous symbols do not render for you then install a powerline enabled font.
+    " https://github.com/powerline/fonts
+    let g:airline_powerline_fonts = 1
+
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.linenr = ''
+    let g:airline_symbols.paste = '∥'
+    let g:airline_symbols.maxlinenr = ''
+    let g:airline_symbols.whitespace = 'Ξ'
+
+    " enable ctrlspace
+    let g:airline#extensions#ctrlspace#enabled = 1
 
     " enable tabline
     let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
+    let g:airline#extensions#tabline#show_tab_type = 1
+    let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
+    let g:airline#extensions#tabline#buffers_label = 'Buff'
+    let g:airline#extensions#tabline#tabs_label = 'Tab'
+
 " }}}
 
 " ################### 快速导航 ###################
@@ -324,7 +347,7 @@ call plug#end()
     hi link CtrlSpaceSearch   Search
     hi link CtrlSpaceStatus   StatusLine
     nnoremap <silent><C-p> :CtrlSpace O<CR>
-    let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+    " let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
     let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
     let g:CtrlSpaceSaveWorkspaceOnExit = 1
 " }}}

@@ -40,10 +40,6 @@ filetype plugin indent on
 " General Settings 基础设置
 "==========================================
 
-
-" history存储容量
-set history=2000
-
 " 检测文件类型
 filetype on
 " 针对不同的文件类型采用不同的缩进格式
@@ -97,8 +93,19 @@ set noerrorbells
 set t_vb=
 set tm=500
 
-" Remember info about open buffers on close
-set viminfo^=%
+" Vim info
+set viminfo=%,<800,'10,/50,:100,h,f0,n~/.vim/cache/.viminfo
+"           | |    |   |   |    | |  + viminfo file path
+"           | |    |   |   |    | + file marks 0-9,A-Z 0=NOT stored
+"           | |    |   |   |    + disable 'hlsearch' loading viminfo
+"           | |    |   |   + command-line history saved
+"           | |    |   + search history saved
+"           | |    + files marks saved
+"           | + lines saved each register (old name for <, vi6.2)
+"           + save/restore buffer list
+" the vim session (different from viminfo
+
+set history=500
 
 " For regular expressions turn magic on
 set magic

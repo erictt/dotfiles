@@ -2,6 +2,11 @@ My Dotfile
 =============
 Start to build my dotfile.
 
+## Install command-line tools using Homebrew.
+
+  ```bash
+  source brew.sh
+  ```
 ## bash/vim dotfiles
 
 To update, `cd` into your local `dotfiles` repository and then:
