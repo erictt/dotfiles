@@ -1,6 +1,29 @@
 # VIM
 
-[toc]
+**Table of Contents**
+
+  - [Basic Usage](#basic-usage)
+    - [Normal Mode:](#normal-mode)
+    - [Insert Mode:](#insert-mode)
+    - [Command Mode:](#command-mode)
+  - [Advance Usage](#advance-usage)
+    - [Insert Mode:](#insert-mode-1)
+    - [Normal Mode:](#normal-mode-1)
+    - [Visual Mode:](#visual-mode)
+    - [Command Mode:](#command-mode-1)
+  - [Plugins](#plugins)
+    - [Explanations of Important Keywords](#explanations-of-important-keywords)
+    - [unblevable/quick-scope](#unblevablequick-scope)
+    - [ntpeters/vim-better-whitespace](#ntpetersvim-better-whitespace)
+    - [Vim-CtrlSpace](#vim-ctrlspace)
+    - [scrooloose/nerdtree & jistr/vim-nerdtree-tabs](#scrooloosenerdtree--jistrvim-nerdtree-tabs)
+    - [syntastic](#syntastic)
+    - [YouCompleteMe](#youcompleteme)
+    - [vim-easymotion](#vim-easymotion)
+    - [easyalign](#easyalign)
+    - [NerdTree](#nerdtree)
+    - [NERDCommenter](#nerdcommenter)
+    - [Airline](#airline)
 
 ## Basic Usage
 ### Normal Mode:
