@@ -66,16 +66,12 @@ Alternatively, to update while avoiding the confirmation prompt:
 * `kj` : act like Esc when inserting text
 * `U` : redo
 
-### Check later
-
-* Statusline
-
 ## Steps
 
 * [x] bash
 * [x] vim
 * [x] brew
-* [ ] Mac Configuration
+* [x] Mac Configuration
 
 ## References && Thanks to
 
