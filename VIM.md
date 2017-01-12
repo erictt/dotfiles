@@ -1,4 +1,7 @@
 # VIM
+
+[toc]
+
 ## Basic Usage
 ### Normal Mode:
 * First Open file with VIM command, with get into Normal Mode
@@ -464,13 +467,4 @@
   let g:airline#extensions#tabline#tabs_label = 'Tab'
   ```
 
-<!---
-### a
-* Github Repo: [b](c)
-* Useage: d
-* Key Mapping:
 
-        e
--->
-
-[//]: # (hidden text)
