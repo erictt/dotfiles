@@ -10,3 +10,6 @@
 [submodule "vendor/mathiasbynens-dotfiles"]
 	path = vendor/mathiasbynens-dotfiles
 	url = https://github.com/mathiasbynens/dotfiles
+[submodule "vendor/dictionaries"]
+	path = vendor/dictionaries
+	url = https://github.com/rime-aca/dictionaries
