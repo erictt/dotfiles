@@ -568,4 +568,5 @@ When setting up a new Mac, you may want to set some sensible macOS defaults:
 * [caskroom/homebrew-cask](https://github.com/caskroom/homebrew-cask)
 * [skwp/dotfiles](https://github.com/skwp/dotfiles)
 * [http://coolshell.cn/articles/5426.html](http://coolshell.cn/articles/5426.html)
+* [http://www.jianshu.com/p/ef2d9442fb0c](http://www.jianshu.com/p/ef2d9442fb0c)
 
