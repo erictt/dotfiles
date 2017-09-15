@@ -54,6 +54,10 @@ To update, `cd` into your local `dotfiles` repository and then:
 
 * for vim
 
+  * Requirements:
+    * `python` use to install flake8
+    * `nodejs` use to install eslint
+
   ```bash
   ./vim.sh
   ```

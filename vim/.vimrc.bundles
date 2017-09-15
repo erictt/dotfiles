@@ -79,7 +79,11 @@ Plug 'kshenoy/vim-signature'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 
 " syntastic
-Plug 'vim-syntastic/syntastic'
+if v:version < 800
+    Plug 'scrooloose/syntastic'
+else
+    Plug 'w0rp/ale'
+endif
 
 " nav
 " nerdtree nerdtreetabs
@@ -107,7 +111,6 @@ if count(g:bundle_groups, 'python')
     " pythonsyntax
     Plug 'hdima/python-syntax'
     Plug 'hynek/vim-python-pep8-indent'
-    Plug 'Glench/Vim-Jinja2-Syntax'
 endif
 
 if count(g:bundle_groups, 'php')
@@ -149,8 +152,9 @@ call plug#end()
 
     " checkers
     let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-    let g:syntastic_python_checkers=['pyflakes', 'pep8'] " 使用pyflakes,速度比pylint快
+    let g:syntastic_python_checkers=['flake8']
     let g:syntastic_python_pep8_args='--ignore=E501,E225,E124,E712'
+    let g:python_pep8_indent_multiline_string=-2
     let g:syntastic_javascript_checkers = ['jsl', 'jshint']
     " let g:syntastic_markdown_checkers = ['proselint']
     let g:syntastic_html_checkers=['tidy', 'jshint']
@@ -172,6 +176,50 @@ call plug#end()
     let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java'] }
 " }}}
 
+" ale {{{
+if has_key(g:plugs, 'ale')
+    " pip install flake8
+    " npm install -g eslint eslint-plugin-standard eslint-plugin-promise eslint-config-standard \
+    "   eslint-plugin-import eslint-plugin-node eslint-plugin-html babel-eslint
+    let g:ale_linters = {
+       'python': ['flake8'],
+       'javascript': ['eslint'],
+    }
+
+    " E501 -> 100 chars
+    let g:ale_python_flake8_args="--ignore=E114,E116,E131 --max-line-length=100"
+    " --ignore=E225,E124,E712,E116
+
+    let g:ale_sign_error = '>>'
+    let g:ale_sign_warning = '>'
+
+    let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+    let g:ale_echo_msg_error_str = 'E'
+    let g:ale_echo_msg_warning_str = 'W'
+    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+    nmap <silent> <Leader>ep <Plug>(ale_previous_wrap)
+    nmap <silent> <Leader>en <Plug>(ale_next_wrap)
+
+    nnoremap <silent> <Leader>ec :ALEToggle<CR>
+
+    " troggle quickfix list
+    function! ToggleErrors()
+        let old_last_winnr = winnr('$')
+        lclose
+        if old_last_winnr == winnr('$')
+            " Nothing was closed, open syntastic_error location panel
+            lopen
+        endif
+    endfunction
+    nnoremap <Leader>s :call ToggleErrors()<cr>
+
+    let g:ale_set_highlights = 1
+    highlight clear ALEErrorSign
+    highlight clear ALEWarningSign
+endif
+
+" }}}
 
 " ################### 自动补全 ###################
 
@@ -186,6 +234,9 @@ call plug#end()
     " 开启语法关键字补全
     let g:ycm_seed_identifiers_with_syntax=1
 
+    " 回车作为选中
+    let g:ycm_key_list_stop_completion = ['<CR>']
+
     " 跳转到定义处, 分屏打开
     let g:ycm_goto_buffer_command = 'horizontal-split'
     " nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
@@ -196,6 +247,7 @@ call plug#end()
     if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
         let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
     endif
+
 
     " 黑名单,不启用
     let g:ycm_filetype_blacklist = {

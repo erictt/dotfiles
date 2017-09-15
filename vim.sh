@@ -17,29 +17,26 @@ function lnif() {
 # Rsync ./links/* to ~/
 function doIt() {
 
-  echo "Step1: Sync all dotfiles to ~/"
+  echo "Step 1: Sync all dotfiles to ~/"
+  rsync --exclude ".DS_Store" -avh --no-perms ./vim/ ~;
 
-	rsync	--exclude ".DS_Store" \
-		-avh --no-perms ./vim/ ~;
+  echo "Step 2: install flake8 for python syntax checking"
+  pip install flake8
 
-  echo "Step2: update/install plugins using Vim-plug"
+  echo "Step 3: Install eslint for js and html syntax checking"
+  npm install -g eslint eslint-plugin-standard eslint-plugin-promise eslint-config-standard \
+        eslint-plugin-import eslint-plugin-node eslint-plugin-html babel-eslint
+
+  echo "Step 4: update/install plugins using Vim-plug"
   system_shell=$SHELL
   export SHELL="/bin/sh"
   vim -u $HOME/.vimrc.bundles +PlugInstall! +PlugClean! +qall
   export SHELL=$system_shell
 
-  echo "Step3: compile YouCompleteMe"
-  echo "It will take a long time, just be patient!"
-  echo "If error,you need to compile it yourself"
+  echo "Step 5: compile YouCompleteMe"
   echo "cd ~/.vim/bundle/YouCompleteMe/ && python install.py --clang-completer"
   cd ~/.vim/bundle/YouCompleteMe/
-  git submodule update --init --recursive
-  if [ `which clang` ]   # check system clang
-  then
-      python install.py --clang-completer --system-libclang   # use system clang
-  else
-      python install.py --clang-completer
-  fi
+  python install.py --clang-completer
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
