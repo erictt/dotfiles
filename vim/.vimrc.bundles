@@ -140,7 +140,7 @@ call plug#end()
 " ################### 基础 ######################
 
 " syntastic {{{
-
+if has_key(g:plugs, 'syntastic')
     " dependencies
     execute pathogen#infect()
 
@@ -174,6 +174,7 @@ call plug#end()
 
     " 禁止插件检查java
     let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java'] }
+endif
 " }}}
 
 " ale {{{
