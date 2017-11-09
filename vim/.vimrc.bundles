@@ -184,7 +184,7 @@ if has_key(g:plugs, 'ale')
     "   eslint-plugin-import eslint-plugin-node eslint-plugin-html babel-eslint
     let g:ale_linters = {
     \    'python': ['flake8'],
-    \    'javascript': ['eslint'],
+    \    'javascript': ['eslint', 'flow'],
     \}
 
     " E501 -> 100 chars

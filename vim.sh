@@ -25,7 +25,8 @@ function doIt() {
 
   echo "Step 3: Install eslint for js and html syntax checking"
   npm install -g eslint eslint-plugin-standard eslint-plugin-promise eslint-config-standard \
-        eslint-plugin-import eslint-plugin-node eslint-plugin-html babel-eslint
+        eslint-plugin-import eslint-plugin-node eslint-plugin-html babel-eslint \
+        flow-bin
 
   echo "Step 4: update/install plugins using Vim-plug"
   system_shell=$SHELL
