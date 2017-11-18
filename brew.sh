@@ -106,3 +106,17 @@ brew install zopfli
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+# Install Apps
+brew tap caskroom/cask
+brew cask install iterm2
+brew cask install sourcetree
+brew cask install alfred
+brew cask install flycut
+brew cask install spectacle
+
+brew cask install iina
+brew cask install chrome
+brew cask install skype
+# Clean up
+brew cask cleanup
