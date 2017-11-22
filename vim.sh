@@ -20,8 +20,8 @@ function doIt() {
   echo "Step 1: Sync all dotfiles to ~/"
   rsync --exclude ".DS_Store" -avh --no-perms ./vim/ ~;
 
-  echo "Step 2: install flake8 for python syntax checking"
-  pip install flake8
+  echo "Step 2: install flake8 and autopep8 for python syntax checking and alefix"
+  pip install flake8 autopep8
 
   echo "Step 3: Install eslint for js and html syntax checking"
   npm install -g eslint eslint-plugin-standard eslint-plugin-promise eslint-config-standard \
