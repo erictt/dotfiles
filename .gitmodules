@@ -6,10 +6,10 @@
 	url = git@github.com:wklken/k-vim.git
 [submodule "vendor/bash-it"]
 	path = vendor/bash-it
-	url = https://github.com/Bash-it/bash-it
+url=git@github.com:Bash-it/bash-it.git
 [submodule "vendor/mathiasbynens-dotfiles"]
 	path = vendor/mathiasbynens-dotfiles
-	url = https://github.com/mathiasbynens/dotfiles
+	url = git@github.com:mathiasbynens/dotfiles.git
 [submodule "vendor/dictionaries"]
 	path = vendor/dictionaries
-	url = https://github.com/rime-aca/dictionaries
+	url = git@github.com:rime-aca/dictionaries.git
