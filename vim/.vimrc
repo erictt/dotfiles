@@ -190,6 +190,8 @@ set smartindent
 " never add copyindent, case error   " copy the previous indentation on autoindenting
 set autoindent
 
+set colorcolumn=80
+
 " tab相关变更
 " 设置Tab键的宽度        [等同的空格个数]
 set tabstop=2
