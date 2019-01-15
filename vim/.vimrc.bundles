@@ -18,7 +18,7 @@ set hidden
 
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
-    let g:bundle_groups=['python', 'php', 'javascript', 'html', 'json']
+    let g:bundle_groups=['python', 'go', 'php', 'javascript', 'html', 'json']
 endif
 
 " ----------------------------------------------------------------------------
@@ -120,6 +120,10 @@ endif
 
 if count(g:bundle_groups, 'php')
     Plug 'spf13/PIV'
+endif
+
+if count(g:bundle_groups, 'go')
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 endif
 
 if count(g:bundle_groups, 'javascript')

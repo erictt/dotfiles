@@ -38,6 +38,8 @@ function doIt() {
   echo "cd ~/.vim/bundle/YouCompleteMe/ && python install.py --clang-completer"
   cd ~/.vim/bundle/YouCompleteMe/
   python install.py --clang-completer
+  python install.py --go-completer
+  python install.py --java-completer
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
