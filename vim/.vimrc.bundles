@@ -384,7 +384,7 @@ endif
     " s/v 分屏打开文件
     let g:NERDTreeMapOpenSplit = 's'
     let g:NERDTreeMapOpenVSplit = 'v'
-    let g:NERDTreeWinSize=26
+    let g:NERDTreeWinSize=36
 
     " nerdtreetabs
     map <Leader>n <plug>NERDTreeTabsToggle<CR>

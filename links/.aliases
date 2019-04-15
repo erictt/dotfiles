@@ -159,3 +159,8 @@ alias reload="exec $SHELL -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+alias k='kubectl'
+alias lkube='export KUBECONFIG='
+alias gkube='export KUBECONFIG=~/.kube_gke/config'
+alias akube='export KUBECONFIG=~/.kube_azure/config'
