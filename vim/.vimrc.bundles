@@ -115,7 +115,7 @@ if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
     " pythonsyntax
     Plug 'hdima/python-syntax'
-    Plug 'hynek/vim-python-pep8-indent'
+    Plug 'google/yapf'
 endif
 
 if count(g:bundle_groups, 'php')
@@ -162,7 +162,8 @@ if has_key(g:plugs, 'syntastic')
     " checkers
     let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
     let g:syntastic_python_checkers=['flake8']
-    let g:syntastic_python_flake8_options='--ignore=E501,E225,E124,E712,E116,E131'
+    let g:syntastic_python_flake8_args="--ignore=E501,E225,E124,E712,E116,E131"
+    let g:syntastic_debug = 1
 
     let g:syntastic_javascript_checkers = ['eslint']
 
@@ -197,12 +198,12 @@ if has_key(g:plugs, 'ale')
 
     let g:ale_fixers = {
     \   'javascript': ['eslint'],
-    \   'python': ['autopep8'],
+    \   'python': ['yapf'],
     \   'php': ['phpcbf'],
     \}
 
     " E501 -> 120 chars
-    let g:ale_python_flake8_options="--ignore=E114,E116,E131 --max-line-length=120"
+    let g:ale_python_flake8_options = "--ignore=E114,E116,E131 --max-line-length=120"
     " --ignore=E225,E124,E712,E116
 
     " Set this setting in vimrc if you want to fix files automatically on save.
