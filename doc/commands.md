@@ -1,3 +1,3 @@
 Collection of Commands
 
-* ip addr show * information on each ethernet device connected.
+* `ip addr show`: information on each ethernet device connected.

@@ -162,11 +162,9 @@ if has_key(g:plugs, 'syntastic')
     " checkers
     let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
     let g:syntastic_python_checkers=['flake8']
-    let g:syntastic_python_pep8_args='--ignore=E501,E225,E124,E712'
-    let g:python_pep8_indent_multiline_string=-2
-    let g:syntastic_javascript_checkers = ['jsl', 'jshint']
-    " let g:syntastic_markdown_checkers = ['proselint']
-    let g:syntastic_html_checkers=['tidy', 'jshint']
+    let g:syntastic_python_flake8_options='--ignore=E501,E225,E124,E712,E116,E131'
+
+    let g:syntastic_javascript_checkers = ['eslint']
 
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
@@ -203,10 +201,9 @@ if has_key(g:plugs, 'ale')
     \   'php': ['phpcbf'],
     \}
 
-    " E501 -> 100 chars
-    let g:ale_python_flake8_args="--ignore=E114,E116,E131 --max-line-length=100"
+    " E501 -> 120 chars
+    let g:ale_python_flake8_args="--ignore=E114,E116,E131 --max-line-length=120"
     " --ignore=E225,E124,E712,E116
-
 
     " Set this setting in vimrc if you want to fix files automatically on save.
     let g:ale_fix_on_save = 1
