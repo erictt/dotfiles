@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 # Install command-line tools using Homebrew.
 
 # Make sure we’re using the latest Homebrew.
@@ -27,17 +30,12 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
   chsh -s /usr/local/bin/bash;
 fi;
 
-# Install `wget` 
+# Install `wget`
 brew install wget
 
-# Install RingoJS and Narwhal.
-# Note that the order in which these are installed is important;
-# see http://git.io/brew-narwhal-ringo.
-# brew install ringojs
-# brew install narwhal
-
 # Install more recent versions of some macOS tools.
-brew install vim
+brew install cmake
+brew install macvim
 
 # Install font tools.
 brew tap bramstein/webfonttools
@@ -77,6 +75,7 @@ brew install dark-mode
 #brew install exiv2
 brew install git
 brew install git-lfs
+brew install git-secret
 brew install imagemagick --with-webp
 brew install lua
 brew install lynx
@@ -93,8 +92,8 @@ brew install vbindiff
 brew install webkit2png
 brew install zopfli
 
-# Remove outdated versions from the cellar.
-brew cleanup
+brew install go
+brew install python
 
 # Install Apps
 brew tap caskroom/cask
@@ -107,5 +106,6 @@ brew cask install spectacle
 brew cask install iina
 brew cask install chrome
 brew cask install skype
-# Clean up
-brew cask cleanup
+
+# Remove outdated versions from the cellar.
+brew cleanup
