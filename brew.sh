@@ -71,17 +71,10 @@ brew install woff2
 
 # Install other useful binaries.
 brew install ack
-brew install dark-mode
 #brew install exiv2
 brew install git
-brew install git-lfs
 brew install git-secret
-brew install imagemagick --with-webp
-brew install lua
-brew install lynx
-brew install p7zip
-brew install pigz
-brew install pv
+brew install imagemagick
 brew install rename
 brew install rhino
 brew install speedtest_cli
@@ -92,7 +85,6 @@ brew install vbindiff
 brew install webkit2png
 brew install zopfli
 
-brew install go
 brew install python
 
 # Install Apps
@@ -104,7 +96,6 @@ brew cask install flycut
 brew cask install spectacle
 
 brew cask install iina
-brew cask install chrome
 brew cask install skype
 
 # Remove outdated versions from the cellar.
