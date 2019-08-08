@@ -56,5 +56,9 @@ if [ -f '/Users/eyang/libs/google-cloud-sdk/completion.bash.inc' ]; then . '/Use
 function iterm2_print_user_vars() {
   iterm2_set_user_var kubectx $(kubectl config current-context)
   iterm2_set_user_var kubens $(kubectl config view --minify --output 'jsonpath={..namespace}')
+
+  ctx=`kubectl config current-context`
+  ns=`kubectl config view --minify --output 'jsonpath={..namespace}'`
+  iterm2_set_user_var kubenv "kube{$ctx|$ns}"
 }
 
