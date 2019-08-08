@@ -46,3 +46,15 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/eyang/libs/google-cloud-sdk/path.bash.inc' ]; then . '/Users/eyang/libs/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/eyang/libs/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/eyang/libs/google-cloud-sdk/completion.bash.inc'; fi
+
+function iterm2_print_user_vars() {
+  iterm2_set_user_var kubectx $(kubectl config current-context)
+  iterm2_set_user_var kubens $(kubectl config view --minify --output 'jsonpath={..namespace}')
+}
+
