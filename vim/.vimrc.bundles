@@ -98,6 +98,8 @@ Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
 " 快速注释
 Plug 'scrooloose/nerdcommenter'
 
+Plug 'hashivim/vim-terraform'
+
 " view
 " airline
 " 状态栏增强展示
@@ -108,8 +110,10 @@ Plug 'vim-airline/vim-airline-themes'
 " 重启 :YcmRestartServer
 Plug 'Valloric/YouCompleteMe'
 
+" Plug 'zxqfl/tabnine-vim'
+
 " tmux navigator Ctrl-hjkl
-" Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
 if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
@@ -207,7 +211,7 @@ if has_key(g:plugs, 'ale')
     " --ignore=E225,E124,E712,E116
 
     " Set this setting in vimrc if you want to fix files automatically on save.
-    let g:ale_fix_on_save = 1
+    let g:ale_fix_on_save = 0
 
     " let g:ale_sign_column_always = 1
     let g:ale_sign_error = '>>'
@@ -553,5 +557,9 @@ endif
     let g:molokai_original = 1
     let g:rehash256 = 1
 " }}}
+"
+let g:terraform_align=1
+let g:terraform_fold_sections=1
+let g:terraform_fmt_on_save=1
 
 "------------------------------------------- end of configs --------------------------------------------
