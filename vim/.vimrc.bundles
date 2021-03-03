@@ -475,6 +475,15 @@ endif
     " let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
     let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
     let g:CtrlSpaceSaveWorkspaceOnExit = 1
+
+    " find out which engine to use :help g:CtrlSpaceFileEngine
+    if has('mac') || has('gui_macvim')
+        let s:os = 'darwin'
+    else
+        let s:os = 'linux'
+    endif
+    let g:CtrlSpaceFileEngine = '~/.vim/bundle/vim-ctrlspace/bin/file_engine_' . s:os . '_amd64'
+    " let g:CtrlSpaceFileEngine = 'file_engine_darwin_amd64'
 " }}}
 
 " vim-better-whitespace {{{
