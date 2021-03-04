@@ -88,15 +88,14 @@ brew install zopfli
 brew install python
 
 # Install Apps
-brew tap caskroom/cask
-brew cask install iterm2
-brew cask install sourcetree
-brew cask install alfred
-brew cask install flycut
-brew cask install spectacle
+brew install iterm2
+brew install sourcetree
+brew install alfred
+# brew cask install flycut
+brew install spectacle
 
-brew cask install iina
-brew cask install skype
+brew install iina
+# brew cask install skype
 
 # Remove outdated versions from the cellar.
 brew cleanup

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 BASEDIR="$(dirname "${BASH_SOURCE}")"
 cd $BASEDIR
 CURRENT_DIR=`pwd`
@@ -12,10 +13,17 @@ function lnif() {
 
 # Rsync ./links/* to ~/
 function doIt() {
+  # Install oh my zsh
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  # Install spaceship theme
+  git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
+
 	rsync	--exclude ".DS_Store" \
 		--exclude ".osx" \
 		-avh --no-perms ./links/ ~;
-	source ~/.bash_profile;
+	source ~/.zshrc;
 }
 
 echo "Step1: Sync all dotfiles to ~/"

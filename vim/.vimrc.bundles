@@ -110,10 +110,11 @@ Plug 'vim-airline/vim-airline-themes'
 " 重启 :YcmRestartServer
 Plug 'Valloric/YouCompleteMe'
 
-" Plug 'zxqfl/tabnine-vim'
-
 " tmux navigator Ctrl-hjkl
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+
+Plug 'tpope/vim-sensible'
 
 if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
@@ -463,7 +464,11 @@ endif
     " Settings for MacVim and Inconsolata font
         let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
     endif
-    if executable("ag")
+    if executable('rg')
+        let g:CtrlSpaceGlobCommand = 'rg --color=never --files'
+    elseif executable('fd')
+        let g:CtrlSpaceGlobCommand = 'fd --type=file --color=never'
+    elseif executable('ag')
         let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
     endif
     let g:CtrlSpaceSearchTiming = 500
@@ -484,6 +489,7 @@ endif
     endif
     let g:CtrlSpaceFileEngine = '~/.vim/bundle/vim-ctrlspace/bin/file_engine_' . s:os . '_amd64'
     " let g:CtrlSpaceFileEngine = 'file_engine_darwin_amd64'
+
 " }}}
 
 " vim-better-whitespace {{{
