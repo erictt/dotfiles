@@ -5,7 +5,7 @@ My Dotfile
 
 - [My Dotfile](#my-dotfile)
   - [Install Homebrew formulae](#install-homebrew-formulae)
-  - [Install bash/vim dotfiles](#install-bashvim-dotfiles)
+  - [Install zsh/vim dotfiles](#install-zshvim-dotfiles)
   - [Sensible macOS defaults](#sensible-macos-defaults)
   - [VIM Instructions](#vim-instructions)
     - [Command i should remember:](#command-i-should-remember)
@@ -42,14 +42,14 @@ When setting up a new Mac, you may want to install some common [Homebrew](http:/
 ./brew.sh
 ```
 
-## Install bash/vim dotfiles
+## Install zsh/vim dotfiles
 
 To update, `cd` into your local `dotfiles` repository and then:
 
-* for bash
+* for zsh
 
   ```bash
-  ./bash.sh
+  ./zsh.sh
   ```
 
 * for vim

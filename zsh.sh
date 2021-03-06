@@ -16,13 +16,12 @@ function doIt() {
   # Install oh my zsh
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-  # Install spaceship theme
-  git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
-
 	rsync	--exclude ".DS_Store" \
 		--exclude ".osx" \
-		-avh --no-perms ./links/ ~;
+		--exclude "themes/" \
+		-avh --no-perms ./zsh/ ~;
+  # copy the theme
+  cp -f ./zsh/themes/hyperzsh.zsh-theme ~/.oh-my-zsh/custom/themes/hyperzsh.zsh-theme
 	source ~/.zshrc;
 }
 
