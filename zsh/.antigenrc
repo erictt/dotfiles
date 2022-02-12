@@ -14,7 +14,7 @@ antigen bundle rbenv
 antigen bundle tmux
 antigen bundle editor
 antigen bundle history
-# antigen bundle prompt
+antigen bundle prompt
 antigen bundle utility
 antigen bundle completion
 
@@ -23,8 +23,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Select theme
-antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
-# antigen bundle joel-porquet/zsh-dircolors-solarized.git
+antigen theme spaceship-prompt/spaceship-prompt
+SPACESHIP_EXEC_TIME_ELAPSED=1
 
 # Load everything
 antigen apply
@@ -32,3 +32,5 @@ antigen apply
 # Set any settings or overrides here
 # prompt belak
 bindkey -e
+
+

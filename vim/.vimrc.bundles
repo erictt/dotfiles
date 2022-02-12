@@ -45,18 +45,15 @@ Plug 'Lokaltog/vim-easymotion'
 " 快速进行对齐/格式化
 Plug 'junegunn/vim-easy-align'
 
-" 主题 solarized
-" solarized
-Plug 'altercation/vim-colors-solarized'
-" molokai
-" 主题 molokai
-Plug 'tomasr/molokai'
-
-" 增强显示{}
-Plug 'eapache/rainbow_parentheses.vim'
+" 主题
+" Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/everforest'
+Plug 'sheerun/vim-polyglot'
 
 " gitgutter
-" Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 "" 自动补全html/xml标签
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
@@ -329,15 +326,14 @@ endif
         \ '' : 'S',
         \ }
 
-    " let g:airline_theme='solarized dark'
-    let g:airline_theme='luna'
+    let g:airline_theme='gruvbox_material'
 
     " symbols
     " If the previous symbols do not render for you then install a powerline enabled font.
     " https://github.com/powerline/fonts
     let g:airline_powerline_fonts = 1
     if has('gui_running')
-        set guifont=Cousine\ for\ Powerline
+        set guifont=Meslo\ for\ Powerline
     endif
 
     " union fonts
@@ -520,59 +516,15 @@ endif
 
 " gitgutter {{{
     " 同git diff,实时展示文件中修改的行
-    " 只是不喜欢除了行号多一列, 默认关闭,gs时打开
-    "let g:gitgutter_map_keys = 0
-    "let g:gitgutter_enabled = 0
-    "let g:gitgutter_highlight_lines = 1
-    "nnoremap <leader>gs :GitGutterToggle<CR>
+    " let g:gitgutter_highlight_lines = 1
+    " Your vimrc
+    function! GitStatus()
+    let [a,m,r] = GitGutterGetHunkSummary()
+    return printf('+%d ~%d -%d', a, m, r)
+    endfunction
+    set statusline+=%{GitStatus()}
+    nnoremap <leader>gs :GitGutterToggle<CR>
+    nnoremap <leader>gh ::GitGutterLineHighlightsToggle<CR>
 " }}}
-
-" ################### 显示增强-主题 ###################"
-
-" rainbow_parentheses.vim {{{
-
-    let g:bold_parentheses = 1
-    let g:rbpt_max = 15
-    let g:rbpt_loadcmd_toggle = 0
-    let g:rbpt_colorpairs = [
-        \ ['red',         'RoyalBlue3'],
-        \ ['brown',       'SeaGreen3'],
-        \ ['blue',        'DarkOrchid3'],
-        \ ['gray',        'firebrick3'],
-        \ ['green',       'RoyalBlue3'],
-        \ ['magenta',     'SeaGreen3'],
-        \ ['cyan',        'DarkOrchid3'],
-        \ ['darkred',     'firebrick3'],
-        \ ['brown',       'RoyalBlue3'],
-        \ ['darkblue',    'DarkOrchid3'],
-        \ ['gray',        'firebrick3'],
-        \ ['darkgreen',   'RoyalBlue3'],
-        \ ['darkmagenta', 'SeaGreen3'],
-        \ ['darkcyan',    'DarkOrchid3'],
-        \ ['red',         'firebrick3'],
-        \ ]
-    au VimEnter * RainbowParenthesesToggle
-    au Syntax * RainbowParenthesesLoadRound
-    au Syntax * RainbowParenthesesLoadSquare
-    au Syntax * RainbowParenthesesLoadBraces
-
-" }}}
-
-" solarized {{{
-    let g:solarized_termtrans=1
-    let g:solarized_contrast="normal"
-    let g:solarized_visibility="normal"
-    " let g:solarized_termcolors=256
-" }}}
-
-" molokai {{{
-    " monokai原始背景色
-    let g:molokai_original = 1
-    let g:rehash256 = 1
-" }}}
-"
-let g:terraform_align=1
-let g:terraform_fold_sections=1
-let g:terraform_fmt_on_save=1
 
 "------------------------------------------- end of configs --------------------------------------------
