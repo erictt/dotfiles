@@ -526,9 +526,11 @@ endif
 " Theme Settings  主题设置
 "==========================================
 " theme主题
-if has('termguicolors')
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+if (has("termguicolors"))
   set termguicolors
 endif
+
 set background=dark
 let g:gruvbox_material_background = 'medium'
 " let g:gruvbox_material_enable_italic = 1
