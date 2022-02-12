@@ -1,9 +1,6 @@
 # Load oh-my-zsh library
 antigen use oh-my-zsh
 
-# Set the default plugin repo to be zsh-utils
-antigen use belak/zsh-utils
-
 # Specify completions we want before the completion module
 antigen bundle zsh-users/zsh-completions
 
@@ -17,7 +14,7 @@ antigen bundle rbenv
 antigen bundle tmux
 antigen bundle editor
 antigen bundle history
-antigen bundle prompt
+# antigen bundle prompt
 antigen bundle utility
 antigen bundle completion
 
@@ -26,12 +23,12 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Select theme
-antigen theme candy
+antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+# antigen bundle joel-porquet/zsh-dircolors-solarized.git
 
 # Load everything
 antigen apply
 
 # Set any settings or overrides here
-prompt belak
+# prompt belak
 bindkey -e
-

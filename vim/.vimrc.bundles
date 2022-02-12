@@ -120,7 +120,6 @@ if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
     " pythonsyntax
     Plug 'hdima/python-syntax'
-    Plug 'google/yapf'
 endif
 
 if count(g:bundle_groups, 'php')
@@ -133,8 +132,7 @@ endif
 
 if count(g:bundle_groups, 'javascript')
     " javascript
-    " 注意: syntax这个插件要放前面
-    Plug 'othree/yajs.vim' | Plug 'pangloss/vim-javascript'
+    Plug 'pangloss/vim-javascript'
 endif
 
 if count(g:bundle_groups, 'json')
