@@ -22,12 +22,17 @@ brew install findutils
 # Install Bash 5.
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
-brew install bash
+brew install zsh
+brew install tmux
 
-# Switch to using brew-installed bash as default shell
-if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
-  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
-  chsh -s /usr/local/bin/bash;
+# brew install neovim
+brew install macvim
+
+
+# Switch to zsh as default shell
+if ! fgrep -q '/bin/zsh' /etc/shells; then
+  echo '/bin/zsh' | sudo tee -a /etc/shells;
+  chsh -s /bin/zsh;
 fi;
 
 # Install `wget`
@@ -35,39 +40,13 @@ brew install wget
 
 # Install more recent versions of some macOS tools.
 brew install cmake
-brew install macvim
+# brew install macvim
 
 # Install font tools.
 brew tap bramstein/webfonttools
 brew install sfnt2woff
 brew install sfnt2woff-zopfli
 brew install woff2
-
-# Install some CTF tools; see https://github.com/ctfs/write-ups.
-# brew install aircrack-ng
-# brew install bfg
-# brew install binutils
-# brew install binwalk
-# brew install cifer
-# brew install dex2jar
-# brew install dns2tcp
-# brew install fcrackzip
-# brew install foremost
-# brew install hashpump
-# brew install hydra
-# brew install john
-# brew install knock
-# brew install netpbm
-# brew install nmap
-# brew install pngcheck
-# brew install socat
-# brew install sqlmap
-# brew install tcpflow
-# brew install tcpreplay
-# brew install tcptrace
-# brew install ucspi-tcp # `tcpserver` etc.
-# brew install xpdf
-# brew install xz
 
 # Install other useful binaries.
 brew install ack

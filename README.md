@@ -42,9 +42,16 @@ When setting up a new Mac, you may want to install some common [Homebrew](http:/
 ./brew.sh
 ```
 
-## Install zsh/vim dotfiles
+## Install kitty/zsh/vim dotfiles
 
-To update, `cd` into your local `dotfiles` repository and then:
+To update, `cd` into your local `dotfiles` repository and then run:
+
+* for kitty
+
+  ```bash
+  ./kitty.sh
+  ```
+
 
 * for zsh
 
@@ -64,7 +71,7 @@ To update, `cd` into your local `dotfiles` repository and then:
 
 * for tmux
 
-  * `brew install tmux`
+  * `brew install tmux` if not installed yet
   * Enable "Application in terminal may access clipboard" in iTerm2
     * https://github.com/tmux/tmux/wiki/Clipboard#terminal-support---iterm2
   * start a session

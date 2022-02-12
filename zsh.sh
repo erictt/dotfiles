@@ -13,8 +13,12 @@ function lnif() {
 
 # Rsync ./links/* to ~/
 function doIt() {
-  # Install oh my zsh
+  # Install oh-my-zsh
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  # Download antigen
+  mkdir -p ~/.config/
+  curl -L git.io/antigen > ~/.config/antigen.zsh
 
 	rsync	--exclude ".DS_Store" \
 		--exclude ".osx" \
@@ -25,7 +29,7 @@ function doIt() {
 	source ~/.zshrc;
 }
 
-echo "Step1: Sync all dotfiles to ~/"
+echo "Sync all shell files to ~/"
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt;
