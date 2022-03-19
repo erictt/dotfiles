@@ -483,6 +483,8 @@ endif
     endif
     let g:CtrlSpaceFileEngine = '~/.vim/bundle/vim-ctrlspace/bin/file_engine_' . s:os . '_amd64'
     " let g:CtrlSpaceFileEngine = 'file_engine_darwin_amd64'
+    " to fix issue: https://github.com/vim-ctrlspace/vim-ctrlspace/issues/292
+    let g:CtrlSpaceEnableFilesCache = 0
 
 " }}}
 
