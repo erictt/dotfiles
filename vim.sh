@@ -17,8 +17,8 @@ function lnif() {
 # Rsync ./links/* to ~/
 function doIt() {
 
-  echo "Step 1: Sync all dotfiles to ~/"
-  rsync --exclude ".DS_Store" -avh --no-perms ./vim/ ~;
+  echo "Step 1: Sync all neovim config to ~/.config/nvim/"
+  rsync --exclude ".DS_Store" -avh --no-perms ./nvim/ ~/.config/nvim/;
 
   echo "Step 2: install flake8 and autopep8 for python syntax checking and alefix"
   pip3 install flake8 autopep8 yapf
