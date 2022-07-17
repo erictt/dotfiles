@@ -46,11 +46,12 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 
 " 主题
-" Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
-Plug 'sainnhe/everforest'
-Plug 'sheerun/vim-polyglot'
+Plug 'ellisonleao/gruvbox.nvim'
+
+" TODO
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " gitgutter
 Plug 'airblade/vim-gitgutter'
@@ -151,7 +152,7 @@ if has_key(g:plugs, 'ale')
     let g:ale_fixers = {
     \   'javascript': ['eslint'],
     \   'python': ['yapf'],
-    \   'java': ['checkstyle', 'javac', 'google-java-format']
+    \   'java': ['javac', 'google-java-format']
     \}
 
     " E501 -> 120 chars
@@ -194,6 +195,17 @@ if has_key(g:plugs, 'ale')
 endif
 " ################### 自动补全 ###################
 
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" Opening the configuration file
+function! SetupCommandAbbrs(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfunction
+
+" Use C to open coc config
+call SetupCommandAbbrs('C', 'CocConfig')
 nmap <F8> :TagbarToggle<CR>
 
 " ultisnips {{{
