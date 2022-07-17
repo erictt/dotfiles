@@ -33,7 +33,8 @@ function doIt() {
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   system_shell=$SHELL
   export SHELL="/bin/sh"
-  nvim -u $HOME/.config/nvim/vimrc.bundles +PlugInstall! +PlugClean! +qall
+  nvim --headless -u $HOME/.config/nvim/vimrc.bundles +PlugInstall! +PlugClean! +qa
+  # TODO nvim --headless +CocInstall coc-java! +CocInstall coc-go! +CocInstall coc-pyright! +qa
   export SHELL=$system_shell
 
   brew tap universal-ctags/universal-ctags
