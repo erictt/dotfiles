@@ -29,17 +29,22 @@ function doIt() {
         flow-bin
 
   echo "Step 4: update/install plugins using Vim-plug"
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   system_shell=$SHELL
   export SHELL="/bin/sh"
-  vim -u $HOME/.vimrc.bundles +PlugInstall! +PlugClean! +qall
+  nvim -u $HOME/.config/nvim/vimrc.bundles +PlugInstall! +PlugClean! +qall
   export SHELL=$system_shell
 
-  echo "Step 5: compile YouCompleteMe"
-  echo "cd ~/.vim/bundle/YouCompleteMe/ && python install.py --clang-completer"
-  cd ~/.vim/bundle/YouCompleteMe/
-  python install.py --clang-completer
-  python install.py --go-completer
-  python install.py --java-completer
+  brew tap universal-ctags/universal-ctags
+  brew install --HEAD universal-ctags
+
+  # echo "Step 5: compile YouCompleteMe"
+  # echo "cd ~/.vim/bundle/YouCompleteMe/ && python install.py --clang-completer"
+  # cd ~/.vim/bundle/YouCompleteMe/
+  # python install.py --clang-completer
+  # python install.py --go-completer
+  # python install.py --java-completer
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

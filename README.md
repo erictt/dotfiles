@@ -59,7 +59,7 @@ To update, `cd` into your local `dotfiles` repository and then run:
   ./zsh.sh
   ```
 
-* for vim
+* for neovim
 
   * Requirements:
     * `python` use to install `flake8`
