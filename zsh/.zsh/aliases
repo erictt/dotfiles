@@ -17,8 +17,10 @@ alias g="git"
 alias h="history"
 alias j="jobs"
 
-alias v="vim -v"
-alias vi="vim -v"
+# alias v="vim -v"
+# alias vi="vim -v"
+alias v="nvim"
+alias vi="nvim"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -158,5 +160,9 @@ alias reload="exec $SHELL -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# kitty
+alias theme-reset="kitty @ --to unix:/tmp/kitty set-colors --reset"
+alias theme="cd ~/.config/kitty/kitty.d/themes && fzf --preview 'head -n 40 {} && kitty @ --to unix:/tmp/kitty set-colors -a -c {}'; cd -"
 
 alias k='kubectl'

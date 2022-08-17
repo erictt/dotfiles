@@ -24,11 +24,10 @@ let g:mapleader = ','
 " 开启语法高亮
 syntax on
 
-" call plug#begin('~/.vim/bundle')
-" call plug#end()
-
 " install bundles
-source ~/.config/nvim/vimrc.bundles
+source ~/.config/nvim/plug.vim
+source ~/.config/nvim/plug-config.vim
+source ~/.config/nvim/mapping.vim
 
 " ensure ftdetect et al work by including this after the bundle stuff
 filetype plugin indent on
@@ -104,7 +103,7 @@ set viminfo=%,<800,'10,/50,:100,h,f0,n~/.vim/cache/.viminfo
 "           + save/restore buffer list
 " the vim session (different from viminfo
 
-set history=500
+set history=1000
 
 " For regular expressions turn magic on
 set magic
@@ -525,7 +524,7 @@ endif
 " Theme Settings  主题设置
 "==========================================
 " theme主题
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"Use 24-bit (true-color) mode in Neovim when outside tmux.
 if (has("termguicolors"))
   set termguicolors
 endif

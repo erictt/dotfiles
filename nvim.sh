@@ -34,18 +34,16 @@ function doIt() {
   system_shell=$SHELL
   export SHELL="/bin/sh"
   nvim --headless -u $HOME/.config/nvim/vimrc.bundles +PlugInstall! +PlugClean! +qa
-  # TODO nvim --headless +CocInstall coc-java! +CocInstall coc-go! +CocInstall coc-pyright! +qa
   export SHELL=$system_shell
 
   brew tap universal-ctags/universal-ctags
   brew install --HEAD universal-ctags
 
-  # echo "Step 5: compile YouCompleteMe"
-  # echo "cd ~/.vim/bundle/YouCompleteMe/ && python install.py --clang-completer"
-  # cd ~/.vim/bundle/YouCompleteMe/
-  # python install.py --clang-completer
-  # python install.py --go-completer
-  # python install.py --java-completer
+  # Patch fonts with a high number of glyphs (icons).
+  echo "Step 5: Patch fonts with a high number of glyphs (icons). \nDon't forget to install the font: \
+    \n https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/M/Regular/complete/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete%20Mono.ttf"
+  brew tap homebrew/cask-fonts
+  brew install --cask font-hack-nerd-font
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

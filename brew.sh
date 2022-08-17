@@ -19,12 +19,9 @@ brew install coreutils
 brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
-# Install Bash 5.
-# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
-# running `chsh`.
+# Install Terminal tools.
 brew install zsh
 brew install tmux
-
 brew install neovim
 
 
@@ -34,22 +31,11 @@ if ! fgrep -q '/bin/zsh' /etc/shells; then
   chsh -s /bin/zsh;
 fi;
 
-# Install `wget`
-brew install wget
-
-# Install more recent versions of some macOS tools.
-brew install cmake
-# brew install macvim
-
-# Install font tools.
-brew tap bramstein/webfonttools
-brew install sfnt2woff
-brew install sfnt2woff-zopfli
-brew install woff2
-
 # Install other useful binaries.
+brew install wget
+brew install cmake
+brew install neovim
 brew install ack
-#brew install exiv2
 brew install git
 brew install git-secret
 brew install imagemagick
@@ -63,7 +49,10 @@ brew install vbindiff
 brew install webkit2png
 brew install zopfli
 
+# Install languages
 brew install python3
+brew install node
+brew install php
 
 # Install Apps
 brew install iterm2
