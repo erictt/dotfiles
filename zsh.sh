@@ -20,10 +20,14 @@ function doIt() {
   mkdir -p ~/.config/
   curl -L git.io/antigen > ~/.config/antigen.zsh
 
-	rsync	--exclude ".DS_Store" \
-		--exclude ".osx" \
-		--exclude "themes/" \
-		-avh --no-perms ./zsh/ ~;
+  rm -rf ~/.zshrc ~/.zsh
+  ln -s ./zsh/.zshrc ~/zshrc
+  ln -s ./zsh/.zsh ~/zsh
+
+	# rsync	--exclude ".DS_Store" \
+	#   --exclude ".osx" \
+	#   --exclude "themes/" \
+	#   -avh --no-perms ./zsh/ ~;
   # copy the theme
   cp -f ./zsh/themes/hyperzsh.zsh-theme ~/.oh-my-zsh/custom/themes/hyperzsh.zsh-theme
 	source ~/.zshrc;
