@@ -17,13 +17,14 @@ function lnif() {
 # Rsync ./links/* to ~/
 function doIt() {
 
-  echo "Step 1: Sync all neovim config to ~/.config/nvim/"
-  rsync --exclude ".DS_Store" -avh --no-perms ./nvim/ ~/.config/nvim/;
+  echo "Step 1: Link neovim config to ~/.config/nvim/"
+  # rsync --exclude ".DS_Store" -avh --no-perms ./nvim/ ~/.config/nvim/;
+  ln -s ./nvim ~/.config/nvim
 
   echo "Step 2: install flake8 and autopep8 for python syntax checking and alefix"
   pip3 install flake8 autopep8 yapf
 
-  echo "Step 3: Install eslint for js and html syntax checking"
+  echo "Step 3: Install eslint for js syntax checking"
   npm install -g eslint eslint-plugin-standard eslint-plugin-promise eslint-config-standard \
         eslint-plugin-import eslint-plugin-node eslint-plugin-html babel-eslint \
         flow-bin

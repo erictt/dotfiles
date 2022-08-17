@@ -5,8 +5,7 @@ My Dotfile
 
 - [My Dotfile](#my-dotfile)
   - [Install Homebrew formulae](#install-homebrew-formulae)
-  - [Install zsh/vim dotfiles](#install-zshvim-dotfiles)
-  - [Sensible macOS defaults](#sensible-macos-defaults)
+  - [Install kitty/zsh/vim dotfiles](#install-kittyzshvim-dotfiles)
   - [VIM Instructions](#vim-instructions)
     - [Command i should remember:](#command-i-should-remember)
     - [Basic Usage](#basic-usage)
@@ -66,25 +65,18 @@ To update, `cd` into your local `dotfiles` repository and then run:
     * `nodejs` use to install `eslint` and `flow`
 
   ```bash
-  ./vim.sh
+  ./nvim.sh
   ```
 
 * for tmux
 
   * `brew install tmux` if not installed yet
+  * `ln -s ./tmux/tmux.conf ~/.tmux.conf`
   * Enable "Application in terminal may access clipboard" in iTerm2
     * https://github.com/tmux/tmux/wiki/Clipboard#terminal-support---iterm2
   * start a session
     * press `Ctrl + a + I` to install plugins
     * press `Ctrl + a + r` to reload the configuration
-
-## Sensible macOS defaults
-
-When setting up a new Mac, you may want to set some sensible macOS defaults:
-
-```bash
-./.macos
-```
 
 ## VIM Instructions
 
@@ -589,4 +581,3 @@ When setting up a new Mac, you may want to set some sensible macOS defaults:
 * [skwp/dotfiles](https://github.com/skwp/dotfiles)
 * [http://coolshell.cn/articles/5426.html](http://coolshell.cn/articles/5426.html)
 * [http://www.jianshu.com/p/ef2d9442fb0c](http://www.jianshu.com/p/ef2d9442fb0c)
-
