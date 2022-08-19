@@ -2571,6 +2571,8 @@
 	<false/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>SplitPaneDimmingAmount</key>
+	<real>0.29699957542049071</real>
 	<key>StatusBarPosition</key>
 	<integer>1</integer>
 	<key>StretchTabsToFillBar</key>
@@ -2580,7 +2582,7 @@
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>TabsHaveCloseButton</key>
-	<true/>
+	<false/>
 	<key>ThreeFingerEmulates</key>
 	<false/>
 	<key>UseBorder</key>
