@@ -8,12 +8,6 @@ BASEDIR="$(dirname "${BASH_SOURCE}")"
 cd $BASEDIR
 CURRENT_DIR=`pwd`
 
-function lnif() {
-    if [ -e "$1" ]; then
-        ln -sf "$1" "$2"
-    fi
-}
-
 # Rsync ./links/* to ~/
 function doIt() {
 

@@ -27,8 +27,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Group dependencies, vim-snippets depends on ultisnips
 " Snippets are separated from the engine. Add this if you want them:
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 "" automatic closing of quotes, parenthesis, brackets, etc
 Plug 'Raimondi/delimitMate'
@@ -65,8 +65,7 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'ellisonleao/gruvbox.nvim'
 
 " status bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
 
 " highlight syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -79,8 +78,12 @@ Plug 'preservim/tagbar'
 " https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/M/Regular/complete/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
 Plug 'ryanoasis/vim-devicons'
 
-" -------------------------- manage open files -------------------------------
-" bookmarks workspaces files buffers and tabs
+Plug 'nanozuki/tabby.nvim'
+
+" fuzzy finder
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
 " Plug 'vim-ctrlspace/vim-ctrlspace'
 
 " -------------------------- git ---------------------------------------------

@@ -59,7 +59,6 @@ endif
     \ 'coc-pyright',
     \ 'coc-json',
     \ 'coc-markdownlint',
-    \ 'coc-spell-checker',
     \ 'coc-java',
     \ 'coc-go',
     \ 'coc-phpls',
@@ -136,66 +135,119 @@ endif
 " }}}
 
 " ################### theme ###################
-" airline {{{
-    if !exists('g:airline_symbols')
-        let g:airline_symbols = {}
+" lualine {{{
+lua << END
+require("lualine").setup{
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    -- theme = 'gruvbox-material',
+    section_separators = {left = '', right = ''},
+    component_separators = {left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress', 'location'},
+    lualine_z = { {
+        'diagnostics',
+
+        -- Table of diagnostic sources, available sources are:
+        --   'nvim_lsp', 'nvim_diagnostic', 'nvim_workspace_diagnostic', 'coc', 'ale', 'vim_lsp'.
+        -- or a function that returns a table as such:
+        --   { error=error_cnt, warn=warn_cnt, info=info_cnt, hint=hint_cnt }
+        sources = { 'ale', 'coc' },
+
+        -- Displays diagnostics for the defined severity types
+        sections = { 'error', 'warn', 'info', 'hint' },
+        separator = {left = '', right = ''},
+
+        diagnostics_color = {
+          -- Same values as the general color option can be used here.
+          error = { fg = '#ea6962', bg = '#32302f', gui='bold' }, -- Changes diagnostics' error color.
+          warn = { fg = '#d8a657', bg = '#32302f', gui='bold' }, -- Changes diagnostics' error color.
+          info = { fg = '#7daea3', bg = '#32302f', gui='bold' }, -- Changes diagnostics' error color.
+          hint = { fg = '#a9b665', bg = '#32302f', gui='bold' }, -- Changes diagnostics' error color.
+        },
+
+        symbols = {error = 'E:', warn = 'W:', info = 'I:', hint = 'H:'},
+        colored = true,           -- Displays diagnostics status in color if set to true.
+        update_in_insert = false, -- Update diagnostics in insert mode.
+        always_visible = false,   -- Show diagnostics even if there are none.
+      }
+    }
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  -- tabline = {},
+  -- tabline = {
+  --   lualine_a = {'buffers'},
+  --   lualine_b = {'branch'},
+  --   lualine_c = {'filename'},
+  --   lualine_x = {},
+  --   lualine_y = {},
+  --   lualine_z = {'tabs'}
+  -- },
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {'nerdtree'}
+}
+require("tabby").setup{
+}
+END
+" }}}
+"
+" ctrlspace {{{
+    let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+    if has("gui_running")
+    " Settings for MacVim and Inconsolata font
+        let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
     endif
-
-    let g:airline_mode_map = {
-        \ '__' : '-',
-        \ 'n'  : 'N',
-        \ 'i'  : 'I',
-        \ 'R'  : 'R',
-        \ 'c'  : 'C',
-        \ 'v'  : 'V',
-        \ 'V'  : 'V',
-        \ '' : 'V',
-        \ 's'  : 'S',
-        \ 'S'  : 'S',
-        \ '' : 'S',
-        \ }
-
-    let g:airline_theme='gruvbox_material'
-
-    " symbols
-    " If the previous symbols do not render for you then install a powerline enabled font.
-    " https://github.com/powerline/fonts
-    let g:airline_powerline_fonts = 1
-    if has('gui_running')
-        " set guifont=Meslo\ for\ Powerline
-        set guifont=MesloLGM\ Nerd\ Font
+    if executable('rg')
+        let g:CtrlSpaceGlobCommand = 'rg --color=never --files'
+    elseif executable('fd')
+        let g:CtrlSpaceGlobCommand = 'fd --type=file --color=never'
+    elseif executable('ag')
+        let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
     endif
+    let g:CtrlSpaceSearchTiming = 500
+    hi link CtrlSpaceNormal   PMenu
+    hi link CtrlSpaceSelected PMenuSel
+    hi link CtrlSpaceSearch   Search
+    hi link CtrlSpaceStatus   StatusLine
+    nnoremap <silent><C-p> :CtrlSpace O<CR>
+    " let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+    let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+    let g:CtrlSpaceSaveWorkspaceOnExit = 1
 
-    " union fonts
-    " let g:airline_left_sep = '»'
-    " let g:airline_right_sep = '«'
-    " let g:airline_symbols.branch = '⎇'
-    " let g:airline_symbols.linenr = '¶'
-
-    " powerline fonts
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = ''
-    let g:airline_symbols.readonly = ''
-    let g:airline_symbols.linenr = ''
-
-    let g:airline_symbols.paste = '∥'
-    let g:airline_symbols.maxlinenr = ''
-    let g:airline_symbols.whitespace = 'Ξ'
-
-    " enable ctrlspace
-    let g:airline#extensions#ctrlspace#enabled = 1
-
-    " enable tabline
-    let g:airline#extensions#tabline#formatter = 'unique_tail'
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
-    let g:airline#extensions#tabline#show_buffers = 1
-    let g:airline#extensions#tabline#show_tabs = 1
-    let g:airline#extensions#tabline#buffers_label = 'BUF'
-    let g:airline#extensions#tabline#tabs_label = 'TAB'
+    " find out which engine to use :help g:CtrlSpaceFileEngine
+    if has('mac') || has('gui_macvim')
+        let s:os = 'darwin'
+    else
+        let s:os = 'linux'
+    endif
+    let g:CtrlSpaceFileEngine = '~/.vim/bundle/vim-ctrlspace/bin/file_engine_' . s:os . '_amd64'
+    " let g:CtrlSpaceFileEngine = 'file_engine_darwin_amd64'
 
 " }}}
 
@@ -216,37 +268,12 @@ set encoding=UTF-8
 
 " ################### manage open files ###################
 
-" ctrlspace {{{
-    let g:CtrlSpaceDefaultMappingKey = "<C-space> "
-    if has("gui_running")
-    " Settings for MacVim and Inconsolata font
-        let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
-    endif
-    if executable('rg')
-        let g:CtrlSpaceGlobCommand = 'rg --color=never --files'
-    elseif executable('fd')
-        let g:CtrlSpaceGlobCommand = 'fd --type=file --color=never'
-    elseif executable('ag')
-        let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
-    endif
-    let g:CtrlSpaceSearchTiming = 500
-    hi link CtrlSpaceNormal   PMenu
-    hi link CtrlSpaceSelected PMenuSel
-    hi link CtrlSpaceSearch   Search
-    hi link CtrlSpaceStatus   StatusLine
-    " let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-    let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-    let g:CtrlSpaceSaveWorkspaceOnExit = 1
-
-    " find out which engine to use :help g:CtrlSpaceFileEngine
-    if has('mac') || has('gui_macvim')
-        let s:os = 'darwin'
-    else
-        let s:os = 'linux'
-    endif
-    let g:CtrlSpaceFileEngine = '~/.vim/bundle/vim-ctrlspace/bin/file_engine_' . s:os . '_amd64'
-    " let g:CtrlSpaceFileEngine = 'file_engine_darwin_amd64'
-    let g:CtrlSpaceEnableFilesCache = 0
+" telescope {{{
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " }}}
 
