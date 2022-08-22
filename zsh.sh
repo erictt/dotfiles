@@ -15,8 +15,9 @@ function doIt() {
   curl -L git.io/antigen > ~/.config/antigen.zsh
 
   rm -rf ~/.zshrc ~/.zsh
-  ln -s ./zsh/.zshrc ~/zshrc
-  ln -s ./zsh/.zsh ~/zsh
+  ln -sf ~/workspace/dotfiles/zsh/.zshrc ~/.zshrc
+  ln -sf ~/workspace/dotfiles/zsh/.zsh ~/.zsh
+  ln -sf ~/workspace/dotfiles/zsh/.antigenrc ~/.antigenrc
 
 	# rsync	--exclude ".DS_Store" \
 	#   --exclude ".osx" \

@@ -8,13 +8,13 @@ CURRENT_DIR=`pwd`
 function doIt() {
 
   echo "Step 1: Install dependences"
-  # TODO 
+  brew install git make pip npm node rust
 
   echo "Step 2: Install lunarvim"
-  # TODO 
+  bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
   echo "Step 3: Link lunarvim config to ~/.config/lvim/"
-  ln -s ./lvim/config.lua ~/.config/lvim/config.lua
+  ln -s ~/workspace/dotfiles/lvim/config.lua ~/.config/lvim/config.lua
 
   # Patch fonts with a high number of glyphs (icons).
   echo "Step 4: Patch fonts with a high number of glyphs (icons). \nDon't forget to install the font: \
