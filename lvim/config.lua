@@ -17,21 +17,42 @@ lvim.colorscheme = "gruvbox-material"
 
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options.theme = "gruvbox-material"
+lvim.builtin.lualine.sections.lualine_z = { "diagnostics" }
+-- lvim.builtin.bufferline.options.mode = "tabs"
+lvim.builtin.bufferline.options.mode = "tabs" -- set to "tabs" to only show tabpages instead
+lvim.builtin.bufferline.options.numbers = "ordinal"
 lvim.builtin.bufferline.options.theme = "gruvbox-material"
 lvim.builtin.bufferline.options.show_close_icon = false
 lvim.builtin.bufferline.options.show_buffer_close_icons = false
 lvim.builtin.bufferline.options.separator_style = "thick"
-lvim.builtin.lualine.sections.lualine_z = { "diagnostics" }
-
+lvim.builtin.bufferline.options.custom_filter = function(buf_number, buf_numbers)
+  -- filter out filetypes you don't want to see
+  if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
+    return true
+  end
+  -- filter out by buffer name
+  if vim.fn.bufname(buf_number) ~= "<buffer-name-I-dont-want>" then
+    return true
+  end
+  -- filter out based on arbitrary rules
+  -- e.g. filter out vim wiki buffer from tabline in your work repo
+  if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
+    return true
+  end
+  -- filter out by it's index number in list (don't show first buffer)
+  if buf_numbers[1] ~= buf_number then
+    return true
+  end
+end
 -- keymappings [view all the defaults by pressing <leader>Lk]
 -- lvim.leader = "space"
 lvim.leader = ","
 -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<leader>n"] = "<cmd>NvimTreeToggle<CR>"
-lvim.keys.normal_mode["gT"] = "<cmd>bp<CR>"
-lvim.keys.normal_mode["gt"] = "<cmd>bn<CR>"
-lvim.keys.normal_mode["bx"] = "<cmd>bdelete<CR>"
+lvim.keys.normal_mode["bT"] = "<cmd>bp<CR>"
+lvim.keys.normal_mode["bt"] = "<cmd>bn<CR>"
+-- lvim.keys.normal_mode["bx"] = "<cmd>bdelete<CR>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -74,7 +95,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -84,6 +105,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "javascript",
   "json",
   "lua",
+  "markdown",
   "php",
   "python",
   "typescript",
