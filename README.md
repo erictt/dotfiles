@@ -74,6 +74,7 @@ To update, `cd` into your local `dotfiles` repository and then run:
   * `ln -s ./tmux/tmux.conf ~/.tmux.conf`
   * Enable "Application in terminal may access clipboard" in iTerm2
     * https://github.com/tmux/tmux/wiki/Clipboard#terminal-support---iterm2
+  * Install tpm: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
   * start a session
     * press `Ctrl + a + I` to install plugins
     * press `Ctrl + a + r` to reload the configuration

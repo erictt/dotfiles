@@ -34,35 +34,34 @@ fi;
 # Install other useful binaries.
 brew install wget
 brew install cmake
+brew install make
 brew install neovim
 brew install ack
 brew install git
 brew install git-secret
 brew install imagemagick
 brew install rename
-brew install rhino
-brew install speedtest_cli
 brew install ssh-copy-id
-brew install testssl
 brew install tree
 brew install vbindiff
-brew install webkit2png
-brew install zopfli
 
 # Install languages
 brew install python3
 brew install node
 brew install php
 
+# for lunarvim
+brew install npm
+brew install cargo
+brew install pip3
+
 # Install Apps
 brew install iterm2
 brew install kitty
-brew install sourcetree
 brew install alfred
 # brew cask install flycut
 brew install spectacle
 
-brew install iina
 
 # Remove outdated versions from the cellar.
 brew cleanup
