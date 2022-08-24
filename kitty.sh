@@ -3,4 +3,4 @@
 brew install kitty
 
 # cp -fR ./kitty ~/.config/
-ln -s ./kitty ~/.config/kitty
+ln -sf ./kitty ~/.config/kitty
