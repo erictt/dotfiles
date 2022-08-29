@@ -99,7 +99,14 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup = {
+  -- actions = {
+  --   change_dir = {
+  --     global = true,
+  --   },
+  -- },
   open_on_tab = true,
+  prefer_startup_root = true,
+  open_on_setup = true,
   view = {
     side = "left",
     mappings = {
@@ -107,13 +114,16 @@ lvim.builtin.nvimtree.setup = {
         { key = "t", action = "tabnew" },
         { key = "u", action = "dir_up" },
         { key = "C", action = "cd" },
+        { key = "v", action = "vsplit" },
+        { key = "e", action = "split" },
+        { key = "o", action = "<CR>" },
       },
     },
   },
   renderer = {
     icons = {
       show = {
-        git = false,
+        git = true,
       }
     }
   }
