@@ -54,8 +54,8 @@ lvim.leader = ","
 -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<leader>n"] = "<cmd>NvimTreeToggle<CR>"
--- lvim.keys.normal_mode["bT"] = "<cmd>bp<CR>"
--- lvim.keys.normal_mode["bt"] = "<cmd>bn<CR>"
+lvim.keys.normal_mode["<C-p>"] = "<cmd>bp<CR>"
+lvim.keys.normal_mode["<C-n>"] = "<cmd>bn<CR>"
 -- lvim.keys.normal_mode["bx"] = "<cmd>bdelete<CR>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
@@ -98,8 +98,26 @@ lvim.builtin.alpha.active = false
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup = {
+  open_on_tab = true,
+  view = {
+    side = "left",
+    mappings = {
+      list = {
+        { key = "t", action = "tabnew" },
+        { key = "u", action = "dir_up" },
+        { key = "C", action = "cd" },
+      },
+    },
+  },
+  renderer = {
+    icons = {
+      show = {
+        git = false,
+      }
+    }
+  }
+}
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -220,7 +238,8 @@ lvim.plugins = {
         enable_default_keybindings = true,
       }
     })
-  end },
+  end
+  },
   --     {"folke/tokyonight.nvim"},
   --     {
   --       "folke/trouble.nvim",
