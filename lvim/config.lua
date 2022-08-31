@@ -10,8 +10,10 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
 lvim.colorscheme = "gruvbox-material"
+
+lvim.format_on_save = false
+lvim.lint_on_save = false
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -22,6 +24,7 @@ lvim.builtin.bufferline.options.theme = "gruvbox-material"
 lvim.builtin.bufferline.options.show_close_icon = false
 lvim.builtin.bufferline.options.show_buffer_close_icons = false
 lvim.builtin.bufferline.options.separator_style = "thick"
+lvim.builtin.bufferline.options.always_show_bufferline = true
 lvim.builtin.bufferline.options.custom_filter = function(buf_number, buf_numbers)
 
   -- filter out filetypes you don't want to see
@@ -56,6 +59,12 @@ lvim.leader = ","
 lvim.keys.normal_mode["<leader>n"] = "<cmd>NvimTreeToggle<CR>"
 lvim.keys.normal_mode["<C-p>"] = "<cmd>bp<CR>"
 lvim.keys.normal_mode["<C-n>"] = "<cmd>bn<CR>"
+lvim.keys.normal_mode["<leader>ba"] = "<cmd>Telescope buffers<CR>"
+lvim.keys.normal_mode["zf"] = "<cmd>lua vim.lsp.buf.formatting()<CR>"
+lvim.keys.normal_mode["z-"] = "<cmd>set nospell<CR>"
+lvim.keys.normal_mode["zl"] = "<cmd>NvimTreeResize +10<CR>"
+lvim.keys.normal_mode["zh"] = "<cmd>NvimTreeResize -10<CR>"
+
 -- lvim.keys.normal_mode["bx"] = "<cmd>bdelete<CR>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
@@ -115,7 +124,7 @@ lvim.builtin.nvimtree.setup = {
         { key = "u", action = "dir_up" },
         { key = "C", action = "cd" },
         { key = "v", action = "vsplit" },
-        { key = "e", action = "split" },
+        { key = "s", action = "split" },
         { key = "o", action = "<CR>" },
       },
     },
@@ -150,6 +159,7 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
+
 
 -- generic LSP settings
 
@@ -248,6 +258,10 @@ lvim.plugins = {
         enable_default_keybindings = true,
       }
     })
+  end
+  },
+  { "gpanders/editorconfig.nvim", config = function()
+    require("editorconfig").setup()
   end
   },
   --     {"folke/tokyonight.nvim"},
