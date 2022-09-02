@@ -64,6 +64,8 @@ lvim.keys.normal_mode["zf"] = "<cmd>lua vim.lsp.buf.formatting()<CR>"
 lvim.keys.normal_mode["z-"] = "<cmd>set nospell<CR>"
 lvim.keys.normal_mode["zl"] = "<cmd>NvimTreeResize +10<CR>"
 lvim.keys.normal_mode["zh"] = "<cmd>NvimTreeResize -10<CR>"
+lvim.keys.normal_mode["<leader>g"] = ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>"
+
 
 -- lvim.keys.normal_mode["bx"] = "<cmd>bdelete<CR>"
 -- unmap a default keymapping
@@ -100,6 +102,11 @@ lvim.keys.normal_mode["zh"] = "<cmd>NvimTreeResize -10<CR>"
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 --   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 -- }
+
+lvim.builtin.telescope.on_config_done = function(telescope)
+  pcall(telescope.load_extension, "live_grep_args")
+  -- any other extensions loading
+end
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -264,6 +271,7 @@ lvim.plugins = {
     require("editorconfig").setup()
   end
   },
+  { "nvim-telescope/telescope-live-grep-args.nvim" },
   --     {"folke/tokyonight.nvim"},
   --     {
   --       "folke/trouble.nvim",
