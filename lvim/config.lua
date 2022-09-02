@@ -51,10 +51,25 @@ end
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options.theme = "gruvbox-material"
 -- lvim.builtin.lualine.sections.lualine_z = { "location" }
-lvim.builtin.lualine.sections.lualine_a = {'mode'}
-lvim.builtin.lualine.sections.lualine_b = {'branch', 'diff' }
-lvim.builtin.lualine.sections.lualine_c = {'filename', 'diagnostics'}
-lvim.builtin.lualine.sections.lualine_x = {  "lsp", "filetype" }
+lvim.builtin.lualine.sections.lualine_a = { 'mode' }
+lvim.builtin.lualine.sections.lualine_b = { 'branch', 'diff',
+  { 'diagnostics',
+    sources = { 'nvim_lsp', 'nvim_diagnostic' },
+    sections = { 'error', 'warn', 'info', 'hint' },
+    diagnostics_color = {
+      -- Same values as the general color option can be used here.
+      error = { fg = '#ea6962'}, -- Changes diagnostics' error color.
+      warn = { fg = '#d8a657'}, -- Changes diagnostics' error color.
+      info = { fg = '#7daea3'}, -- Changes diagnostics' error color.
+      hint = { fg = '#a9b665'}, -- Changes diagnostics' error color.
+    },
+    colored = true, -- Displays diagnostics status in color if set to true.
+    update_in_insert = false, -- Update diagnostics in insert mode.
+    always_visible = false, -- Show diagnostics even if there are none.
+  }
+}
+lvim.builtin.lualine.sections.lualine_c = { 'filename' }
+lvim.builtin.lualine.sections.lualine_x = { "lsp", "filetype" }
 
 -- Customization
 
@@ -324,14 +339,14 @@ lvim.plugins = {
     })
   end
   },
-  { "folke/todo-comments.nvim", config = function()
-			require("todo-comments").setup()
-		end,
-	},
+  --  { "folke/todo-comments.nvim", config = function()
+  -- 		require("todo-comments").setup()
+  -- 	end,
+  -- },
   { "nvim-telescope/telescope-live-grep-args.nvim" },
   { "tiagovla/scope.nvim", config = function()
-			require("scope").setup()
-		end,
+    require("scope").setup()
+  end,
   }
   --     {"folke/tokyonight.nvim"},
   --     {
