@@ -9,9 +9,10 @@ an executable
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- general
-lvim.log.level = "warn"
 lvim.colorscheme = "gruvbox-material"
-
+lvim.debug = false
+vim.lsp.set_log_level "warn"
+lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = false
 -- to disable icons and use a minimalist setup, uncomment the following
@@ -50,6 +51,66 @@ end
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options.theme = "gruvbox-material"
 lvim.builtin.lualine.sections.lualine_z = { "diagnostics" }
+local components = require "lvim.core.lualine.components"
+  -- Remove treesitter from the config
+  lvim.builtin.lualine.sections.lualine_x = {
+    components.diagnostics,
+    components.lsp,
+    components.filetype,
+  }
+
+  -- Replace progressbar with location
+  lvim.builtin.lualine.sections.lualine_z = {
+    components.location,
+  }
+
+  -- Remove bold from lsp info and set foreground color to dimmer one
+  lvim.builtin.lualine.on_config_done = function(lualine)
+    local config = lualine.get_config()
+    config.sections.lualine_x[2].color.gui = "none"
+    config.sections.lualine_x[2].color.fg = "#E5E9F0"
+    lualine.setup(config)
+  end
+
+
+-- Customization
+-- =========================================
+lvim.builtin.sell_your_soul_to_devil = { active = false, prada = false } -- if you want microsoft to abuse your soul
+lvim.builtin.lastplace = { active = false } -- change to false if you are jumping to future
+lvim.builtin.tabnine = { active = true } -- change to false if you don't like tabnine
+lvim.builtin.persistence = { active = true } -- change to false if you don't want persistence
+lvim.builtin.presence = { active = false } -- change to true if you want discord presence
+lvim.builtin.orgmode = { active = false } -- change to true if you want orgmode.nvim
+lvim.builtin.dap.active = true -- change this to enable/disable debugging
+lvim.builtin.fancy_statusline = { active = true } -- enable/disable fancy statusline
+lvim.builtin.fancy_wild_menu = { active = false } -- enable/disable cmp-cmdline
+lvim.builtin.fancy_diff = { active = false } -- enable/disable fancier git diff
+lvim.builtin.lua_dev = { active = true } -- change this to enable/disable folke/lua_dev
+lvim.builtin.test_runner = { active = true, runner = "ultest" } -- change this to enable/disable ultest or neotest
+lvim.builtin.cheat = { active = true } -- enable cheat.sh integration
+lvim.builtin.sql_integration = { active = false } -- use sql integration
+lvim.builtin.smooth_scroll = "cinnamon" -- for smoth scrolling, can be "cinnamon", "neoscroll" or ""
+lvim.builtin.neoclip = { active = true, enable_persistent_history = false }
+lvim.builtin.nonumber_unfocus = false -- diffrentiate between focused and non focused windows
+lvim.builtin.custom_web_devicons = false -- install https://github.com/Nguyen-Hoang-Nam/mini-file-icons
+lvim.builtin.harpoon = { active = true } -- use the harpoon plugin
+lvim.builtin.remote_dev = { active = false } -- enable/disable remote development
+lvim.builtin.cursorline = { active = false } -- use a bit fancier cursorline
+lvim.builtin.motion_provider = "hop" -- change this to use different motion providers ( hop or lightspeed )
+lvim.builtin.hlslens = { active = false } -- enable/disable hlslens
+lvim.builtin.csv_support = false -- enable/disable csv support
+lvim.builtin.sidebar = { active = false } -- enable/disable sidebar
+lvim.builtin.async_tasks = { active = false } -- enable/disable async tasks
+lvim.builtin.winbar_provider = "filename" -- can be "filename" or "treesitter" or ""
+lvim.builtin.collaborative_editing = { active = false } -- enable/disable collaborative editing
+lvim.builtin.file_browser = { active = false } -- enable/disable telescope file browser
+lvim.builtin.sniprun = { active = false } -- enable/disable sniprun
+lvim.builtin.tag_provider = "symbols-outline" -- change this to use different tag providers ( symbols-outline or vista )
+lvim.builtin.editorconfig = { active = true } -- enable/disable editorconfig
+lvim.builtin.global_statusline = false -- set true to use global statusline
+lvim.builtin.dressing = { active = false } -- enable to override vim.ui.input and vim.ui.select with telescope
+lvim.builtin.refactoring = { active = false } -- enable to use refactoring.nvim code_actions
+-- lvim.builtin.tmux_lualine = false -- use vim-tpipeline to integrate lualine and tmux
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 -- lvim.leader = "space"
@@ -108,7 +169,6 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   -- any other extensions loading
 end
 
--- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = false
 lvim.builtin.alpha.mode = "dashboard"
@@ -243,6 +303,18 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 
+-- StatusLine
+-- =========================================
+-- if lvim.builtin.fancy_statusline.active then
+--   -- require("user.lualine").config()
+-- end
+
+-- Debugging
+-- -- =========================================
+-- if lvim.builtin.dap.active then
+--   require("user.dap").config()
+-- end
+
 -- Additional Plugins
 lvim.plugins = {
   { "lunarvim/colorschemes" },
@@ -267,10 +339,10 @@ lvim.plugins = {
     })
   end
   },
-  { "gpanders/editorconfig.nvim", config = function()
-    require("editorconfig").setup()
-  end
-  },
+  { "folke/todo-comments.nvim", config = function()
+			require("todo-comments").setup()
+		end,
+	},
   { "nvim-telescope/telescope-live-grep-args.nvim" },
   --     {"folke/tokyonight.nvim"},
   --     {
