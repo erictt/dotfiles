@@ -19,7 +19,7 @@ lvim.lint_on_save = false
 -- lvim.use_icons = false
 
 -- lvim.builtin.bufferline.options.mode = "tabs"
-lvim.builtin.bufferline.options.mode = "tabs" -- set to "tabs" to only show tabpages instead
+-- lvim.builtin.bufferline.options.mode = "tabs" -- set to "tabs" to only show tabpages instead
 lvim.builtin.bufferline.options.numbers = "ordinal"
 lvim.builtin.bufferline.options.theme = "gruvbox-material"
 lvim.builtin.bufferline.options.show_close_icon = false
@@ -50,30 +50,15 @@ end
 
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options.theme = "gruvbox-material"
-lvim.builtin.lualine.sections.lualine_z = { "diagnostics" }
-local components = require "lvim.core.lualine.components"
-  -- Remove treesitter from the config
-  lvim.builtin.lualine.sections.lualine_x = {
-    components.diagnostics,
-    components.lsp,
-    components.filetype,
-  }
-
-  -- Replace progressbar with location
-  lvim.builtin.lualine.sections.lualine_z = {
-    components.location,
-  }
-
-  -- Remove bold from lsp info and set foreground color to dimmer one
-  lvim.builtin.lualine.on_config_done = function(lualine)
-    local config = lualine.get_config()
-    config.sections.lualine_x[2].color.gui = "none"
-    config.sections.lualine_x[2].color.fg = "#E5E9F0"
-    lualine.setup(config)
-  end
-
+-- lvim.builtin.lualine.sections.lualine_z = { "location" }
+lvim.builtin.lualine.sections.lualine_a = {'mode'}
+lvim.builtin.lualine.sections.lualine_b = {'branch', 'diff' }
+lvim.builtin.lualine.sections.lualine_c = {'filename', 'diagnostics'}
+lvim.builtin.lualine.sections.lualine_x = {  "lsp", "filetype" }
 
 -- Customization
+
+
 -- =========================================
 lvim.builtin.sell_your_soul_to_devil = { active = false, prada = false } -- if you want microsoft to abuse your soul
 lvim.builtin.lastplace = { active = false } -- change to false if you are jumping to future
@@ -344,6 +329,10 @@ lvim.plugins = {
 		end,
 	},
   { "nvim-telescope/telescope-live-grep-args.nvim" },
+  { "tiagovla/scope.nvim", config = function()
+			require("scope").setup()
+		end,
+  }
   --     {"folke/tokyonight.nvim"},
   --     {
   --       "folke/trouble.nvim",
