@@ -125,7 +125,7 @@ lvim.keys.normal_mode["zf"] = "<cmd>lua vim.lsp.buf.formatting()<CR>"
 lvim.keys.normal_mode["z-"] = "<cmd>set nospell<CR>"
 lvim.keys.normal_mode["zl"] = "<cmd>NvimTreeResize +10<CR>"
 lvim.keys.normal_mode["zh"] = "<cmd>NvimTreeResize -10<CR>"
-lvim.keys.normal_mode["<leader>g"] = ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>"
+lvim.keys.normal_mode["<leader>a"] = ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>"
 
 
 -- lvim.keys.normal_mode["bx"] = "<cmd>bdelete<CR>"
