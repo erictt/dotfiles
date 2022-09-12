@@ -11,9 +11,8 @@ CURRENT_DIR=`pwd`
 # Rsync ./links/* to ~/
 function doIt() {
 
-  echo "Step 1: Link neovim config to ~/.config/nvim/"
-  # rsync --exclude ".DS_Store" -avh --no-perms ./nvim/ ~/.config/nvim/;
-  ln -s ./nvim ~/.config/nvim
+  echo "Step 1: Link neovim config to ~/.config/nvim"
+  ln -s ~/workspace/dotfiles/nvim ~/.config/nvim
 
   echo "Step 2: install flake8 and autopep8 for python syntax checking and alefix"
   pip3 install flake8 autopep8 yapf

@@ -58,10 +58,10 @@ lvim.builtin.lualine.sections.lualine_b = { 'branch', 'diff',
     sections = { 'error', 'warn', 'info', 'hint' },
     diagnostics_color = {
       -- Same values as the general color option can be used here.
-      error = { fg = '#ea6962'}, -- Changes diagnostics' error color.
-      warn = { fg = '#d8a657'}, -- Changes diagnostics' error color.
-      info = { fg = '#7daea3'}, -- Changes diagnostics' error color.
-      hint = { fg = '#a9b665'}, -- Changes diagnostics' error color.
+      error = { fg = '#ea6962' }, -- Changes diagnostics' error color.
+      warn = { fg = '#d8a657' }, -- Changes diagnostics' error color.
+      info = { fg = '#7daea3' }, -- Changes diagnostics' error color.
+      hint = { fg = '#a9b665' }, -- Changes diagnostics' error color.
     },
     colored = true, -- Displays diagnostics status in color if set to true.
     update_in_insert = false, -- Update diagnostics in insert mode.
@@ -269,39 +269,47 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
+local null_ls = require "lvim.lsp.null-ls"
+local sources = { null_ls.builtins.formatting.phpcsfixer }
+null_ls.setup({ sources = sources })
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { command = "black", filetypes = { "python" } },
---   { command = "isort", filetypes = { "python" } },
---   {
---     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  {
+    command = "php-cs-fixer",
+    -- extra_args = {"--no-interaction", "--quiet", "fix", "$FILENAME" }
+    filetype = { "php" }
+  },
+  --   { command = "black", filetypes = { "python" } },
+  --   { command = "isort", filetypes = { "python" } },
+  --   {
+  --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+  --     command = "prettier",
+  --     ---@usage arguments to pass to the formatter
+  --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+  --     extra_args = { "--print-with", "100" },
+  --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+  --     filetypes = { "typescript", "typescriptreact" },
+  --   },
+}
 
 -- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
--- linters.setup {
---   { command = "flake8", filetypes = { "python" } },
---   {
---     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "shellcheck",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--severity", "warning" },
---   },
---   {
---     command = "codespell",
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "javascript", "python" },
---   },
--- }
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  --   { command = "flake8", filetypes = { "python" } },
+  --   {
+  --     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+  --     command = "shellcheck",
+  --     ---@usage arguments to pass to the formatter
+  --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+  --     extra_args = { "--severity", "warning" },
+  --   },
+  --   {
+  --     command = "codespell",
+  --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+  --     filetypes = { "javascript", "python" },
+  --   },
+}
 
 -- StatusLine
 -- =========================================
@@ -347,7 +355,8 @@ lvim.plugins = {
   { "tiagovla/scope.nvim", config = function()
     require("scope").setup()
   end,
-  }
+  },
+  { "gpanders/editorconfig.nvim" },
   --     {"folke/tokyonight.nvim"},
   --     {
   --       "folke/trouble.nvim",

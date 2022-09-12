@@ -31,3 +31,5 @@
 node_modules/*
 *.log
 .DS_Store
+
+nvim/plugin
