@@ -33,3 +33,6 @@ node_modules/*
 .DS_Store
 
 nvim/plugin
+
+*.swp
+

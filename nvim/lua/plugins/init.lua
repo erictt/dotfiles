@@ -18,7 +18,7 @@ local plugins = {
 			require("core.utils").load_mappings("blankline")
 		end,
 		config = function()
-			require("plugins.configs.others").blankline()
+			require("plugins.others").blankline()
 		end,
 	},
 
@@ -28,14 +28,14 @@ local plugins = {
 			require("core.lazy_load").on_file_open("nvim-colorizer.lua")
 		end,
 		config = function()
-			require("plugins.configs.others").colorizer()
+			require("plugins.others").colorizer()
 		end,
 	},
 
 	["NvChad/nvterm"] = {
 		module = "nvterm",
 		config = function()
-			require("plugins.configs.nvterm")
+			require("plugins.nvterm")
 		end,
 		setup = function()
 			require("core.utils").load_mappings("nvterm")
@@ -50,7 +50,7 @@ local plugins = {
 		cmd = require("core.lazy_load").treesitter_cmds,
 		run = ":TSUpdate",
 		config = function()
-			require("plugins.configs.treesitter")
+			require("plugins.treesitter")
 		end,
 	},
 
@@ -61,7 +61,7 @@ local plugins = {
 			require("core.lazy_load").gitsigns()
 		end,
 		config = function()
-			require("plugins.configs.others").gitsigns()
+			require("plugins.others").gitsigns()
 		end,
 	},
 
@@ -69,7 +69,7 @@ local plugins = {
 	["williamboman/mason.nvim"] = {
 		cmd = require("core.lazy_load").mason_cmds,
 		config = function()
-			require("plugins.configs.mason")
+			require("plugins.mason")
 		end,
 	},
 
@@ -79,14 +79,14 @@ local plugins = {
 		-- 	require("core.lazy_load").on_file_open("nvim-lspconfig")
 		-- end,
 		config = function()
-			require("plugins.configs.lspconfig")
+			require("plugins.lspconfig")
 		end,
 	},
 
 	["jose-elias-alvarez/null-ls.nvim"] = {
 		after = "nvim-lspconfig",
 		config = function()
-			require("plugins.configs.null_ls")
+			require("plugins.null_ls")
 		end,
 	},
 
@@ -100,7 +100,7 @@ local plugins = {
 	["hrsh7th/nvim-cmp"] = {
 		after = "friendly-snippets",
 		config = function()
-			require("plugins.configs.cmp")
+			require("plugins.cmp")
 		end,
 	},
 
@@ -108,7 +108,7 @@ local plugins = {
 		wants = "friendly-snippets",
 		after = "nvim-cmp",
 		config = function()
-			require("plugins.configs.others").luasnip()
+			require("plugins.others").luasnip()
 		end,
 	},
 
@@ -122,13 +122,13 @@ local plugins = {
 	["windwp/nvim-autopairs"] = {
 		after = "nvim-cmp",
 		config = function()
-			require("plugins.configs.others").autopairs()
+			require("plugins.others").autopairs()
 		end,
 	},
 
 	["goolord/alpha-nvim"] = {
 		config = function()
-			require("plugins.configs.alpha")
+			require("plugins.alpha")
 		end,
 	},
 
@@ -136,7 +136,7 @@ local plugins = {
 		module = "Comment",
 		keys = { "gc", "gb" },
 		config = function()
-			require("plugins.configs.others").comment()
+			require("plugins.others").comment()
 		end,
 		setup = function()
 			require("core.utils").load_mappings("comment")
@@ -148,7 +148,7 @@ local plugins = {
 		ft = "alpha",
 		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
 		config = function()
-			require("plugins.configs.nvimtree")
+			require("plugins.nvimtree")
 		end,
 		setup = function()
 			require("core.utils").load_mappings("nvimtree")
@@ -158,7 +158,7 @@ local plugins = {
 	["nvim-telescope/telescope.nvim"] = {
 		cmd = "Telescope",
 		config = function()
-			require("plugins.configs.telescope")
+			require("plugins.telescope")
 		end,
 		setup = function()
 			require("core.utils").load_mappings("telescope")
@@ -170,7 +170,7 @@ local plugins = {
 		module = "which-key",
 		keys = "<leader>",
 		config = function()
-			require("plugins.configs.whichkey")
+			require("plugins.whichkey")
 		end,
 		setup = function()
 			require("core.utils").load_mappings("whichkey")
@@ -183,13 +183,13 @@ local plugins = {
 
 	["nvim-lualine/lualine.nvim"] = {
 		config = function()
-			require("plugins.configs.lualine")
+			require("plugins.lualine")
 		end,
 	},
 
 	["akinsho/bufferline.nvim"] = {
 		config = function()
-			require("plugins.configs.bufferline")
+			require("plugins.bufferline")
 		end,
 		setup = function()
 			require("core.utils").load_mappings("bufferline")
@@ -208,10 +208,10 @@ local plugins = {
 
 	["christoomey/vim-tmux-navigator"] = {
 		config = function()
-			require("plugins.configs.tmux")
+			require("plugins.tmux")
 		end,
 		-- setup = function()
-		--   require("plugins.configs.tmux").load_mappings "tmux"
+		--   require("plugins.tmux").load_mappings "tmux"
 		-- end,
 	},
 }
@@ -225,7 +225,7 @@ if present then
 	plugins = require("core.utils").merge_plugins(plugins)
 
 	-- load packer init options
-	local init_options = require("plugins.configs.others").packer_init()
+	local init_options = require("plugins.others").packer_init()
 	packer.init(init_options)
 
 	for _, v in pairs(plugins) do
