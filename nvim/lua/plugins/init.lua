@@ -74,10 +74,10 @@ local plugins = {
 	},
 
 	["neovim/nvim-lspconfig"] = {
-		-- opt = true,
-		-- setup = function()
-		-- 	require("core.lazy_load").on_file_open("nvim-lspconfig")
-		-- end,
+		opt = true,
+		setup = function()
+			require("core.lazy_load").on_file_open("nvim-lspconfig")
+		end,
 		config = function()
 			require("plugins.lspconfig")
 		end,
@@ -207,12 +207,12 @@ local plugins = {
 	},
 
 	["christoomey/vim-tmux-navigator"] = {
+		setup = function()
+			require("plugins.tmux").load_mappings("tmux")
+		end,
 		config = function()
 			require("plugins.tmux")
 		end,
-		-- setup = function()
-		--   require("plugins.tmux").load_mappings "tmux"
-		-- end,
 	},
 }
 

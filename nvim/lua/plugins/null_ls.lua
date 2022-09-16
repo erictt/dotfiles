@@ -8,7 +8,7 @@ local b = null_ls.builtins
 
 local sources = {
 	-- format html and markdown
-	-- b.formatting.prettierd.with({ filetypes = { "html", "yaml", "markdown" } }),
+	b.formatting.prettierd.with({ filetypes = { "html", "yaml", "markdown" } }),
 	-- markdown diagnostic
 	-- b.diagnostics.markdownlint,
 	-- Lua formatting
@@ -25,7 +25,7 @@ local sources = {
 	b.diagnostics.clang_check,
 
 	-- editorconfig
-	b.diagnostics.editorconfig_checker,
+	-- b.diagnostics.editorconfig_checker,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -37,7 +37,7 @@ local on_attach = function(client, bufnr)
 			buffer = bufnr,
 			callback = function()
 				-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-				vim.lsp.buf.formatting_sync()
+				vim.lsp.buf.formatting_seq_sync()
 			end,
 		})
 	end

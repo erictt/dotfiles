@@ -64,14 +64,10 @@ lspconfig.sumneko_lua.setup({
 	},
 })
 
-lspconfig.phpactor.setup({
+lspconfig.intelephense.setup({
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
-	settings = {
-		phpactor = {
-			files = { associations = { "*.php", "*.phtml", "*.module", "*.inc" } },
-		},
-	},
+	settings = { intelephense = { files = { associations = { "*.php", "*.phtml", "*.module", "*.inc" } } } },
 })
 
 lspconfig.clangd.setup({
