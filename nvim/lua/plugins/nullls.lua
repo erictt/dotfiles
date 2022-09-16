@@ -1,50 +1,50 @@
 local present, null_ls = pcall(require, "null-ls")
 
 if not present then
-	return
+  return
 end
 
 local b = null_ls.builtins
 
 local sources = {
-	-- format html and markdown
-	b.formatting.prettierd.with({ filetypes = { "html", "yaml", "markdown" } }),
-	-- markdown diagnostic
-	-- b.diagnostics.markdownlint,
-	-- Lua formatting
-	b.formatting.stylua.with({ filetypes = { "lua" } }),
-	-- php formatting
-	b.formatting.phpcsfixer.with({ filetypes = { "php" } }),
+  -- format html and markdown
+  b.formatting.prettierd.with({ filetypes = { "html", "yaml", "markdown" } }),
+  -- markdown diagnostic
+  -- b.diagnostics.markdownlint,
+  -- Lua formatting
+  -- b.formatting.stylua.with({ filetypes = { "lua" } }),
+  -- php formatting
+  b.formatting.phpcsfixer.with({ filetypes = { "php" } }),
 
-	-- javascript, typescript
-	b.code_actions.eslint,
-	b.diagnostics.eslint,
+  -- javascript, typescript
+  b.code_actions.eslint,
+  b.diagnostics.eslint,
 
-	-- c, cpp
-	b.formatting.clang_format,
-	b.diagnostics.clang_check,
+  -- c, cpp
+  b.formatting.clang_format,
+  b.diagnostics.clang_check,
 
-	-- editorconfig
-	-- b.diagnostics.editorconfig_checker,
+  -- editorconfig
+  -- b.diagnostics.editorconfig_checker,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
-			buffer = bufnr,
-			callback = function()
-				-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-				vim.lsp.buf.formatting_seq_sync()
-			end,
-		})
-	end
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+        vim.lsp.buf.formatting_seq_sync()
+      end,
+    })
+  end
 end
 
 null_ls.setup({
-	debug = true,
-	sources = sources,
-	on_attach = on_attach,
+  debug = true,
+  sources = sources,
+  on_attach = on_attach,
 })

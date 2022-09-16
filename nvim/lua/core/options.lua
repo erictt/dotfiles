@@ -1,14 +1,14 @@
 local opt = vim.opt
 local g = vim.g
 
-vim.cmd [[
+vim.cmd([[
   try
     colorscheme gruvbox-material
   catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
     set background=dark
   endtry
-]]
+]])
 
 g.vim_version = vim.version().minor
 g.toggle_theme_icon = "   "
@@ -28,10 +28,10 @@ opt.clipboard = "unnamedplus"
 opt.cursorline = true
 
 -- Indenting
-opt.expandtab = true
-opt.shiftwidth = 2
-opt.smartindent = true
 opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.smartindent = true
 opt.softtabstop = 2
 
 opt.fillchars = { eob = " " }
@@ -45,7 +45,7 @@ opt.numberwidth = 2
 opt.ruler = false
 
 -- disable nvim intro
-opt.shortmess:append "sI"
+opt.shortmess:append("sI")
 
 opt.signcolumn = "yes"
 opt.splitbelow = true
@@ -59,7 +59,7 @@ opt.updatetime = 250
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
+opt.whichwrap:append("<>[]hl")
 
 g.mapleader = ","
 
