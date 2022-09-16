@@ -10,7 +10,7 @@ local sources = {
   -- format html and markdown
   b.formatting.prettierd.with({ filetypes = { "html", "yaml", "markdown" } }),
   -- markdown diagnostic
-  -- b.diagnostics.markdownlint,
+  b.diagnostics.markdownlint,
   -- Lua formatting
   -- b.formatting.stylua.with({ filetypes = { "lua" } }),
   -- php formatting
@@ -23,9 +23,6 @@ local sources = {
   -- c, cpp
   b.formatting.clang_format,
   b.diagnostics.clang_check,
-
-  -- editorconfig
-  -- b.diagnostics.editorconfig_checker,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
