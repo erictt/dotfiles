@@ -44,6 +44,6 @@ wk.register({
     k = { name = "+whichkey", },
     l = { name = "+lsp", },
     w = { name = "+lsp workspace", },
-    t = { name = "+terminal", },
+    t = { name = "+treesitter", },
   },
 })

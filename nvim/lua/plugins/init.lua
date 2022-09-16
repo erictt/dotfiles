@@ -32,15 +32,15 @@ local plugins = {
 		end,
 	},
 
-	["NvChad/nvterm"] = {
-		module = "nvterm",
-		config = function()
-			require("plugins.nvterm")
-		end,
-		setup = function()
-			require("core.utils").load_mappings("nvterm")
-		end,
-	},
+	-- ["NvChad/nvterm"] = {
+	-- 	module = "nvterm",
+	-- 	config = function()
+	-- 		require("plugins.nvterm")
+	-- 	end,
+	-- 	setup = function()
+	-- 		require("core.utils").load_mappings("nvterm")
+	-- 	end,
+	-- },
 
 	["nvim-treesitter/nvim-treesitter"] = {
 		module = "nvim-treesitter",

@@ -35,10 +35,10 @@ local options = {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
+      init_selection = "<leader>ti",
+      node_incremental = "<leader>tn",
+      scope_incremental = "<leader>ts",
+      node_decremental = "<leader>td",
     },
   },
 }
