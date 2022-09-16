@@ -45,5 +45,6 @@ wk.register({
     l = { name = "+lsp", },
     w = { name = "+lsp workspace", },
     t = { name = "+treesitter", },
+    p = { name = "+nvimtree", },
   },
 })

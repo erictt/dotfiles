@@ -48,6 +48,8 @@ M.general = {
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
 
+    ["<leader>pl"] = { "<cmd>NvimTreeResize +10<CR>", "expand nvimtree", },
+    ["<leader>ph"] = { "<cmd>NvimTreeResize -10<CR>", "narrow nvimtree", },
   },
 
   t = { ["<C-x>"] = { termcodes "<C-\\><C-N>", "escape terminal mode" } },
