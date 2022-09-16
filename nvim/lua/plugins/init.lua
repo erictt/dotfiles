@@ -86,7 +86,7 @@ local plugins = {
 	["jose-elias-alvarez/null-ls.nvim"] = {
 		after = "nvim-lspconfig",
 		config = function()
-			require("plugins.null_ls")
+			require("plugins.nullls")
 		end,
 	},
 
@@ -207,9 +207,6 @@ local plugins = {
 	},
 
 	["christoomey/vim-tmux-navigator"] = {
-		setup = function()
-			require("plugins.tmux").load_mappings("tmux")
-		end,
 		config = function()
 			require("plugins.tmux")
 		end,
