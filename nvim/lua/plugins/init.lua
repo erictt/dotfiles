@@ -22,15 +22,15 @@ local plugins = {
 		end,
 	},
 
-	["NvChad/nvim-colorizer.lua"] = {
-		opt = true,
-		setup = function()
-			require("core.lazy_load").on_file_open("nvim-colorizer.lua")
-		end,
-		config = function()
-			require("plugins.others").colorizer()
-		end,
-	},
+	-- ["NvChad/nvim-colorizer.lua"] = {
+	-- 	opt = true,
+	-- 	setup = function()
+	-- 		require("core.lazy_load").on_file_open("nvim-colorizer.lua")
+	-- 	end,
+	-- 	config = function()
+	-- 		require("plugins.others").colorizer()
+	-- 	end,
+	-- },
 
 	-- ["NvChad/nvterm"] = {
 	-- 	module = "nvterm",
@@ -187,7 +187,7 @@ local plugins = {
 		end,
 	},
 
-  ["nvim-lua/lsp-status.nvim"] = {},
+  ["arkav/lualine-lsp-progress"] = {},
 
 	["akinsho/bufferline.nvim"] = {
 		config = function()
