@@ -79,7 +79,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Fullscreen
+  startup_mode: SimpleFullscreen
 
   # Window title
   #title: Alacritty
@@ -449,7 +449,7 @@ font:
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
-#working_directory: None
+working_directory: ~/workspace/
 
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
