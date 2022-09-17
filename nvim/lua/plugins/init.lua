@@ -187,6 +187,8 @@ local plugins = {
 		end,
 	},
 
+  ["nvim-lua/lsp-status.nvim"] = {},
+
 	["akinsho/bufferline.nvim"] = {
 		config = function()
 			require("plugins.bufferline")

@@ -30,7 +30,7 @@ local options = {
 			},
 		},
 		lualine_c = { "filename" },
-		lualine_x = { "lsp", "filetype" },
+		lualine_x = { "arkav/lualine-lsp-progress", "require('lsp-status').status()", "filetype" },
 	},
 }
 

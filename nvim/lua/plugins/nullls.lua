@@ -32,10 +32,10 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = augroup,
       buffer = bufnr,
-      callback = function()
-        -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-        vim.lsp.buf.formatting_seq_sync()
-      end,
+      -- callback = function()
+      --   -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+      --   vim.lsp.buf.formatting_seq_sync()
+      -- end,
     })
   end
 end
