@@ -21,8 +21,8 @@ local sources = {
   b.diagnostics.eslint,
 
   -- c, cpp
-  b.formatting.clang_format,
-  b.diagnostics.clang_check,
+  -- b.formatting.clang_format,
+  -- b.diagnostics.clang_check,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
