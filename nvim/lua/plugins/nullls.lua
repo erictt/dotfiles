@@ -10,9 +10,9 @@ local sources = {
   -- format html and markdown
   b.formatting.prettierd.with({ filetypes = { "html", "yaml", "markdown" } }),
   -- markdown diagnostic
-  b.diagnostics.markdownlint,
+  -- b.diagnostics.markdownlint,
   -- Lua formatting
-  -- b.formatting.stylua.with({ filetypes = { "lua" } }),
+  b.formatting.stylua.with({ filetypes = { "lua" } }),
   -- php formatting
   b.formatting.phpcsfixer.with({ filetypes = { "php" } }),
 
@@ -32,10 +32,10 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = augroup,
       buffer = bufnr,
-      -- callback = function()
+      callback = function()
       --   -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
       --   vim.lsp.buf.formatting_seq_sync()
-      -- end,
+      end,
     })
   end
 end

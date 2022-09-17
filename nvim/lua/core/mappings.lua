@@ -48,11 +48,11 @@ M.general = {
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
 
-    ["<leader>pl"] = { "<cmd>NvimTreeResize +10<CR>", "expand nvimtree", },
-    ["<leader>ph"] = { "<cmd>NvimTreeResize -10<CR>", "narrow nvimtree", },
+    ["<leader>pl"] = { "<cmd>NvimTreeResize +10<CR>", "expand nvimtree" },
+    ["<leader>ph"] = { "<cmd>NvimTreeResize -10<CR>", "narrow nvimtree" },
   },
 
-  t = { ["<C-x>"] = { termcodes "<C-\\><C-N>", "escape terminal mode" } },
+  t = { ["<C-x>"] = { termcodes("<C-\\><C-N>"), "escape terminal mode" } },
 
   v = {
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
@@ -73,8 +73,8 @@ M.bufferline = {
 
   n = {
     -- cycle through buffers
-    ["<TAB>"] = { "<cmd> BufferLineCycleNext <CR>", "goto next buffer", },
-    ["<S-Tab>"] = { "<cmd> BufferLineCyclePrev <CR>", "goto prev buffer", },
+    ["<TAB>"] = { "<cmd> BufferLineCycleNext <CR>", "goto next buffer" },
+    ["<S-Tab>"] = { "<cmd> BufferLineCyclePrev <CR>", "goto prev buffer" },
 
     -- close buffer + hide terminal buffer
     ["<leader>x"] = {
@@ -211,7 +211,7 @@ M.lspconfig = {
     ["<leader>lf"] = {
 
       function()
-        vim.lsp.buf.formatting {}
+        vim.lsp.buf.formatting_seq_sync()
       end,
       "lsp formatting",
     },
@@ -285,21 +285,21 @@ M.nvterm = {
     -- toggle in terminal mode
     ["<A-i>"] = {
       function()
-        require("nvterm.terminal").toggle "float"
+        require("nvterm.terminal").toggle("float")
       end,
       "toggle floating term",
     },
 
     ["<A-h>"] = {
       function()
-        require("nvterm.terminal").toggle "horizontal"
+        require("nvterm.terminal").toggle("horizontal")
       end,
       "toggle horizontal term",
     },
 
     ["<A-v>"] = {
       function()
-        require("nvterm.terminal").toggle "vertical"
+        require("nvterm.terminal").toggle("vertical")
       end,
       "toggle vertical term",
     },
@@ -309,21 +309,21 @@ M.nvterm = {
     -- toggle in normal mode
     ["<A-i>"] = {
       function()
-        require("nvterm.terminal").toggle "float"
+        require("nvterm.terminal").toggle("float")
       end,
       "toggle floating term",
     },
 
     ["<A-h>"] = {
       function()
-        require("nvterm.terminal").toggle "horizontal"
+        require("nvterm.terminal").toggle("horizontal")
       end,
       "toggle horizontal term",
     },
 
     ["<A-v>"] = {
       function()
-        require("nvterm.terminal").toggle "vertical"
+        require("nvterm.terminal").toggle("vertical")
       end,
       "toggle vertical term",
     },
@@ -352,13 +352,13 @@ M.whichkey = {
   n = {
     ["<leader>kK"] = {
       function()
-        vim.cmd "WhichKey"
+        vim.cmd("WhichKey")
       end,
       "which-key all keymaps",
     },
     ["<leader>kk"] = {
       function()
-        local input = vim.fn.input "WhichKey: "
+        local input = vim.fn.input("WhichKey: ")
         vim.cmd("WhichKey " .. input)
       end,
       "which-key query lookup",
@@ -379,7 +379,7 @@ M.blankline = {
 
         if ok then
           vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
-          vim.cmd [[normal! _]]
+          vim.cmd([[normal! _]])
         end
       end,
 
@@ -389,4 +389,3 @@ M.blankline = {
 }
 
 return M
-
