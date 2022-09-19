@@ -67,7 +67,14 @@ lspconfig.sumneko_lua.setup({
 lspconfig.intelephense.setup({
   on_attach = M.on_attach,
   capabilities = M.capabilities,
-  settings = { intelephense = { files = { associations = { "*.php", "*.phtml", "*.module", "*.inc" } } } },
+  settings = {
+    intelephense = {
+      files = {
+        associations = { "*.php" },
+      },
+    },
+  },
+  root_dir = lspconfig.util.root_pattern(".git"),
 })
 
 lspconfig.clangd.setup({
@@ -75,7 +82,9 @@ lspconfig.clangd.setup({
   capabilities = M.capabilities,
   settings = {
     clangd = {
-      files = { associations = { "*.c", "*.h", "*.cpp" } },
+      files = {
+        associations = { "*.c", "*.h", "*.cpp" },
+      },
     },
   },
 })
