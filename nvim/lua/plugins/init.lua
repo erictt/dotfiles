@@ -104,19 +104,19 @@ local plugins = {
     end,
   },
 
-  -- ["L3MON4D3/LuaSnip"] = {
-  -- 	wants = "friendly-snippets",
-  -- 	after = "nvim-cmp",
-  -- 	config = function()
-  -- 		require("plugins.others").luasnip()
-  -- 	end,
-  -- },
-  -- --
-  -- ["saadparwaiz1/cmp_luasnip"] = { after = "LuaSnip" },
-  -- ["hrsh7th/cmp-nvim-lua"] = { after = "cmp_luasnip" },
-  -- ["hrsh7th/cmp-nvim-lsp"] = { after = "cmp-nvim-lua" },
-  -- ["hrsh7th/cmp-buffer"] = { after = "cmp-nvim-lsp" },
-  -- ["hrsh7th/cmp-path"] = { after = "cmp-buffer" },
+  ["L3MON4D3/LuaSnip"] = {
+  	wants = "friendly-snippets",
+  	after = "nvim-cmp",
+  	config = function()
+  		require("plugins.others").luasnip()
+  	end,
+  },
+
+  ["saadparwaiz1/cmp_luasnip"] = { after = "LuaSnip" },
+  ["hrsh7th/cmp-nvim-lua"] = { after = "cmp_luasnip" },
+  ["hrsh7th/cmp-nvim-lsp"] = { after = "cmp-nvim-lua" },
+  ["hrsh7th/cmp-buffer"] = { after = "cmp-nvim-lsp" },
+  ["hrsh7th/cmp-path"] = { after = "cmp-buffer" },
 
   -- misc plugins
   ["windwp/nvim-autopairs"] = {
