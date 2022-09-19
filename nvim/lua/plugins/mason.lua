@@ -12,6 +12,10 @@ local options = {
 		"php-cs-fixer", -- php formater
 		"prettierd", -- html, yaml, markdown
 		"stylua",
+    "eslint-lsp", -- javascsript, typescript
+    "clang-format", -- c, cpp
+    "clangd", -- c, cpp
+    "editorconfig-checker",
 	}, -- not an option from mason.nvim
 
 	ui = {

@@ -20,8 +20,8 @@ local sources = {
   b.code_actions.eslint,
   b.diagnostics.eslint,
 
-  -- c, cpp
-  -- b.formatting.clang_format,
+  -- c, cpp formating
+  b.formatting.clang_format.with({ filetypes = { "c", "cpp" } }),
   -- b.diagnostics.clang_check,
 }
 
