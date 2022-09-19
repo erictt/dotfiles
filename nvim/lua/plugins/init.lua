@@ -179,7 +179,7 @@ local plugins = {
 
   ["sainnhe/gruvbox-material"] = {},
 
-  -- ["gpanders/editorconfig.nvim"] = {},
+  ["gpanders/editorconfig.nvim"] = {},
 
   ["nvim-lualine/lualine.nvim"] = {
     config = function()
