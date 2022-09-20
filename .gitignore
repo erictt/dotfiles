@@ -36,3 +36,5 @@ nvim/plugin
 
 *.swp
 
+
+zsh/.zsh/custom
