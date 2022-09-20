@@ -5,6 +5,7 @@ if not present then
 end
 
 local options = {
+  -- icons = false,
   options = {
     numbers = "ordinal",
     theme = "gruvbox-material",

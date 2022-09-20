@@ -213,6 +213,10 @@ local plugins = {
       require("plugins.tmux")
     end,
   },
+
+  ['moll/vim-bbye'] = {
+
+  },
 }
 
 -- Load all plugins

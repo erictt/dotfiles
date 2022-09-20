@@ -78,15 +78,17 @@ M.bufferline = {
 
     -- close buffer + hide terminal buffer
     ["<leader>x"] = {
-      function()
-        require("core.utils").close_buffer()
-      end,
+      "<cmd> Bdelete <CR>",
+      -- function()
+      --   require("core.utils").close_buffer()
+      -- end,
       "close buffer",
     },
 
     -- pick buffers via numbers
     -- ["<Bslash>"] = { "<cmd> BufferLinePick <CR>", "Pick buffer" },
     ["<leader>ba"] = { "<cmd> BufferLinePick <CR>", "Pick buffer" },
+    ["<leader>bx"] = { "<cmd> Bwipeout <CR>", "Wipe out buffers" },
   },
 }
 
