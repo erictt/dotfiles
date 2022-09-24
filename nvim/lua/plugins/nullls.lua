@@ -21,8 +21,7 @@ local sources = {
   b.diagnostics.eslint,
 
   -- c, cpp formating
-  b.formatting.clang_format.with({ filetypes = { "c", "cpp" } }),
-  -- b.diagnostics.clang_check,
+  b.diagnostics.cpplint.with({ filetypes = { "c", "cpp" } }),
 
   -- python
   b.formatting.yapf,
