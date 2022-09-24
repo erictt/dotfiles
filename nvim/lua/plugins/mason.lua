@@ -12,7 +12,7 @@ local options = {
 		"editorconfig-checker",
 
 		"intelephense", -- php lsp
-		"php-cs-fixer", -- php formater
+		"php-cs-fixer", -- php formatter
 
 		"prettierd", -- html, yaml, markdown
     "eslint-lsp", -- javascsript, typescript
@@ -25,6 +25,8 @@ local options = {
     "yapf", -- python
     "pylint", --python
     "pyright", -- python
+
+    "codespell", -- work spell check
 	}, -- not an option from mason.nvim
 
 	ui = {

@@ -8,7 +8,7 @@ local b = null_ls.builtins
 
 local sources = {
   -- format html and markdown
-  b.formatting.prettierd.with({ filetypes = { "html", "yaml", "markdown" } }),
+  b.formatting.prettierd.with({ filetypes = { "html", "yaml", "markdown", "javascript", "json", "typescript" } }),
   -- markdown diagnostic
   -- b.diagnostics.markdownlint,
   -- Lua formatting
@@ -20,12 +20,15 @@ local sources = {
   b.code_actions.eslint,
   b.diagnostics.eslint,
 
-  -- c, cpp formating
+  -- c, cpp formatting
   b.diagnostics.cpplint.with({ filetypes = { "c", "cpp" } }),
 
   -- python
   b.formatting.yapf,
   b.diagnostics.pylint,
+
+  -- work spell
+  b.diagnostics.codespell,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
