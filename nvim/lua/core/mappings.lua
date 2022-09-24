@@ -175,6 +175,20 @@ M.lspconfig = {
       "lsp code_action",
     },
 
+    ["<leader>lh"] = {
+      function()
+        vim.diagnostic.hide()
+      end,
+      "lsp hide diagnostic",
+    },
+
+    ["<leader>lH"] = {
+      function()
+        vim.diagnostic.show()
+      end,
+      "lsp show diagnostic",
+    },
+
     ["gr"] = {
       function()
         vim.lsp.buf.references()
