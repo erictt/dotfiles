@@ -7,15 +7,24 @@ end
 local options = {
 	ensure_installed = {
 		"lua-language-server",
+		"stylua", -- lua
+
 		"editorconfig-checker",
+
 		"intelephense", -- php lsp
 		"php-cs-fixer", -- php formater
+
 		"prettierd", -- html, yaml, markdown
-		"stylua",
     "eslint-lsp", -- javascsript, typescript
+
     "clang-format", -- c, cpp
     "clangd", -- c, cpp
-    "editorconfig-checker",
+
+    "black",
+
+    "autopep8", -- python
+    "flake8", --python
+    "pyright", -- python
 	}, -- not an option from mason.nvim
 
 	ui = {

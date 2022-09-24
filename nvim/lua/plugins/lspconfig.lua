@@ -88,4 +88,18 @@ lspconfig.clangd.setup({
     },
   },
 })
+
+lspconfig.pyright.setup({
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+  -- settings = {
+  --   intelephense = {
+  --     files = {
+  --       associations = { "*.php" },
+  --     },
+  --   },
+  -- },
+  -- root_dir = lspconfig.util.root_pattern(".git"),
+})
+
 return M

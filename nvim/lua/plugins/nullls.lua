@@ -23,6 +23,10 @@ local sources = {
   -- c, cpp formating
   b.formatting.clang_format.with({ filetypes = { "c", "cpp" } }),
   -- b.diagnostics.clang_check,
+
+  -- python
+  b.formatting.autopep8,
+  b.diagnostics.flake8,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
