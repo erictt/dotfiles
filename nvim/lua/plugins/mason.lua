@@ -22,8 +22,8 @@ local options = {
 
     "black",
 
-    "autopep8", -- python
-    "flake8", --python
+    "yapf", -- python
+    "pylint", --python
     "pyright", -- python
 	}, -- not an option from mason.nvim
 

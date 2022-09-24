@@ -25,8 +25,8 @@ local sources = {
   -- b.diagnostics.clang_check,
 
   -- python
-  b.formatting.autopep8,
-  b.diagnostics.flake8,
+  b.formatting.yapf,
+  b.diagnostics.pylint,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
