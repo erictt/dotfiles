@@ -9,6 +9,8 @@ local options = {
 		"lua-language-server",
 		"stylua", -- lua
 
+		"editorconfig-checker",
+
 		"intelephense", -- php lsp
 		"php-cs-fixer", -- php formatter
 

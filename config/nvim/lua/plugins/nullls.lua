@@ -23,6 +23,9 @@ local sources = {
   -- c, cpp formatting
   b.diagnostics.cpplint.with({ filetypes = { "c", "cpp" } }),
 
+  -- respect editorconfig
+  b.diagnostics.editorconfig_checker.with({command = "editorconfig-checker"}),
+
   -- python
   b.formatting.yapf,
   b.diagnostics.pylint,
