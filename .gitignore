@@ -39,3 +39,4 @@ nvim/plugin
 
 zsh/.zsh/custom
 config/iterm2
+config/antigen.zsh
