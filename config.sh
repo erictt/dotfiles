@@ -57,4 +57,8 @@ then
     mv ~/.tmux.conf ~/.tmux.conf.bak
 fi
 ln -sf ~/workspace/projects/dotfiles/tmux ~/.tmux.conf
+# Install tpm: 
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # ---------------------------------------- tmux ---------------------------------------- #
+cat ./NOTE.md

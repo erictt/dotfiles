@@ -38,46 +38,14 @@ My Dotfile
 When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
 
 ```bash
-./brew.sh
+./install.sh
 ```
 
-## Install kitty/zsh/vim dotfiles
-
-To update, `cd` into your local `dotfiles` repository and then run:
-
-* for kitty
+## Config kitty/zsh/vim dotfiles
 
   ```bash
-  ./kitty.sh
+  ./config.sh
   ```
-
-
-* for zsh
-
-  ```bash
-  ./zsh.sh
-  ```
-
-* for neovim
-
-  * Requirements:
-    * `python` use to install `flake8`
-    * `nodejs` use to install `eslint` and `flow`
-
-  ```bash
-  ./nvim.sh
-  ```
-
-* for tmux
-
-  * `brew install tmux` if not installed yet
-  * `ln -s ./tmux/tmux.conf ~/.tmux.conf`
-  * Enable "Application in terminal may access clipboard" in iTerm2
-    * https://github.com/tmux/tmux/wiki/Clipboard#terminal-support---iterm2
-  * Install tpm: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
-  * start a session
-    * press `Ctrl + a + I` to install plugins
-    * press `Ctrl + a + r` to reload the configuration
 
 ## VIM Instructions
 
@@ -572,13 +540,3 @@ To update, `cd` into your local `dotfiles` repository and then run:
   let g:airline#extensions#tabline#buffers_label = 'BUF'
   let g:airline#extensions#tabline#tabs_label = 'TAB'
   ```
-## References && Thanks to
-
-* [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
-* [wklken/k-vim](https://github.com/wklken/k-vim)
-* [Bash-it/bash-it](https://github.com/Bash-it/bash-it)
-* [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
-* [caskroom/homebrew-cask](https://github.com/caskroom/homebrew-cask)
-* [skwp/dotfiles](https://github.com/skwp/dotfiles)
-* [http://coolshell.cn/articles/5426.html](http://coolshell.cn/articles/5426.html)
-* [http://www.jianshu.com/p/ef2d9442fb0c](http://www.jianshu.com/p/ef2d9442fb0c)
