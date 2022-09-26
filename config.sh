@@ -9,7 +9,7 @@ then
 fi
 
 # create alias to .config
-ln -sf ~/workspace/projects/dotfiles/config ~/.config
+ln -sf ~/workspace/projects/dotfiles/.config ~/.config
 
 # ---------------------------------------- vim --------------------------------------- #
 BASEDIR="$(dirname "${BASH_SOURCE}")"
@@ -33,20 +33,19 @@ brew install --cask font-hack-nerd-font
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Download antigen
-mkdir -p ~/.config/
 curl -L git.io/antigen > ~/.config/antigen.zsh
 
-rm -rf ~/.zshrc ~/.zsh
-ln -sf ~/workspace/dotfiles/zsh/.zshrc ~/.zshrc
-ln -sf ~/workspace/dotfiles/zsh/.zsh ~/.zsh
-ln -sf ~/workspace/dotfiles/zsh/.antigenrc ~/.antigenrc
+rm -rf ~/.zshrc ~/.zsh ~/.antigenrc
+ln -sf ~/workspace/dotfiles/.zshrc ~/.zshrc
+ln -sf ~/workspace/dotfiles/.zsh ~/.zsh
+ln -sf ~/workspace/dotfiles/.antigenrc ~/.antigenrc
 
 # rsync	--exclude ".DS_Store" \
 #   --exclude ".osx" \
 #   --exclude "themes/" \
 #   -avh --no-perms ./zsh/ ~;
 # copy the theme
-cp -f ./zsh/themes/hyperzsh.zsh-theme ~/.oh-my-zsh/custom/themes/hyperzsh.zsh-theme
+cp -f ./themes/hyperzsh.zsh-theme ~/.oh-my-zsh/custom/themes/hyperzsh.zsh-theme
 source ~/.zshrc;
 # ---------------------------------------- zsh ---------------------------------------- #
 
@@ -56,7 +55,7 @@ then
     echo "~/.tmux.conf exists, moved it to ~/.tmux.conf.bak"
     mv ~/.tmux.conf ~/.tmux.conf.bak
 fi
-ln -sf ~/workspace/projects/dotfiles/tmux ~/.tmux.conf
+ln -sf ~/workspace/projects/dotfiles/.tmux.conf ~/.tmux.conf
 # Install tpm: 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

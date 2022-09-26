@@ -37,8 +37,8 @@ nvim/plugin
 *.swp
 
 
-zsh/.zsh/custom
-config/iterm2
-config/antigen.zsh
-config/lazygit/state.yml
-config/AWSVPNClient
+.zsh/custom
+.config/iterm2
+.config/antigen.zsh
+.config/lazygit/state.yml
+.config/AWSVPNClient
