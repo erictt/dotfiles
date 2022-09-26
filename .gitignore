@@ -41,3 +41,4 @@ zsh/.zsh/custom
 config/iterm2
 config/antigen.zsh
 config/lazygit/state.yml
+config/AWSVPNClient
