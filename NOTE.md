@@ -12,3 +12,7 @@
 
 * to Enable "Application in terminal may access clipboard" in iTerm2
   * https://github.com/tmux/tmux/wiki/Clipboard#terminal-support---iterm2
+
+## Git
+
+* Delete untracked branches: `git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -d`
