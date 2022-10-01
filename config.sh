@@ -31,22 +31,15 @@ brew install --cask font-hack-nerd-font
 # ---------------------------------------- zsh ---------------------------------------- #
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 # Download antigen
 curl -L git.io/antigen > ~/.config/antigen.zsh
 
 rm -rf ~/.zshrc ~/.zsh ~/.antigenrc
-ln -sf ~/workspace/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/workspace/dotfiles/.zsh ~/.zsh
-ln -sf ~/workspace/dotfiles/.antigenrc ~/.antigenrc
+ln -sf ~/workspace/projects/dotfiles/.zshrc ~/.zshrc
+ln -sf ~/workspace/projects/dotfiles/.zsh ~/.zsh
+ln -sf ~/workspace/projects/dotfiles/.antigenrc ~/.antigenrc
 
-# rsync	--exclude ".DS_Store" \
-#   --exclude ".osx" \
-#   --exclude "themes/" \
-#   -avh --no-perms ./zsh/ ~;
-# copy the theme
-cp -f ./themes/hyperzsh.zsh-theme ~/.oh-my-zsh/custom/themes/hyperzsh.zsh-theme
-source ~/.zshrc;
+source ~/.zshrc
 # ---------------------------------------- zsh ---------------------------------------- #
 
 # ---------------------------------------- tmux ---------------------------------------- #
