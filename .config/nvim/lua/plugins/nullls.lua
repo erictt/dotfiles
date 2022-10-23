@@ -15,12 +15,14 @@ local sources = {
   b.formatting.stylua.with({ filetypes = { "lua" } }),
   -- php formatting
   b.formatting.phpcsfixer.with({ filetypes = { "php" } }),
+  -- c, cpp formatting
+  b.formatting.clang_format.with({ filetypes = { "c", "cpp" } }),
 
   -- javascript, typescript
   b.code_actions.eslint,
   b.diagnostics.eslint,
 
-  -- c, cpp formatting
+  -- c, cpp diag
   b.diagnostics.cpplint.with({ filetypes = { "c", "cpp" } }),
 
   -- respect editorconfig
