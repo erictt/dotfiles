@@ -23,7 +23,8 @@ local sources = {
   b.diagnostics.eslint,
 
   -- c, cpp diag
-  b.diagnostics.cpplint.with({ filetypes = { "c", "cpp" } }),
+  -- b.diagnostics.cpplint.with({ filetypes = { "c", "cpp" } }),
+  b.diagnostics.cppcheck.with({ filetypes = { "c", "cpp" } }),
 
   -- respect editorconfig
   -- b.diagnostics.editorconfig_checker.with({command = "editorconfig-checker"}),
@@ -33,7 +34,9 @@ local sources = {
   b.diagnostics.pylint,
 
   -- work spell
-  b.diagnostics.codespell,
+  b.diagnostics.cspell,
+  b.code_actions.cspell,
+  -- b.diagnostics.codespell,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
