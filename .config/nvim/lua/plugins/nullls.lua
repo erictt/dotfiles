@@ -33,9 +33,9 @@ local sources = {
   b.formatting.yapf,
   b.diagnostics.pylint,
 
-  -- work spell
-  b.diagnostics.cspell,
-  b.code_actions.cspell,
+  -- spell
+  -- b.diagnostics.cspell,
+  -- b.code_actions.cspell,
   -- b.diagnostics.codespell,
 }
 

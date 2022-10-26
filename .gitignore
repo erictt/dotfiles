@@ -40,3 +40,5 @@ nvim/plugin
 .config/antigen.zsh
 .config/lazygit/state.yml
 .config/AWSVPNClient
+
+.config/wireshark
