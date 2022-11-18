@@ -227,7 +227,7 @@ M.lspconfig = {
     ["<leader>lf"] = {
 
       function()
-        vim.lsp.buf.formatting_seq_sync()
+        vim.lsp.buf.format()
       end,
       "lsp formatting",
     },
