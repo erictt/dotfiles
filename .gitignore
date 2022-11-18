@@ -42,3 +42,5 @@ nvim/plugin
 .config/AWSVPNClient
 
 .config/wireshark
+.config/helm
+.config/karabiner/automatic_backups
