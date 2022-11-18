@@ -6,5 +6,5 @@ install:
 config:
 	./config.sh
 
-clean_vim:
-  # rm -rf ~/.cache/nvim && rm -rf ~/.local/share/nvim && rm -rf ./nvim/plugin
+clean-vim:
+	rm -rf ~/.cache/nvim && rm -rf ~/.local/share/nvim && rm -rf ./nvim/plugin
