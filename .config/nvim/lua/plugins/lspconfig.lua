@@ -43,6 +43,7 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
+-- lua
 lspconfig.sumneko_lua.setup({
   on_attach = M.on_attach,
   capabilities = M.capabilities,
@@ -64,6 +65,7 @@ lspconfig.sumneko_lua.setup({
   },
 })
 
+-- php
 lspconfig.intelephense.setup({
   on_attach = M.on_attach,
   capabilities = M.capabilities,
@@ -74,9 +76,10 @@ lspconfig.intelephense.setup({
       },
     },
   },
-  root_dir = lspconfig.util.root_pattern(".git"),
+  root_dir = lspconfig.util.root_pattern(".git", "composer.json"),
 })
 
+-- c, c++
 lspconfig.clangd.setup({
   on_attach = M.on_attach,
   capabilities = M.capabilities,
@@ -89,6 +92,7 @@ lspconfig.clangd.setup({
   },
 })
 
+-- python
 lspconfig.pyright.setup({
   on_attach = M.on_attach,
   capabilities = M.capabilities,
@@ -106,4 +110,28 @@ lspconfig.pyright.setup({
   root_dir = lspconfig.util.root_pattern(".git"),
 })
 
+-- javascript, typescript
+lspconfig.eslint.setup({
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+  settings = {
+    eslint = {
+      javascript = {
+        analysis = {
+          autoSearchPaths = true,
+          diagnosticMode = "workspace",
+          useLibraryCodeForTypes = true
+        }
+      },
+      typescript = {
+        analysis = {
+          autoSearchPaths = true,
+          diagnosticMode = "workspace",
+          useLibraryCodeForTypes = true
+        }
+      }
+    },
+  },
+  root_dir = lspconfig.util.root_pattern(".git", "package.json"),
+})
 return M
