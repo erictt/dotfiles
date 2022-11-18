@@ -24,7 +24,7 @@ local options = {
     "pylint", --python
     "pyright", -- python
 
-    "codespell", -- work spell check
+    -- "codespell", -- work spell check
 	}, -- not an option from mason.nvim
 
 	ui = {
