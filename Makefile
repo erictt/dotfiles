@@ -7,4 +7,4 @@ config:
 	./config.sh
 
 clean-vim:
-	rm -rf ~/.cache/nvim && rm -rf ~/.local/share/nvim && rm -rf ./nvim/plugin
+	rm -rf ~/.cache/nvim && rm -rf ~/.local/share/nvim && rm -rf ~/.config/nvim/plugin
