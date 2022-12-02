@@ -29,7 +29,7 @@ local options = {
         always_visible = false, -- Show diagnostics even if there are none.
       },
     },
-    lualine_c = { "filename" },
+    lualine_c = { { "filename", file_status = true, path = 1 } },
     lualine_x = {
       {
         "lsp_progress",
