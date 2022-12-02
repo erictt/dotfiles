@@ -13,7 +13,9 @@ local options = {
 		"php-cs-fixer", -- php formatter
 
 		"prettierd", -- html, yaml, markdown
+
     "eslint-lsp", -- javascsript, typescript
+    -- "typescript-language-server", -- javascsript, typescript
 
     "clang-format", -- c, cpp
     "clangd", -- c, cpp

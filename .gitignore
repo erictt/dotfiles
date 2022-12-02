@@ -45,3 +45,4 @@ nvim/plugin
 .config/helm
 .config/karabiner/automatic_backups
 .config/nvim/plugin
+.config/ngrok

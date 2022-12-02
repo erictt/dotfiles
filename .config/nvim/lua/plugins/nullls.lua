@@ -19,8 +19,9 @@ local sources = {
   b.formatting.clang_format.with({ filetypes = { "c", "cpp" } }),
 
   -- javascript, typescript
-  b.code_actions.eslint.with({filetypes = { "javascript", "typescript" } }),
-  b.diagnostics.eslint.with({filetypes = { "javascript", "typescript" } }),
+  b.formatting.eslint_d.with({filetypes = { "javascript", "typescript" } }),
+  -- b.code_actions.eslint.with({filetypes = { "javascript", "typescript" } }),
+  b.diagnostics.eslint_d.with({filetypes = { "javascript", "typescript" } }),
 
   -- c, cpp diag
   -- b.diagnostics.cpplint.with({ filetypes = { "c", "cpp" } }),
