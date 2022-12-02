@@ -37,6 +37,7 @@ brew install vbindiff
 # Install languages
 brew install python3
 brew install node
+brew install typescript
 brew install php
 
 # Install Terminal tools.

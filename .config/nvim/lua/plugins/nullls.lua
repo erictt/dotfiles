@@ -22,6 +22,7 @@ local sources = {
   b.formatting.eslint_d.with({filetypes = { "javascript", "typescript" } }),
   -- b.code_actions.eslint.with({filetypes = { "javascript", "typescript" } }),
   b.diagnostics.eslint_d.with({filetypes = { "javascript", "typescript" } }),
+  b.diagnostics.tsc,
 
   -- c, cpp diag
   -- b.diagnostics.cpplint.with({ filetypes = { "c", "cpp" } }),
