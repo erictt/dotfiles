@@ -47,3 +47,4 @@ nvim/plugin
 .config/nvim/plugin
 .config/ngrok
 .config/raycast/extensions
+.config/raycast/config.json
