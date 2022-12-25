@@ -46,5 +46,6 @@ vim.api.nvim_create_autocmd("User", {
   callback = function()
     util.version()
     require("commands")
+    require("mappings")
   end,
 })
