@@ -4,6 +4,7 @@ return {
   "williamboman/mason-lspconfig.nvim",
   "nvim-lua/plenary.nvim",
   "folke/neodev.nvim",
+  "MunifTanjim/nui.nvim",
   "folke/which-key.nvim",
   { "folke/neoconf.nvim", cmd = "Neoconf" },
 
@@ -68,6 +69,25 @@ return {
     "nvim-tree/nvim-web-devicons",
     config = function()
       require("nvim-web-devicons").setup({ default = true })
+    end,
+  },
+  
+  {
+    "norcalli/nvim-terminal.lua",
+    ft = "terminal",
+    config = function()
+      require("terminal").setup()
+    end,
+  },
+
+  {
+    "folke/trouble.nvim",
+    cmd = { "TroubleToggle", "Trouble" },
+    config = function()
+      require("trouble").setup({
+        auto_open = false,
+        use_diagnostic_signs = true, -- en
+      })
     end,
   },
 }
