@@ -8,11 +8,28 @@ function M.setup()
 end
 
 function M.status()
-  return require("dashboard.config").get_theme().statusline
+  return "🎅🎄🌟🎁"
 end
 
 function M.show()
-  local theme = require("dashboard.config").get_theme()
+  local theme = {
+    name = 'xmas',
+    header = [[
+                                                        *                  
+     *                                                          *          
+                                  *                  *        .--.         
+      \/ \/  \/  \/                                        ./   /=*        
+        \/     \/      *            *                ...  (_____)          
+         \ ^ ^/                                       \ \_((^o^))-.     *  
+         (o)(O)--)--------\.                           \   (   ) \  \._.   
+         |    |  ||================((~~~~~~~~~~~~~~~~~))|   ( )   |     \  
+          \__/             ,|        \. * * * * * * ./  (~~~~~~~~~~~)    \ 
+   *        ||^||\.____./|| |          \___________/     ~||~~~~|~'\____/ *
+            || ||     || || A            ||    ||          ||    |   jurcy 
+     *      <> <>     <> <>          (___||____||_____)   ((~~~~~|   *     
+]],
+    statusline = "🎅🎄🌟🎁"
+  }
 
   local buf = vim.api.nvim_get_current_buf()
   vim.bo[buf].filetype = "dashboard"
