@@ -27,15 +27,11 @@ function M.config()
 
   ---@type lspconfig.options
   local servers = {
-    ansiblels = {},
     bashls = {},
     clangd = {},
-    cssls = {},
     dockerls = {},
     tsserver = {},
-    svelte = {},
     eslint = {},
-    html = {},
     jsonls = {
       settings = {
         json = {
@@ -50,20 +46,20 @@ function M.config()
     gopls = {},
     marksman = {},
     pyright = {},
-    rust_analyzer = {
-      settings = {
-        ["rust-analyzer"] = {
-          cargo = { allFeatures = true },
-          checkOnSave = {
-            command = "clippy",
-            extraArgs = { "--no-deps" },
-          },
-        },
-      },
-    },
+    -- rust_analyzer = {
+    --   settings = {
+    --     ["rust-analyzer"] = {
+    --       cargo = { allFeatures = true },
+    --       checkOnSave = {
+    --         command = "clippy",
+    --         extraArgs = { "--no-deps" },
+    --       },
+    --     },
+    --   },
+    -- },
     yamlls = {},
     sumneko_lua = {
-      -- cmd = { "/home/folke/projects/lua-language-server/bin/lua-language-server" },
+      cmd = { "/Users/eric/.local/share/nvim/mason/bin/lua-language-server" },
       single_file_support = true,
       settings = {
         Lua = {
@@ -112,9 +108,7 @@ function M.config()
         },
       },
     },
-    teal_ls = {},
     vimls = {},
-    -- tailwindcss = {},
   }
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()

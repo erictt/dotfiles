@@ -5,28 +5,28 @@ local M = {
 M.tools = {
   "prettierd",
   
-  "stylua",
+	"lua-language-server", -- lua lsp
+  "stylua", -- lua formatter
   "selene",
-  "luacheck",
+  "luacheck", -- lua
 
-  "eslint_d",
-  "shellcheck",
+  "shellcheck", -- shell script analyser
+  "shfmt", -- shell format
 
-  "deno",
-  "shfmt",
-  "isort",
+  "eslint_d", -- javascript, typescript 
+  "deno", -- javascript, typescript defaults
 
   "clang-format", -- c, cpp
   "clangd", -- c, cpp
 
-  "black",
-
 	"intelephense", -- php lsp
 	"php-cs-fixer", -- php formatter
 
-  "yapf", -- python
-  "pylint", --python
-  "pyright", -- python
+  "black", -- python formatter
+  "yapf", -- python formatter
+  "pylint", --python static code analyser
+  "pyright", -- python static type checker
+  "isort", -- python sort imports
 }
 
 function M.check()
