@@ -26,6 +26,7 @@ function M.config()
       diagnostics = "nvim_lsp",
       always_show_bufferline = true,
       separator_style = "thick",
+      show_buffer_close_icons = false,
       diagnostics_indicator = function(_, _, diag)
         local s = {}
         for _, severity in ipairs(severities) do
@@ -35,24 +36,18 @@ function M.config()
         end
         return table.concat(s, " ")
       end,
-      -- TODO
-      offsets = {
-        {
-          filetype = "neo-tree",
-          text = "Neo Tree",
-          highlight = "Directory",
-          text_align = "left",
-        },
+      hover = {
+        enabled = true,
+        delay = 200,
+        reveal = {'close'}
       },
     },
   })
 end
 
 -- function M.init()
---   vim.keymap.set("n", "<leader>bp", "<cmd>:BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
---   vim.keymap.set("n", "<leader>bn", "<cmd>:BufferLineCycleNext<CR>", { desc = "Next Buffer" })
---   vim.keymap.set("n", "[b", "<cmd>:BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
---   vim.keymap.set("n", "]b", "<cmd>:BufferLineCycleNext<CR>", { desc = "Next Buffer" })
+--   vim.keymap.set("n", "<TAB>", "<cmd>:BufferLineCycleNext<CR>", { desc = "Next Buffer" })
+--   vim.keymap.set("n", "<S-Tab>", "<cmd>:BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
 -- end
 
 return M

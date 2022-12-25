@@ -204,38 +204,38 @@ function M.fqn(fname)
   return vim.loop.fs_realpath(fname) or fname
 end
 
-function M.clipman()
-  local file = M.fqn("~/.local/share/clipman.json")
-  if M.exists(file) then
-    local f = io.open(file)
-    if not f then
-      return
-    end
-    local data = f:read("*a")
-    f:close()
-
-    -- allow empty files
-    data = vim.trim(data)
-    if data ~= "" then
-      local ok, json = pcall(vim.fn.json_decode, data)
-      if ok and json then
-        local items = {}
-        for i = #json, 1, -1 do
-          items[#items + 1] = json[i]
-        end
-        vim.ui.select(items, {
-          prompt = "Clipman",
-        }, function(choice)
-          if choice then
-            vim.api.nvim_paste(choice, true, 1)
-          end
-        end)
-      else
-        vim.notify(("failed to load clipman from %s"):format(file), vim.log.levels.ERROR)
-      end
-    end
-  end
-end
+-- function M.clipman()
+--   local file = M.fqn("~/.local/share/clipman.json")
+--   if M.exists(file) then
+--     local f = io.open(file)
+--     if not f then
+--       return
+--     end
+--     local data = f:read("*a")
+--     f:close()
+--
+--     -- allow empty files
+--     data = vim.trim(data)
+--     if data ~= "" then
+--       local ok, json = pcall(vim.fn.json_decode, data)
+--       if ok and json then
+--         local items = {}
+--         for i = #json, 1, -1 do
+--           items[#items + 1] = json[i]
+--         end
+--         vim.ui.select(items, {
+--           prompt = "Clipman",
+--         }, function(choice)
+--           if choice then
+--             vim.api.nvim_paste(choice, true, 1)
+--           end
+--         end)
+--       else
+--         vim.notify(("failed to load clipman from %s"):format(file), vim.log.levels.ERROR)
+--       end
+--     end
+--   end
+-- end
 
 function M.debounce(ms, fn)
   local timer = vim.loop.new_timer()

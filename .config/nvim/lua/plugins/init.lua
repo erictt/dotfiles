@@ -3,10 +3,17 @@ return {
   "jose-elias-alvarez/typescript.nvim",
   "williamboman/mason-lspconfig.nvim",
   "nvim-lua/plenary.nvim",
-  "folke/neodev.nvim",
   "MunifTanjim/nui.nvim",
   "folke/which-key.nvim",
   { "folke/neoconf.nvim", cmd = "Neoconf" },
+
+  {
+    "smjonas/inc-rename.nvim",
+    cmd = "IncRename",
+    config = function()
+      require("inc_rename").setup()
+    end,
+  },
 
   -- LSP
 

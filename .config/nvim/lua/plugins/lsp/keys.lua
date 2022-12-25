@@ -61,7 +61,7 @@ function M.setup(client, buffer)
       R = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
       D = { "<cmd>Telescope lsp_declarations<CR>", "Goto Declaration" },
       I = { "<cmd>Telescope lsp_implementations<CR>", "Goto Implementation" },
-      t = { "<cmd>Telescope lsp_type_definitions<cr>", "Goto Type Definition" },
+      -- t = { "<cmd>Telescope lsp_type_definitions<cr>", "Goto Type Definition" },
     },
     ["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help", mode = { "n", "i" } },
     ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },

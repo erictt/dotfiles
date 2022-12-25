@@ -90,6 +90,8 @@ wk.setup({
 --   xnoremap * :<C-u>call g:VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
 --   xnoremap # :<C-u>call g:VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 -- ]])
+vim.keymap.set("n", "<TAB>", "<cmd> BufferLineCycleNext <CR>")
+vim.keymap.set("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
 
 local leader = {
   ["w"] = {
@@ -117,12 +119,11 @@ local leader = {
   b = {
     name = "+buffer",
     ["b"] = { "<cmd>:e #<cr>", "Switch to Other Buffer" },
-    ["p"] = { "<cmd>:BufferLineCyclePrev<CR>", "Previous Buffer" },
-    ["["] = { "<cmd>:BufferLineCyclePrev<CR>", "Previous Buffer" },
-    ["n"] = { "<cmd>:BufferLineCycleNext<CR>", "Next Buffer" },
-    ["]"] = { "<cmd>:BufferLineCycleNext<CR>", "Next Buffer" },
     -- ["D"] = { "<cmd>:bd<CR>", "Delete Buffer & Window" },
+    ["a"] = { "<cmd>BufferLinePick <CR>", "Pick buffer" },
+    ["x"] = { "<cmd>Bwipeout <CR>", "Wipe out buffers" },
   },
+  ["x"] = { "<cmd>Bdelete <CR>", "Close buffer" },
   g = {
     name = "+git",
     l = {
@@ -131,11 +132,11 @@ local leader = {
       end,
       "LazyGit",
     },
-    c = { "<Cmd>Telescope git_commits<CR>", "commits" },
-    b = { "<Cmd>Telescope git_branches<CR>", "branches" },
-    s = { "<Cmd>Telescope git_status<CR>", "status" },
-    d = { "<cmd>DiffviewOpen<cr>", "DiffView" },
-    h = { name = "+hunk" },
+    -- c = { "<Cmd>Telescope git_commits<CR>", "commits" },
+    -- b = { "<Cmd>Telescope git_branches<CR>", "branches" },
+    -- s = { "<Cmd>Telescope git_status<CR>", "status" },
+    -- d = { "<cmd>DiffviewOpen<cr>", "DiffView" },
+    -- h = { name = "+hunk" },
   },
   ["h"] = {
     name = "+help",
@@ -149,13 +150,13 @@ local leader = {
     f = { "<cmd>:Telescope filetypes<cr>", "File Types" },
     o = { "<cmd>:Telescope vim_options<cr>", "Options" },
     a = { "<cmd>:Telescope autocommands<cr>", "Auto Commands" },
-    p = {
-      name = "+packer",
-      p = { "<cmd>PackerSync<cr>", "Sync" },
-      s = { "<cmd>PackerStatus<cr>", "Status" },
-      i = { "<cmd>PackerInstall<cr>", "Install" },
-      c = { "<cmd>PackerCompile<cr>", "Compile" },
-    },
+    -- p = {
+    --   name = "+packer",
+    --   p = { "<cmd>PackerSync<cr>", "Sync" },
+    --   s = { "<cmd>PackerStatus<cr>", "Status" },
+    --   i = { "<cmd>PackerInstall<cr>", "Install" },
+    --   c = { "<cmd>PackerCompile<cr>", "Compile" },
+    -- },
   },
   s = {
     name = "+search",
@@ -186,19 +187,22 @@ local leader = {
   },
   f = {
     name = "+file",
+    -- b = { "<cmd>Telescope file_browser<CR>", "Browse Files" },
+    b = { "<cmd>Telescope buffers show_all_buffers=true<cr>", "Switch Buffer" },
     t = { "<cmd>Neotree toggle<cr>", "NeoTree" },
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    w = { "<cmd>Telescope live_grep<cr>", "Search" },
     n = { "<cmd>enew<cr>", "New File" },
-    z = "Zoxide",
-    d = "Dot Files",
+    -- z = "Zoxide",
+    -- d = "Dot Files",
   },
-  o = {
-    name = "+open",
-    p = { "<cmd>Peek<cr>", "Peek (Markdown Preview)" },
-    g = { "<cmd>Glow<cr>", "Markdown Glow" },
-    n = { "<cmd>lua require('github-notifications.menu').notifications()<cr>", "GitHub Notifications" },
-  },
+  -- o = {
+  --   name = "+open",
+  --   p = { "<cmd>Peek<cr>", "Peek (Markdown Preview)" },
+  --   g = { "<cmd>Glow<cr>", "Markdown Glow" },
+  --   n = { "<cmd>lua require('github-notifications.menu').notifications()<cr>", "GitHub Notifications" },
+  -- },
   p = {
     name = "+project",
     p = "Open Project",
@@ -230,30 +234,24 @@ local leader = {
       "Line Numbers",
     },
   },
-  ["<tab>"] = {
-    name = "tabs",
-    ["<tab>"] = { "<cmd>tabnew<CR>", "New Tab" },
-    n = { "<cmd>tabnext<CR>", "Next" },
-    d = { "<cmd>tabclose<CR>", "Close" },
-    p = { "<cmd>tabprevious<CR>", "Previous" },
-    ["]"] = { "<cmd>tabnext<CR>", "Next" },
-    ["["] = { "<cmd>tabprevious<CR>", "Previous" },
-    f = { "<cmd>tabfirst<CR>", "First" },
-    l = { "<cmd>tablast<CR>", "Last" },
-  },
+  -- ["<tab>"] = {
+  --   name = "tabs",
+  --   ["<tab>"] = { "<cmd>tabnew<CR>", "New Tab" },
+  --   n = { "<cmd>tabnext<CR>", "Next" },
+  --   d = { "<cmd>tabclose<CR>", "Close" },
+  --   p = { "<cmd>tabprevious<CR>", "Previous" },
+  --   ["]"] = { "<cmd>tabnext<CR>", "Next" },
+  --   ["["] = { "<cmd>tabprevious<CR>", "Previous" },
+  --   f = { "<cmd>tabfirst<CR>", "First" },
+  --   l = { "<cmd>tablast<CR>", "Last" },
+  -- },
   ["n"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
-  ["`"] = { "<cmd>:e #<cr>", "Switch to Other Buffer" },
-  [" "] = "Find File",
-  ["."] = { ":Telescope file_browser<CR>", "Browse Files" },
-  [","] = { "<cmd>Telescope buffers show_all_buffers=true<cr>", "Switch Buffer" },
-  ["/"] = { "<cmd>Telescope live_grep<cr>", "Search" },
-  [":"] = { "<cmd>Telescope command_history<cr>", "Command History" },
-  ["C"] = {
-    function()
-      util.clipman()
-    end,
-    "Paste from Clipman",
-  },
+  -- ["C"] = {
+  --   function()
+  --     util.clipman()
+  --   end,
+  --   "Paste from Clipman",
+  -- },
   q = {
     name = "+quit/session",
     q = { "<cmd>qa<cr>", "Quit" },
@@ -262,7 +260,7 @@ local leader = {
     l = { [[<cmd>lua require("persistence").load({last=true})<cr>]], "Restore Last Session" },
     d = { [[<cmd>lua require("persistence").stop()<cr>]], "Stop Current Session" },
   },
-  x = {
+  e = {
     name = "+errors",
     x = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Trouble" },
     t = { "<cmd>TodoTrouble<cr>", "Todo Trouble" },
@@ -272,18 +270,18 @@ local leader = {
     q = { "<cmd>copen<cr>", "Open Quickfix List" },
   },
   z = { [[<cmd>ZenMode<cr>]], "Zen Mode" },
-  T = {
-    function()
-      util.test(true)
-    end,
-    "Plenary Test File",
-  },
-  D = {
-    function()
-      util.test()
-    end,
-    "Plenary Test Directory",
-  },
+  -- T = {
+  --   function()
+  --     util.test(true)
+  --   end,
+  --   "Plenary Test File",
+  -- },
+  -- D = {
+  --   function()
+  --     util.test()
+  --   end,
+  --   "Plenary Test Directory",
+  -- },
 }
 
 for i = 0, 10 do

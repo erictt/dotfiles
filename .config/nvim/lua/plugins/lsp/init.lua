@@ -6,15 +6,6 @@ local M = {
 }
 
 function M.config()
-  require("neodev").setup({
-    debug = true,
-    experimental = {
-      pathStrict = true,
-    },
-    library = {
-      runtime = "~/workspace/projects/dotfiles/neovim/runtime/",
-    },
-  })
   require("mason")
   require("plugins.lsp.diagnostics").setup()
   require("neoconf").setup()

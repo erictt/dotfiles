@@ -15,14 +15,15 @@ function M.config()
   require("lualine").setup({
     options = {
       theme = "auto",
-      section_separators = { left = "", right = "" },
+      -- section_separators = { left = "", right = "" },
       component_separators = { left = "", right = "" },
       icons_enabled = true,
       globalstatus = true,
       disabled_filetypes = { statusline = { "dashboard" } },
     },
     sections = {
-      lualine_a = { { "mode", separator = { left = "" } } },
+      -- lualine_a = { { "mode", separator = { left = "" } } },
+      lualine_a = { "mode" },
       lualine_b = { "branch" },
       lualine_c = {
         { "diagnostics", sources = { "nvim_diagnostic" } },
@@ -76,8 +77,8 @@ function M.config()
           end,
         },
       },
-      lualine_y = { "location" },
-      lualine_z = { { clock, separator = { right = "" } } },
+      lualine_z = { "location" },
+      -- lualine_z = { { clock, separator = { right = "" } } },
     },
     inactive_sections = {
       lualine_a = {},

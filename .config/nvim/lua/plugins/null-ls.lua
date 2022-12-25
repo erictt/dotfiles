@@ -9,15 +9,15 @@ function M.setup(options)
     -- html and markdown
     nls.builtins.formatting.prettierd.with({ filetypes = {"html", "yaml", "markdown", "json" } }),
     -- markdown diagnostic
-    nls.builtins.diagnostics.markdownlint,
+    -- nls.builtins.diagnostics.markdownlint,
 
     -- Lua
     nls.builtins.formatting.stylua,
-    nls.builtins.diagnostics.selene.with({
-      condition = function(utils)
-        return utils.root_has_file({ "selene.toml" })
-      end,
-    }),
+    -- nls.builtins.diagnostics.selene.with({
+    --   condition = function(utils)
+    --     return utils.root_has_file({ "selene.toml" })
+    --   end,
+    -- }),
       
     -- php 
     nls.builtins.formatting.phpcsfixer.with({ filetypes = { "php" } }),
