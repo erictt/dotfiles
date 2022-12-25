@@ -4,16 +4,29 @@ local M = {
 
 M.tools = {
   "prettierd",
+  
   "stylua",
   "selene",
   "luacheck",
+
   "eslint_d",
   "shellcheck",
+
   "deno",
   "shfmt",
-  "black",
   "isort",
-  "flake8",
+
+  "clang-format", -- c, cpp
+  "clangd", -- c, cpp
+
+  "black",
+
+	"intelephense", -- php lsp
+	"php-cs-fixer", -- php formatter
+
+  "yapf", -- python
+  "pylint", --python
+  "pyright", -- python
 }
 
 function M.check()

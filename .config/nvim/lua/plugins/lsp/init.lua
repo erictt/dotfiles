@@ -12,7 +12,7 @@ function M.config()
       pathStrict = true,
     },
     library = {
-      runtime = "~/projects/neovim/runtime/",
+      runtime = "~/workspace/projects/dotfiles/neovim/runtime/",
     },
   })
   require("mason")
