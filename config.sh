@@ -3,7 +3,7 @@
 # run brew.sh at first
 if [[ -d ~/.config ]]
 then
-    echo "~/.config exists, please move it at first"
+    echo "$HOME/.config exists, please move it at first"
     mv ~/.config ~/.config.bak
     exit 1
 fi
@@ -12,9 +12,8 @@ fi
 ln -sf ~/workspace/projects/dotfiles/.config ~/.config
 
 # ---------------------------------------- vim --------------------------------------- #
-BASEDIR="$(dirname "${BASH_SOURCE}")"
-cd $BASEDIR
-CURRENT_DIR=`pwd`
+BASEDIR="$(dirname "${BASH_SOURCE[0]}")"
+cd "$BASEDIR" || exit
 
 nvim --headless +qa
 
@@ -39,13 +38,13 @@ ln -sf ~/workspace/projects/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/workspace/projects/dotfiles/.zsh ~/.zsh
 ln -sf ~/workspace/projects/dotfiles/.antigenrc ~/.antigenrc
 
-source ~/.zshrc
+source "$HOME/.zshrc"
 # ---------------------------------------- zsh ---------------------------------------- #
 
 # ---------------------------------------- tmux ---------------------------------------- #
 if [[ -d ~/.tmux.conf ]]
 then
-    echo "~/.tmux.conf exists, moved it to ~/.tmux.conf.bak"
+    echo "$HOME/.tmux.conf exists, moved it to $HOME/.tmux.conf.bak"
     mv ~/.tmux.conf ~/.tmux.conf.bak
 fi
 ln -sf ~/workspace/projects/dotfiles/.tmux.conf ~/.tmux.conf

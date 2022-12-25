@@ -4,7 +4,6 @@ return {
   "williamboman/mason-lspconfig.nvim",
   "nvim-lua/plenary.nvim",
   "folke/neodev.nvim",
-  "folke/twilight.nvim",
   "folke/which-key.nvim",
   { "folke/neoconf.nvim", cmd = "Neoconf" },
 
