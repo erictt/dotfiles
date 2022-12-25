@@ -92,17 +92,17 @@ wk.setup({
 -- ]])
 
 local leader = {
-  w = {
+  ["w"] = {
     name = "+windows",
     ["w"] = { "<C-W>p", "other-window" },
     ["d"] = { "<C-W>c", "delete-window" },
     ["-"] = { "<C-W>s", "split-window-below" },
     ["|"] = { "<C-W>v", "split-window-right" },
     ["2"] = { "<C-W>v", "layout-double-columns" },
-    ["h"] = { "<C-W>h", "window-left" },
-    ["j"] = { "<C-W>j", "window-below" },
-    ["l"] = { "<C-W>l", "window-right" },
-    ["k"] = { "<C-W>k", "window-up" },
+    -- ["h"] = { "<C-W>h", "window-left" },
+    -- ["j"] = { "<C-W>j", "window-below" },
+    -- ["l"] = { "<C-W>l", "window-right" },
+    -- ["k"] = { "<C-W>k", "window-up" },
     ["H"] = { "<C-W>5<", "expand-window-left" },
     ["J"] = { ":resize +5", "expand-window-below" },
     ["L"] = { "<C-W>5>", "expand-window-right" },
@@ -137,7 +137,7 @@ local leader = {
     d = { "<cmd>DiffviewOpen<cr>", "DiffView" },
     h = { name = "+hunk" },
   },
-  h = {
+  ["h"] = {
     name = "+help",
     t = { "<cmd>:Telescope builtin<cr>", "Telescope" },
     c = { "<cmd>:Telescope commands<cr>", "Commands" },

@@ -29,6 +29,7 @@ function M.setup(options)
     -- javascript, typescript
     nls.builtins.formatting.eslint_d,
     -- nls.builtins.diagnostics.eslint_d,
+    nls.builtins.code_actions.eslint_d,
     nls.builtins.diagnostics.tsc,
 
     -- python
