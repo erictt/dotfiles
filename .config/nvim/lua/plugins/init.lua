@@ -2,12 +2,21 @@ local plugins = {
 
   ["nvim-lua/plenary.nvim"] = { module = "plenary" },
 
-  -- ["lewis6991/impatient.nvim"] = {},
+  ["lewis6991/impatient.nvim"] = {},
 
   ["wbthomason/packer.nvim"] = {
     cmd = require("core.lazy_load").packer_cmds,
     config = function()
       require("plugins")
+    end,
+  },
+
+  ["kyazdani42/nvim-web-devicons"] = {
+    module = "nvim-web-devicons",
+    config = function()
+      require("nvim-web-devicons").setup({
+        default = true,
+      })
     end,
   },
 
@@ -21,26 +30,6 @@ local plugins = {
       require("plugins.others").blankline()
     end,
   },
-
-  -- ["NvChad/nvim-colorizer.lua"] = {
-  -- 	opt = true,
-  -- 	setup = function()
-  -- 		require("core.lazy_load").on_file_open("nvim-colorizer.lua")
-  -- 	end,
-  -- 	config = function()
-  -- 		require("plugins.others").colorizer()
-  -- 	end,
-  -- },
-
-  -- ["NvChad/nvterm"] = {
-  -- 	module = "nvterm",
-  -- 	config = function()
-  -- 		require("plugins.nvterm")
-  -- 	end,
-  -- 	setup = function()
-  -- 		require("core.utils").load_mappings("nvterm")
-  -- 	end,
-  -- },
 
   ["nvim-treesitter/nvim-treesitter"] = {
     module = "nvim-treesitter",
@@ -93,8 +82,8 @@ local plugins = {
   -- load luasnips + cmp related in insert mode only
 
   ["rafamadriz/friendly-snippets"] = {
-  	module = { "cmp", "cmp_nvim_lsp" },
-  	event = "InsertEnter",
+    module = { "cmp", "cmp_nvim_lsp" },
+    event = "InsertEnter",
   },
 
   ["hrsh7th/nvim-cmp"] = {
@@ -105,11 +94,11 @@ local plugins = {
   },
 
   ["L3MON4D3/LuaSnip"] = {
-  	wants = "friendly-snippets",
-  	after = "nvim-cmp",
-  	config = function()
-  		require("plugins.others").luasnip()
-  	end,
+    wants = "friendly-snippets",
+    after = "nvim-cmp",
+    config = function()
+      require("plugins.others").luasnip()
+    end,
   },
 
   ["saadparwaiz1/cmp_luasnip"] = { after = "LuaSnip" },
@@ -214,8 +203,13 @@ local plugins = {
     end,
   },
 
-  ['moll/vim-bbye'] = {
+  ["moll/vim-bbye"] = {},
 
+  ["sindrets/diffview.nvim"] = {
+    wants = "plenary.nvim",
+    config = function()
+      require("plugins.diffview")
+    end,
   },
 }
 
@@ -230,8 +224,5 @@ if present then
   -- load packer init options
   local init_options = require("plugins.others").packer_init()
   packer.init(init_options)
-
-  for _, v in pairs(plugins) do
-    packer.use(v)
-  end
+  packer.startup({ plugins })
 end
