@@ -1,58 +1,37 @@
-local present, mason = pcall(require, "mason")
-
-if not present then
-	return
-end
-
-local options = {
-	ensure_installed = {
-		"lua-language-server",
-		"stylua", -- lua
-
-		"intelephense", -- php lsp
-		"php-cs-fixer", -- php formatter
-
-		"prettierd", -- html, yaml, markdown
-
-    "eslint-lsp", -- javascsript, typescript
-    -- "typescript-language-server", -- javascsript, typescript
-
-    "clang-format", -- c, cpp
-    "clangd", -- c, cpp
-
-    "black",
-
-    "yapf", -- python
-    "pylint", --python
-    "pyright", -- python
-
-    -- "codespell", -- work spell check
-	}, -- not an option from mason.nvim
-
-	ui = {
-		icons = {
-			package_pending = " ",
-			package_installed = " ",
-			package_uninstalled = " ﮊ",
-		},
-
-		keymaps = {
-			toggle_server_expand = "<CR>",
-			install_server = "i",
-			update_server = "u",
-			check_server_version = "c",
-			update_all_servers = "U",
-			check_outdated_servers = "C",
-			uninstall_server = "X",
-			cancel_installation = "<C-c>",
-		},
-	},
-
-	max_concurrent_installers = 10,
+local M = {
+  "williamboman/mason.nvim",
 }
 
-vim.api.nvim_create_user_command("MasonInstallAll", function()
-	vim.cmd("MasonInstall " .. table.concat(options.ensure_installed, " "))
-end, {})
+M.tools = {
+  "prettierd",
+  "stylua",
+  "selene",
+  "luacheck",
+  "eslint_d",
+  "shellcheck",
+  "deno",
+  "shfmt",
+  "black",
+  "isort",
+  "flake8",
+}
 
-mason.setup(options)
+function M.check()
+  local mr = require("mason-registry")
+  for _, tool in ipairs(M.tools) do
+    local p = mr.get_package(tool)
+    if not p:is_installed() then
+      p:install()
+    end
+  end
+end
+
+function M.config()
+  require("mason").setup()
+  M.check()
+  require("mason-lspconfig").setup({
+    automatic_installation = true,
+  })
+end
+
+return M
