@@ -66,15 +66,15 @@ function M.config()
     require("noice").redirect(vim.fn.getcmdline())
   end, { desc = "Redirect Cmdline" })
 
-  vim.keymap.set("n", "<leader>nl", function()
+  vim.keymap.set("n", "<leader>ml", function()
     require("noice").cmd("last")
   end, { desc = "Noice Last Message" })
 
-  vim.keymap.set("n", "<leader>nh", function()
+  vim.keymap.set("n", "<leader>mh", function()
     require("noice").cmd("history")
   end, { desc = "Noice History" })
 
-  vim.keymap.set("n", "<leader>na", function()
+  vim.keymap.set("n", "<leader>ma", function()
     require("noice").cmd("all")
   end, { desc = "Noice All" })
 

@@ -146,6 +146,10 @@ local leader = {
     name = "+code",
   },
 
+  m = {
+    name = "+noice",
+  },
+
   ["n"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
 
   s = {
