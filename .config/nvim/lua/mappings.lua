@@ -87,12 +87,12 @@ vim.keymap.set("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
 local leader = {
   b = {
     name = "+buffer",
+    ["a"] = { "<cmd>BufferLinePick <CR>", "Pick buffer" },
     ["b"] = { "<cmd>:e #<cr>", "Switch to Other Buffer" },
     ["D"] = { "<cmd>:bd<CR>", "Delete Buffer & Window" },
-    ["a"] = { "<cmd>BufferLinePick <CR>", "Pick buffer" },
-    ["x"] = { "<cmd>Bwipeout <CR>", "Wipe out buffers" },
+    ["w"] = { "<cmd>Bwipeout <CR>", "Wipe out buffers" },
+    ["x"] = { "<cmd>Bdelete <CR>", "Close buffer" },
   },
-  ["x"] = { "<cmd>Bdelete <CR>", "close buffer" },
 
   e = {
     name = "+errors",
@@ -147,21 +147,6 @@ local leader = {
   },
 
   ["n"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
-
-  p = {
-    name = "+project",
-    p = "Open Project",
-    b = { ":Telescope file_browser cwd=~/workspace<CR>", "Browse ~/workspace" },
-  },
-
-  q = {
-    name = "+quit/session",
-    q = { "<cmd>qa<cr>", "Quit" },
-    ["!"] = { "<cmd>:qa!<cr>", "Quit without saving" },
-    s = { [[<cmd>lua require("persistence").load()<cr>]], "Restore Session" },
-    l = { [[<cmd>lua require("persistence").load({last=true})<cr>]], "Restore Last Session" },
-    d = { [[<cmd>lua require("persistence").stop()<cr>]], "Stop Current Session" },
-  },
 
   s = {
     name = "+search",
