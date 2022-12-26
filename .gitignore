@@ -45,6 +45,7 @@ nvim/plugin
 .config/helm
 .config/karabiner/automatic_backups
 .config/nvim/plugin
-.config/ngrok
 .config/raycast/extensions
 .config/raycast/config.json
+.config/ngrok
+.config/gcloud
