@@ -3,8 +3,9 @@ return {
   "jose-elias-alvarez/typescript.nvim",
   "williamboman/mason-lspconfig.nvim",
   "nvim-lua/plenary.nvim",
+  { "famiu/bufdelete.nvim", event = "BufReadPre", },
   "MunifTanjim/nui.nvim",
-  "folke/which-key.nvim",
+  { "folke/which-key.nvim", lazy = false, },
   { "folke/neoconf.nvim", cmd = "Neoconf" },
 
   {

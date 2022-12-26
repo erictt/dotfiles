@@ -8,7 +8,7 @@ function M.setup(client, buffer)
   local keymap = {
     buffer = buffer,
     ["<leader>"] = {
-      c = {
+      l = {
         name = "+code",
         {
           cond = client.name == "tsserver",
@@ -42,13 +42,7 @@ function M.setup(client, buffer)
           },
         },
         d = { vim.diagnostic.open_float, "Line Diagnostics" },
-        l = {
-          name = "+lsp",
-          i = { "<cmd>LspInfo<cr>", "Lsp Info" },
-          a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add Folder" },
-          r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Folder" },
-          l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Folders" },
-        },
+        i = { "<cmd>LspInfo<cr>", "Lsp Info" },
       },
       x = {
         d = { "<cmd>Telescope diagnostics<cr>", "Search Diagnostics" },
