@@ -88,11 +88,11 @@ local leader = {
   b = {
     name = "+buffer",
     ["b"] = { "<cmd>:e #<cr>", "Switch to Other Buffer" },
-    -- ["D"] = { "<cmd>:bd<CR>", "Delete Buffer & Window" },
+    ["D"] = { "<cmd>:bd<CR>", "Delete Buffer & Window" },
     ["a"] = { "<cmd>BufferLinePick <CR>", "Pick buffer" },
     ["x"] = { "<cmd>Bwipeout <CR>", "Wipe out buffers" },
   },
-  ["x"] = { "<cmd>Bdelete <CR>", "Close buffer" },
+  ["x"] = { "<cmd>Bdelete <CR>", "close buffer" },
 
   e = {
     name = "+errors",
@@ -108,24 +108,22 @@ local leader = {
     name = "+file",
     -- b = { "<cmd>Telescope file_browser<CR>", "Browse Files" },
     b = { "<cmd>Telescope buffers show_all_buffers=true<cr>", "Switch Buffer" },
-    t = { "<cmd>Neotree toggle<cr>", "NeoTree" },
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     w = { "<cmd>Telescope live_grep<cr>", "Search" },
+    d = { "<cmd>Telescope find_files hidden=true<cr>", "Find Dot File" },
     n = { "<cmd>enew<cr>", "New File" },
     -- z = "Zoxide",
     -- d = "Dot Files",
   },
 
   g = {
-    name = "+git",
-    l = {
-      function()
-        require("util").float_terminal("lazygit", { border = "none" })
-      end,
-      "LazyGit",
-    },
+    function()
+      require("util").float_terminal("lazygit", { border = "none" })
+    end,
+    "LazyGit",
   },
+
   ["h"] = {
     name = "+help",
     t = { "<cmd>:Telescope builtin<cr>", "Telescope" },

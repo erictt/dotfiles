@@ -3,9 +3,9 @@ return {
   "jose-elias-alvarez/typescript.nvim",
   "williamboman/mason-lspconfig.nvim",
   "nvim-lua/plenary.nvim",
-  { "famiu/bufdelete.nvim", event = "BufReadPre", },
+  { "famiu/bufdelete.nvim", event = "BufReadPre" },
   "MunifTanjim/nui.nvim",
-  { "folke/which-key.nvim", lazy = false, },
+  { "folke/which-key.nvim", lazy = false },
   { "folke/neoconf.nvim", cmd = "Neoconf" },
 
   {
@@ -32,7 +32,7 @@ return {
       -- prompt for a refactor to apply when the remap is triggered
       vim.keymap.set("v", "<leader>r", function()
         require("refactoring").select_refactor()
-      end, { noremap = true, silent = true, expr = false })
+      end, { desc = "Refactor", noremap = true, silent = true, expr = false })
     end,
     config = function()
       require("refactoring").setup({})
@@ -79,7 +79,7 @@ return {
       require("nvim-web-devicons").setup({ default = true })
     end,
   },
-  
+
   {
     "norcalli/nvim-terminal.lua",
     ft = "terminal",
@@ -95,6 +95,20 @@ return {
       require("trouble").setup({
         auto_open = false,
         use_diagnostic_signs = true, -- en
+      })
+    end,
+  },
+
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    config = function()
+      require("zen-mode").setup({
+        plugins = {
+          gitsigns = true,
+          tmux = true,
+          kitty = { enabled = false, font = "+2" },
+        },
       })
     end,
   },

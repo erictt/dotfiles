@@ -7,7 +7,7 @@ function M.setup(options)
 
   local sources = {
     -- html and markdown
-    nls.builtins.formatting.prettierd.with({ filetypes = {"html", "yaml", "markdown", "json" } }),
+    nls.builtins.formatting.prettierd.with({ filetypes = { "html", "yaml", "markdown", "json" } }),
     -- markdown diagnostic
     -- nls.builtins.diagnostics.markdownlint,
 
@@ -18,11 +18,11 @@ function M.setup(options)
     --     return utils.root_has_file({ "selene.toml" })
     --   end,
     -- }),
-      
-    -- php 
+
+    -- php
     nls.builtins.formatting.phpcsfixer.with({ filetypes = { "php" } }),
 
-    -- c, cpp 
+    -- c, cpp
     nls.builtins.formatting.clang_format,
     nls.builtins.diagnostics.cppcheck,
 

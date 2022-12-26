@@ -26,7 +26,21 @@ function M.config()
       lualine_a = { "mode" },
       lualine_b = { "branch" },
       lualine_c = {
-        { "diagnostics", sources = { "nvim_diagnostic" } },
+        {
+          "diagnostics",
+          sources = { "nvim_lsp", "nvim_diagnostic" },
+          sections = { "error", "warn", "info", "hint" },
+          diagnostics_color = {
+            -- Same values as the general color option can be used here.
+            error = { fg = "#ea6962" }, -- Changes diagnostics' error color.
+            warn = { fg = "#d8a657" }, -- Changes diagnostics' error color.
+            info = { fg = "#53d0f0" }, -- Changes diagnostics' error color.
+            hint = { fg = "#a9b665" }, -- Changes diagnostics' error color.
+          },
+          colored = true, -- Displays diagnostics status in color if set to true.
+          update_in_insert = false, -- Update diagnostics in insert mode.
+          always_visible = false, -- Show diagnostics even if there are none.
+        },
         { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
         { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
         {
