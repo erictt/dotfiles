@@ -8,26 +8,18 @@ function M.setup(client, buffer)
   local keymap = {
     buffer = buffer,
     ["<leader>"] = {
-      l = {
+      c = {
         name = "+code",
         {
           cond = client.name == "tsserver",
           o = { "<cmd>:TypescriptOrganizeImports<CR>", "Organize Imports" },
           R = { "<cmd>:TypescriptRenameFile<CR>", "Rename File" },
         },
-        r = {
-          function()
-            require("inc_rename")
-            return ":IncRename " .. vim.fn.expand("<cword>")
-          end,
-          "Rename",
-          cond = cap.renameProvider,
-          expr = true,
-        },
         a = {
           { vim.lsp.buf.code_action, "Code Action" },
           { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action", mode = "v" },
         },
+        d = { vim.diagnostic.open_float, "Line Diagnostics" },
         f = {
           {
             require("plugins.lsp.formatting").format,
@@ -41,11 +33,16 @@ function M.setup(client, buffer)
             mode = "v",
           },
         },
-        d = { vim.diagnostic.open_float, "Line Diagnostics" },
         i = { "<cmd>LspInfo<cr>", "Lsp Info" },
-      },
-      x = {
-        d = { "<cmd>Telescope diagnostics<cr>", "Search Diagnostics" },
+        r = {
+          function()
+            require("inc_rename")
+            return ":IncRename " .. vim.fn.expand("<cword>")
+          end,
+          "Rename",
+          cond = cap.renameProvider,
+          expr = true,
+        },
       },
     },
     g = {
@@ -55,6 +52,7 @@ function M.setup(client, buffer)
       R = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
       D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto Declaration" },
       I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
+      x = { "<cmd>Telescope diagnostics<cr>", "Search Diagnostics" },
       -- p = { "<cmd>Telescope lsp_type_definitions<cr>", "Goto Type Definition" },
     },
     ["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help", mode = { "n", "i" } },
