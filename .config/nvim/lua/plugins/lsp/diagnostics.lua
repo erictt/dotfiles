@@ -1,5 +1,6 @@
 local M = {}
 
+-- M.signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 M.signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 function M.setup()
@@ -21,6 +22,11 @@ function M.setup()
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
   end
+
+  vim.api.nvim_command("hi DiagnosticError guifg=#ea6962")
+  vim.api.nvim_command("hi DiagnosticWarn guifg=#d8a657")
+  vim.api.nvim_command("hi DiagnosticHint guifg=#a9b665")
+  vim.api.nvim_command("hi DiagnosticInfo guifg=#53d0f0")
 end
 
 return M
