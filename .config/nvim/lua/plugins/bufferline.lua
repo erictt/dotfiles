@@ -36,11 +36,12 @@ function M.config()
         end
         return table.concat(s, " ")
       end,
-      hover = {
-        enabled = true,
-        delay = 200,
-        reveal = {'close'}
-      },
+    },
+    highlights = {
+      error_diagnostic_selected = { fg = "#ea6962" },
+      warning_diagnostic_selected = { fg = "#d8a657" },
+      info_diagnostic_selected = { fg = "#53d0f0" },
+      hint_diagnostic_selected = { fg = "#a9b665" },
     },
   })
 end
