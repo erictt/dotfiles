@@ -16,6 +16,7 @@
   "gruvbox-material.nvim": { "branch": "master", "commit": "02d0f0cc7bffc38a8ea419d941075b7b982aa314" },
   "hop.nvim": { "branch": "master", "commit": "90db1b2c61b820e230599a04fedcd2679e64bd07" },
   "inc-rename.nvim": { "branch": "main", "commit": "48c4aa2be19f79e79b465a9bb37ee9fbe6c606f5" },
+  "indent-blankline.nvim": { "branch": "master", "commit": "c4c203c3e8a595bc333abaf168fcb10c13ed5fb7" },
   "lazy.nvim": { "branch": "main", "commit": "6c5af82589f846a773ac2e8ed44f7479fb28a870" },
   "lsp": { "branch": "master", "commit": "212b99bc12a5416df8b2a610711ba399e2fc388a" },
   "lsp-colors.nvim": { "branch": "main", "commit": "4e6da1984d23da88a947805866580c48fc3cc8d7" },
