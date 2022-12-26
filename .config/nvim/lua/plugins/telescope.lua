@@ -115,16 +115,16 @@ function M.init()
   end, { desc = "Find File" })
 
   vim.keymap.set("n", "<leader>fd", function()
-    require("telescope.builtin").git_files({ cwd = "~/dot" })
+    require("telescope.builtin").git_files({ cwd = "~/workspace/projects/dotfiles" })
   end, { desc = "Find Dot File" })
 
   vim.keymap.set("n", "<leader>fz", function()
     require("telescope").extensions.z.list({ cmd = { vim.o.shell, "-c", "zoxide query -ls" } })
   end, { desc = "Find Zoxide" })
 
-  vim.keymap.set("n", "<leader>pp", function()
-    require("telescope").extensions.project.project({})
-  end, { desc = "Find Project" })
+  -- vim.keymap.set("n", "<leader>pp", function()
+  --   require("telescope").extensions.project.project({})
+  -- end, { desc = "Find Project" })
 end
 
 return M
