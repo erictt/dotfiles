@@ -1,21 +1,90 @@
 local M = {
   "lewis6991/gitsigns.nvim",
-  event = "VeryLazy",
+  event = "BufReadPre",
 }
 
 function M.config()
-  local gitsigns = require("gitsigns")
-  local options = {
+  require("gitsigns").setup({
     signs = {
-      add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
-      change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
-      delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
-      topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
-      changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
+      add = { hl = "GitSignsAdd", text = "▍", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+      change = {
+        hl = "GitSignsChange",
+        text = "▍",
+        numhl = "GitSignsChangeNr",
+        linehl = "GitSignsChangeLn",
+      },
+      delete = {
+        hl = "GitSignsDelete",
+        text = "▸",
+        numhl = "GitSignsDeleteNr",
+        linehl = "GitSignsDeleteLn",
+      },
+      topdelete = {
+        hl = "GitSignsDelete",
+        text = "▾",
+        numhl = "GitSignsDeleteNr",
+        linehl = "GitSignsDeleteLn",
+      },
+      changedelete = {
+        hl = "GitSignsChange",
+        text = "▍",
+        numhl = "GitSignsChangeNr",
+        linehl = "GitSignsChangeLn",
+      },
+      untracked = { hl = "GitSignsAdd", text = "▍", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
     },
-  }
+    on_attach = function(bufnr)
+      local gs = package.loaded.gitsigns
 
-  gitsigns.setup(options)
+      local function map(mode, l, r, opts)
+        opts = opts or {}
+        if type(opts) == "string" then
+          opts = { desc = opts }
+        end
+        opts.buffer = bufnr
+        vim.keymap.set(mode, l, r, opts)
+      end
+
+      -- Navigation
+      map("n", "]h", function()
+        if vim.wo.diff then
+          return "]h"
+        end
+        vim.schedule(function()
+          gs.next_hunk()
+        end)
+        return "<Ignore>"
+      end, { expr = true, desc = "Next Hunk" })
+
+      map("n", "[h", function()
+        if vim.wo.diff then
+          return "[h"
+        end
+        vim.schedule(function()
+          gs.prev_hunk()
+        end)
+        return "<Ignore>"
+      end, { expr = true, desc = "Prev Hunk" })
+
+      -- Actions
+      map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
+      map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+      map("n", "<leader>gS", gs.stage_buffer, "Stage Buffer")
+      map("n", "<leader>gu", gs.undo_stage_hunk, "Undo Stage Hunk")
+      map("n", "<leader>gR", gs.reset_buffer, "Reset Buffer")
+      map("n", "<leader>gp", gs.preview_hunk, "Preview Hunk")
+      map("n", "<leader>gb", function()
+        gs.blame_line({ full = true })
+      end, "Blame Line")
+      map("n", "<leader>gd", gs.diffthis, "Diff This")
+      map("n", "<leader>gD", function()
+        gs.diffthis("~")
+      end, "Diff This ~")
+
+      -- Text object
+      map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+    end,
+  })
 end
 
 return M
