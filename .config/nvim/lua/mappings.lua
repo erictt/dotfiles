@@ -142,7 +142,7 @@ local leader = {
   },
 
   -- configured in lsp/keys
-  c = {
+  l = {
     name = "+code",
   },
 

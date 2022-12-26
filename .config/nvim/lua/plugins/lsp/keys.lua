@@ -8,7 +8,7 @@ function M.setup(client, buffer)
   local keymap = {
     buffer = buffer,
     ["<leader>"] = {
-      c = {
+      l = {
         name = "+code",
         {
           cond = client.name == "tsserver",
