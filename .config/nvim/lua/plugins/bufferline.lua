@@ -36,6 +36,14 @@ function M.config()
         end
         return table.concat(s, " ")
       end,
+      offsets = {
+        {
+          filetype = "neo-tree",
+          text = "Neo Tree",
+          highlight = "Directory",
+          text_align = "left",
+        },
+      },
     },
     highlights = {
       error_diagnostic_selected = { fg = "#ea6962" },

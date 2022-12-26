@@ -156,7 +156,8 @@ local leader = {
     name = "+noice",
   },
 
-  ["n"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+  -- ["n"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+  ["n"] = { "<cmd>Neotree toggle<cr>", "NeoTree" },
 
   s = {
     name = "+search",
