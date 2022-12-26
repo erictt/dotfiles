@@ -5,6 +5,7 @@ M.signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 function M.setup()
   -- Automatically update diagnostics
+  -- TODO
   vim.diagnostic.config({
     underline = true,
     update_in_insert = false,
