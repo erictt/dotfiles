@@ -1,44 +1,4 @@
 -- selene: allow(global_usage)
-
-_G.d = function(...)
-  local me = debug.getinfo(1, "S")
-  local level = 2
-  local info = debug.getinfo(level, "S")
-  while info and info.source == me.source do
-    level = level + 1
-    info = debug.getinfo(level, "S")
-  end
-  info = info or me
-  local source = info.source:sub(2)
-  source = vim.loop.fs_realpath(source) or source
-  source = vim.fn.fnamemodify(source, ":~:.") .. ":" .. info.linedefined
-  local what = { ... }
-  if vim.tbl_islist(what) and vim.tbl_count(what) <= 1 then
-    what = what[1]
-  end
-  local msg = vim.inspect(vim.deepcopy(what))
-  local ok, notify = pcall(require, "notify")
-  notify = ok and notify or vim
-  notify.notify(msg, vim.log.levels.INFO, {
-    title = "Debug: " .. source,
-    on_open = function(win)
-      vim.wo[win].conceallevel = 3
-      vim.wo[win].concealcursor = ""
-      vim.wo[win].spell = false
-      local buf = vim.api.nvim_win_get_buf(win)
-      vim.treesitter.start(buf, "lua")
-    end,
-  })
-end
-
-_G.dd = function(...)
-  local args = vim.deepcopy(vim.F.pack_len(...))
-  vim.schedule(function()
-    d(vim.F.unpack_len(args))
-  end)
-end
-
--- selene: allow(global_usage)
 _G.profile = function(cmd, times, flush)
   times = times or 100
   local start = vim.loop.hrtime()
@@ -182,6 +142,11 @@ function M.float_cmd(cmd, opts)
 end
 
 function M.float_terminal(cmd, opts)
+  -- require("lazy.util").open_cmd(cmd, {
+  --   terminal = true,
+  --   close_on_exit = true,
+  --   enter = true,
+  -- })
   M.float(function(buf, win)
     vim.fn.termopen(cmd)
     local autocmd = {
@@ -203,39 +168,6 @@ function M.fqn(fname)
   fname = vim.fn.fnamemodify(fname, ":p")
   return vim.loop.fs_realpath(fname) or fname
 end
-
--- function M.clipman()
---   local file = M.fqn("~/.local/share/clipman.json")
---   if M.exists(file) then
---     local f = io.open(file)
---     if not f then
---       return
---     end
---     local data = f:read("*a")
---     f:close()
---
---     -- allow empty files
---     data = vim.trim(data)
---     if data ~= "" then
---       local ok, json = pcall(vim.fn.json_decode, data)
---       if ok and json then
---         local items = {}
---         for i = #json, 1, -1 do
---           items[#items + 1] = json[i]
---         end
---         vim.ui.select(items, {
---           prompt = "Clipman",
---         }, function(choice)
---           if choice then
---             vim.api.nvim_paste(choice, true, 1)
---           end
---         end)
---       else
---         vim.notify(("failed to load clipman from %s"):format(file), vim.log.levels.ERROR)
---       end
---     end
---   end
--- end
 
 function M.debounce(ms, fn)
   local timer = vim.loop.new_timer()

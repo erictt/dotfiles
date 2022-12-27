@@ -2,20 +2,12 @@ local M = {
   "neovim/nvim-lspconfig",
   name = "lsp",
   event = "BufReadPre",
-  dependencies = { "hrsh7th/cmp-nvim-lsp", "folke/lsp-colors.nvim" },
+  dependencies = { "hrsh7th/cmp-nvim-lsp" },
 }
 
 function M.config()
   require("mason")
   require("plugins.lsp.diagnostics").setup()
-  require("neoconf").setup()
-
-  -- require("lsp-colors").setup({
-  --   Error = "#ea6962",
-  --   Warning = "#d8a657",
-  --   Information = "#53d0f0",
-  --   Hint = "#a9b665",
-  -- })
 
   local function on_attach(client, bufnr)
     require("nvim-navic").attach(client, bufnr)

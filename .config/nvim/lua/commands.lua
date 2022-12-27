@@ -2,7 +2,10 @@ vim.cmd([[autocmd FileType markdown nnoremap gO <cmd>Toc<cr>]])
 vim.cmd([[autocmd FileType markdown setlocal spell]])
 
 -- Check if we need to reload the file when it changed
-vim.cmd("au FocusGained * :checktime")
+vim.api.nvim_create_autocmd("FocusGained", { command = "checktime" })
+
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", { callback = vim.highlight.on_yank })
 
 -- show cursor line only in active window
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
@@ -62,9 +65,6 @@ vim.api.nvim_create_autocmd("BufReadPre", {
   end,
 })
 
--- Highlight on yank
-vim.cmd("au TextYankPost * lua vim.highlight.on_yank {}")
-
 -- close the window when type q on such file types
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
@@ -78,10 +78,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "tsplayground",
     "PlenaryTestPopup",
   },
-  callback = function()
-    vim.cmd([[
-    nnoremap <silent> <buffer> q <cmd>close<CR> 
-    set nobuflisted 
-    ]])
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
