@@ -58,6 +58,11 @@ function M.config()
         filter = {},
       },
     },
+    format = {
+      level = {
+        icons = false,
+      },
+    },
   })
 
   vim.keymap.set("c", "<S-Enter>", function()

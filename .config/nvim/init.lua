@@ -22,7 +22,13 @@ require("lazy").setup("plugins", {
   defaults = { lazy = true },
   install = { colorscheme = { "gruvbox-material" } },
   checker = { enabled = true },
+  diff = {
+    cmd = "terminal_git",
+  },
   performance = {
+    cache = {
+      enabled = true,
+    },
     rtp = {
       disabled_plugins = {
         "gzip",
@@ -33,6 +39,7 @@ require("lazy").setup("plugins", {
         "tohtml",
         "tutor",
         "zipPlugin",
+        "nvim-treesitter-textobjects",
       },
     },
   },

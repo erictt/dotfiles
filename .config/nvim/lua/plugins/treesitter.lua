@@ -13,6 +13,12 @@ return {
   },
 
   {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "BufReadPre",
+    config = true,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = "BufReadPost",

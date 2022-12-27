@@ -1,30 +1,27 @@
 return {
   "b0o/SchemaStore.nvim", -- used by json lsp for format
   "jose-elias-alvarez/typescript.nvim",
+  "MunifTanjim/nui.nvim",
   "williamboman/mason-lspconfig.nvim",
   "nvim-lua/plenary.nvim",
   { "famiu/bufdelete.nvim", event = "BufReadPre" },
-  "MunifTanjim/nui.nvim",
-  { "folke/which-key.nvim", lazy = false },
-  { "folke/neoconf.nvim", cmd = "Neoconf" },
+  "folke/which-key.nvim",
 
-  {
-    "folke/drop.nvim",
-    enabled = false,
-    event = "VimEnter",
-    config = function()
-      require("drop").setup({
-        theme = "snow",
-      })
-    end,
-  },
+  -- {
+  --   "folke/drop.nvim",
+  --   enabled = false,
+  --   event = "VimEnter",
+  --   config = function()
+  --     require("drop").setup({
+  --       theme = "snow",
+  --     })
+  --   end,
+  -- },
 
   {
     "smjonas/inc-rename.nvim",
     cmd = "IncRename",
-    config = function()
-      require("inc_rename").setup()
-    end,
+    config = true,
   },
 
   -- LSP
@@ -39,75 +36,73 @@ return {
 
   {
     "ThePrimeagen/refactoring.nvim",
-    init = function()
-      -- prompt for a refactor to apply when the remap is triggered
-      vim.keymap.set("v", "<leader>r", function()
-        require("refactoring").select_refactor()
-      end, { desc = "Refactor", noremap = true, silent = true, expr = false })
-    end,
-    config = function()
-      require("refactoring").setup({})
-    end,
+    keys = {
+      {
+        "<leader>r",
+        function()
+          require("refactoring").select_refactor()
+        end,
+        mode = "v",
+        noremap = true,
+        silent = true,
+        expr = false,
+      },
+    },
+    config = {},
   },
 
   {
     "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline",
-    init = function()
-      vim.keymap.set("n", "<leader>to", "<cmd>SymbolsOutline<cr>", { desc = "Symbols Outline" })
-    end,
-    config = function()
-      require("symbols-outline").setup()
-    end,
+    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+    config = true,
   },
 
   {
     "danymat/neogen",
-    config = function()
-      require("neogen").setup({ snippet_engine = "luasnip" })
-    end,
+    keys = {
+      {
+        "<leader>cc",
+        function()
+          require("neogen").generate({})
+        end,
+        desc = "Neogen Comment",
+      },
+    },
+    config = { snippet_engine = "luasnip" },
   },
 
   {
     "m-demare/hlargs.nvim",
     event = "VeryLazy",
     enabled = false,
-    config = function()
-      require("hlargs").setup({
-        excluded_argnames = {
-          usages = {
-            lua = { "self", "use" },
-          },
+    config = {
+      excluded_argnames = {
+        usages = {
+          lua = { "self", "use" },
         },
-      })
-    end,
+      },
+    },
   },
 
   -- Theme: icons
   {
     "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("nvim-web-devicons").setup({ default = true })
-    end,
+    config = { default = true },
   },
 
   {
     "norcalli/nvim-terminal.lua",
     ft = "terminal",
-    config = function()
-      require("terminal").setup()
-    end,
+    config = true,
   },
 
   {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },
-    config = function()
-      require("trouble").setup({
-        auto_open = false,
-        use_diagnostic_signs = true, -- en
-      })
-    end,
+    config = {
+      auto_open = false,
+      use_diagnostic_signs = true, -- en
+    },
   },
 
   {

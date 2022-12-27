@@ -1,55 +1,8 @@
 local indent = 2
 
-local notifs = {}
-local notify = {
-  orig = vim.notify,
-  lazy = function(...)
-    table.insert(notifs, { ... })
-  end,
-}
-vim.notify = notify.lazy
-
-local function lazy_notify()
-  local check = vim.loop.new_check()
-  local start = vim.loop.hrtime()
-  check:start(function()
-    if vim.notify ~= notify.lazy then
-    elseif (vim.loop.hrtime() - start) / 1e6 > 300 then
-      vim.notify = notify.orig
-    else
-      return
-    end
-    check:stop()
-    -- use the new notify
-    vim.schedule(function()
-      for _, notif in ipairs(notifs) do
-        vim.notify(unpack(notif))
-      end
-    end)
-  end)
-end
-lazy_notify()
-
-if vim.fn.has("nvim-0.8") == 1 then
-  vim.opt.spell = true -- Put new windows below current
-  vim.opt.cmdheight = 0
-
-  -- make all keymaps silent by default
-  local keymap_set = vim.keymap.set
-  vim.keymap.set = function(mode, lhs, rhs, opts)
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    return keymap_set(mode, lhs, rhs, opts)
-  end
-end
-
-if vim.fn.has("nvim-0.9.0") == 1 then
-  vim.opt.splitkeep = "screen"
-end
-
 vim.g.mapleader = ","
--- vim.g.maplocalleader = ","
--- vim.g.node_host_prog = "/Users/eric/.pnpm-global/5/node_modules/neovim/bin/cli.js"
+vim.g.maplocalleader = ","
+
 vim.opt.autowrite = true -- enable auto write
 vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
 -- vim.opt.concealcursor = "nc" -- Hide * markup for bold and italic
@@ -58,18 +11,9 @@ vim.opt.confirm = true -- confirm to save changes before exiting modified buffer
 vim.opt.cursorline = true -- Enable highlighting of the current line
 vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.backup = true
+vim.opt.spelllang = { "en" }
 
-if vim.fn.has("nvim-0.8.0") == 1 then
-  vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
-end
-
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- TreeSitter folding
--- vim.opt.foldlevel = 6
--- vim.opt.foldmethod = "expr" -- TreeSitter folding
--- vim.opt.foldmethod = "indent"
--- vim.opt.foldlevel = 0
 vim.o.formatoptions = "jcroqlnt" -- tcqj
-
 vim.opt.guifont = "FiraCode Nerd Font:h11"
 vim.opt.grepprg = "rg --vimgrep"
 vim.opt.grepformat = "%f:%l:%c:%m"
@@ -93,8 +37,6 @@ vim.opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shi
 vim.opt.smartcase = true -- Don't ignore case with capitals
 vim.opt.smartindent = true -- Insert indents automatically
 
--- if vim.fn.has("nvim-0.8") == 1 then
--- end
 vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.tabstop = indent -- Number of spaces tabs count for
@@ -119,56 +61,14 @@ vim.opt.fillchars = {
   -- foldsep = " ",
   foldclose = "",
 }
--- vim.o.shortmess = "IToOlxfitn"
--- vim.opt.shortmess:get()
-if vim.fn.has("nvim-0.9") == 1 then
-  vim.o.shortmess = "filnxtToOFWIcC"
-end
-
--- don't load the plugins below
-local builtins = {
-  "gzip",
-  "zip",
-  "zipPlugin",
-  "fzf",
-  "tar",
-  "tarPlugin",
-  "getscript",
-  "getscriptPlugin",
-  "vimball",
-  "vimballPlugin",
-  "2html_plugin",
-  "matchit",
-  "matchparen",
-  "logiPat",
-  "rrhelper",
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-}
-
-for _, plugin in ipairs(builtins) do
-  vim.g["loaded_" .. plugin] = 1
-end
-
--- Use proper syntax highlighting in code blocks
-local fences = {
-  "lua",
-  -- "vim",
-  "json",
-  "typescript",
-  "javascript",
-  "js=javascript",
-  "ts=typescript",
-  "shell=sh",
-  "python",
-  "sh",
-  "console=sh",
-}
-vim.g.markdown_fenced_languages = fences
 vim.g.markdown_recommended_style = 0
 
--- set for nvimtree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+if vim.fn.has("nvim-0.8") == 1 then
+  vim.opt.cmdheight = 0
+  vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
+end
+
+if vim.fn.has("nvim-0.9.0") == 1 then
+  vim.opt.splitkeep = "screen"
+  vim.o.shortmess = "filnxtToOFWIcC"
+end

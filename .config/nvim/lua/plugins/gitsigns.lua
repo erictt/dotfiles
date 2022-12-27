@@ -1,12 +1,14 @@
 local M = {
   "lewis6991/gitsigns.nvim",
   event = "BufReadPre",
-  cond = function()
-    return vim.loop.fs_stat(".git")
-  end,
 }
 
 function M.config()
+  if not package.loaded.trouble then
+    package.preload.trouble = function()
+      return true
+    end
+  end
   require("gitsigns").setup({
     signs = {
       add = { hl = "GitSignsAdd", text = "▍", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
@@ -70,17 +72,17 @@ function M.config()
       end, { expr = true, desc = "Prev Hunk" })
 
       -- Actions
-      map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
-      map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-      map("n", "<leader>gS", gs.stage_buffer, "Stage Buffer")
-      map("n", "<leader>gu", gs.undo_stage_hunk, "Undo Stage Hunk")
-      map("n", "<leader>gR", gs.reset_buffer, "Reset Buffer")
-      map("n", "<leader>gp", gs.preview_hunk, "Preview Hunk")
-      map("n", "<leader>gb", function()
+      map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
+      map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+      map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
+      map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
+      map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
+      map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
+      map("n", "<leader>ghb", function()
         gs.blame_line({ full = true })
       end, "Blame Line")
-      map("n", "<leader>gd", gs.diffthis, "Diff This")
-      map("n", "<leader>gD", function()
+      map("n", "<leader>ghd", gs.diffthis, "Diff This")
+      map("n", "<leader>ghD", function()
         gs.diffthis("~")
       end, "Diff This ~")
 
@@ -88,6 +90,8 @@ function M.config()
       map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
     end,
   })
+  package.loaded.trouble = nil
+  package.preload.trouble = nil
 end
 
 return M
