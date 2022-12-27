@@ -19,7 +19,7 @@ function M.config()
       component_separators = { left = "", right = "" },
       icons_enabled = true,
       globalstatus = true,
-      disabled_filetypes = { statusline = { "dashboard" } },
+      disabled_filetypes = { statusline = { "alpha", "dashboard" } },
     },
     sections = {
       -- lualine_a = { { "mode", separator = { left = "" } } },
@@ -57,10 +57,6 @@ function M.config()
         },
       },
       lualine_x = {
-        -- {
-        --   require("noice").api.status.message.get_hl,
-        --   cond = require("noice").api.status.message.has,
-        -- },
         {
           require("noice").api.status.command.get,
           cond = require("noice").api.status.command.has,
@@ -81,10 +77,6 @@ function M.config()
           cond = require("lazy.status").has_updates,
           color = { fg = "#ff9e64" },
         },
-        -- function()
-        --   return require("messages.view").status
-        -- end,
-        -- { require("github-notifications").statusline_notification_count },
         {
           function()
             return require("dashboard").status()

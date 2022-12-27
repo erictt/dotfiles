@@ -1,10 +1,8 @@
 local M = {
   "folke/noice.nvim",
-
+  -- enabled = false,
   event = "VeryLazy",
 }
-
-M.enabled = true
 
 function M.config()
   local focused = true
