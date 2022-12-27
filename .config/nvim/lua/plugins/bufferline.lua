@@ -1,6 +1,7 @@
 local M = {
   "akinsho/nvim-bufferline.lua",
   event = "BufReadPre",
+  dependencies = { "tiagovla/scope.nvim" },
 }
 
 function M.config()
@@ -22,7 +23,7 @@ function M.config()
 
   require("bufferline").setup({
     options = {
-      show_close_icon = true,
+      show_close_icon = false,
       diagnostics = "nvim_lsp",
       always_show_bufferline = true,
       separator_style = "thick",
@@ -53,6 +54,7 @@ function M.config()
       hint_diagnostic_selected = { fg = "#a9b665" },
     },
   })
+  require("scope").setup()
 end
 
 return M

@@ -27,7 +27,7 @@ function M.config()
       -- adaptive_size = true,
       side = "left",
       width = 30,
-      hide_root_folder = true,
+      hide_root_folder = false,
       mappings = {
         list = {
           { key = "t", action = "tabnew" },
@@ -35,7 +35,6 @@ function M.config()
           { key = "C", action = "cd" },
           { key = "v", action = "vsplit" },
           { key = "s", action = "split" },
-          -- { key = "o", action = "<CR>" },
           -- { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
         },
       },
@@ -53,7 +52,7 @@ function M.config()
       },
     },
     renderer = {
-      highlight_opened_files = "all",
+      -- highlight_opened_files = "all",
 
       indent_markers = {
         enable = false,
