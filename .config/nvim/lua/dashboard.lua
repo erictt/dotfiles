@@ -7,13 +7,9 @@ function M.setup()
   end
 end
 
-function M.status()
-  return "🎅🎄🌟🎁"
-end
-
 function M.show()
   local theme = {
-    name = 'xmas',
+    name = "xmas",
     header = [[
                                                         *                  
      *                                                          *          
@@ -28,7 +24,7 @@ function M.show()
             || ||     || || A            ||    ||          ||    |   jurcy 
      *      <> <>     <> <>          (___||____||_____)   ((~~~~~|   *     
 ]],
-    statusline = "🎅🎄🌟🎁"
+    statusline = "🎅🎄🌟🎁",
   }
 
   local buf = vim.api.nvim_get_current_buf()
