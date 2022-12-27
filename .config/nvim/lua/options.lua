@@ -168,3 +168,7 @@ local fences = {
 }
 vim.g.markdown_fenced_languages = fences
 vim.g.markdown_recommended_style = 0
+
+-- set for nvimtree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

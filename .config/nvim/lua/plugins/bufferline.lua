@@ -38,8 +38,9 @@ function M.config()
       end,
       offsets = {
         {
-          filetype = "neo-tree",
-          text = "Neo Tree",
+          filetype = "NvimTree",
+          -- filetype = "neo-tree",
+          text = "File Explorer",
           highlight = "Directory",
           text_align = "left",
         },
@@ -53,10 +54,5 @@ function M.config()
     },
   })
 end
-
--- function M.init()
---   vim.keymap.set("n", "<TAB>", "<cmd>:BufferLineCycleNext<CR>", { desc = "Next Buffer" })
---   vim.keymap.set("n", "<S-Tab>", "<cmd>:BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
--- end
 
 return M

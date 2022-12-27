@@ -93,11 +93,13 @@ vim.keymap.set("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
 local leader = {
   b = {
     name = "+buffer",
-    ["a"] = { "<cmd>BufferLinePick <CR>", "Pick buffer" },
-    ["b"] = { "<cmd>:e #<cr>", "Switch to Other Buffer" },
-    ["D"] = { "<cmd>:bd<CR>", "Delete Buffer & Window" },
-    ["w"] = { "<cmd>Bwipeout <CR>", "Wipe out buffers" },
-    ["x"] = { "<cmd>Bdelete <CR>", "Close buffer" },
+    a = { "<cmd>BufferLinePick <CR>", "Pick buffer" },
+    b = { "<cmd>:e #<cr>", "Switch to Other Buffer" },
+    D = { "<cmd>:bd<CR>", "Delete Buffer & Window" },
+    s = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Buffer" },
+    t = { "<cmd>Telescope buffers show_all_buffers=true<cr>", "Switch Buffer" },
+    w = { "<cmd>Bwipeout <CR>", "Wipe out buffers" },
+    x = { "<cmd>Bdelete <CR>", "Close buffer" },
   },
 
   e = {
@@ -112,57 +114,13 @@ local leader = {
 
   f = {
     name = "+file",
-    -- b = { "<cmd>Telescope file_browser<CR>", "Browse Files" },
-    b = { "<cmd>Telescope buffers show_all_buffers=true<cr>", "Switch Buffer" },
-    f = { "<cmd>Telescope find_files<cr>", "Find File" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    w = { "<cmd>Telescope live_grep<cr>", "Search" },
+    b = { "<cmd>Telescope file_browser<CR>", "Browse Files" },
     d = { "<cmd>Telescope find_files hidden=true<cr>", "Find Dot File" },
+    f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    h = { "<cmd>Telescope command_history<cr>", "Command History" },
+    m = { "<cmd>Telescope marks<cr>", "Jump to Mark" },
     n = { "<cmd>enew<cr>", "New File" },
-    -- z = "Zoxide",
-    -- d = "Dot Files",
-  },
-
-  g = {
-    name = "+git",
-    l = {
-      function()
-        require("util").float_terminal("lazygit", { border = "none" })
-      end,
-      "LazyGit",
-    },
-  },
-
-  ["h"] = {
-    name = "+help",
-    t = { "<cmd>:Telescope builtin<cr>", "Telescope" },
-    c = { "<cmd>:Telescope commands<cr>", "Commands" },
-    h = { "<cmd>:Telescope help_tags<cr>", "Help Pages" },
-    m = { "<cmd>:Telescope man_pages<cr>", "Man Pages" },
-    k = { "<cmd>:Telescope keymaps<cr>", "Key Maps" },
-    s = { "<cmd>:Telescope highlights<cr>", "Search Highlight Groups" },
-    l = { vim.show_pos, "Highlight Groups at cursor" },
-    f = { "<cmd>:Telescope filetypes<cr>", "File Types" },
-    o = { "<cmd>:Telescope vim_options<cr>", "Options" },
-    a = { "<cmd>:Telescope autocommands<cr>", "Auto Commands" },
-  },
-
-  -- configured in lsp/keys
-  l = {
-    name = "+code",
-  },
-
-  m = {
-    name = "+noice",
-  },
-
-  -- ["n"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
-  ["n"] = { "<cmd>Neotree toggle<cr>", "NeoTree" },
-
-  s = {
-    name = "+search",
-    g = { "<cmd>Telescope live_grep<cr>", "Grep" },
-    b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Buffer" },
+    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     s = {
       function()
         require("telescope.builtin").lsp_document_symbols({
@@ -182,10 +140,44 @@ local leader = {
       end,
       "Goto Symbol",
     },
-    h = { "<cmd>Telescope command_history<cr>", "Command History" },
-    m = { "<cmd>Telescope marks<cr>", "Jump to Mark" },
-    r = { "<cmd>lua require('spectre').open()<CR>", "Replace (Spectre)" },
+    w = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
   },
+
+  g = {
+    name = "+git",
+    l = {
+      function()
+        require("util").float_terminal("lazygit", { border = "none" })
+      end,
+      "LazyGit",
+    },
+  },
+
+  -- ["h"] = {
+  --   name = "+help",
+  --   t = { "<cmd>:Telescope builtin<cr>", "Telescope" },
+  --   c = { "<cmd>:Telescope commands<cr>", "Commands" },
+  --   h = { "<cmd>:Telescope help_tags<cr>", "Help Pages" },
+  --   m = { "<cmd>:Telescope man_pages<cr>", "Man Pages" },
+  --   k = { "<cmd>:Telescope keymaps<cr>", "Key Maps" },
+  --   s = { "<cmd>:Telescope highlights<cr>", "Search Highlight Groups" },
+  --   l = { vim.show_pos, "Highlight Groups at cursor" },
+  --   f = { "<cmd>:Telescope filetypes<cr>", "File Types" },
+  --   o = { "<cmd>:Telescope vim_options<cr>", "Options" },
+  --   a = { "<cmd>:Telescope autocommands<cr>", "Auto Commands" },
+  -- },
+
+  -- configured in lsp/keys
+  l = {
+    name = "+code",
+  },
+
+  m = {
+    name = "+noice",
+  },
+
+  ["n"] = { "<cmd> NvimTreeToggle <CR>", "Nvimtree" },
+  -- ["n"] = { "<cmd>Neotree toggle<cr>", "NeoTree" },
 
   t = {
     name = "toggle",
