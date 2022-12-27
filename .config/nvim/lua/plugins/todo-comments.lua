@@ -6,7 +6,14 @@ local M = {
 }
 
 function M.config()
-  require("todo-comments").setup()
+  require("todo-comments").setup({
+    highlight = {
+      pattern = [[.*<(KEYWORDS)\s*\ ]], -- pattern or table of patterns, used for highlightng (vim regex)
+    },
+    search = {
+      pattern = [[\b(KEYWORDS)\ \b]], -- match without the extra colon. You'll likely get false positives
+    },
+  })
 end
 
 function M.init()
