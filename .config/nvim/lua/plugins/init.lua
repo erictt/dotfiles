@@ -9,6 +9,17 @@ return {
   { "folke/neoconf.nvim", cmd = "Neoconf" },
 
   {
+    "folke/drop.nvim",
+    enabled = false,
+    event = "VimEnter",
+    config = function()
+      require("drop").setup({
+        theme = "snow",
+      })
+    end,
+  },
+
+  {
     "smjonas/inc-rename.nvim",
     cmd = "IncRename",
     config = function()

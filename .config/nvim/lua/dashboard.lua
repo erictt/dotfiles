@@ -7,6 +7,10 @@ function M.setup()
   end
 end
 
+function M.status()
+  return "🎅🎄🌟🎁"
+end
+
 function M.show()
   local theme = {
     name = "xmas",
@@ -24,7 +28,7 @@ function M.show()
             || ||     || || A            ||    ||          ||    |   jurcy 
      *      <> <>     <> <>          (___||____||_____)   ((~~~~~|   *     
 ]],
-    statusline = "🎅🎄🌟🎁",
+    statusline = M.status(),
   }
 
   local buf = vim.api.nvim_get_current_buf()
@@ -42,6 +46,7 @@ function M.show()
     },
     {
       text = "🎉 Neovim loaded " .. plugins .. " plugins " .. theme.statusline,
+      -- text = "🎉 Happy New Year 🎉",
       hl_group = "DashboardFooter",
     },
   }
@@ -62,7 +67,7 @@ function M.show()
   vim.bo[buf].modifiable = false
 
   -- local cursor = vim.go.guicursor
-  -- vim.api.nvim_set_hl(0, "HiddenCursor", { blend = 100, nocombine = true })
+  vim.api.nvim_set_hl(0, "HiddenCursor", { blend = 100, nocombine = true })
   -- vim.go.guicursor = "a:HiddenCursor/HiddenCursor"
 
   vim.api.nvim_create_autocmd("BufWipeout", {

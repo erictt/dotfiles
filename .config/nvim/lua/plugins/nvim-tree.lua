@@ -1,5 +1,6 @@
 local M = {
   "nvim-tree/nvim-tree.lua",
+  enabled = false,
   cmd = "NvimTreeToggle",
   dependencies = { "nvim-tree/nvim-web-devicons" },
 }
@@ -10,12 +11,12 @@ function M.config()
       dotfiles = false,
       exclude = { vim.fn.stdpath("config") .. "/lua/custom" },
     },
-    open_on_tab = true,
+    -- open_on_tab = true,
     prefer_startup_root = true,
     disable_netrw = true,
     hijack_netrw = true,
-    open_on_setup = true,
-    ignore_ft_on_setup = { "alpha" },
+    -- open_on_setup = true,
+    -- ignore_ft_on_setup = { "alpha", "dashboard" },
     hijack_cursor = true,
     hijack_unnamed_buffer_when_opening = false,
     update_cwd = true,

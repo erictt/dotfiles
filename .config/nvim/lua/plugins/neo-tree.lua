@@ -1,6 +1,6 @@
 local M = {
   "nvim-neo-tree/neo-tree.nvim",
-  enabled = false,
+  -- enabled = false,
   cmd = "Neotree",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -172,10 +172,10 @@ function M.config()
         ["<cr>"] = "open",
         ["<esc>"] = "revert_preview",
         ["P"] = { "toggle_preview", config = { use_float = true } },
-        ["s"] = "open_split",
-        ["v"] = "open_vsplit",
-        -- ["S"] = "split_with_window_picker",
-        -- ["s"] = "vsplit_with_window_picker",
+        -- ["s"] = "open_split",
+        -- ["v"] = "open_vsplit",
+        ["s"] = "split_with_window_picker",
+        ["v"] = "vsplit_with_window_picker",
         ["t"] = "open_tabnew",
         -- ["<cr>"] = "open_drop",
         -- ["t"] = "open_tab_drop",

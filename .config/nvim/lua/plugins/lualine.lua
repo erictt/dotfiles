@@ -87,7 +87,7 @@ function M.config()
         -- { require("github-notifications").statusline_notification_count },
         {
           function()
-            return require("util.dashboard").status()
+            return require("dashboard").status()
           end,
         },
       },
