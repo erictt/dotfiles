@@ -30,7 +30,7 @@
   "nui.nvim": { "branch": "main", "commit": "4939282919885e1c83aff68ecb35b3cadf6015a9" },
   "null-ls.nvim": { "branch": "main", "commit": "b26851b3e7ac1c0c85666f8a74e36aef2acb89c6" },
   "nvim-bufferline.lua": { "branch": "main", "commit": "c7492a76ce8218e3335f027af44930576b561013" },
-  "nvim-cmp": { "branch": "main", "commit": "a9c701fa7e12e9257b3162000e5288a75d280c28" },
+  "nvim-cmp": { "branch": "main", "commit": "e55033fce468c9c578b946948807f2ac48a6ee08" },
   "nvim-colorizer.lua": { "branch": "master", "commit": "760e27df4dd966607e8fb7fd8b6b93e3c7d2e193" },
   "nvim-navic": { "branch": "master", "commit": "7a2b823152fe4de65ee7925b0e32d26ed73bc57c" },
   "nvim-terminal.lua": { "branch": "master", "commit": "095f98aaa7265628a72cd2706350c091544b5602" },
