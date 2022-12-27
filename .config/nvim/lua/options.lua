@@ -12,6 +12,7 @@ vim.opt.cursorline = true -- Enable highlighting of the current line
 vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.backup = true
 vim.opt.spelllang = { "en" }
+vim.opt.spellsuggest = 5 -- show 5 spell suggestions at most
 
 vim.o.formatoptions = "jcroqlnt" -- tcqj
 vim.opt.guifont = "FiraCode Nerd Font:h11"
