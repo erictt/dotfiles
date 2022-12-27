@@ -103,6 +103,10 @@ local leader = {
     k = { "<cmd>bufdo :Bdelete <CR>", "Close Tab" },
   },
 
+  d = {
+    name = "+debug",
+  },
+
   e = {
     name = "+errors",
     x = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Trouble" },
