@@ -33,6 +33,8 @@ brew install rename
 brew install ssh-copy-id
 brew install tree
 brew install vbindiff
+brew install ripgrep
+brew install fzf
 
 # Install languages
 brew install python3
