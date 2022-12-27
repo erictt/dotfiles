@@ -93,13 +93,14 @@ vim.keymap.set("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
 local leader = {
   b = {
     name = "+buffer",
-    a = { "<cmd>BufferLinePick <CR>", "Pick buffer" },
+    a = { "<cmd>Telescope buffers show_all_buffers=true<cr>", "Switch Buffer" },
     b = { "<cmd>:e #<cr>", "Switch to Other Buffer" },
     D = { "<cmd>:bd<CR>", "Delete Buffer & Window" },
     s = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Buffer" },
-    t = { "<cmd>Telescope buffers show_all_buffers=true<cr>", "Switch Buffer" },
+    p = { "<cmd>BufferLinePick <CR>", "Pick buffer" },
     w = { "<cmd>Bwipeout <CR>", "Wipe out buffers" },
     x = { "<cmd>Bdelete <CR>", "Close buffer" },
+    k = { "<cmd>bufdo :Bdelete <CR>", "Close Tab" },
   },
 
   e = {
