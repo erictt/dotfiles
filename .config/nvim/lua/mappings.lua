@@ -66,6 +66,8 @@ wk.setup({
 -- -- telescope <ctrl-r> in command line
 -- -- vim.cmd([[cmap <C-R> <Plug>(TelescopeFuzzyCommandSearch)]])
 
+vim.keymap.set("n", "<ESC>", "<cmd>noh<cr>")
+
 vim.keymap.set("n", "<leader>/", function()
   require("Comment.api").toggle.linewise.current()
 end)
