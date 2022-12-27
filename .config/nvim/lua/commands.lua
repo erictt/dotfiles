@@ -65,6 +65,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
 -- Highlight on yank
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {}")
 
+-- close the window when type q on such file types
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
     "qf",
@@ -73,7 +74,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "notify",
     "lspinfo",
     "spectre_panel",
-    -- "startuptime",
+    "startuptime",
     "tsplayground",
     "PlenaryTestPopup",
   },
