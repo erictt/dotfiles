@@ -181,6 +181,8 @@ function M.config()
         -- ["t"] = "open_tab_drop",
         ["o"] = "open_with_window_picker",
         --["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
+        ["."] = "set_root", -- changes the root directory to the currently selected folder.
+        ["U"] = "navigate_up", -- moves the root directory up one level.
         ["C"] = "close_node",
         ["z"] = "close_all_nodes",
         --["Z"] = "expand_all_nodes",
