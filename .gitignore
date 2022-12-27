@@ -36,6 +36,9 @@ nvim/plugin
 
 *.swp
 
+# for telescope to ignore the dir
+.git
+
 .zsh/custom
 .config/antigen.zsh
 .config/lazygit/state.yml

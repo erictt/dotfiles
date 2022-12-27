@@ -51,6 +51,13 @@ return {
         selection_caret = " ",
         winblend = borderless and 0 or 10,
       },
+      pickers = {
+        live_grep = {
+          additional_args = function(opts)
+            return { "--hidden" }
+          end,
+        },
+      },
     })
     telescope.load_extension("fzf")
   end,
