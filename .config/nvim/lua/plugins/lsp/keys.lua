@@ -43,8 +43,15 @@ function M.setup(client, buffer)
           cond = cap.renameProvider,
           expr = true,
         },
+        t = {
+          {
+            require("plugins.lsp.diagnostics").toggle_diagnostics,
+            "Toggle diagnostics",
+          },
+        },
       },
     },
+
     g = {
       name = "+goto",
       d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Goto Definition" },

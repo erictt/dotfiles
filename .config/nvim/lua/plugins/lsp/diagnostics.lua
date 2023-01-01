@@ -28,4 +28,15 @@ function M.setup()
   vim.api.nvim_command("hi DiagnosticInfo guifg=#53d0f0")
 end
 
+vim.g.diagnostics_visible = true
+function M.toggle_diagnostics()
+  if vim.g.diagnostics_visible then
+    vim.g.diagnostics_visible = false
+    vim.diagnostic.disable()
+  else
+    vim.g.diagnostics_visible = true
+    vim.diagnostic.enable()
+  end
+end
+
 return M
