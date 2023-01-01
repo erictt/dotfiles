@@ -53,7 +53,7 @@ return {
 
   {
     "simrat39/symbols-outline.nvim",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+    keys = { { "<leader>ls", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
     config = true,
   },
 
@@ -61,7 +61,7 @@ return {
     "danymat/neogen",
     keys = {
       {
-        "<leader>cc",
+        "<leader>lc",
         function()
           require("neogen").generate({})
         end,
