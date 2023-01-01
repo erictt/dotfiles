@@ -31,42 +31,27 @@ wk.setup({
 -- vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
 -- vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 -- vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
---
--- -- Switch buffers with tab
--- vim.keymap.set("n", "<C-Left>", "<cmd>bprevious<cr>")
--- vim.keymap.set("n", "<C-Right>", "<cmd>bnext<cr>")
---
--- -- Easier pasting
--- -- vim.keymap.set("n", "[p", ":pu!<cr>")
--- -- vim.keymap.set("n", "]p", ":pu<cr>")
---
--- -- Clear search with <esc>
--- vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
--- vim.keymap.set("n", "gw", "*N")
--- vim.keymap.set("x", "gw", "*N")
---
--- -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
--- vim.keymap.set("n", "n", "'Nn'[v:searchforward]", { expr = true })
--- vim.keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true })
--- vim.keymap.set("o", "n", "'Nn'[v:searchforward]", { expr = true })
--- vim.keymap.set("n", "N", "'nN'[v:searchforward]", { expr = true })
--- vim.keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true })
--- vim.keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true })
---
+
+-- Clear search with <esc>
+vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
+vim.keymap.set("n", "gw", "*N")
+vim.keymap.set("x", "gw", "*N")
+
+-- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+vim.keymap.set("n", "n", "'Nn'[v:searchforward]", { expr = true })
+vim.keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true })
+vim.keymap.set("o", "n", "'Nn'[v:searchforward]", { expr = true })
+vim.keymap.set("n", "N", "'nN'[v:searchforward]", { expr = true })
+vim.keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true })
+vim.keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true })
+
 -- -- Add undo break-points
 -- vim.keymap.set("i", ",", ",<c-g>u")
 -- vim.keymap.set("i", ".", ".<c-g>u")
 -- vim.keymap.set("i", ";", ";<c-g>u")
 --
--- -- save in insert mode
--- vim.keymap.set("i", "<C-s>", "<cmd>:w<cr><esc>")
--- vim.keymap.set("n", "<C-s>", "<cmd>:w<cr><esc>")
--- vim.keymap.set("n", "<C-c>", "<cmd>normal ciw<cr>a")
---
 -- -- telescope <ctrl-r> in command line
 -- -- vim.cmd([[cmap <C-R> <Plug>(TelescopeFuzzyCommandSearch)]])
-
-vim.keymap.set("n", "<ESC>", "<cmd>noh<cr>")
 
 vim.keymap.set("n", "<leader>/", function()
   require("Comment.api").toggle.linewise.current()
