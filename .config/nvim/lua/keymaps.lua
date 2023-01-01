@@ -104,6 +104,7 @@ local leader = {
     x = { "<cmd>Bdelete <CR>", "Close buffer" },
     k = { "<cmd>bufdo :Bdelete <CR>", "Close Tab" },
   },
+  x = { "<cmd>Bdelete <CR>", "Close buffer" },
 
   d = {
     name = "+debug",
@@ -218,7 +219,7 @@ local leader = {
       "Line Numbers",
     },
   },
-  ["w"] = {
+  w = {
     name = "+windows",
     ["w"] = { "<C-W>p", "other-window" },
     ["d"] = { "<C-W>c", "delete-window" },
