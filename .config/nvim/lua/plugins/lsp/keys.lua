@@ -34,6 +34,7 @@ function M.setup(client, buffer)
           },
         },
         i = { "<cmd>LspInfo<cr>", "Lsp Info" },
+        I = { "<cmd>NullLsInfo<cr>", "Null-ls Info" },
         r = {
           function()
             require("inc_rename")
