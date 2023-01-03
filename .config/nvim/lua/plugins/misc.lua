@@ -2,6 +2,7 @@ return {
   "jose-elias-alvarez/typescript.nvim",
   "MunifTanjim/nui.nvim",
   "nvim-lua/plenary.nvim",
+  { "nvim-tree/nvim-web-devicons", config = { default = true } },
   { "famiu/bufdelete.nvim", event = "BufReadPre" },
   "folke/which-key.nvim",
 
@@ -73,10 +74,6 @@ return {
   },
 
   -- Theme: icons
-  {
-    "nvim-tree/nvim-web-devicons",
-    config = { default = true },
-  },
 
   {
     "norcalli/nvim-terminal.lua",
