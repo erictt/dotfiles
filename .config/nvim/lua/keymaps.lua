@@ -53,11 +53,18 @@ vim.keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true })
 -- -- telescope <ctrl-r> in command line
 -- -- vim.cmd([[cmap <C-R> <Plug>(TelescopeFuzzyCommandSearch)]])
 
-vim.keymap.set("n", "<leader>/", function()
-  require("Comment.api").toggle.linewise.current()
-end)
-
-vim.keymap.set("v", "<leader>/", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>")
+vim.keymap.set(
+  "n",
+  "<leader>/",
+  "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>",
+  { desc = "Comment line" }
+)
+vim.keymap.set(
+  "v",
+  "<leader>/",
+  "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+  { desc = "Comment block" }
+)
 
 -- better indenting
 vim.keymap.set("v", "<", "<gv")
@@ -105,15 +112,16 @@ local leader = {
     q = { "<cmd>copen<cr>", "Open Quickfix List" },
   },
 
+  -- f/r/p are defined in telescope plugin configuration so they can trigger loading the plugin
   f = {
     name = "+file",
     b = { "<cmd>Telescope file_browser<CR>", "Browse Files" },
     d = { "<cmd>Telescope find_files hidden=true<cr>", "Find Dot File" },
-    f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    -- f = { "<cmd>Telescope find_files<cr>", "Find File" },
     h = { "<cmd>Telescope command_history<cr>", "Command History" },
     m = { "<cmd>Telescope marks<cr>", "Jump to Mark" },
     n = { "<cmd>enew<cr>", "New File" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    -- r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     s = {
       function()
         require("telescope.builtin").lsp_document_symbols({
@@ -141,12 +149,13 @@ local leader = {
     l = {
       function()
         require("util").lazygit()
+        require("util").float_term({ "lazygit" })
       end,
       "LazyGit",
     },
     L = {
       function()
-        require("util").lazygit(require("util").get_root())
+        require("util").float_term({ "lazygit" }, { cwd = util.get_root() })
       end,
       "LazyGit",
     },

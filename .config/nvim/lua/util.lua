@@ -13,6 +13,8 @@ end
 
 local M = {}
 
+M.root_patterns = { ".git", "/lua" }
+
 function M.require(mod)
   local ok, ret = M.try(require, mod)
   return ok and ret
@@ -31,35 +33,6 @@ function M.try(fn, ...)
     M.error(table.concat(lines, "\n"))
     return err
   end)
-end
-
-function M.markdown(msg, opts)
-  opts = vim.tbl_deep_extend("force", {
-    title = "Debug",
-    on_open = function(win)
-      vim.wo[win].conceallevel = 3
-      vim.wo[win].concealcursor = ""
-      vim.wo[win].spell = false
-      local buf = vim.api.nvim_win_get_buf(win)
-      vim.treesitter.start(buf, "markdown")
-    end,
-  }, opts or {})
-  require("notify").notify(msg, vim.log.levels.INFO, opts)
-end
-
-function M.debug_pcall()
-  _G.pcall = function(fn, ...)
-    local args = { ... }
-    return xpcall(fn and function()
-      return fn(unpack(args))
-    end, function(err)
-      if err:find("DevIcon") or err:find("mason") or err:find("Invalid highlight") then
-        return err
-      end
-      vim.api.nvim_echo({ { err, "ErrorMsg" }, { debug.traceback("", 3), "Normal" } }, true, {})
-      return err
-    end)
-  end
 end
 
 function M.t(str)
@@ -131,8 +104,25 @@ function M.throttle(ms, fn)
   end
 end
 
+---@param on_attach fun(client, buffer)
+function M.on_attach(on_attach)
+  vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+      local buffer = args.buf
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      on_attach(client, buffer)
+    end,
+  })
+end
+
+-- returns the root directory based on:
+-- * lsp workspace folders
+-- * lsp root_dir
+-- * root pattern of filename of the current buffer
+-- * root pattern of cwd
 ---@return string
 function M.get_root()
+  ---@type string?
   local path = vim.api.nvim_buf_get_name(0)
   path = path ~= "" and vim.loop.fs_realpath(path) or nil
   ---@type string[]
@@ -159,17 +149,32 @@ function M.get_root()
   if not root then
     path = path and vim.fs.dirname(path) or vim.loop.cwd()
     ---@type string?
-    root = vim.fs.find({ ".git", "/lua" }, { path = path, upward = true })[1]
+    root = vim.fs.find(M.root_patterns, { path = path, upward = true })[1]
     root = root and vim.fs.dirname(root) or vim.loop.cwd()
   end
   ---@cast root string
   return root
 end
 
-function M.test(is_file)
-  local file = is_file and vim.fn.expand("%:p") or "./tests"
-  local init = vim.fn.glob("tests/*init*")
-  require("plenary.test_harness").test_directory(file, { minimal_init = init })
+function M.telescope(builtin, opts)
+  return function()
+    opts = opts or {}
+    opts.cwd = M.get_root()
+    require("telescope.builtin")[builtin](opts)
+  end
+end
+
+function M.float_term(cmd, opts)
+  opts = vim.tbl_deep_extend("force", {
+    terminal = true,
+    close_on_exit = true,
+    enter = true,
+    float = {
+      size = { width = 0.9, height = 0.9 },
+      margin = { top = 0, right = 0, bottom = 0, left = 0 },
+    },
+  }, opts or {})
+  require("lazy.util").open_cmd(cmd, opts)
 end
 
 function M.version()

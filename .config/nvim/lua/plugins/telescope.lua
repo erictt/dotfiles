@@ -5,6 +5,16 @@ return {
   },
   keys = {
     {
+      "<leader>ff",
+      "<cmd>Telescope find_files<cr>",
+      desc = "Find File",
+    },
+    {
+      "<leader>fr",
+      "<cmd>Telescope oldfiles<cr>",
+      desc = "Open Recent File",
+    },
+    {
       "<leader>fp",
       function()
         require("telescope.builtin").find_files({
