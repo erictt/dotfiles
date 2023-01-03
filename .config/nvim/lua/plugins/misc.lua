@@ -1,8 +1,6 @@
 return {
-  "b0o/SchemaStore.nvim", -- used by json lsp for format
   "jose-elias-alvarez/typescript.nvim",
   "MunifTanjim/nui.nvim",
-  "williamboman/mason-lspconfig.nvim",
   "nvim-lua/plenary.nvim",
   { "famiu/bufdelete.nvim", event = "BufReadPre" },
   "folke/which-key.nvim",
@@ -22,16 +20,6 @@ return {
     "smjonas/inc-rename.nvim",
     cmd = "IncRename",
     config = true,
-  },
-
-  -- LSP
-
-  {
-    "SmiteshP/nvim-navic",
-    config = function()
-      vim.g.navic_silence = true
-      require("nvim-navic").setup({ separator = " ", highlight = true, depth_limit = 5 })
-    end,
   },
 
   {
