@@ -170,8 +170,9 @@ function M.config()
         },
         ["<2-LeftMouse>"] = "open",
         ["<cr>"] = "open",
-        ["<esc>"] = "revert_preview",
-        ["P"] = { "toggle_preview", config = { use_float = true } },
+        ["<esc>"] = "clear_filter", -- default is <C+x>
+        -- ["<esc>"] = "revert_preview",
+        -- ["P"] = { "toggle_preview", config = { use_float = true } },
         -- ["s"] = "open_split",
         -- ["v"] = "open_vsplit",
         ["s"] = "split_with_window_picker",
