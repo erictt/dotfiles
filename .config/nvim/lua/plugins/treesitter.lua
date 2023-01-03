@@ -72,7 +72,7 @@ return {
         sync_install = false,
         auto_install = false,
         highlight = { enable = true },
-        indent = { enable = false },
+        indent = { enable = true },
         context_commentstring = { enable = true, enable_autocmd = false },
         incremental_selection = {
           enable = true,

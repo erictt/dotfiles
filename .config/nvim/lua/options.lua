@@ -40,6 +40,7 @@ vim.opt.smartindent = true -- Insert indents automatically
 vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.tabstop = indent -- Number of spaces tabs count for
+vim.opt.softtabstop = indent
 vim.opt.termguicolors = true -- True color support
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
