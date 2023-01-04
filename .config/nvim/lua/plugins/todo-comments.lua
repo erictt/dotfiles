@@ -26,7 +26,7 @@ function M.config()
       pattern = [[.*<(KEYWORDS)\s*\ ]], -- pattern or table of patterns, used for highlightng (vim regex)
     },
     search = {
-      pattern = [[\b(KEYWORDS)\ \b]], -- match without the extra colon. You'll likely get false positives
+      pattern = [[\b(KEYWORDS) \b]], -- match without the extra colon. You'll likely get false positives
     },
   })
 end

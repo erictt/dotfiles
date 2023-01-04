@@ -21,6 +21,7 @@ function M.setup(options)
 
     -- php
     nls.builtins.formatting.phpcsfixer.with({ filetypes = { "php" } }),
+    -- nls.builtins.diagnostics.phpstan,
 
     -- c, cpp
     nls.builtins.formatting.clang_format.with({ filetypes = { "cpp", "c", "cs", "cuda" } }),
