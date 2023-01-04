@@ -32,6 +32,7 @@ truncate_to_repo = false
 
 [docker_context]
 symbol = " "
+disabled = true
 
 [elixir]
 symbol = " "
