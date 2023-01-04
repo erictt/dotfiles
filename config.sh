@@ -28,15 +28,17 @@ brew install --cask font-hack-nerd-font
 # ---------------------------------------- vim ---------------------------------------- #
 
 # ---------------------------------------- zsh ---------------------------------------- #
+rm -rf "$HOME/.zshrc" "$HOME/.zsh" "$HOME/.antigenrc" "$HOME/.config/antigen.zsh" "$HOME/.oh-my-zsh"
+
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # Download antigen
-curl -L git.io/antigen > ~/.config/antigen.zsh
+curl -L git.io/antigen > "$HOME/.config/antigen.zsh"
 
-rm -rf ~/.zshrc ~/.zsh ~/.antigenrc
-ln -sf ~/workspace/projects/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/workspace/projects/dotfiles/.zsh ~/.zsh
-ln -sf ~/workspace/projects/dotfiles/.antigenrc ~/.antigenrc
+ln -sf "$HOME/workspace/projects/dotfiles/.zshrc" "$HOME/.zshrc"
+# no need, all moved to .config/
+# ln -sf ~/workspace/projects/dotfiles/.config/zsh ~/.zsh
+# ln -sf ~/workspace/projects/dotfiles/.config/zsh/antigenrc ~/.antigenrc
 
 source "$HOME/.zshrc"
 # ---------------------------------------- zsh ---------------------------------------- #

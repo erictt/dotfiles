@@ -2,9 +2,9 @@
 source "$HOME/.config/antigen.zsh"
 
 # Load Antigen configurations
-antigen init ~/.antigenrc
+antigen init $HOME/.config/zsh/antigenrc
 
-for file in ~/.zsh/{exports,aliases,functions,extra,env,custom}; do
+for file in ~/.config/zsh/{exports,aliases,functions,extra,env,custom}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
