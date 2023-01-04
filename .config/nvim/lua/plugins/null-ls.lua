@@ -23,7 +23,7 @@ function M.setup(options)
     nls.builtins.formatting.phpcsfixer.with({ filetypes = { "php" } }),
 
     -- c, cpp
-    nls.builtins.formatting.clang_format,
+    nls.builtins.formatting.clang_format.with({ filetypes = { "cpp", "c", "cs", "cuda" } }),
     nls.builtins.diagnostics.cppcheck,
 
     -- javascript, typescript
