@@ -31,17 +31,17 @@ return {
           "cmake",
           -- "comment", -- comments are slowing down TS bigtime, so disable for now
           "cpp",
-          "diff",
+          -- "diff",
           -- "gitignore",
           "go",
           "help",
-          "html",
-          "http",
+          -- "html",
+          -- "http",
           "java",
           "javascript",
-          "jsdoc",
+          -- "jsdoc",
           "json",
-          "jsonc",
+          -- "jsonc",
           "latex",
           "lua",
           "markdown",
@@ -55,7 +55,7 @@ return {
           "python",
           "query",
           "regex",
-          "rust",
+          -- "rust",
           -- "scss",
           -- "sql",
           -- "svelte",
@@ -126,7 +126,7 @@ return {
     "m-demare/hlargs.nvim",
     event = "VeryLazy",
     dependencies = {
-    "nvim-treesitter/nvim-treesitter",
+      "nvim-treesitter/nvim-treesitter",
     },
     config = {
       excluded_argnames = {
@@ -136,5 +136,4 @@ return {
       },
     },
   },
-
 }

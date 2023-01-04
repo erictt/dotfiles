@@ -174,6 +174,12 @@ local leader = {
   --   a = { "<cmd>:Telescope autocommands<cr>", "Auto Commands" },
   -- },
 
+  i = {
+    "+info",
+    l = { "<cmd>LspInfo<cr>", "Lsp" },
+    m = { "<cmd>Mason<cr>", "Mason" },
+    n = { "<cmd>NullLsInfo<cr>", "Null-ls" },
+  },
   -- configured in lsp/keys
   l = {
     name = "+code",

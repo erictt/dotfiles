@@ -108,4 +108,8 @@ return {
       })
     end,
   },
+  {
+    "gpanders/editorconfig.nvim",
+    event = "BufReadPre",
+  },
 }

@@ -3,7 +3,7 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
-    keys = { { "<leader>lm", "<cmd>Mason<cr>", desc = "Mason" } },
+    -- keys = { { "<leader>lm", "<cmd>Mason<cr>", desc = "Mason" } },
     ensure_installed = {
       "prettierd",
 
@@ -44,6 +44,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    cmd = "LspInfo",
     name = "lsp",
     event = "BufReadPre",
     dependencies = {
