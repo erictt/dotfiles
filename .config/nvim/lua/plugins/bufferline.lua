@@ -49,9 +49,33 @@ function M.config()
       },
     },
     highlights = {
+
+      error = { fg = "#ea6962" },
+      error_visible = { fg = "#ea6962" },
+      error_selected = { fg = "#ea6962" },
+      error_diagnostic = { fg = "#ea6962" },
+      error_diagnostic_visible = { fg = "#ea6962" },
       error_diagnostic_selected = { fg = "#ea6962" },
+
+      warning = { fg = "#d8a657" },
+      warning_visible = { fg = "#d8a657" },
+      warning_selected = { fg = "#d8a657" },
+      warning_diagnostic = { fg = "#d8a657" },
+      warning_diagnostic_visible = { fg = "#d8a657" },
       warning_diagnostic_selected = { fg = "#d8a657" },
+
+      info = { fg = "#53d0f0" },
+      info_visible = { fg = "#53d0f0" },
+      info_selected = { fg = "#53d0f0" },
+      info_diagnostic = { fg = "#53d0f0" },
+      info_diagnostic_visible = { fg = "#53d0f0" },
       info_diagnostic_selected = { fg = "#53d0f0" },
+
+      hint = { fg = "#a9b665" },
+      hint_visible = { fg = "#a9b665" },
+      hint_selected = { fg = "#a9b665" },
+      hint_diagnostic = { fg = "#a9b665" },
+      hint_diagnostic_visible = { fg = "#a9b665" },
       hint_diagnostic_selected = { fg = "#a9b665" },
     },
   })
