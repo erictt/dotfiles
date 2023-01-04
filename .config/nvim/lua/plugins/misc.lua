@@ -60,26 +60,13 @@ return {
     config = { snippet_engine = "luasnip" },
   },
 
-  {
-    "m-demare/hlargs.nvim",
-    event = "VeryLazy",
-    enabled = false,
-    config = {
-      excluded_argnames = {
-        usages = {
-          lua = { "self", "use" },
-        },
-      },
-    },
-  },
-
   -- Theme: icons
 
-  {
-    "norcalli/nvim-terminal.lua",
-    ft = "terminal",
-    config = true,
-  },
+  -- {
+  --   "norcalli/nvim-terminal.lua",
+  --   ft = "terminal",
+  --   config = true,
+  -- },
 
   {
     "folke/trouble.nvim",
@@ -105,10 +92,20 @@ return {
   },
 
   {
-    "windwp/nvim-autopairs",
+    "nvim-zh/colorful-winsep.nvim",
     event = "VeryLazy",
     config = function()
-      require("nvim-autopairs").setup({})
+      require("colorful-winsep").setup({
+        highlight = {
+          bg = "#282828",
+          fg = "#d8a657",
+        },
+        interval = 30,
+        no_exec_files = { "packer", "TelescopePrompt", "mason", "CompetiTest", "NvimTree" },
+        symbols = { "━", "┃", "┏", "┓", "┗", "┛" },
+        close_event = function() end,
+        create_event = function() end,
+      })
     end,
   },
 }

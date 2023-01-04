@@ -27,7 +27,7 @@ require("lazy").setup("plugins", {
   },
   performance = {
     cache = {
-      enabled = true,
+      enabled = false,
     },
     rtp = {
       disabled_plugins = {

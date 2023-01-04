@@ -13,8 +13,8 @@ local M = {
       "neo-tree",
       "Trouble",
     },
-    char = "│",
-    use_treesitter_scope = false,
+    -- char = "│",
+    use_treesitter_scope = true,
     show_trailing_blankline_indent = false,
     show_current_context = true,
     context_patterns = {

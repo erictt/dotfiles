@@ -120,4 +120,21 @@ return {
       })
     end,
   },
+
+  -- Highlight arguments' definitions and usages, asynchronously, using Treesitter
+  {
+    "m-demare/hlargs.nvim",
+    event = "VeryLazy",
+    dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+    },
+    config = {
+      excluded_argnames = {
+        usages = {
+          lua = { "self", "use" },
+        },
+      },
+    },
+  },
+
 }

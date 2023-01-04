@@ -27,6 +27,7 @@ return {
   -- auto completion
   {
     "hrsh7th/nvim-cmp",
+    -- enabled = false,
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
@@ -76,6 +77,14 @@ return {
   },
 
   -- auto pairs
+  {
+    "windwp/nvim-autopairs",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-autopairs").setup({})
+    end,
+  },
+
   -- {
   --   "echasnovski/mini.pairs",
   --   event = "VeryLazy",
@@ -83,20 +92,20 @@ return {
   --     require("mini.pairs").setup({})
   --   end,
   -- },
-  --
-  -- -- comments
-  -- { "JoosepAlviste/nvim-ts-context-commentstring" },
-  -- {
-  --   "echasnovski/mini.comment",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("mini.comment").setup({
-  --       hooks = {
-  --         pre = function()
-  --           require("ts_context_commentstring.internal").update_commentstring({})
-  --         end,
-  --       },
-  --     })
-  --   end,
-  -- },
+
+  -- comments
+  { "JoosepAlviste/nvim-ts-context-commentstring" },
+  {
+    "echasnovski/mini.comment",
+    event = "VeryLazy",
+    config = function()
+      require("mini.comment").setup({
+        hooks = {
+          pre = function()
+            require("ts_context_commentstring.internal").update_commentstring({})
+          end,
+        },
+      })
+    end,
+  },
 }
