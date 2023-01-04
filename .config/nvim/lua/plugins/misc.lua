@@ -101,7 +101,7 @@ return {
           fg = "#d8a657",
         },
         interval = 30,
-        no_exec_files = { "packer", "TelescopePrompt", "mason", "CompetiTest", "NvimTree" },
+        no_exec_files = { "packer", "TelescopePrompt", "mason", "CompetiTest", "NvimTree", "neo-tree" },
         symbols = { "━", "┃", "┏", "┓", "┗", "┛" },
         close_event = function() end,
         create_event = function() end,
