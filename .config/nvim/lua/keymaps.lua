@@ -176,9 +176,10 @@ local leader = {
 
   i = {
     "+info",
-    l = { "<cmd>LspInfo<cr>", "Lsp" },
+    l = { "<cmd>Lazy<cr>", "Lazy" },
     m = { "<cmd>Mason<cr>", "Mason" },
     n = { "<cmd>NullLsInfo<cr>", "Null-ls" },
+    p = { "<cmd>LspInfo<cr>", "Lsp" },
   },
   -- configured in lsp/keys
   l = {
