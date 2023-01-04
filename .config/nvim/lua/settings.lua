@@ -1,4 +1,3 @@
----@class LazyVimSettings
 local settings = {
   icons = {
     diagnostics = {
