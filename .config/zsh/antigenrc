@@ -24,14 +24,14 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 
 # Select theme
-# antigen bundle spaceship-prompt/spaceship-vi-mode@main
-antigen theme spaceship-prompt/spaceship-prompt
+# antigen theme spaceship-prompt/spaceship-prompt
 # configs are located in .configs/spaceship.zsh
 
 # antigen theme sbugzu/gruvbox-zsh
 # SOLARIZED_THEME="dark"
 
-# eval "$(starship init zsh)"
+# use starship theme
+eval "$(starship init zsh)"
 
 # Load everything
 antigen apply
