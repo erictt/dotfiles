@@ -43,7 +43,10 @@ return {
   {
     "simrat39/symbols-outline.nvim",
     keys = { { "<leader>ls", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    config = true,
+    config = {
+      relative_width = true,
+      width = 20, --%
+    },
   },
 
   {
