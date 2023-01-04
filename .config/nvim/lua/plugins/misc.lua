@@ -108,9 +108,4 @@ return {
       })
     end,
   },
-  -- editorconfig is integrated into neovim 0.9, remove this when 0.9(stable) is released
-  {
-    "gpanders/editorconfig.nvim",
-    event = "BufReadPre",
-  },
 }
