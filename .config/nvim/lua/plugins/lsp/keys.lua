@@ -33,15 +33,15 @@ function M.setup(client, buffer)
             mode = "v",
           },
         },
-        r = {
-          function()
-            require("inc_rename")
-            return ":IncRename " .. vim.fn.expand("<cword>")
-          end,
-          "Rename",
-          cond = cap.renameProvider,
-          expr = true,
-        },
+        -- r = {
+        --   function()
+        --     require("inc_rename")
+        --     return ":IncRename " .. vim.fn.expand("<cword>")
+        --   end,
+        --   "Rename",
+        --   cond = cap.renameProvider,
+        --   expr = true,
+        -- },
         t = {
           {
             require("plugins.lsp.diagnostics").toggle_diagnostics,
