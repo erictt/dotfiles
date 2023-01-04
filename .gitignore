@@ -53,3 +53,5 @@ nvim/plugin
 .config/ngrok
 .config/gcloud
 .config/composer/.htaccess
+
+*.zwc
