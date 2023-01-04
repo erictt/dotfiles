@@ -21,7 +21,8 @@ return {
       "clang-format", -- c, cpp
       "clangd", -- c, cpp
 
-      "intelephense", -- php lsp
+      -- "intelephense", -- php lsp
+      "phpactor", -- php lsp
       "php-cs-fixer", -- php formatter
 
       "black", -- python formatter
@@ -147,7 +148,8 @@ return {
         },
         vimls = {},
         -- php
-        intelephense = {},
+        phpactor = {},
+        -- intelephense = {},
       }
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
