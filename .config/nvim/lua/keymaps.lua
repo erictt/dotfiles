@@ -116,7 +116,7 @@ local leader = {
   f = {
     name = "+file",
     b = { "<cmd>Telescope file_browser<CR>", "Browse Files" },
-    d = { "<cmd>Telescope find_files hidden=true<cr>", "Find Dot File" },
+    -- d = { "<cmd>Telescope find_files hidden=true<cr>", "Find Dot File" },
     -- f = { "<cmd>Telescope find_files<cr>", "Find File" },
     h = { "<cmd>Telescope command_history<cr>", "Command History" },
     m = { "<cmd>Telescope marks<cr>", "Jump to Mark" },

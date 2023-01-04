@@ -23,6 +23,11 @@ return {
       end,
       desc = "Find Plugin File",
     },
+    {
+      "<leader>fd",
+      "<cmd>Telescope find_files hidden=true<cr>",
+      desc = "Find Dot File",
+    },
   },
   config = function()
     local telescope = require("telescope")
