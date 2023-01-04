@@ -52,3 +52,4 @@ nvim/plugin
 .config/raycast/config.json
 .config/ngrok
 .config/gcloud
+.config/composer/.htaccess
