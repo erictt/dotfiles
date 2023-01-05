@@ -45,6 +45,7 @@ function M.setup(client, buf)
   -- util.info(client.name .. " " .. (enable and "yes" or "no"), "format")
 
   client.server_capabilities.documentFormattingProvider = enable
+  client.server_capabilities.documentRangeFormattingProvider = enable
   -- format on save
   if client.server_capabilities.documentFormattingProvider then
     vim.cmd([[

@@ -1,4 +1,5 @@
 return {
+  "jose-elias-alvarez/typescript.nvim",
   "b0o/SchemaStore.nvim", -- used by json lsp for format
   {
     "williamboman/mason.nvim",
@@ -15,14 +16,14 @@ return {
       "shellcheck", -- shell script analyser
       "shfmt", -- shell format
 
-      "eslint_d", -- javascript, typescript
+      "eslint_d", -- javascript, typescript linkt
       "deno", -- javascript, typescript defaults
 
       "clang-format", -- c, cpp
       "clangd", -- c, cpp
 
       "intelephense", -- php lsp
-      -- "phpactor", -- php lsp
+      "phpstan", -- php lint
       "php-cs-fixer", -- php formatter
 
       "black", -- python formatter
