@@ -60,8 +60,6 @@ return {
     config = { snippet_engine = "luasnip" },
   },
 
-  -- Theme: icons
-
   -- {
   --   "norcalli/nvim-terminal.lua",
   --   ft = "terminal",

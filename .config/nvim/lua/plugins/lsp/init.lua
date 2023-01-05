@@ -49,8 +49,9 @@ return {
     name = "lsp",
     event = "BufReadPre",
     dependencies = {
+      "mason.nvim",
       "hrsh7th/cmp-nvim-lsp",
-      { "williamboman/mason-lspconfig.nvim", config = { automatic_installation = true } },
+      "williamboman/mason-lspconfig.nvim",
     },
     config = function()
       require("mason")
@@ -165,32 +166,17 @@ return {
         },
       }
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-      capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true,
-      }
+      -- lspconfig
+      local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-      ---@type _.lspconfig.options
-      local options = {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        flags = {
-          debounce_text_changes = 150,
-        },
-      }
-
-      for server, opts in pairs(servers) do
-        opts = vim.tbl_deep_extend("force", {}, options, opts or {})
-        if server == "tsserver" then
-          require("typescript").setup({ server = opts })
-        else
+      require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })
+      require("mason-lspconfig").setup_handlers({
+        function(server)
+          local opts = servers[server] or {}
+          opts.capabilities = capabilities
           require("lspconfig")[server].setup(opts)
-        end
-      end
-
-      require("plugins.null-ls").setup(options)
+        end,
+      })
     end,
   },
 
