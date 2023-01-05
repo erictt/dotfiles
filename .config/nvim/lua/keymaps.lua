@@ -197,13 +197,20 @@ local leader = {
     ["d"] = { "<C-W>c", "delete-window" },
     ["-"] = { "<C-W>s", "split-window-below" },
     ["|"] = { "<C-W>v", "split-window-right" },
+    ["2"] = { "<C-W>v", "layout-double-columns" },
+    ["H"] = { "<C-W>5<", "expand-window-left" },
+    ["J"] = { ":resize +5", "expand-window-below" },
+    ["L"] = { "<C-W>5>", "expand-window-right" },
+    ["K"] = { ":resize -5", "expand-window-up" },
+    ["="] = { "<C-W>=", "balance-window" },
+    ["s"] = { "<C-W>s", "split-window-below" },
+    ["v"] = { "<C-W>v", "split-window-right" },
   },
+  z = { [[<cmd>ZenMode<cr>]], "Zen Mode" },
 }
 
--- for i = 0, 10 do
---   leader[tostring(i)] = "which_key_ignore"
--- end
+for i = 0, 10 do
+  leader[tostring(i)] = "which_key_ignore"
+end
 
 wk.register(leader, { prefix = "<leader>" })
-
-wk.register({ g = { name = "+goto" } })

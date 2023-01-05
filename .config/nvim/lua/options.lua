@@ -59,6 +59,11 @@ vim.opt.wrap = false -- Disable line wrap
 vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 vim.g.markdown_recommended_style = 0
 
+if vim.fn.has("nvim-0.8") == 1 then
+  vim.opt.cmdheight = 0
+  vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
+end
+
 if vim.fn.has("nvim-0.9.0") == 1 then
   vim.opt.splitkeep = "screen"
   vim.o.shortmess = "filnxtToOFWIcC"
