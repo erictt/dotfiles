@@ -172,10 +172,6 @@ local leader = {
     "+noice",
   },
 
-  -- configured in lsp/keys
-  ["n"] = { "<cmd> NvimTreeToggle <CR>", "Nvimtree" },
-  -- ["n"] = { "<cmd>Neotree toggle<cr>", "NeoTree" },
-
   t = {
     name = "toggle",
     f = { require("plugins.lsp.formatting").toggle, "Format on Save" },

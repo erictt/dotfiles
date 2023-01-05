@@ -1,12 +1,19 @@
 local M = {
   "nvim-neo-tree/neo-tree.nvim",
-  enabled = false,
+  -- enabled = false,
   cmd = "Neotree",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     "MunifTanjim/nui.nvim",
     "s1n7ax/nvim-window-picker",
+  },
+  keys = {
+    {
+      "<leader>n",
+      "<cmd>Neotree toggle<cr>",
+      desc = "NeoTree",
+    },
   },
 }
 function M.config()
