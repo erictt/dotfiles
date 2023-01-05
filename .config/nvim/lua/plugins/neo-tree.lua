@@ -1,6 +1,6 @@
 local M = {
   "nvim-neo-tree/neo-tree.nvim",
-  -- enabled = false,
+  enabled = false,
   cmd = "Neotree",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -110,7 +110,7 @@ function M.config()
       },
       indent = {
         indent_size = 2,
-        padding = 1, -- extra padding on left hand side
+        padding = 2, -- extra padding on left hand side
         -- indent guides
         with_markers = true,
         indent_marker = "│",

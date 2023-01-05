@@ -1,6 +1,6 @@
 local M = {
   "nvim-tree/nvim-tree.lua",
-  enabled = false,
+  -- enabled = false,
   cmd = "NvimTreeToggle",
   dependencies = { "nvim-tree/nvim-web-devicons" },
 }
@@ -9,14 +9,16 @@ function M.config()
   local options = {
     filters = {
       dotfiles = false,
-      exclude = { vim.fn.stdpath("config") .. "/lua/custom" },
     },
     -- open_on_tab = true,
-    prefer_startup_root = true,
+    -- prefer_startup_root = true,
     disable_netrw = true,
     hijack_netrw = true,
-    -- open_on_setup = true,
-    -- ignore_ft_on_setup = { "alpha", "dashboard" },
+    open_on_setup = false,
+    diagnostics = {
+      enable = true,
+    },
+    ignore_ft_on_setup = { "startify", "dashboard", "alpha" },
     hijack_cursor = true,
     hijack_unnamed_buffer_when_opening = false,
     update_cwd = true,
@@ -27,7 +29,7 @@ function M.config()
     view = {
       -- adaptive_size = true,
       side = "left",
-      width = 30,
+      width = 35,
       hide_root_folder = false,
       mappings = {
         list = {
@@ -36,7 +38,6 @@ function M.config()
           { key = "C", action = "cd" },
           { key = "v", action = "vsplit" },
           { key = "s", action = "split" },
-          -- { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
         },
       },
     },
@@ -53,6 +54,7 @@ function M.config()
       },
     },
     renderer = {
+      highlight_git = true,
       -- highlight_opened_files = "all",
 
       indent_markers = {
