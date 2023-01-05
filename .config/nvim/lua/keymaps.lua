@@ -135,7 +135,7 @@ local leader = {
     n = { "<cmd>enew<cr>", "New File" },
     -- r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     w = { util.telescope("live_grep"), "Live Grep" },
-    W = { util.telescope("live_grep", { cwd = false }), "Grep (cwd)" },
+    W = { util.telescope("live_grep", { cwd = false }), "Live Grep (cwd)" },
   },
 
   g = {

@@ -13,8 +13,6 @@ end
 
 local M = {}
 
-M.root_patterns = { ".git", "/lua" }
-
 function M.require(mod)
   local ok, ret = M.try(require, mod)
   return ok and ret
@@ -51,21 +49,6 @@ function M.info(msg, name)
   vim.notify(msg, vim.log.levels.INFO, { title = name or "init.lua" })
 end
 
-function M.toggle(option, silent)
-  local info = vim.api.nvim_get_option_info(option)
-  local scopes = { buf = "bo", win = "wo", global = "go" }
-  local scope = scopes[info.scope]
-  local options = vim[scope]
-  options[option] = not options[option]
-  if silent ~= true then
-    if options[option] then
-      M.info("enabled vim." .. scope .. "." .. option, "Toggle")
-    else
-      M.warn("disabled vim." .. scope .. "." .. option, "Toggle")
-    end
-  end
-end
-
 function M.exists(fname)
   local stat = vim.loop.fs_stat(fname)
   return (stat and stat.type) or false
@@ -74,34 +57,6 @@ end
 function M.fqn(fname)
   fname = vim.fn.fnamemodify(fname, ":p")
   return vim.loop.fs_realpath(fname) or fname
-end
-
-function M.debounce(ms, fn)
-  local timer = vim.loop.new_timer()
-  return function(...)
-    local argv = { ... }
-    timer:start(ms, 0, function()
-      timer:stop()
-      vim.schedule_wrap(fn)(unpack(argv))
-    end)
-  end
-end
-
-function M.throttle(ms, fn)
-  local timer = vim.loop.new_timer()
-  local running = false
-  return function(...)
-    if not running then
-      local argv = { ... }
-      local argc = select("#", ...)
-
-      timer:start(ms, 0, function()
-        running = false
-        pcall(vim.schedule_wrap(fn), unpack(argv, 1, argc))
-      end)
-      running = true
-    end
-  end
 end
 
 ---@param on_attach fun(client, buffer)
@@ -158,9 +113,7 @@ end
 
 function M.telescope(builtin, opts)
   return function()
-    opts = opts or {}
-    opts.cwd = M.get_root()
-    require("telescope.builtin")[builtin](opts)
+    require("telescope.builtin")[builtin](vim.tbl_deep_extend("force", { cwd = M.get_root() }, opts or {}))
   end
 end
 
@@ -169,17 +122,6 @@ function M.float_term(cmd, opts)
     size = { width = 0.9, height = 0.9 },
   }, opts or {})
   require("lazy.util").float_term(cmd, opts)
-end
-
-function M.version()
-  local v = vim.version()
-  if v and not v.prerelease then
-    vim.notify(
-      ("Neovim v%d.%d.%d"):format(v.major, v.minor, v.patch),
-      vim.log.levels.WARN,
-      { title = "Neovim: not running nightly!" }
-    )
-  end
 end
 
 vim.g.diagnostics_visible = true

@@ -22,50 +22,20 @@ require("lazy").setup("plugins", {
   defaults = { lazy = true },
   install = { colorscheme = { "gruvbox-material" } },
   checker = { enabled = true },
-  diff = {
-    cmd = "terminal_git",
-  },
   performance = {
     cache = {
       enabled = false,
     },
     rtp = {
       disabled_plugins = {
-        -- "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
-        -- "tarPlugin",
-        -- "tohtml",
-        -- "tutor",
-        -- "zipPlugin",
-
-        "2html_plugin",
-        "getscript",
-        "getscriptPlugin",
         "gzip",
-        "logipat",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
         "matchit",
-        "tar",
+        "matchparen",
+        "netrwPlugin",
         "tarPlugin",
-        "rrhelper",
-        "spellfile_plugin",
-        "vimball",
-        "vimballPlugin",
-        "zip",
-        "zipPlugin",
+        "tohtml",
         "tutor",
-        "rplugin",
-        "syntax",
-        "synmenu",
-        "optwin",
-        "compiler",
-        "bugreport",
-        "ftplugin",
+        "zipPlugin",
       },
     },
   },
@@ -77,7 +47,6 @@ require("dashboard").setup()
 vim.api.nvim_create_autocmd("User", {
   pattern = "VeryLazy",
   callback = function()
-    util.version()
     require("autocmds")
     require("keymaps")
   end,
