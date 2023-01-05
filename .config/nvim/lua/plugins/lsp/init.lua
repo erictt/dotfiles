@@ -72,10 +72,11 @@ return {
         severity_sort = true,
       })
 
-      vim.api.nvim_command("hi DiagnosticError guifg=#ea6962")
-      vim.api.nvim_command("hi DiagnosticWarn guifg=#d8a657")
-      vim.api.nvim_command("hi DiagnosticHint guifg=#a9b665")
-      vim.api.nvim_command("hi DiagnosticInfo guifg=#53d0f0")
+      local colors = require("settings").colors
+      vim.api.nvim_command("hi DiagnosticError guifg=" .. colors.error)
+      vim.api.nvim_command("hi DiagnosticWarn guifg=" .. colors.warning)
+      vim.api.nvim_command("hi DiagnosticHint guifg=" .. colors.hint)
+      vim.api.nvim_command("hi DiagnosticInfo guifg=" .. colors.info)
 
       -- lspconfig
       local servers = require("plugins.lsp.servers")
