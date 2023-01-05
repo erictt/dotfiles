@@ -1,7 +1,5 @@
 return {
-  "MunifTanjim/nui.nvim",
   "nvim-lua/plenary.nvim",
-  { "nvim-tree/nvim-web-devicons", config = { default = true } },
   { "famiu/bufdelete.nvim", event = "BufReadPre" },
   "folke/which-key.nvim",
 
@@ -115,5 +113,49 @@ return {
   {
     "gpanders/editorconfig.nvim",
     event = "BufReadPre",
+  },
+
+  -- neorg
+  -- {
+  --   "nvim-neorg/neorg",
+  --   ft = "norg",
+  --   config = {
+  --     load = {
+  --       ["core.defaults"] = {},
+  --       ["core.norg.concealer"] = {},
+  --       ["core.norg.completion"] = {
+  --         config = { engine = "nvim-cmp" },
+  --       },
+  --       ["core.integrations.nvim-cmp"] = {},
+  --     },
+  --   },
+  -- },
+  --
+  -- -- markdown preview
+  -- {
+  --   "toppair/peek.nvim",
+  --   build = "deno task --quiet build:fast",
+  --   keys = {
+  --     {
+  --       "<leader>op",
+  --       function()
+  --         local peek = require("peek")
+  --         if peek.is_open() then
+  --           peek.close()
+  --         else
+  --           peek.open()
+  --         end
+  --       end,
+  --       desc = "Peek (Markdown Preview)",
+  --     },
+  --   },
+  --   config = { theme = "light" },
+  -- },
+
+  -- better diffing
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+    config = true,
   },
 }
