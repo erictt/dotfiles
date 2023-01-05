@@ -20,19 +20,6 @@ return {
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "BufReadPre",
-    dependencies = { "mason.nvim" },
-    config = function()
-      require("null-ls").setup({
-        debounce = 150,
-        save_after_format = false,
-        sources = require("plugins.lsp.configs").nullls,
-        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", ".git"),
-      })
-    end,
-  },
-  {
     "neovim/nvim-lspconfig",
     cmd = "LspInfo",
     name = "lsp",

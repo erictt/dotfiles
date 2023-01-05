@@ -27,40 +27,6 @@ return {
     "pyright", -- python static type checker
     "isort", -- python sort imports
   },
-  nullls = {
-    -- html and markdown
-    nls.builtins.formatting.prettierd.with({ filetypes = { "html", "yaml", "markdown", "json" } }),
-    -- markdown diagnostic
-    -- nls.builtins.diagnostics.markdownlint,
-
-    -- Lua
-    nls.builtins.formatting.stylua,
-    -- nls.builtins.diagnostics.selene.with({
-    --   condition = function(utils)
-    --     return utils.root_has_file({ "selene.toml" })
-    --   end,
-    -- }),
-
-    -- php
-    nls.builtins.formatting.phpcsfixer,
-    nls.builtins.diagnostics.phpstan,
-
-    -- c, cpp
-    nls.builtins.formatting.clang_format.with({ filetypes = { "cpp", "c", "cs", "cuda" } }),
-    nls.builtins.diagnostics.cppcheck,
-
-    -- javascript, typescript
-    nls.builtins.formatting.eslint_d,
-    -- nls.builtins.diagnostics.eslint_d,
-    nls.builtins.code_actions.eslint_d,
-    nls.builtins.diagnostics.tsc,
-
-    -- python
-    nls.builtins.formatting.isort,
-    nls.builtins.formatting.black,
-    nls.builtins.formatting.yapf,
-    nls.builtins.diagnostics.pylint,
-  },
   lsp = {
     bashls = {},
     clangd = {},
