@@ -142,13 +142,13 @@ local leader = {
     "+git",
     g = {
       function()
-        require("util").float_term({ "lazygit" })
+        util.float_term({ "lazygit" })
       end,
       "LazyGit (cwd)",
     },
     G = {
       function()
-        require("util").float_term({ "lazygit" }, { cwd = util.get_root() })
+        util.float_term({ "lazygit" }, { cwd = util.get_root() })
       end,
       "LazyGit (root dir)",
     },
@@ -175,7 +175,7 @@ local leader = {
   t = {
     name = "toggle",
     f = { require("plugins.lsp.formatting").toggle, "Format on Save" },
-    d = { require("util").toggle_diagnostics, "Toggle diagnostics" },
+    d = { util.toggle_diagnostics, "Toggle diagnostics" },
     s = { util.toggle("spell"), "Spelling" },
     w = { util.toggle("wrap"), "Word Wrap" },
     n = {
