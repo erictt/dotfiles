@@ -151,7 +151,18 @@ return {
         vimls = {},
         -- php
         -- phpactor = {},
-        intelephense = {},
+        intelephense = {
+          -- settings = {
+          --   intelephense = {
+          --     -- format = {
+          --     --   enable = false,
+          --     -- },
+          --     diagnostics = {
+          --       enable = false,
+          --     },
+          --   },
+          -- },
+        },
       }
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()

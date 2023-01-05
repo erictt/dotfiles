@@ -28,7 +28,7 @@ function M.config()
       lualine_c = {
         {
           "diagnostics",
-          sources = { "nvim_lsp" },
+          sources = { "nvim_diagnostic" },
           -- sources = { "nvim_lsp", "nvim_diagnostic" },
           sections = { "error", "warn", "info", "hint" },
           diagnostics_color = {
