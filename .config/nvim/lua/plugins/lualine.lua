@@ -12,6 +12,8 @@ function M.config()
     return
   end
 
+  local colors = require("settings").colors
+
   require("lualine").setup({
     options = {
       theme = "auto",
@@ -32,11 +34,10 @@ function M.config()
           -- sources = { "nvim_lsp", "nvim_diagnostic" },
           sections = { "error", "warn", "info", "hint" },
           diagnostics_color = {
-            -- Same values as the general color option can be used here.
-            error = { fg = "#ea6962" }, -- Changes diagnostics' error color.
-            warn = { fg = "#d8a657" }, -- Changes diagnostics' error color.
-            info = { fg = "#53d0f0" }, -- Changes diagnostics' error color.
-            hint = { fg = "#a9b665" }, -- Changes diagnostics' error color.
+            error = { fg = colors.error },
+            warning = { fg = colors.warning },
+            info = { fg = colors.info },
+            hint = { fg = colors.hint },
           },
           colored = true, -- Displays diagnostics status in color if set to true.
           update_in_insert = false, -- Update diagnostics in insert mode.

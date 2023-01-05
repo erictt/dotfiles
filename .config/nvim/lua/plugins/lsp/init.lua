@@ -50,123 +50,35 @@ return {
     event = "BufReadPre",
     dependencies = {
       "mason.nvim",
-      "hrsh7th/cmp-nvim-lsp",
       "williamboman/mason-lspconfig.nvim",
+      "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      require("mason")
-      require("plugins.lsp.diagnostics").setup()
+      -- setup formatting and keymaps
+      require("util").on_attach(function(client, buffer)
+        require("plugins.lsp.formatting").on_attach(client, buffer)
+        require("plugins.lsp.keymaps").on_attach(client, buffer)
+      end)
 
-      local function on_attach(client, bufnr)
-        require("nvim-navic").attach(client, bufnr)
-        require("plugins.lsp.formatting").setup(client, bufnr)
-        require("plugins.lsp.keys").setup(client, bufnr)
+      -- diagnostics
+      for name, icon in pairs(require("settings").icons.diagnostics) do
+        name = "DiagnosticSign" .. name
+        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
       end
+      vim.diagnostic.config({
+        underline = true,
+        update_in_insert = false,
+        virtual_text = { spacing = 4, prefix = "●" },
+        severity_sort = true,
+      })
 
-      ---@type lspconfig.options
-      local servers = {
-        bashls = {},
-        clangd = {},
-        dockerls = {},
-        tsserver = {},
-        eslint = {},
-        jsonls = {
-          on_new_config = function(new_config)
-            new_config.settings.json.schemas = new_config.settings.json.schemas or {}
-            vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
-          end,
-          settings = {
-            json = {
-              format = {
-                enable = true,
-              },
-              validate = { enable = true },
-            },
-          },
-        },
-        gopls = {},
-        marksman = {},
-        pyright = {},
-        -- rust_analyzer = {
-        --   settings = {
-        --     ["rust-analyzer"] = {
-        --       cargo = { allFeatures = true },
-        --       checkOnSave = {
-        --         command = "clippy",
-        --         extraArgs = { "--no-deps" },
-        --       },
-        --     },
-        --   },
-        -- },
-        yamlls = {},
-        sumneko_lua = {
-          -- cmd = { "/Users/eric/.local/share/nvim/mason/bin/lua-language-server" },
-          single_file_support = true,
-          settings = {
-            Lua = {
-              workspace = {
-                checkThirdParty = false,
-              },
-              completion = {
-                workspaceWord = true,
-                callSnippet = "Both",
-              },
-              misc = {
-                parameters = {
-                  "--log-level=trace",
-                },
-              },
-              diagnostics = {
-                -- enable = false,
-                groupSeverity = {
-                  strong = "Warning",
-                  strict = "Warning",
-                },
-                groupFileStatus = {
-                  ["ambiguity"] = "Opened",
-                  ["await"] = "Opened",
-                  ["codestyle"] = "None",
-                  ["duplicate"] = "Opened",
-                  ["global"] = "Opened",
-                  ["luadoc"] = "Opened",
-                  ["redefined"] = "Opened",
-                  ["strict"] = "Opened",
-                  ["strong"] = "Opened",
-                  ["type-check"] = "Opened",
-                  ["unbalanced"] = "Opened",
-                  ["unused"] = "Opened",
-                },
-                unusedLocalExclude = { "_*" },
-              },
-              format = {
-                enable = true,
-                defaultConfig = {
-                  indent_style = "space",
-                  indent_size = "2",
-                  continuation_indent_size = "2",
-                },
-              },
-            },
-          },
-        },
-        vimls = {},
-        -- php
-        -- phpactor = {},
-        intelephense = {
-          settings = {
-            intelephense = {
-              -- format = {
-              --   enable = false,
-              -- },
-              diagnostics = {
-                enable = false,
-              },
-            },
-          },
-        },
-      }
+      vim.api.nvim_command("hi DiagnosticError guifg=#ea6962")
+      vim.api.nvim_command("hi DiagnosticWarn guifg=#d8a657")
+      vim.api.nvim_command("hi DiagnosticHint guifg=#a9b665")
+      vim.api.nvim_command("hi DiagnosticInfo guifg=#53d0f0")
 
       -- lspconfig
+      local servers = require("plugins.lsp.servers")
       local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
       require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })

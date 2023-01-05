@@ -1,59 +1,39 @@
-local util = require("util")
-
 local M = {}
-
--- vim.lsp.handlers["textDocument/hover"] = function(_, method, result)
---   print(vim.inspect(result))
--- end
 
 M.autoformat = true
 
 function M.toggle()
   M.autoformat = not M.autoformat
-  if M.autoformat then
-    util.info("enabled format on save", "Formatting")
-  else
-    util.warn("disabled format on save", "Formatting")
-  end
+  vim.notify(M.autoformat and "Enabled format on save" or "Disabled format on save")
 end
 
 function M.format()
-  if M.autoformat then
-    if vim.lsp.buf.format then
-      vim.lsp.buf.format()
-    else
-      vim.lsp.buf.formatting_sync()
-    end
-  end
+  local buf = vim.api.nvim_get_current_buf()
+  local ft = vim.bo[buf].filetype
+  local have_nls = #require("null-ls.sources").get_available(ft, "NULL_LS_FORMATTING") > 0
+
+  vim.lsp.buf.format({
+    bufnr = buf,
+    filter = function(client)
+      if have_nls then
+        return client.name == "null-ls"
+      end
+      return client.name ~= "null-ls"
+    end,
+  })
 end
 
-function M.setup(client, buf)
-  local ft = vim.api.nvim_buf_get_option(buf, "filetype")
-  local nls = require("plugins.null-ls")
-
-  local enable = false
-  if nls.has_formatter(ft) then
-    enable = client.name == "null-ls"
-  else
-    enable = not (client.name == "null-ls")
-  end
-
-  if client.name == "tsserver" then
-    enable = false
-  end
-
-  -- util.info(client.name .. " " .. (enable and "yes" or "no"), "format")
-
-  client.server_capabilities.documentFormattingProvider = enable
-  -- client.server_capabilities.documentRangeFormattingProvider = enable
-  -- format on save
-  if client.server_capabilities.documentFormattingProvider then
-    vim.cmd([[
-      augroup LspFormat
-        autocmd! * <buffer>
-        autocmd BufWritePre <buffer> lua require("plugins.lsp.formatting").format()
-      augroup END
-    ]])
+function M.on_attach(client, buf)
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = vim.api.nvim_create_augroup("LspFormat." .. buf, {}),
+      buffer = buf,
+      callback = function()
+        if M.autoformat then
+          M.format()
+        end
+      end,
+    })
   end
 end
 

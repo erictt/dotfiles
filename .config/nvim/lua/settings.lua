@@ -29,6 +29,12 @@ local settings = {
       Variable = " ",
     },
   },
+  colors = {
+    error = "#ea6962",
+    warning = "#d8a657",
+    info = "#53d0f0",
+    hint = "#a9b665",
+  },
 }
 
 return settings
