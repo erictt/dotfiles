@@ -152,16 +152,16 @@ return {
         -- php
         -- phpactor = {},
         intelephense = {
-          -- settings = {
-          --   intelephense = {
-          --     -- format = {
-          --     --   enable = false,
-          --     -- },
-          --     diagnostics = {
-          --       enable = false,
-          --     },
-          --   },
-          -- },
+          settings = {
+            intelephense = {
+              -- format = {
+              --   enable = false,
+              -- },
+              diagnostics = {
+                enable = false,
+              },
+            },
+          },
         },
       }
 
