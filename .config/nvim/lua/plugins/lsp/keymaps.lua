@@ -12,15 +12,13 @@ function M.on_attach(client, buffer)
   self:map("<leader>lf", format, { desc = "Format Range", mode = "v", has = "documentRangeFormatting" })
   self:map("<leader>lr", M.rename, { expr = true, desc = "Rename", has = "rename" })
   self:map("<leader>lr", M.rename, { expr = true, desc = "Rename", has = "rename" })
-  self:map("<leader>lt", require("util").toggle_diagnostics, { desc = "Toggle diagnostics" })
 
   if client.name == "tsserver" and pcall(require, "typescript") then
     self:map("<leader>lo", "TypescriptOrganizeImports", { desc = "Organize Imports" })
     self:map("<leader>lR", "TypescriptRenameFile", { desc = "Rename File" })
   end
 
-  -- TODO  what is this?
-  self:map("<leader>xd", "Telescope diagnostics", { desc = "Telescope Diagnostics" })
+  -- self:map("<leader>ld", "Telescope diagnostics", { desc = "Telescope Diagnostics" })
 
   self:map("gd", "Telescope lsp_definitions", { desc = "Goto Definition" })
   self:map("gr", "Telescope lsp_references", { desc = "References" })

@@ -10,7 +10,7 @@ function M.config()
   require("bufferline").setup({
     options = {
       diagnostics = "nvim_lsp",
-      always_show_bufferline = false,
+      always_show_bufferline = true,
       diagnostics_indicator = function(_, _, diag)
         local icons = require("settings").icons.diagnostics
         local ret = (diag.error and icons.Error .. diag.error .. " " or "")

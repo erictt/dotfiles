@@ -7,7 +7,7 @@ return {
     {
       "<leader>ff",
       "<cmd>Telescope find_files<cr>",
-      desc = "Find File",
+      desc = "Find File (root dir)",
     },
     {
       "<leader>fr",
