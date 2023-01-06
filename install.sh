@@ -35,6 +35,7 @@ brew install tree
 brew install vbindiff
 brew install ripgrep
 brew install fzf
+brew install fd # used by neo-tree
 
 # Install languages
 brew install python3
@@ -55,8 +56,9 @@ if ! fgrep -q '/bin/zsh' /etc/shells; then
 fi;
 
 # Install Apps
-brew install iterm2
+# brew install iterm2
 brew install alfred
+brew install kitty
 # brew cask install flycut
 brew install spectacle
 

@@ -230,7 +230,10 @@ function M.config()
         hide_gitignored = true,
         hide_hidden = true, -- only works on Windows for hidden files/directories
         hide_by_name = {
-          --"node_modules"
+          ".git",
+          ".github",
+          "node_modules",
+          "vendor",
         },
         hide_by_pattern = { -- uses glob style patterns
           --"*.meta",
