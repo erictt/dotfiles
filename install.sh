@@ -50,7 +50,7 @@ brew install neovim
 brew install kitty
 
 # Switch to zsh as default shell
-if ! fgrep -q '/bin/zsh' /etc/shells; then
+if ! grep -qF '/bin/zsh' /etc/shells; then
   echo '/bin/zsh' | sudo tee -a /etc/shells;
   chsh -s /bin/zsh;
 fi;
