@@ -1,0 +1,13 @@
+# this requires install
+# composer require --dev nunomaduro/larastan:^1.0
+#   1.0 for <laravel 9.0, 2.0 for 9.0+
+# composer require --dev phpstan/phpstan-phpunit:^1.2
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+    - ./vendor/phpstan/phpstan-phpunit/extension.neon
+    - ./vendor/phpstan/phpstan-phpunit/rules.neon
+parameters:
+    level: 5
+    paths:
+        - tests
+        - app
