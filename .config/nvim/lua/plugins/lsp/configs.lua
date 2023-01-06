@@ -12,7 +12,7 @@ return {
     "shfmt", -- shell format
 
     "eslint_d", -- javascript, typescript linkt
-    "deno", -- javascript, typescript defaults
+    -- "deno", -- javascript, typescript defaults
 
     "clang-format", -- c, cpp
     "clangd", -- c, cpp
