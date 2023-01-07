@@ -13,22 +13,21 @@ brew upgrade
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-brew install coreutils
+# brew install coreutils
 
 # Install some other useful utilities like `sponge`.
-brew install moreutils
+# brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
-brew install findutils
+# brew install findutils
 
 # Install other useful binaries.
 brew install wget
-brew install cmake
-brew install make
-brew install neovim
+# brew install cmake
+# brew install make
 brew install ack
 brew install git
 brew install git-secret
-brew install imagemagick
+# brew install imagemagick
 brew install rename
 brew install ssh-copy-id
 brew install tree
@@ -47,16 +46,15 @@ brew install php
 brew install zsh
 brew install tmux
 brew install neovim
-brew install kitty
 
 # Switch to zsh as default shell
 if ! grep -qF '/bin/zsh' /etc/shells; then
-  echo '/bin/zsh' | sudo tee -a /etc/shells;
-  chsh -s /bin/zsh;
-fi;
+	echo '/bin/zsh' | sudo tee -a /etc/shells
+	chsh -s /bin/zsh
+fi
 
 # Install Apps
-# brew install iterm2
+brew install kitty
 brew install alfred
 brew install kitty
 # brew cask install flycut
