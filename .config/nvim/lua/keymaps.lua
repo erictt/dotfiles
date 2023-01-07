@@ -142,13 +142,13 @@ local leader = {
     "+git",
     g = {
       function()
-        util.float_term({ "lazygit" })
+        require("lazy.util").float_term({ "lazygit" })
       end,
       "LazyGit (cwd)",
     },
     G = {
       function()
-        util.float_term({ "lazygit" }, { cwd = util.get_root() })
+        require("lazy.util").float_term({ "lazygit" }, { cwd = util.get_root() })
       end,
       "LazyGit (root dir)",
     },
