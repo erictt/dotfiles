@@ -1,23 +1,10 @@
-local configs = require("plugins.lsp.configs")
-
 return {
   "jose-elias-alvarez/typescript.nvim",
   "b0o/SchemaStore.nvim", -- used by json lsp for format
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
-    -- keys = { { "<leader>lm", "<cmd>Mason<cr>", desc = "Mason" } },
-    ensure_installed = configs.mason,
-    config = function(plugin)
-      require("mason").setup()
-      local mr = require("mason-registry")
-      for _, tool in ipairs(plugin.ensure_installed) do
-        local p = mr.get_package(tool)
-        if not p:is_installed() then
-          p:install()
-        end
-      end
-    end,
+    config = true,
   },
   {
     "neovim/nvim-lspconfig",
@@ -55,7 +42,7 @@ return {
       vim.api.nvim_command("hi DiagnosticInfo guifg=" .. colors.info)
 
       -- lspconfig
-      local servers = configs.lsp
+      local servers = require("plugins.lsp.servers")
       local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
       require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })

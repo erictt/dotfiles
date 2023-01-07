@@ -1,7 +1,7 @@
 return {
   "jose-elias-alvarez/null-ls.nvim",
   event = "BufReadPre",
-  dependencies = { "mason.nvim" },
+  dependencies = { "mason.nvim", "jayp0521/mason-null-ls.nvim" },
   config = function()
     local nls = require("null-ls")
 
@@ -9,15 +9,15 @@ return {
       -- html and markdown
       nls.builtins.formatting.prettierd.with({ filetypes = { "html", "yaml", "markdown", "json" } }),
       -- markdown diagnostic
-      -- nls.builtins.diagnostics.markdownlint,
+      nls.builtins.diagnostics.markdownlint,
 
       -- Lua
       nls.builtins.formatting.stylua,
-      -- nls.builtins.diagnostics.selene.with({
-      --   condition = function(utils)
-      --     return utils.root_has_file({ "selene.toml" })
-      --   end,
-      -- }),
+      nls.builtins.diagnostics.selene.with({
+        condition = function(utils)
+          return utils.root_has_file({ "selene.toml" })
+        end,
+      }),
 
       -- php
       nls.builtins.formatting.phpcsfixer,
@@ -33,6 +33,10 @@ return {
       nls.builtins.code_actions.eslint_d,
       nls.builtins.diagnostics.tsc,
 
+      -- shell
+      nls.builtins.formatting.shfmt,
+      nls.builtins.diagnostics.shellcheck,
+
       -- python
       nls.builtins.formatting.isort,
       nls.builtins.formatting.black,
@@ -46,5 +50,6 @@ return {
       sources = sources,
       root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", ".git"),
     })
+    require("mason-null-ls").setup({ automatic_installation = true })
   end,
 }
