@@ -1,7 +1,13 @@
 return {
   "jose-elias-alvarez/null-ls.nvim",
   event = "BufReadPre",
-  dependencies = { "mason.nvim", "jayp0521/mason-null-ls.nvim" },
+  dependencies = {
+    "mason.nvim",
+    "jayp0521/mason-null-ls.nvim",
+    -- "nvim-lua/plenary.nvim",
+    -- "nvim-treesitter/nvim-treesitter",
+    -- "ThePrimeagen/refactoring.nvim",
+  },
   config = function()
     local nls = require("null-ls")
 
@@ -45,7 +51,12 @@ return {
       nls.builtins.formatting.black,
       nls.builtins.formatting.yapf,
       nls.builtins.diagnostics.pylint,
+
+      -- refactoring
+      -- nls.builtins.code_actions.refactoring,
     }
+
+    -- require("refactoring").setup({})
 
     nls.setup({
       debounce = 150,
