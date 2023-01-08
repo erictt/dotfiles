@@ -20,7 +20,8 @@ return {
     },
   },
   gopls = {},
-  marksman = {},
+  -- marksman = {},
+  ltex = {},
   pyright = {},
   -- rust_analyzer = {
   --   settings = {

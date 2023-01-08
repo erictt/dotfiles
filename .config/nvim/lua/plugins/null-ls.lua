@@ -10,6 +10,7 @@ return {
       nls.builtins.formatting.prettierd.with({ filetypes = { "html", "yaml", "markdown", "json" } }),
       -- markdown diagnostic
       nls.builtins.diagnostics.markdownlint,
+      nls.builtins.code_actions.proselint,
 
       -- Lua
       nls.builtins.formatting.stylua,
