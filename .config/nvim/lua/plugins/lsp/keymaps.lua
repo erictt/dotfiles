@@ -11,7 +11,7 @@ function M.on_attach(client, buffer)
   self:map("<leader>lf", format, { desc = "Format Document", has = "documentFormatting" })
   self:map("<leader>lf", format, { desc = "Format Range", mode = "v", has = "documentRangeFormatting" })
   self:map("<leader>lr", M.rename, { expr = true, desc = "Rename", has = "rename" })
-  self:map("<leader>lr", M.rename, { expr = true, desc = "Rename", has = "rename" })
+  self:map("<leader>lr", M.rename, { expr = true, desc = "Rename", mode = "v", has = "rename" })
 
   if client.name == "tsserver" and pcall(require, "typescript") then
     self:map("<leader>lo", "TypescriptOrganizeImports", { desc = "Organize Imports" })
