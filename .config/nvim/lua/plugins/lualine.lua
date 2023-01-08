@@ -94,19 +94,11 @@ function M.config()
           end,
           color = { fg = "#ff9e64" },
         },
-        {
-          function()
-            return require("lazy.status").updates()
-          end,
-          cond = require("lazy.status").has_updates,
-          color = { fg = "#ff9e64" },
-        },
         -- {
         --   function()
-        --     local stats = require("lazy").stats()
-        --     local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        --     return " " .. ms .. "ms"
+        --     return require("lazy.status").updates()
         --   end,
+        --   cond = require("lazy.status").has_updates,
         --   color = { fg = "#ff9e64" },
         -- },
         {
