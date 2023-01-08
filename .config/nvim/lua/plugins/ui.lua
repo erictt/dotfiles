@@ -78,7 +78,13 @@ return {
           ["vim.lsp.util.stylize_markdown"] = true,
         },
         progress = {
-          enabled = false,
+          enabled = true,
+          format = "conceal",
+          -- format = "lsp_progress",
+          -- format_done = "conceal",
+          format_done = "lsp_progress_done",
+          throttle = 1000, -- frequency to update lsp progress message (1000ms)
+          view = "notify",
         },
         -- message = {
         --   enabled = false,
@@ -90,6 +96,7 @@ return {
         long_message_to_split = true,
       },
     },
+    throttle = 10000 / 30,
     -- stylua: ignore
     keys = {
       -- { "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline()) end, mode = "c", desc = "Redirect Cmdline" },
