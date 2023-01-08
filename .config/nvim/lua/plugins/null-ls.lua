@@ -11,6 +11,7 @@ return {
       -- markdown
       nls.builtins.formatting.markdownlint,
       nls.builtins.diagnostics.markdownlint,
+      -- nls.builtins.code_actions.proselint,
 
       -- Lua
       nls.builtins.formatting.stylua,
@@ -37,6 +38,7 @@ return {
       -- shell
       nls.builtins.formatting.shfmt,
       nls.builtins.diagnostics.shellcheck,
+      nls.builtins.code_actions.shellcheck,
 
       -- python
       nls.builtins.formatting.isort,
