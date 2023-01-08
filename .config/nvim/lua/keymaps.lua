@@ -105,7 +105,7 @@ local leader = {
     p = { "<cmd>BufferLinePick <CR>", "Pick buffer" },
     w = { "<cmd>Bwipeout <CR>", "Wipe out buffers" },
     x = { "<cmd>Bdelete <CR>", "Close buffer" },
-    k = { "<cmd>bufdo :Bdelete <CR>", "Close Tab" },
+    k = { "<cmd>bufdo :bdelete <CR>", "Close Tab" },
   },
   x = { "<cmd>Bdelete <CR>", "Close buffer" },
 

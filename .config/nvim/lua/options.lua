@@ -57,7 +57,7 @@ vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.wrap = false -- Disable line wrap
 vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
-vim.g.markdown_recommended_style = 0
+vim.g.markdown_recommended_style = 0 -- fix markdown indentation settings
 
 if vim.fn.has("nvim-0.8") == 1 then
   vim.opt.cmdheight = 0
@@ -68,6 +68,3 @@ if vim.fn.has("nvim-0.9.0") == 1 then
   vim.opt.splitkeep = "screen"
   vim.o.shortmess = "filnxtToOFWIcC"
 end
-
--- fix markdown indentation settings
-vim.g.markdown_recommended_style = 0
