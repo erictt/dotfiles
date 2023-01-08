@@ -32,8 +32,8 @@ local settings = {
   colors = {
     error = "#ea6962",
     warning = "#d8a657",
-    info = "#53d0f0",
-    hint = "#a9b665",
+    info = "#6ad0e0",
+    hint = "#a9b965",
   },
 }
 
