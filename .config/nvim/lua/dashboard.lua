@@ -13,8 +13,33 @@ function M.setup()
   end
 end
 
+math.randomseed(os.time())
+local rand = math.random(1, 21)
 function M.status()
-  return "🎅🎄🌟🎁"
+  local emoji = {
+    "🎅",
+    "🎄",
+    "🌟",
+    "🎁",
+    "✨",
+    "🔥",
+    "🎉",
+    "⭐",
+    "🥳",
+    "🤩",
+    "🐰",
+    "🐶",
+    "🎭",
+    "🌱",
+    "☀️",
+    "🏈",
+    "⛄",
+    "🎿",
+    "🏡",
+    "📖",
+    "⚽",
+  }
+  return emoji[rand]
 end
 
 function M.show()
