@@ -1,6 +1,9 @@
 local M = {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
+  dependencies = {
+    "arkav/lualine-lsp-progress",
+  },
 }
 
 local function clock()
@@ -61,6 +64,15 @@ function M.config()
         },
       },
       lualine_x = {
+        {
+          "lsp_progress",
+          -- display_components = { "lsp_client_name", "spinner", { "title", "percentage" } },
+          display_components = { "lsp_client_name", "spinner", { "title", "percentage", "message" } },
+          function()
+            require("lsp-status").status()
+          end,
+          -- color = { fg = "#ff9e64" },
+        },
         {
           function()
             return require("noice").api.status.command.get()
