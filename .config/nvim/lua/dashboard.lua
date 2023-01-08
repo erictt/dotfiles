@@ -76,13 +76,14 @@ function M.show()
       hl_group = "DashboardHeader",
     },
     {
-      text = "🎉 Neovim loaded "
-        .. stats.count
-        .. " plugins in "
-        .. (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        .. "ms"
-        .. theme.statusline,
+      -- text = "🎉 Neovim loaded "
+      --   .. stats.count
+      --   .. " plugins in "
+      --   .. (math.floor(stats.startuptime * 100 + 0.5) / 100)
+      --   .. "ms"
+      --   .. theme.statusline,
       -- text = "🎉 Happy New Year 🎉",
+      text = "",
       hl_group = "DashboardFooter",
     },
   }
