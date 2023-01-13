@@ -13,6 +13,5 @@ return {
   {
     "eandrju/cellular-automaton.nvim",
     keys = { { "<leader>fk", "<cmd>CellularAutomaton make_it_rain<CR>", desc = "Make it rain" } },
-    config = true,
   },
 }
