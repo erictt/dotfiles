@@ -4,17 +4,6 @@ return {
   "folke/which-key.nvim",
 
   -- {
-  --   "folke/drop.nvim",
-  --   enabled = false,
-  --   event = "VimEnter",
-  --   config = function()
-  --     require("drop").setup({
-  --       theme = "snow",
-  --     })
-  --   end,
-  -- },
-
-  -- {
   --   "smjonas/inc-rename.nvim",
   --   cmd = "IncRename",
   --   config = true,
