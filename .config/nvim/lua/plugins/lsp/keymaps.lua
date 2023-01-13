@@ -24,7 +24,7 @@ function M.on_attach(client, buffer)
   self:map("gr", "Telescope lsp_references", { desc = "References" })
   self:map("gD", "Telescope lsp_declarations", { desc = "Goto Declaration" })
   self:map("gI", "Telescope lsp_implementations", { desc = "Goto Implementation" })
-  self:map("gt", "Telescope lsp_type_definitions", { desc = "Goto Type Definition" })
+  self:map("gm", "Telescope lsp_type_definitions", { desc = "Goto Type Definition" })
 
   -- self:map("<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Help", mode = { "i", "n" }, has = "signatureHelp" })
   self:map("K", vim.lsp.buf.hover, { desc = "Hover" })
