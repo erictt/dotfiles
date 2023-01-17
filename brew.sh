@@ -33,8 +33,8 @@ brew install ssh-copy-id
 brew install tree
 brew install vbindiff
 brew install ripgrep
-brew install fzf
-brew install fd # used by neo-tree
+brew install fzf # fuzzy search on command-line
+brew install fd  # used by neo-tree
 
 # Install languages
 brew install python3
@@ -43,7 +43,8 @@ brew install typescript
 brew install php
 
 # Install Terminal tools.
-brew install zsh
+# brew install zsh
+brew install fish
 brew install tmux
 brew install neovim
 
