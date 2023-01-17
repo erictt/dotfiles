@@ -1,1 +1,2 @@
-PATH=$PATH:/opt/homebrew/opt/php@8.0/bin:/opt/homebrew/opt/php@8.0/sbin:~/.local/bin:~/.local/share/nvim/mason/bin
+PATH=$PATH:~/.local/bin:~/.local/share/nvim/mason/bin
+PATH=$PATH:/opt/homebrew/opt/php@8.1/bin:/opt/homebrew/opt/php@8.1/sbin
