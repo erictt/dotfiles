@@ -55,3 +55,4 @@ nvim/plugin
 .config/composer/.htaccess
 
 *.zwc
+.config/fish/fish_variables
