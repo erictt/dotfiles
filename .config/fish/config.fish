@@ -4,6 +4,9 @@ set -gx EDITOR (which nvim)
 set -gx VISUAL $EDITOR
 set -gx SUDO_EDITOR $EDITOR
 
+# Theme
+starship init fish | source
+
 if test "$fish_config_changed" = "$fish_config_mtime"
     exit
 else
@@ -74,3 +77,5 @@ abbr v nvim
 # alias -s tn "npx --no-install ts-node --transpile-only"
 # abbr tt "tn src/tt.ts"
 # alias -s todo "ag --color-line-number '1;36' --color-path '1;36' --print-long-lines --silent '((//|#|<!--|;|/\*|^)\s*(TODO|FIXME|FIX|BUG|UGLY|HACK|NOTE|IDEA|REVIEW|DEBUG|OPTIMIZE)|^\s*- \[ \])'"
+#
+
