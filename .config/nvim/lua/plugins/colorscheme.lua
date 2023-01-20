@@ -4,9 +4,7 @@ local M = {
 }
 
 function M.config()
-  -- vim.o.background = "dark"
-  require('gruvbox-material').setup()
+  require("gruvbox-material").setup()
 end
 
 return M
-

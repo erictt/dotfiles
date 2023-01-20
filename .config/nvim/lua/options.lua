@@ -6,6 +6,9 @@ vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
 vim.opt.conceallevel = 3 -- Hide * markup for bold and italic
 vim.opt.confirm = true -- confirm to save changes before exiting modified buffer
 vim.opt.cursorline = true -- Enable highlighting of the current line
+vim.opt.cursorlineopt = "both" -- Highlight the line number and text line of the cursor
+-- vim.opt.cursorcolumn = true
+
 vim.opt.backup = true
 vim.opt.spelllang = { "en" }
 

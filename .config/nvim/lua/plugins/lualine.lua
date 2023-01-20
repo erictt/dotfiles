@@ -148,7 +148,7 @@ function M.config()
     --   lualine_y = {},
     --   lualine_z = {},
     -- },
-    extensions = { "nvim-tree" },
+    extensions = { "nvim-tree", "neo-tree" },
   })
 end
 

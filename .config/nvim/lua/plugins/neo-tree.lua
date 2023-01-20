@@ -105,7 +105,7 @@ function M.config()
     enable_git_status = true,
     enable_diagnostics = true,
     sort_case_insensitive = false, -- used when sorting files and directories in the tree
-    sort_function = nil, -- use a custom function for sorting files and directories in the tree
+    -- sort_function = nil, -- use a custom function for sorting files and directories in the tree
     -- sort_function = function (a,b)
     --       if a.type == b.type then
     --           return a.path > b.path
@@ -126,7 +126,7 @@ function M.config()
         last_indent_marker = "└",
         highlight = "NeoTreeIndentMarker",
         -- expander config, needed for nesting files
-        with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+        -- with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
         expander_collapsed = "",
         expander_expanded = "",
         expander_highlight = "NeoTreeExpander",

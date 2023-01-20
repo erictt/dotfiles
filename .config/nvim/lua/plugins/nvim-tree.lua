@@ -6,7 +6,7 @@ local M = {
   keys = {
     {
       "<leader>n",
-      "<cmd>NvimTree toggle<cr>",
+      "<cmd>NvimTreeToggle<cr>",
       desc = "NvimTree",
     },
   },
