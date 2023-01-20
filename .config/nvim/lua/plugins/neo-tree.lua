@@ -19,6 +19,8 @@ local M = {
 function M.config()
   vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
+  -- vim.api.nvim_command("hi NeoTreeCursorLine guibg=#a9b665")
+
   require("window-picker").setup({
     -- when there is only one window available to pick from, use that window
     -- without prompting the user to select
