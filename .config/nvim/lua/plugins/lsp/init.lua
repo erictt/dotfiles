@@ -15,6 +15,7 @@ return {
       "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
+      -- "lspcontainers/lspcontainers.nvim",
     },
     config = function()
       -- setup formatting and keymaps

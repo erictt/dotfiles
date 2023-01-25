@@ -1,7 +1,9 @@
 ---@type lspconfig.options
 return {
   bashls = {},
-  clangd = {},
+  clangd = {
+    -- cmd = require("lspcontainers").command("clangd"),
+  },
   dockerls = {},
   tsserver = {},
   eslint = {},
