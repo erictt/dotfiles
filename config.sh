@@ -3,7 +3,7 @@
 # run brew.sh at first
 if [[ -d ~/.config ]]; then
 	echo "$HOME/.config exists, please move it at first"
-	mv ~/.config ~/.config.bak
+	# mv ~/.config ~/.config.bak
 	exit 1
 fi
 
