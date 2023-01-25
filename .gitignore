@@ -56,3 +56,4 @@ nvim/plugin
 
 *.zwc
 .config/fish/fish_variables
+.config/configstore/update-notifier-npm.json
