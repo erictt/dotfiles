@@ -51,6 +51,10 @@ function M.config()
         {
           function()
             local navic = require("nvim-navic")
+            navic.setup({
+              depth_limit = 3,
+              -- depth_limit_indicator = "..",
+            })
             local ret = navic.get_location()
             return ret:len() > 2000 and "navic error" or ret
           end,
