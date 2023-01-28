@@ -32,9 +32,8 @@ ln -sf /usr/local/go/bin/gofmt /usr/bin/gofmt
 
 echo "=============================== Install latest neovim ==============================="
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
+chmod +x nvim.appimage
 mv nvim.appimage /etc/alternatives/nvim.appimage
 
 ln -sf /etc/alternatives/nvim.appimage /usr/bin/vi
-ln -sf /etc/alternatives/nvim.appimage /usr/bin/vim
 ln -sf /etc/alternatives/nvim.appimage /usr/bin/nvim
