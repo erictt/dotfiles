@@ -39,7 +39,7 @@ nvim/plugin
 # for telescope to ignore the dir
 .git
 
-.zsh/custom
+.config/zsh/extra
 .config/antigen.zsh
 .config/lazygit/state.yml
 .config/AWSVPNClient

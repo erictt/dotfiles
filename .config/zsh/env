@@ -2,3 +2,46 @@ PATH=$PATH:~/.local/bin:~/.local/share/nvim/mason/bin
 PATH=$PATH:/opt/homebrew/opt/php@8.1/bin:/opt/homebrew/opt/php@8.1/sbin
 # remove duplicated
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')
+
+# Make vim the default editor.
+EDITOR='nvim';
+
+# Enable persistent REPL history for `node`.
+NODE_REPL_HISTORY=~/.node_history;
+# Allow 32³ entries; the default is 1000.
+NODE_REPL_HISTORY_SIZE='32768';
+# Use sloppy mode by default, matching web browsers.
+NODE_REPL_MODE='sloppy';
+
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+PYTHONIOENCODING='UTF-8';
+
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+HISTSIZE='32768';
+HISTFILESIZE="${HISTSIZE}";
+# Omit duplicates and commands that begin with a space from history.
+HISTCONTROL='ignoreboth';
+
+# Prefer US English and use UTF-8.
+LANG='en_US.UTF-8';
+LC_ALL='en_US.UTF-8';
+
+# Highlight section titles in manual pages.
+LESS_TERMCAP_md="${yellow}";
+
+# Don’t clear the screen after quitting a manual page.
+MANPAGER='less -X';
+
+# nvm for nodejs
+NVM_DIR="$HOME/.nvm"
+  # [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  # [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+XDG_CONFIG_HOME="$HOME/.config"
+
+TERM=xterm-256color 
+
+# Git
+GIT_AUTHOR_NAME="Eric Yang"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+git config --global user.name "$GIT_AUTHOR_NAME"
