@@ -14,6 +14,6 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	zip \
 	unzip \
 	npm \
-	nodejs
-sqlite3 \
+	nodejs \
+	sqlite3 \
 	sqlite3-doc
