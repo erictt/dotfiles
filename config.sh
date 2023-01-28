@@ -2,45 +2,39 @@
 
 # run brew.sh at first
 if [[ -d ~/.config ]]; then
-	echo "$HOME/.config exists, please move it at first"
-	# mv ~/.config ~/.config.bak
+	echo "$HOME/.config exists, exit"
 	exit 1
 fi
 
 # create alias to .config
-ln -sf ~/workspace/projects/dotfiles/.config ~/.config
+ln -sf "$PWD/.config" "$HOME/.config"
 
 # ---------------------------------------- zsh ---------------------------------------- #
-rm -rf "$HOME/.zshrc" "$HOME/.zsh" "$HOME/.antigenrc" "$HOME/.config/antigen.zsh" "$HOME/.oh-my-zsh"
+echo "=============================== Configure zsh ==============================="
+rm -rf "$HOME/.zshrc" "$HOME/.zsh" "$HOME/.antigen" "$HOME/.config/antigen.zsh" "$HOME/.oh-my-zsh"
 
 # Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
 # Download antigen
 curl -L git.io/antigen >"$HOME/.config/antigen.zsh"
 
-ln -sf "$HOME/workspace/projects/dotfiles/.zshrc" "$HOME/.zshrc"
-# no need, all moved to .config/
-# ln -sf ~/workspace/projects/dotfiles/.config/zsh ~/.zsh
-# ln -sf ~/workspace/projects/dotfiles/.config/zsh/antigenrc ~/.antigenrc
-
-source "$HOME/.zshrc"
+ln -sf "$PWD/.zshrc" "$HOME/.zshrc"
 # ---------------------------------------- zsh ---------------------------------------- #
 
 # ---------------------------------------- tmux ---------------------------------------- #
-if [[ -d ~/.tmux.conf ]]; then
-	echo "$HOME/.tmux.conf exists, moved it to $HOME/.tmux.conf.bak"
-	mv ~/.tmux.conf ~/.tmux.conf.bak
-fi
-ln -sf ~/workspace/projects/dotfiles/.tmux.conf ~/.tmux.conf
+echo "=============================== Configure tmux ==============================="
+rm -rf "$HOME/.tmux.conf" "$HOME/.tmux/"
+ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
+
 # Install tpm:
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 
 # ---------------------------------------- tmux ---------------------------------------- #
-cat ./NOTE.md
 
 # ---------------------------------------- vim --------------------------------------- #
-BASEDIR="$(dirname "${BASH_SOURCE[0]}")"
-cd "$BASEDIR" || exit
+echo "=============================== Configure nvim ==============================="
+make clean-vim
 
-nvim --headless +qa
+nvim --headless "+Lazy! sync" +qa
 # ---------------------------------------- vim ---------------------------------------- #
