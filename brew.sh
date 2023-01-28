@@ -61,5 +61,15 @@ brew install kitty
 # brew cask install flycut
 brew install spectacle
 
+# for vim
+brew tap universal-ctags/universal-ctags
+brew install --HEAD universal-ctags
+
+# Patch fonts with a high number of glyphs (icons).
+# Don't forget to install the font:
+#   https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/M/Regular/complete/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete%20Mono.ttf"
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+
 # Remove outdated versions from the cellar.
 brew cleanup
