@@ -14,6 +14,7 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	git \
 	zip \
 	unzip \
+	cppcheck \
 	sqlite3 \
 	sqlite3-doc
 

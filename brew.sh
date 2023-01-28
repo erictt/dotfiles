@@ -64,6 +64,7 @@ brew install spectacle
 # for vim
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
+brew install cppcheck # for null-ls
 
 # Patch fonts with a high number of glyphs (icons).
 # Don't forget to install the font:
