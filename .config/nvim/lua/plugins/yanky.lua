@@ -1,10 +1,10 @@
 return {
-  {
-    "kkharji/sqlite.lua",
-    enabled = function()
-      return not jit.os:find("Windows")
-    end,
-  },
+  -- {
+  --   "kkharji/sqlite.lua",
+  --   enabled = function()
+  --     return not jit.os:find("Windows")
+  --   end,
+  -- },
   {
     "gbprod/yanky.nvim",
     event = "BufReadPost",
@@ -13,9 +13,9 @@ return {
         highlight = {
           timer = 150,
         },
-        ring = {
-          storage = jit.os:find("Windows") and "shada" or "sqlite",
-        },
+        -- ring = {
+        --   storage = jit.os:find("Windows") and "shada" or "sqlite",
+        -- },
       })
 
       vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
