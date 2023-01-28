@@ -20,6 +20,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 curl -L git.io/antigen >"$HOME/.config/antigen.zsh"
 
 ln -sf "$PWD/.zshrc" "$HOME/.zshrc"
+
+# Switch to zsh as default shell
+if ! grep -qF '/bin/zsh' /etc/shells; then
+	echo '/bin/zsh' | sudo tee -a /etc/shells
+	chsh -s /bin/zsh
+fi
 # ---------------------------------------- zsh ---------------------------------------- #
 
 # ---------------------------------------- tmux ---------------------------------------- #
