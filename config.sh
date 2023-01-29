@@ -20,6 +20,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 curl -L git.io/antigen >"$HOME/.config/antigen.zsh"
 
 ln -sf "$PWD/.zshrc" "$HOME/.zshrc"
+
+# install starship theme
+curl -sS https://starship.rs/install.sh | sh
 # ---------------------------------------- zsh ---------------------------------------- #
 
 # ---------------------------------------- tmux ---------------------------------------- #
@@ -37,4 +40,5 @@ echo "=============================== Configure nvim ===========================
 make clean-vim
 
 nvim --headless "+Lazy! sync" +qa
+
 # ---------------------------------------- vim ---------------------------------------- #

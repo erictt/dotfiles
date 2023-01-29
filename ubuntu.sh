@@ -7,16 +7,17 @@ apt-get upgrade -y
 
 DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	build-essential \
+	cppcheck \
+	git \
 	python3-venv \
 	python3-pandas \
 	python3-matplotlib \
-	tmux \
-	git \
-	zip \
-	unzip \
-	cppcheck \
 	sqlite3 \
-	sqlite3-doc
+	sqlite3-doc \
+	tmux \
+	unzip \
+	zip \
+	zsh
 
 echo "=============================== Install latest nodejs ==============================="
 NODE_VERSION=19.x
