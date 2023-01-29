@@ -43,5 +43,3 @@ TERM=xterm-256color
 
 # Git
 GIT_AUTHOR_NAME="Eric Yang"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-git config --global user.name "$GIT_AUTHOR_NAME"
