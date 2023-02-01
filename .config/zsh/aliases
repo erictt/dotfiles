@@ -30,16 +30,16 @@ else # macOS `ls`
 fi
 
 # List all files colorized in long format
-alias l="ls -lhF ${colorflag}"
+alias l='ls -lhF ${colorflag}'
 
 # List all files colorized in long format, including dot files
-alias ll="ls -lahF ${colorflag}"
+alias ll='ls -lahF ${colorflag}'
 
 # List only directories
-alias lsd="ls -lhF ${colorflag} | grep --color=never '^d'"
+alias lsd='ls -lhF ${colorflag} | grep --color=never '^d''
 
 # Always use color output for `ls`
-alias ls="command ls ${colorflag}"
+alias ls='command ls ${colorflag}'
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
@@ -88,7 +88,7 @@ command -v sha1sum >/dev/null || alias sha1sum="shasum"
 
 # JavaScriptCore REPL
 jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc"
-[ -e "${jscbin}" ] && alias jsc="${jscbin}"
+[ -e "${jscbin}" ] && alias jsc='${jscbin}'
 unset jscbin
 
 # Trim new lines and copy to clipboard
@@ -136,7 +136,7 @@ alias map="xargs -n1"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
+	alias '$method'='lwp-request -m "$method"'
 done
 
 # Make Grunt print stack traces by default
@@ -154,7 +154,7 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # Reload the shell (i.e. invoke as a login shell)
-alias reload="exec $SHELL -l"
+alias reload='exec $SHELL -l'
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
@@ -162,11 +162,11 @@ alias path='echo -e ${PATH//:/\\n}'
 # kitty
 alias theme-reset="kitty @ --to unix:/tmp/kitty set-colors --reset"
 alias theme="cd ~/.config/kitty/kitty.d/themes && fzf --preview 'head -n 40 {} && kitty @ --to unix:/tmp/kitty set-colors -a -c {}'; cd -"
+# kitty shell integration over ssh
+alias s="kitty +kitten ssh"
 
 alias k='kubectl'
 
 alias lg="lazygit"
 
 alias assume="source assume"
-
-alias s="kitty +kitten ssh"
