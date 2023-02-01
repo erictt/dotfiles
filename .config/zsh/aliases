@@ -168,3 +168,5 @@ alias k='kubectl'
 alias lg="lazygit"
 
 alias assume="source assume"
+
+alias s="kitty +kitten ssh"
