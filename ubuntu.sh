@@ -20,12 +20,14 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	zsh
 
 echo "=============================== Install latest nodejs ==============================="
-NODE_VERSION=19.x
+# NODE_VERSION=19.x
+NODE_VERSION=lts.x
 curl -fsSL https://deb.nodesource.com/setup_$NODE_VERSION | sudo -E bash - &&
 	sudo apt-get install -y nodejs npm
 
-echo "=============================== Install latest golang ==============================="
-GO_VERSION=1.19.5
+# didn't find a way to grep the latest golang version
+GO_VERSION=1.20
+echo "=============================== Install golang ${GO_VERSION} ==============================="
 rm -rf /usr/bin/go /usr/lib/go /usr/local/go /usr/share/go
 wget https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz
 tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz
@@ -40,7 +42,7 @@ mv nvim.appimage /etc/alternatives/nvim.appimage
 ln -sf /etc/alternatives/nvim.appimage /usr/bin/vi
 ln -sf /etc/alternatives/nvim.appimage /usr/bin/nvim
 
-echo "=============================== Install latest Lazygit ==============================="
+echo "=============================== Install latest lazygit ==============================="
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
