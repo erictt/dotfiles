@@ -23,6 +23,8 @@ ln -sf "$PWD/.zshrc" "$HOME/.zshrc"
 
 # install starship theme
 curl -sS https://starship.rs/install.sh | sh
+
+ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
 # ---------------------------------------- zsh ---------------------------------------- #
 
 # ---------------------------------------- tmux ---------------------------------------- #
