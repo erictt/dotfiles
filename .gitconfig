@@ -26,13 +26,7 @@
 	autosquash = true
 [pull]
 	rebase = true
-[init]
-# needs git 2.28, which means Ubuntu 21.04 or newer
-	defaultBranch = main
-
 [diff]
-# this needs git 2.9, but goes away in git 2.12
-	compactionHeuristic = true
 # this needs git 2.11 and is said to be better than the above
 	indentHeuristic = true
 [instaweb]
@@ -53,9 +47,7 @@
 # http://git.fishsoup.net/man/git-bz.html
 	browser = xdg-open
 [github]
-# https://github.com/blog/180-local-github-config
-# I'm not sure anything uses this any more, now that basic token auth is gone
-	user = mgedmin
+	user = erictt
 
 [alias]
 # I'm used to these
@@ -108,12 +100,6 @@
 	lstatus = local status
 	lpush = local push
 	local = "!f() { command=$1; shift; file=$1; if [ -d $file ]; then dir=$file; shift; else dir=$(dirname $file); fi; echo + cd $dir; cd $dir && git $command \"$@\"; }; f"
-
-# creating new projects on fridge: git push-to-fridge [path/repo.git]
-	push-to-fridge = "!f() { repo=${1:-git/$(basename $(pwd)).git} && ssh mg@fridge.pov.lt git init --bare $repo && git remote add origin mg@fridge.pov.lt:$repo && git push -u origin HEAD; }; f"
-
-# creating new projects on plato: git push-to-plato [path/repo.git]
-	push-to-plato = "!f() { repo=${1:-git/$(basename $(pwd)).git} && ssh mg@plato.gedmin.as git init --bare $repo && git remote add origin mg@plato.gedmin.as:$repo && git push -u origin HEAD; }; f"
 
 # list all roots (commits without a parent)
 	roots = log --all --oneline --decorate --max-parents=0
