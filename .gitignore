@@ -57,3 +57,4 @@ nvim/plugin
 *.zwc
 .config/fish/fish_variables
 .config/configstore/update-notifier-npm.json
+.config/nvim/lazy-lock.json
