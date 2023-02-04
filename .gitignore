@@ -58,3 +58,4 @@ nvim/plugin
 .config/fish/fish_variables
 .config/configstore/update-notifier-npm.json
 .config/nvim/lazy-lock.json
+.config/github-copilot
