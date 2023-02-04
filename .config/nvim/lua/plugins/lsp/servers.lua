@@ -6,7 +6,7 @@ return {
   },
   dockerls = {},
   tsserver = {},
-  eslint = {},
+  -- eslint = {},
   jsonls = {
     on_new_config = function(new_config)
       new_config.settings.json.schemas = new_config.settings.json.schemas or {}

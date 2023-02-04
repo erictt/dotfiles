@@ -37,9 +37,9 @@ return {
 
       -- javascript, typescript
       nls.builtins.formatting.eslint_d,
-      -- nls.builtins.diagnostics.eslint_d,
+      nls.builtins.diagnostics.eslint_d,
       nls.builtins.code_actions.eslint_d,
-      nls.builtins.diagnostics.tsc,
+      -- nls.builtins.diagnostics.tsc,
 
       -- shell
       nls.builtins.formatting.shfmt,
