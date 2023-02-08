@@ -14,12 +14,13 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter-context",
-    event = "BufReadPre",
+    event = { "BufReadPost", "BufNewFile" },
     config = true,
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
+    event = { "BufReadPost", "BufNewFile" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },

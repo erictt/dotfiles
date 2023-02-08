@@ -1,6 +1,6 @@
 return {
   "nvim-lua/plenary.nvim",
-  { "famiu/bufdelete.nvim", event = "BufReadPre" },
+  { "famiu/bufdelete.nvim", event = "BufReadPost" },
   "folke/which-key.nvim",
 
   -- {
@@ -99,7 +99,7 @@ return {
   -- editorconfig is integrated into neovim 0.9, remove this when 0.9(stable) is released
   {
     "gpanders/editorconfig.nvim",
-    event = "BufReadPre",
+    event = "BufReadPost",
   },
 
   -- neorg
