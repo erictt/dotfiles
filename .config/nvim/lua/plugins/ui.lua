@@ -45,7 +45,7 @@ return {
   -- indent guides for Neovim
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
+    event = { "BufReadPost", "BufNewFile" },
     config = {
       indentLine_enabled = 1,
       buftype_exclude = { "terminal", "nofile" },
