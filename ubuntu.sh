@@ -8,6 +8,7 @@ apt-get upgrade -y
 DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	build-essential \
 	cppcheck \
+	curl \
 	git \
 	python3-venv \
 	python3-pandas \
