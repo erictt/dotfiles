@@ -20,6 +20,11 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	zip \
 	zsh
 
+# For nvim appimage, only support ubuntu >= 22.04
+# https://github.com/AppImage/AppImageKit/wiki/FUSE
+sudo add-apt-repository universe
+sudo apt install libfuse2
+
 echo "=============================== Install latest nodejs ==============================="
 # NODE_VERSION=19.x
 NODE_VERSION=lts.x
