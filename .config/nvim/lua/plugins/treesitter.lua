@@ -45,7 +45,7 @@ return {
           -- "jsonc",
           "latex",
           "lua",
-          "markdown",
+          -- "markdown",
           "php",
           "python",
           "query",
