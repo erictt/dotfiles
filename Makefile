@@ -15,3 +15,6 @@ switch-zsh:
 
 rm-swap:
 	rm -rf ~/.local/state/nvim/swap/*
+
+generate-ssh:
+	ssh-keygen -t ed25519 -C "$${whoami}@$${hostname}"
