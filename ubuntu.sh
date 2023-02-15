@@ -28,8 +28,7 @@ sudo apt install libfuse2
 echo "=============================== Install latest nodejs ==============================="
 # NODE_VERSION=19.x
 NODE_VERSION=lts.x
-curl -fsSL https://deb.nodesource.com/setup_$NODE_VERSION | sudo -E bash - &&
-	sudo apt-get install -y nodejs npm
+curl -fsSL https://deb.nodesource.com/setup_$NODE_VERSION | sudo -E bash - && sudo apt-get install -y nodejs
 
 # didn't find a way to grep the latest golang version
 GO_VERSION=1.20
