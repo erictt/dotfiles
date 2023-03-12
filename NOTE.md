@@ -8,6 +8,9 @@
   - press `Ctrl + a + I` to install plugins
   - press `Ctrl + a + r` to reload the configuration
 
+- Create a new session inside a tmux session
+  - `:new -s <name>`
+
 ## iTerm2
 
 - to Enable "Application in terminal may access clipboard" in iTerm2
