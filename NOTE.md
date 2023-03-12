@@ -11,7 +11,7 @@
 ## iTerm2
 
 - to Enable "Application in terminal may access clipboard" in iTerm2
-  - https://github.com/tmux/tmux/wiki/Clipboard#terminal-support---iterm2
+  - <https://github.com/tmux/tmux/wiki/Clipboard#terminal-support---iterm2>
 
 ## Git
 
@@ -20,3 +20,8 @@
 ## VIM
 
 - Prettify JSON in Vim with jq: `%!jq .`
+
+## Anaconda
+
+- After installing anaconda, the bash has a `(base)` in the prompt. To turn it off, use command `conda config --set auto_activate_base false`.
+  - More details: <https://stackoverflow.com/questions/54429210/how-do-i-prevent-conda-from-activating-the-base-environment-by-default>

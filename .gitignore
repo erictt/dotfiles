@@ -59,3 +59,7 @@ nvim/plugin
 .config/configstore/update-notifier-npm.json
 .config/nvim/lazy-lock.json
 .config/github-copilot
+.config/VirtualBox
+.config/ibus/bus
+.config/pulse
+.config/vlc
