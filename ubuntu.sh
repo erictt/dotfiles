@@ -10,9 +10,13 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	cppcheck \
 	curl \
 	git \
+	openssh-server \
+	python3-pip \
 	python3-venv \
 	python3-pandas \
 	python3-matplotlib \
+	pipx \
+	net-tools \
 	sqlite3 \
 	sqlite3-doc \
 	tmux \
