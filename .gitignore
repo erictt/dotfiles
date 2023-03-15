@@ -63,3 +63,6 @@ nvim/plugin
 .config/ibus/bus
 .config/pulse
 .config/vlc
+.config/microsoft-edge
+.config/systemd/user/gnome-session.target.wants
+.config/kitty/kitty.d/local.conf
