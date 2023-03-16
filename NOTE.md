@@ -26,6 +26,8 @@
 
 ## Anaconda
 
+- To hide the env: conda config --set changeps1 False
+  - <https://starship.rs/config/#conda>
 - After installing anaconda, the bash has a `(base)` in the prompt. To turn it off, use command `conda config --set auto_activate_base false`.
   - More details: <https://stackoverflow.com/questions/54429210/how-do-i-prevent-conda-from-activating-the-base-environment-by-default>
 
