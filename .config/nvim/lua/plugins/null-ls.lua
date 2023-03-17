@@ -41,6 +41,10 @@ return {
       nls.builtins.code_actions.eslint_d,
       -- nls.builtins.diagnostics.tsc,
 
+      -- protobuf
+      nls.builtins.formatting.buf,
+      nls.builtins.diagnostics.buf,
+
       -- shell
       nls.builtins.formatting.shfmt,
       nls.builtins.diagnostics.shellcheck,
