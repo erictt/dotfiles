@@ -25,16 +25,18 @@ brew install wget
 # brew install cmake
 # brew install make
 brew install ack
+brew install bat # replace cat
+brew install exa # replace ls
+brew install fd  # faster file search, also used by neo-tree
+brew install fzf # fuzzy search on command-line
 brew install git
 brew install git-secret
 # brew install imagemagick
 brew install rename
+brew install ripgrep # replace grep
 brew install ssh-copy-id
 brew install tree
 brew install vbindiff
-brew install ripgrep
-brew install fzf # fuzzy search on command-line
-brew install fd  # used by neo-tree
 
 # Install languages
 brew install python3

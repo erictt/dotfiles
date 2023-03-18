@@ -6,10 +6,12 @@ apt-get update
 apt-get upgrade -y
 
 DEBIAN_FRONTEND=noninteractive apt-get -y install \
+	bat \
 	btop \
 	build-essential \
 	cppcheck \
 	curl \
+	exa \
 	git \
 	openssh-server \
 	python3-pip \
