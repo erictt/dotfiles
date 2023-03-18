@@ -36,3 +36,23 @@
 - Turn off GUI `sudo systemctl set-default multi-user`
 - Turn on GUI `sudo systemctl set-default graphical`
 - Don't forget to reboot
+
+### Fix the user can't run docker with non-root user
+
+Create the docker group if it does not exist
+
+`$ sudo groupadd docker`
+
+Add your user to the docker group.
+
+`$ sudo usermod -aG docker $USER`
+
+Run the following command or Logout and login again and run (that doesn't work you may need to reboot your machine first)
+
+`$ newgrp docker`
+
+Check if docker can be run without root
+
+`$ docker run hello-world`
+
+- <http://stackoverflow.com/questions/48957195/ddg#48957722>
