@@ -11,14 +11,6 @@ ln -sf "$PWD/.config" "$HOME/.config"
 
 # ---------------------------------------- zsh ---------------------------------------- #
 echo "=============================== Configure zsh ==============================="
-rm -rf "$HOME/.zshrc" "$HOME/.zsh" "$HOME/.antigen" "$HOME/.config/antigen.zsh" "$HOME/.oh-my-zsh"
-
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-# Download antigen
-curl -L git.io/antigen >"$HOME/.config/antigen.zsh"
-
 ln -sf "$PWD/.zshrc" "$HOME/.zshrc"
 
 # install starship theme
