@@ -30,7 +30,7 @@ alias ll='ls -lahF'
 alias lsd='ls -lhF | grep --color=never '^d''
 
 # Always use color output for `ls`
-alias ls='exa --git --icons --color=always --group-directories-first'
+alias ls='exa --icons --color=always --group-directories-first'
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
