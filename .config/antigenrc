@@ -1,0 +1,41 @@
+# Load oh-my-zsh library
+antigen use oh-my-zsh
+
+# Specify completions we want before the completion module
+antigen bundle zsh-users/zsh-completions
+
+# Specify plugins we want
+# antigen bundle git
+antigen bundle command-not-found
+antigen bundle docker
+antigen bundle macos
+antigen bundle rake
+antigen bundle rbenv
+antigen bundle tmux
+antigen bundle editor
+antigen bundle history
+antigen bundle prompt
+antigen bundle utility
+antigen bundle completion
+
+# Specify additional external plugins we want
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+
+# Select theme
+# antigen theme spaceship-prompt/spaceship-prompt
+# configs are located in .configs/spaceship.zsh
+
+# antigen theme sbugzu/gruvbox-zsh
+# SOLARIZED_THEME="dark"
+
+# use starship theme
+eval "$(starship init zsh)"
+
+# Load everything
+antigen apply
+
+# Set any settings or overrides here
+# prompt belak
+bindkey -e
