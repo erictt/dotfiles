@@ -25,10 +25,11 @@ brew install wget
 # brew install cmake
 # brew install make
 brew install ack
-brew install bat # replace cat
-brew install exa # replace ls
-brew install fd  # faster file search, also used by neo-tree
-brew install fzf # fuzzy search on command-line
+brew install bat  # replace cat
+brew install btop # top-like system monitor
+brew install exa  # replace ls
+brew install fd   # faster file search, also used by neo-tree
+brew install fzf  # fuzzy search on command-line
 brew install git
 brew install git-secret
 # brew install imagemagick
