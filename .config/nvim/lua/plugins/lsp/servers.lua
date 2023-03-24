@@ -37,7 +37,7 @@ return {
   --   },
   -- },
   yamlls = {},
-  lua_ls = {},
+  -- lua_ls = {},
   vimls = {},
   -- php
   -- phpactor = {},
