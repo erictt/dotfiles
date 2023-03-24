@@ -1,4 +1,5 @@
-PATH=$PATH:~/.local/bin:~/.local/share/nvim/mason/bin
+# put mason env at front so it can be override by local bins
+PATH=~/.local/share/nvim/mason/bin:$PATH:~/.local/bin
 PATH=$PATH:/opt/homebrew/opt/php@8.1/bin:/opt/homebrew/opt/php@8.1/sbin
 # remove duplicated
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')
