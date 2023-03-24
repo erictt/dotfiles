@@ -13,7 +13,10 @@ return {
 
     local sources = {
       -- html and markdown
-      nls.builtins.formatting.prettier.with({ filetypes = { "html", "yaml", "json" } }),
+      nls.builtins.formatting.prettier.with({
+        prefer_local = "node_modules/.bin",
+        filetypes = { "html", "yaml", "json" },
+      }),
       -- markdown
       nls.builtins.formatting.markdownlint,
       nls.builtins.diagnostics.markdownlint,
@@ -37,7 +40,9 @@ return {
 
       -- javascript, typescript
       nls.builtins.formatting.eslint_d,
-      nls.builtins.diagnostics.eslint_d,
+      nls.builtins.diagnostics.eslint_d.with({
+        prefer_local = "node_modules/.bin",
+      }),
       nls.builtins.code_actions.eslint_d,
       -- nls.builtins.diagnostics.tsc,
 
@@ -54,7 +59,9 @@ return {
       nls.builtins.formatting.isort,
       nls.builtins.formatting.black,
       nls.builtins.formatting.yapf,
-      nls.builtins.diagnostics.pylint,
+      nls.builtins.diagnostics.pylint.with({
+        prefer_local = ".venv/bin",
+      }),
 
       -- refactoring
       -- nls.builtins.code_actions.refactoring,
