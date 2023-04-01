@@ -66,3 +66,4 @@ nvim/plugin
 .config/microsoft-edge
 .config/systemd/user/gnome-session.target.wants
 .config/kitty/kitty.d/local.conf
+.config/btop/btop.conf
