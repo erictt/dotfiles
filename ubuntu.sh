@@ -6,14 +6,18 @@ apt-get update
 apt-get upgrade -y
 
 DEBIAN_FRONTEND=noninteractive apt-get -y install \
+	autoconf \
 	bat \
 	btop \
 	build-essential \
+	cmake \
 	cppcheck \
 	curl \
 	exa \
 	git \
+	libtool \
 	openssh-server \
+	pkg-config \
 	python3-pip \
 	python3-venv \
 	python3-pandas \
