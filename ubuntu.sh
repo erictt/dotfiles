@@ -24,6 +24,7 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	python3-matplotlib \
 	pipx \
 	net-tools \
+	ripgrep \
 	sqlite3 \
 	sqlite3-doc \
 	tmux \
