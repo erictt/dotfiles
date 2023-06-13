@@ -63,6 +63,10 @@ return {
         prefer_local = ".venv/bin",
       }),
 
+      -- golang
+      nls.builtins.formatting.gofumpt,
+      nls.builtins.diagnostics.revive,
+
       -- refactoring
       -- nls.builtins.code_actions.refactoring,
     }
