@@ -107,7 +107,7 @@ local leader = {
     x = { "<cmd>Bdelete <CR>", "Close buffer" },
     k = { "<cmd>bufdo :bdelete <CR>", "Close Tab" },
   },
-  x = { "<cmd>Bdelete <CR>", "Close buffer" },
+  x = { "<cmd>Bwipeout <CR>", "Wipe out buffer" },
 
   d = {
     name = "+debug",
