@@ -45,6 +45,7 @@ return {
   -- indent guides for Neovim
   {
     "lukas-reineke/indent-blankline.nvim",
+    dependencies = { "HiPhish/rainbow-delimiters.nvim" },
     event = { "BufReadPost", "BufNewFile" },
     main = "ibl",
     config = {
@@ -62,7 +63,7 @@ return {
         },
       },
       scope = {
-        enabled = true,
+        highlight = require("settings").highlight,
       },
       whitespace = {
         remove_blankline_trail = true,
@@ -79,13 +80,14 @@ return {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true,
         },
         progress = {
           enabled = true,
           -- format = "conceal",
-          format = "lsp_progress",
+          -- format = "lsp_progress",
           -- format_done = "conceal",
-          format_done = "lsp_progress_done",
+          -- format_done = "lsp_progress_done",
           throttle = 1000, -- frequency to update lsp progress message (1000ms)
           view = "mini",
         },

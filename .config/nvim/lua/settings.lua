@@ -35,6 +35,15 @@ local settings = {
     info = "#6ad0e0",
     hint = "#a9b965",
   },
+  highlight = {
+    "RainbowDelimiterRed",
+    "RainbowDelimiterYellow",
+    "RainbowDelimiterBlue",
+    "RainbowDelimiterOrange",
+    "RainbowDelimiterGreen",
+    "RainbowDelimiterViolet",
+    "RainbowDelimiterCyan",
+  },
 }
 
 return settings
