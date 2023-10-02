@@ -46,24 +46,27 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },
+    main = "ibl",
     config = {
-      indentLine_enabled = 1,
-      buftype_exclude = { "terminal", "nofile" },
-      filetype_exclude = {
-        "help",
-        "startify",
-        "dashboard",
-        "packer",
-        "neogitstatus",
-        "NvimTree",
-        "neo-tree",
-        "Trouble",
+      exclude = {
+        buftypes = { "terminal", "nofile" },
+        filetypes = {
+          "help",
+          "startify",
+          "dashboard",
+          "packer",
+          "neogitstatus",
+          "NvimTree",
+          "neo-tree",
+          "Trouble",
+        },
       },
-      use_treesitter_scope = true,
-      show_trailing_blankline_indent = false,
-      show_first_indent_level = true,
-      show_current_context = true,
-      show_current_context_start = true,
+      scope = {
+        enabled = true,
+      },
+      whitespace = {
+        remove_blankline_trail = true,
+      },
     },
   },
 

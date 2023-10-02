@@ -103,11 +103,11 @@ local leader = {
     D = { "<cmd>:bd<CR>", "Delete Buffer & Window" },
     s = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Buffer" },
     p = { "<cmd>BufferLinePick <CR>", "Pick buffer" },
-    w = { "<cmd>Bwipeout <CR>", "Wipe out buffers" },
+    w = { "<cmd>bwipeout <CR>", "Wipe out buffers" },
     x = { "<cmd>Bdelete <CR>", "Close buffer" },
     k = { "<cmd>bufdo :bdelete <CR>", "Close Tab" },
   },
-  x = { "<cmd>Bwipeout <CR>", "Wipe out buffer" },
+  x = { "<cmd>Bdelete <CR>", "Wipe out buffer" },
 
   d = {
     name = "+debug",
