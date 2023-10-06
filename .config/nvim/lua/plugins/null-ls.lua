@@ -58,9 +58,12 @@ return {
       -- python
       nls.builtins.formatting.isort,
       nls.builtins.formatting.black,
-      nls.builtins.formatting.yapf,
+      -- nls.builtins.formatting.yapf,
       nls.builtins.diagnostics.pylint.with({
         prefer_local = ".venv/bin",
+        condition = function(utils)
+          return utils.root_has_file({ ".pylintrc" })
+        end,
       }),
 
       -- golang
