@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # Install homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+export HOMEBREW_NO_INSTALL_FROM_API=1
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Install command-line tools using Homebrew.
 
@@ -38,18 +39,20 @@ brew install ripgrep # replace grep
 brew install ssh-copy-id
 brew install tree
 brew install vbindiff
+brew install shfmt
 
 # Install languages
 brew install python3
 brew install node
 brew install typescript
-brew install php
+# brew install php
 
 # Install Terminal tools.
-# brew install zsh
-brew install fish
+brew install zsh
+# brew install fish
 brew install tmux
 brew install neovim
+brew install lazygit
 
 # Switch to zsh as default shell
 if ! grep -qF '/bin/zsh' /etc/shells; then
@@ -59,7 +62,7 @@ fi
 
 # Install Apps
 brew install kitty
-brew install alfred
+# brew install alfred
 brew install kitty
 # brew cask install flycut
 brew install spectacle

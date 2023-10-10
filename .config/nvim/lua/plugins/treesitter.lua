@@ -62,6 +62,7 @@ return {
           -- "wgsl",
           "yaml",
         },
+        ignore_install = { 'help' },
         sync_install = false,
         auto_install = false,
         highlight = { enable = true },
