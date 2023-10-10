@@ -1,3 +1,5 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Load Antigen
 source "$HOME/.config/antigen.zsh"
 
