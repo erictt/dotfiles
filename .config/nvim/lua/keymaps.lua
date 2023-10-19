@@ -128,14 +128,15 @@ local leader = {
 
     name = "+file",
     -- d = { "<cmd>Telescope find_files hidden=true<cr>", "Find Dot File" },
-    -- f = { "<cmd>Telescope find_files<cr>", "Find File" },
-    F = { util.telescope("find_files", { cwd = false }), "Find Files (cwd)" },
+    f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    -- F = { util.telescope("find_files", { cwd = false }), "Find Files (cwd)" },
     h = { "<cmd>Telescope command_history<cr>", "Command History" },
     m = { "<cmd>Telescope marks<cr>", "Jump to Mark" },
     n = { "<cmd>enew<cr>", "New File" },
     -- r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    w = { util.telescope("live_grep", { cwd = false }), "Live Grep" },
-    W = { util.telescope("live_grep"), "Live Grep (cwd)" },
+    -- w = { util.telescope("live_grep", { cwd = false }), "Live Grep" },
+    w = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+    -- W = { util.telescope("live_grep"), "Live Grep (cwd)" },
   },
 
   g = {

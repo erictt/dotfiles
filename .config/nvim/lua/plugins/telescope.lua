@@ -30,6 +30,9 @@ return {
       desc = "Find Dot File",
     },
   },
+  extensions = {
+    "fzf",
+  },
   config = function()
     local telescope = require("telescope")
     telescope.setup({
@@ -61,6 +64,5 @@ return {
         },
       },
     })
-    telescope.load_extension("fzf")
   end,
 }
