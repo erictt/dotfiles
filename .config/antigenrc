@@ -7,7 +7,6 @@ antigen bundle zsh-users/zsh-completions
 # Specify plugins we want
 # antigen bundle git
 antigen bundle command-not-found
-antigen bundle docker
 antigen bundle macos
 antigen bundle rake
 antigen bundle rbenv
