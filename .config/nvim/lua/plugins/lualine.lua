@@ -68,54 +68,50 @@ function M.config()
         },
       },
       lualine_x = {
+        {
+          -- Custom component to display macro recording status
+          function()
+            local recording = vim.fn.reg_recording()
+            if recording ~= "" then
+              return "[" .. recording .. "]"
+            else
+              return ""
+            end
+          end,
+          color = { fg = "#ebdbb2" }, -- Customize color as needed
+          padding = { left = 1, right = 1 }, -- Customize padding as needed
+        },
         -- {
-        --   "lsp_progress",
-        --   -- display_components = { "lsp_client_name", "spinner", { "title", "percentage" } },
-        --   display_components = { "lsp_client_name", "spinner", { "title", "percentage", "message" } },
         --   function()
-        --     require("lsp-status").status()
+        --     return require("noice").api.status.command.get()
         --   end,
-        --   update_in_insert = false, -- Update diagnostics in insert mode.
-        --   color = { fg = "#555555" },
+        --   cond = function()
+        --     if package.loaded["noice"] then
+        --       return require("noice").api.status.command.has()
+        --     end
+        --   end,
+        --   color = { fg = "#ff9e64" },
         -- },
-        {
-          function()
-            return require("noice").api.status.command.get()
-          end,
-          cond = function()
-            if package.loaded["noice"] then
-              return require("noice").api.status.command.has()
-            end
-          end,
-          color = { fg = "#ff9e64" },
-        },
-        {
-          function()
-            return require("noice").api.status.mode.get()
-          end,
-          cond = function()
-            if package.loaded["noice"] then
-              return require("noice").api.status.mode.has()
-            end
-          end,
-          color = { fg = "#ff9e64" },
-        },
-        {
-          function()
-            return require("noice").api.status.search.get()
-          end,
-          cond = function()
-            if package.loaded["noice"] then
-              return require("noice").api.status.search.has()
-            end
-          end,
-          color = { fg = "#ff9e64" },
-        },
         -- {
         --   function()
-        --     return require("lazy.status").updates()
+        --     return require("noice").api.status.mode.get()
         --   end,
-        --   cond = require("lazy.status").has_updates,
+        --   cond = function()
+        --     if package.loaded["noice"] then
+        --       return require("noice").api.status.mode.has()
+        --     end
+        --   end,
+        --   color = { fg = "#ff9e64" },
+        -- },
+        -- {
+        --   function()
+        --     return require("noice").api.status.search.get()
+        --   end,
+        --   cond = function()
+        --     if package.loaded["noice"] then
+        --       return require("noice").api.status.search.has()
+        --     end
+        --   end,
         --   color = { fg = "#ff9e64" },
         -- },
         {
