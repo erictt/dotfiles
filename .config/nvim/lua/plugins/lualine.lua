@@ -81,6 +81,12 @@ function M.config()
           color = { fg = "#ebdbb2" }, -- Customize color as needed
           padding = { left = 1, right = 1 }, -- Customize padding as needed
         },
+        {
+          "searchcount",
+          maxcount = 999,
+          timeout = 500,
+        },
+        { "selectioncount" },
         -- {
         --   function()
         --     return require("noice").api.status.command.get()
