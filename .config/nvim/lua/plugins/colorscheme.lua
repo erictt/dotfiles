@@ -1,5 +1,5 @@
 local M = {
-  "wittyjudge/gruvbox-material.nvim",
+  "f4z3r/gruvbox-material.nvim",
   lazy = false,
 }
 
