@@ -1,5 +1,4 @@
 return {
-  "nvim-lua/plenary.nvim",
   { "famiu/bufdelete.nvim", event = "BufReadPost" },
   "folke/which-key.nvim",
 
