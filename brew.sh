@@ -32,6 +32,7 @@ brew install exa  # replace ls
 brew install fd   # faster file search, also used by neo-tree
 brew install fzf  # fuzzy search on command-line
 brew install git
+brew install eza # alternative to ls
 brew install git-secret
 # brew install imagemagick
 brew install rename
