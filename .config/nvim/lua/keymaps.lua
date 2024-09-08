@@ -249,18 +249,11 @@ local leader = {
   { "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
   { "<leader>g", desc = "+git" },
   {
-    "<leader>gG",
+    "<leader>gg",
     function()
       require("lazy.util").float_term({ "lazygit" })
     end,
     desc = "LazyGit (root dir)",
-  },
-  {
-    "<leader>gg",
-    function()
-      require("lazy.util").float_term({ "lazygit" }, { cwd = util.get_root() })
-    end,
-    desc = "LazyGit (cwd)",
   },
   { "<leader>i", desc = "+info" },
   { "<leader>iM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
