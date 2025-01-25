@@ -1,17 +1,17 @@
 return {
-  -- {
-  --   "s1n7ax/nvim-window-picker",
-  --   name = "window-picker",
-  --   event = "VeryLazy",
-  --   version = "2.*",
-  --   config = function() end,
-  -- },
+  {
+    "s1n7ax/nvim-window-picker",
+    name = "window-picker",
+    event = "VeryLazy",
+    version = "2.*",
+    config = function() end,
+  },
   {
     "nvim-neo-tree/neo-tree.nvim",
     cmd = "Neotree",
-    -- dependencies = {
-    --   "s1n7ax/nvim-window-picker",
-    -- },
+    dependencies = {
+      "s1n7ax/nvim-window-picker",
+    },
     keys = {
       {
         "<leader>fe",
