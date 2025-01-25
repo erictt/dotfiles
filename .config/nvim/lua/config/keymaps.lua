@@ -6,4 +6,3 @@ local map = LazyVim.safe_keymap_set
 
 vim.keymap.set("n", "<TAB>", "<cmd> BufferLineCycleNext <CR>")
 vim.keymap.set("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
--- map("n", "<leader>c", "<cmd>normal gcc<cr><bs>", { desc = "Comment the line" })
