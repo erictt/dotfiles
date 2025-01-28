@@ -2,8 +2,8 @@
 
 # run brew.sh at first
 if [[ -d ~/.config ]]; then
-	echo "$HOME/.config exists, exit"
-	exit 1
+  echo "$HOME/.config exists, exit"
+  exit 1
 fi
 
 # create alias to .config
@@ -19,7 +19,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Download antigen
 curl -L git.io/antigen >"$HOME/.config/antigen.zsh"
 
-ln -sf "$PWD/.zshrc" "$HOME/.zshrc"
+if [[ "$(uname)" == "Darwin" ]]; then
+  ln -sf "$PWD/.zshrc.mac" "$HOME/.zshrc"
+elif [[ "$(uname)" == "Linux" ]]; then
+  ln -sf "$PWD/.zshrc.ubuntu" "$HOME/.zshrc"
+fi
 
 # install starship theme
 curl -sS https://starship.rs/install.sh | sh

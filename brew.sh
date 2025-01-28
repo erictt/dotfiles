@@ -28,7 +28,6 @@ brew install wget
 brew install ack
 brew install bat  # replace cat
 brew install btop # top-like system monitor
-brew install exa  # replace ls
 brew install fd   # faster file search, also used by neo-tree
 brew install fzf  # fuzzy search on command-line
 brew install git
@@ -41,6 +40,7 @@ brew install ssh-copy-id
 brew install tree
 brew install vbindiff
 brew install shfmt
+brew install nvm # virtual env for node
 
 # Install languages
 brew install python3
@@ -57,8 +57,8 @@ brew install lazygit
 
 # Switch to zsh as default shell
 if ! grep -qF '/bin/zsh' /etc/shells; then
-	echo '/bin/zsh' | sudo tee -a /etc/shells
-	chsh -s /bin/zsh
+  echo '/bin/zsh' | sudo tee -a /etc/shells
+  chsh -s /bin/zsh
 fi
 
 # Install Apps

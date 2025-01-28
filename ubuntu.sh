@@ -6,31 +6,31 @@ apt-get update
 apt-get upgrade -y
 
 DEBIAN_FRONTEND=noninteractive apt-get -y install \
-	autoconf \
-	bat \
-	btop \
-	build-essential \
-	cmake \
-	cppcheck \
-	curl \
-	exa \
-	git \
-	libtool \
-	openssh-server \
-	pkg-config \
-	python3-pip \
-	python3-venv \
-	python3-pandas \
-	python3-matplotlib \
-	pipx \
-	net-tools \
-	ripgrep \
-	sqlite3 \
-	sqlite3-doc \
-	tmux \
-	unzip \
-	zip \
-	zsh
+  autoconf \
+  bat \
+  btop \
+  build-essential \
+  cmake \
+  cppcheck \
+  curl \
+  eza \
+  git \
+  libtool \
+  openssh-server \
+  pkg-config \
+  python3-pip \
+  python3-venv \
+  python3-pandas \
+  python3-matplotlib \
+  pipx \
+  net-tools \
+  ripgrep \
+  sqlite3 \
+  sqlite3-doc \
+  tmux \
+  unzip \
+  zip \
+  zsh
 
 # For nvim appimage, only support ubuntu >= 22.04
 # https://github.com/AppImage/AppImageKit/wiki/FUSE
