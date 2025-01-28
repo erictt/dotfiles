@@ -68,3 +68,4 @@ nvim/plugin
 .config/kitty/kitty.d/local.conf
 .config/btop/btop.conf
 .config/NuGet
+.config/*/*cache*
