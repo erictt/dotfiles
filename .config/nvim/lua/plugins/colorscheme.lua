@@ -1,9 +1,15 @@
 return {
-  -- add gruvbox
+  -- {
+  --   "f4z3r/gruvbox-material.nvim",
+  --   opts = {
+  --     -- contrast = "hard",
+  --     background = {
+  --       transparent = true, -- set the background to transparent
+  --     },
+  --   },
+  -- },
   { "ellisonleao/gruvbox.nvim" },
-  -- { "f4z3r/gruvbox-material.nvim" },
-
-  -- Configure LazyVim to load gruvbox
+  { "rebelot/kanagawa.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
