@@ -6,3 +6,4 @@ vim.g.snacks_animate = false
 vim.g.lazyvim_picker = "fzf"
 
 vim.g.lazyvim_python_lsp = "ruff"
+vim.g.lazyvim_check_order = false
