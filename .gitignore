@@ -69,3 +69,5 @@ nvim/plugin
 .config/btop/btop.conf
 .config/NuGet
 .config/*/*cache*
+.config/configstore
+.config/AWS VPN Client/AWS VPN Client/NetSparkleUpdater
