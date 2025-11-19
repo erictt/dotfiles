@@ -63,10 +63,8 @@ fi
 
 # Install Apps
 brew install kitty
-# brew install alfred
 brew install kitty
-# brew cask install flycut
-brew install spectacle
+brew install rectangle
 
 # for vim
 brew tap universal-ctags/universal-ctags
