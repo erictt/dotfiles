@@ -79,3 +79,5 @@ abbr v nvim
 # alias -s todo "ag --color-line-number '1;36' --color-path '1;36' --print-long-lines --silent '((//|#|<!--|;|/\*|^)\s*(TODO|FIXME|FIX|BUG|UGLY|HACK|NOTE|IDEA|REVIEW|DEBUG|OPTIMIZE)|^\s*- \[ \])'"
 #
 
+# Added by tec agent
+test -x /Users/eric/.local/state/tec/profiles/base/current/global/init && /Users/eric/.local/state/tec/profiles/base/current/global/init fish | source
