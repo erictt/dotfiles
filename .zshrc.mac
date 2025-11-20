@@ -41,3 +41,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+# Added by tec agent
+[[ -x /Users/eric/.local/state/tec/profiles/base/current/global/init ]] && eval "$(/Users/eric/.local/state/tec/profiles/base/current/global/init zsh)"
+
+export PATH=/opt/homebrew/share/google-cloud-sdk/bin:"$PATH"
+
