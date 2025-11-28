@@ -49,3 +49,4 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH=/opt/homebrew/share/google-cloud-sdk/bin:"$PATH"
 
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"

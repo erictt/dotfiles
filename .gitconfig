@@ -269,10 +269,10 @@
 [alias "all"]
 	dirs = ~/bin ~/bin/local ~/dotfiles /etc /root /usr/local/bin /usr/local/sbin
 	root = /etc /root /usr/local/bin /usr/local/sbin
+[include]
+	path = /Users/eric/.config/dev/gitconfig
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[include]
-	path = /Users/eric/.config/dev/gitconfig
