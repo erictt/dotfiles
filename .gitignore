@@ -71,3 +71,5 @@ nvim/plugin
 .config/*/*cache*
 .config/configstore
 .config/AWS VPN Client/AWS VPN Client/NetSparkleUpdater
+.config/dev
+.config/containers
