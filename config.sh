@@ -35,6 +35,7 @@ ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
 echo "=============================== Configure tmux ==============================="
 rm -rf "$HOME/.tmux.conf" "$HOME/.tmux/"
 ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$PWD/scripts/tmux" "$HOME/.tmux/scripts"
 
 # Install tpm:
 git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
