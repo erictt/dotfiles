@@ -35,6 +35,7 @@ ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
 echo "=============================== Configure tmux ==============================="
 rm -rf "$HOME/.tmux.conf" "$HOME/.tmux/"
 ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$PWD/scripts/tmux" "$HOME/.tmux/scripts"
 
 # Install tpm:
 git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
@@ -45,6 +46,16 @@ git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 echo "=============================== Configure nvim ==============================="
 make clean-vim
 
-nvim --headless "+Lazy! sync" +qa
+echo ""
+echo "Neovim configuration has been set up!"
+echo "Please open Neovim manually to complete plugin installation:"
+echo "  1. Run: nvim"
+echo "  2. Wait for Lazy.nvim to install all plugins"
+echo "  3. Wait for nvim-treesitter to download parsers"
+echo "  4. Wait for Mason to install LSP servers"
+echo "  5. After everything completes, restart Neovim"
+echo ""
+echo "Note: First launch may take a few minutes. Don't close Neovim until installations complete!"
+echo ""
 
 # ---------------------------------------- vim ---------------------------------------- #

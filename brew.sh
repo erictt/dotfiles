@@ -63,10 +63,8 @@ fi
 
 # Install Apps
 brew install kitty
-# brew install alfred
 brew install kitty
-# brew cask install flycut
-brew install spectacle
+brew install rectangle
 
 # for vim
 brew tap universal-ctags/universal-ctags
@@ -74,8 +72,7 @@ brew install --HEAD universal-ctags
 brew install cppcheck # for null-ls
 
 # Patch fonts with a high number of glyphs (icons).
-# Don't forget to install the font:
-#   https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/M/Regular/complete/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete%20Mono.ttf"
+# Don't forget to install the font: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/M/Regular
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 
