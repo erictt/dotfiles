@@ -162,4 +162,7 @@ alias kx='kubectx'
 
 alias lg="lazygit"
 
+# Git worktree
+alias gwl='git worktree list'
+
 alias assume="source assume"
