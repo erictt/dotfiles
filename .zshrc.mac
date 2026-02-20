@@ -2,6 +2,21 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# fnm (fast node manager - replaces nvm)
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+# Speed up compinit: only rebuild the completion dump if it's older than 24h
+autoload -Uz compinit
+function compinit() {
+  unfunction compinit
+  autoload -Uz compinit
+  if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
+    compinit -u
+  else
+    compinit -C -u
+  fi
+}
+
 # Load Antigen
 source "$HOME/.config/antigen.zsh"
 
@@ -12,10 +27,6 @@ for file in ~/.config/zsh/{functions,env,aliases,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Hide conda env from the prompt
 # https://starship.rs/config/#conda
@@ -35,8 +46,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-# nvm setup
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

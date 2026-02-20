@@ -40,7 +40,7 @@ brew install ssh-copy-id
 brew install tree
 brew install vbindiff
 brew install shfmt
-brew install nvm # virtual env for node
+brew install fnm # virtual env for node
 
 # Install languages
 brew install python3

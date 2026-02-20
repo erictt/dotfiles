@@ -157,6 +157,8 @@ alias theme="cd ~/.config/kitty/kitty.d/themes && fzf --preview 'head -n 40 {} &
 alias s="kitty +kitten ssh"
 
 alias k='kubectl'
+alias kn='kubens'
+alias kx='kubectx'
 
 alias lg="lazygit"
 
