@@ -5,7 +5,7 @@
 add_newline = true
 
 # Timeout for commands executed by starship (in milliseconds).
-command_timeout = 2000
+command_timeout = 5000
 
 [git_status]
 ignore_submodules = true
