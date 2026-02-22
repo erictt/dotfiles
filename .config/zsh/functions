@@ -234,3 +234,41 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# Git Worktree helpers
+# gwt <branch>  — checkout existing branch in a new worktree (+ new tmux window)
+# gwtb <branch> — create new branch in a new worktree (+ new tmux window)
+# gwj            — fzf-jump to any worktree
+# gwr            — remove current worktree and return to main
+
+function gwt() {
+  local branch="${1:?Usage: gwt <branch>}"
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null) || { echo "Not a git repo"; return 1; }
+  local dir="${repo_root}/../$(basename "$repo_root")-${branch//\//-}"
+  git worktree add "$dir" "$branch" || return 1
+  [[ -n "$TMUX" ]] && tmux new-window -c "$dir" -n "${branch//\//-}" || cd "$dir"
+}
+
+function gwtb() {
+  local branch="${1:?Usage: gwtb <new-branch>}"
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null) || { echo "Not a git repo"; return 1; }
+  local dir="${repo_root}/../$(basename "$repo_root")-${branch//\//-}"
+  git worktree add "$dir" -b "$branch" || return 1
+  [[ -n "$TMUX" ]] && tmux new-window -c "$dir" -n "${branch//\//-}" || cd "$dir"
+}
+
+function gwj() {
+  local selected
+  selected=$(git worktree list | fzf --height=40% --prompt="worktree> " | awk '{print $1}')
+  [[ -n "$selected" ]] && cd "$selected"
+}
+
+function gwr() {
+  local current="$PWD"
+  local main
+  main=$(git worktree list | head -1 | awk '{print $1}')
+  [[ "$current" == "$main" ]] && { echo "Already in main worktree"; return 1; }
+  cd "$main" && git worktree remove "$current"
+}

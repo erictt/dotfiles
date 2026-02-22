@@ -74,3 +74,10 @@ nvim/plugin
 .config/dev
 .config/containers
 .tmux.conf.local
+.config/psst
+.config/uv
+.config/temporalio
+.config/shadowenv
+.config/graphite
+.claude/settings.local.json
+.config/claude-code/mcp-servers/obsidian-notes

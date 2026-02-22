@@ -7,6 +7,9 @@ add_newline = true
 # Timeout for commands executed by starship (in milliseconds).
 command_timeout = 2000
 
+[git_status]
+ignore_submodules = true
+
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
