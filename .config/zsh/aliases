@@ -158,7 +158,7 @@ alias s="kitty +kitten ssh"
 
 alias k='kubectl'
 alias kn='kubens'
-alias kx='kubectx'
+alias kcx='kubectx'
 
 alias lg="lazygit"
 
